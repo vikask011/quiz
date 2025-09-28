@@ -178,66 +178,150 @@ const Assess = () => {
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
               Test Results
             </h1>
-            <div className="flex justify-center mb-4">
-              <button
-                onClick={async () => {
-                  try {
-                    const doc = new jsPDF({ orientation: 'p', unit: 'pt', format: 'a4' });
-                    const pageWidth = doc.internal.pageSize.getWidth();
-                    let y = 40;
+<div className="flex justify-center mb-4">
+  <button
+    onClick={() => {
+      try {
+        const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" });
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
 
-                    // Header
-                    doc.setFontSize(18);
-                    doc.text('NeuroQuiz - Marks Card', pageWidth / 2, y, { align: 'center' });
-                    y += 20;
+        // Colors
+        const blue = [37, 99, 235];
+        const orange = [249, 115, 22];
+        const green = [22, 163, 74];
+        const red = [220, 38, 38];
+        const slate = [30, 41, 59];
 
-                    // Summary
-                    doc.setFontSize(12);
-                    const totalQuestions = questionHistory.length;
-                    const correctAnswers = questionHistory.filter(q => q.isCorrect).length;
-                    const wrongAnswers = totalQuestions - correctAnswers;
-                    const totalTime = questionHistory.reduce((s, q) => s + q.timeTaken, 0);
-                    const avgSec = totalQuestions ? (totalTime / totalQuestions) / 1000 : 0;
+        // ===== HEADER =====
+        pdf.setFillColor(...blue);
+        pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
+        pdf.setTextColor(255, 255, 255);
+        pdf.setFontSize(22);
+        pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, {
+          align: "center",
+        });
 
-                    doc.text(`Total Questions: ${totalQuestions}`, 40, y); y += 16;
-                    doc.text(`Correct: ${correctAnswers}`, 40, y); y += 16;
-                    doc.text(`Wrong: ${wrongAnswers}`, 40, y); y += 16;
-                    doc.text(`Average Time per Question: ${avgSec.toFixed(2)}s`, 40, y); y += 24;
+        // Decorative dot
+        pdf.setFillColor(...orange);
+        pdf.circle(pageWidth - 60, 40, 6, "F");
+        
 
-                    // Table header
-                    doc.setFontSize(13);
-                    doc.text('Question Summary', 40, y); y += 14;
-                    doc.setFontSize(11);
-                    doc.text('No.', 40, y);
-                    doc.text('Correct', 80, y);
-                    doc.text('Time(s)', 140, y);
-                    doc.text('Your Answer', 200, y);
-                    doc.text('Correct Answer', 360, y);
-                    y += 10;
-                    doc.setLineWidth(0.5); doc.line(40, y, pageWidth - 40, y); y += 10;
+        // ===== SUMMARY CARDS =====
+        const cardsTop = 120;
+        const gap = 16;
+        const cardW = (pageWidth - 40 - gap * 3) / 4;
+        const metrics = [
+          { label: "Total", value: String(totalQuestions), color: blue },
+          { label: "Correct", value: String(correctAnswers), color: green },
+          {
+            label: "Wrong",
+            value: String(totalQuestions - correctAnswers),
+            color: red,
+          },
+          {
+            label: "Avg Time",
+            value: `${(averageTime / 1000).toFixed(2)}s`,
+            color: orange,
+          },
+        ];
+        let x = 20;
+        metrics.forEach((m) => {
+          pdf.setFillColor(255, 255, 255);
+          pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
+          pdf.setDrawColor(230, 236, 245);
+          pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
+          pdf.setFillColor(...m.color);
+          pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
+          pdf.setTextColor(...slate);
+          pdf.setFontSize(12);
+          pdf.text(m.label, x + 12, cardsTop + 32);
+          pdf.setFontSize(22);
+          pdf.setTextColor(...m.color);
+          pdf.text(m.value, x + 12, cardsTop + 64);
+          x += cardW + gap;
+        });
 
-                    // Rows
-                    for (const q of questionHistory) {
-                      if (y > 760) { doc.addPage(); y = 40; }
-                      doc.text(String(q.questionNumber), 40, y);
-                      doc.text(q.isCorrect ? 'Yes' : 'No', 80, y);
-                      doc.text((q.timeTaken / 1000).toFixed(2), 140, y);
-                      doc.text(String(q.selectedAnswer || ''), 200, y, { maxWidth: 140 });
-                      doc.text(String(q.correctAnswer || ''), 360, y, { maxWidth: 180 });
-                      y += 16;
-                    }
+        // ===== DIVIDER SUMMARY =====
+        const linesTop = cardsTop + 120;
+        pdf.setDrawColor(230, 236, 245);
+        pdf.line(20, linesTop, pageWidth - 20, linesTop);
+        pdf.setTextColor(...slate);
+        pdf.setFontSize(12);
+        let ly = linesTop + 24;
+        pdf.text(`Total Questions: ${totalQuestions}`, 40, ly); ly += 18;
+        pdf.text(`Correct: ${correctAnswers}`, 40, ly); ly += 18;
+        pdf.text(`Wrong: ${totalQuestions - correctAnswers}`, 40, ly); ly += 18;
+        pdf.text(
+          `Average Time per Question: ${(averageTime / 1000).toFixed(2)}s`,
+          40,
+          ly
+        );
 
-                    doc.save('report_card.pdf');
-                  } catch (e) {
-                    console.error('Failed to generate report:', e);
-                    alert('Failed to generate report');
-                  }
-                }}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
-              >
-                Download Report
-              </button>
-            </div>
+        // ===== QUESTION REVIEW =====
+        let y = ly + 40;
+        pdf.setFontSize(14);
+        pdf.setTextColor(...slate);
+        pdf.text("Question Review", 40, y);
+        y += 20;
+
+        questionHistory.forEach((q, i) => {
+          if (y > pageHeight - 60) {
+            pdf.addPage();
+            y = 40;
+          }
+          pdf.setFontSize(12);
+          pdf.setTextColor(...slate);
+          pdf.text(
+            `Q${i + 1}: ${q.question.slice(0, 80)}...`,
+            40,
+            y,
+            { maxWidth: pageWidth - 80 }
+          );
+          y += 14;
+          pdf.text(
+            `Your answer: ${q.selectedAnswer}`,
+            60,
+            y,
+            { maxWidth: pageWidth - 100 }
+          );
+          y += 14;
+          if (!q.isCorrect) {
+            pdf.setTextColor(...red);
+            pdf.text(`Correct: ${q.correctAnswer}`, 60, y);
+            pdf.setTextColor(...slate);
+            y += 14;
+          }
+          pdf.text(
+            `Time: ${(q.timeTaken / 1000).toFixed(1)}s | ${
+              q.isCorrect ? "✓ Correct" : "✗ Wrong"
+            }`,
+            60,
+            y
+          );
+          y += 20;
+        });
+
+        // ===== FOOTER =====
+        pdf.setFillColor(...blue);
+        pdf.roundedRect(20, pageHeight - 40, pageWidth - 40, 10, 6, 6, "F");
+
+        // ===== SAVE =====
+        const stamp = new Date().toISOString()
+          .slice(0, 19)
+          .replace(/[:T]/g, "-");
+        pdf.save(`report_${stamp}.pdf`);
+      } catch (e) {
+        console.error("Failed to generate report:", e);
+        alert("Failed to generate report");
+      }
+    }}
+    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
+  >
+    Download Report
+  </button>
+</div>
+
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
               <div className="bg-blue-50 p-6 rounded-xl text-center">
