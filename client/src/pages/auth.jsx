@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
 import {
   Eye,
   EyeOff,
@@ -12,11 +14,16 @@ import {
 } from "lucide-react";
 
 export default function Auth() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { login, register, loading, error, clearError } = useAuth();
+
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
+    gender: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -36,7 +43,6 @@ export default function Auth() {
     }));
     setParticles(particleArray);
 
-    // Mouse tracking
     const handleMouseMove = (e) => {
       setMousePos({
         x: (e.clientX / window.innerWidth) * 100,
@@ -49,15 +55,30 @@ export default function Auth() {
   }, []);
 
   const handleInputChange = (e) => {
+    if (error) clearError();
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    try {
+      const redirectTo = location.state?.from?.pathname || "/";
+      if (isLogin) {
+        await login({ email: formData.email, password: formData.password });
+      } else {
+        await register({ name: formData.name, gender: formData.gender, email: formData.email, password: formData.password });
+      }
+      navigate(redirectTo, { replace: true });
+    } catch (_) {
+      // error is managed in context state; optionally show toast here
+    }
   };
 
   return (
@@ -196,6 +217,27 @@ export default function Auth() {
                   </div>
                 )}
 
+                {/* Gender Field - Only for Register */}
+                {!isLogin && (
+                  <div className="group">
+                    <label className="block text-sm font-medium text-black-300 mb-2">
+                      Gender
+                    </label>
+                    <select
+                      name="gender"
+                      value={formData.gender || ""}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-zinc-700 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 focus:outline-none transition-all duration-300"
+                      required
+                    >
+                      <option value="">Select gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                )}
+
                 {/* Email Field */}
                 <div className="group">
                   <label className="block text-sm font-medium text-black-300 mb-2">
@@ -321,14 +363,21 @@ export default function Auth() {
                   </div>
                 )}
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="group w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/25 transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3"
-                >
-                  <span>{isLogin ? "Sign In" : "Create Account"}</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+              {/* Error banner */}
+              {error && (
+                <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-700 border border-red-200 text-sm">
+                  {error}
+                </div>
+              )}
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="group w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/25 transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-60"
+              >
+                <span>{loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
               </form>
 
               {/* Footer */}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { percentageQuestions } from "../assets/dataset/quiz-data.js";
+import api from "../lib/api";
+import jsPDF from "jspdf";
 
 const Assess = () => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -12,6 +14,7 @@ const Assess = () => {
   const [showResults, setShowResults] = useState(false);
   const [testEnded, setTestEnded] = useState(false);
   const [testQuestions, setTestQuestions] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   const [currentQuestionTime, setCurrentQuestionTime] = useState(0);
 
@@ -117,7 +120,31 @@ const Assess = () => {
     const totalQuestions = questionHistory.length;
     const correctAnswers = questionHistory.filter((q) => q.isCorrect).length;
     const totalTime = questionHistory.reduce((sum, q) => sum + q.timeTaken, 0);
-    const averageTime = totalTime / totalQuestions;
+    const averageTime = totalQuestions > 0 ? totalTime / totalQuestions : 0;
+    const [postError, setPostError] = useState("");
+    const [savedId, setSavedId] = useState("");
+
+    useEffect(() => {
+      const postOnce = async () => {
+        if (submitted) return;
+        try {
+          const { data } = await api.post("/api/results", {
+            totalQuestions,
+            correct: correctAnswers,
+            wrong: Math.max(0, totalQuestions - correctAnswers),
+            avgTimeSec: Number((averageTime / 1000).toFixed(2)),
+            questions: questionHistory,
+          });
+          setSavedId(data?.result?._id || "");
+          setPostError("");
+        } catch (err) {
+          setPostError(err?.response?.data?.message || "Failed to save result");
+        } finally {
+          setSubmitted(true);
+        }
+      };
+      postOnce();
+    }, [submitted, totalQuestions, correctAnswers, averageTime, questionHistory]);
     const accuracy = (correctAnswers / totalQuestions) * 100;
 
     const difficultyStats = {
@@ -147,10 +174,70 @@ const Assess = () => {
     return (
       <div className="relative z-10 mx-auto container mt-10 px-4 py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
-          <div className="bg-white/65 rounded-2xl shadow-xl p-8 border border-gray-200 h-120 overflow-y-scroll">
+          <div id="report-card" className="bg-white/65 rounded-2xl shadow-xl p-8 border border-gray-200 h-120 overflow-y-scroll">
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
               Test Results
             </h1>
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={async () => {
+                  try {
+                    const doc = new jsPDF({ orientation: 'p', unit: 'pt', format: 'a4' });
+                    const pageWidth = doc.internal.pageSize.getWidth();
+                    let y = 40;
+
+                    // Header
+                    doc.setFontSize(18);
+                    doc.text('NeuroQuiz - Marks Card', pageWidth / 2, y, { align: 'center' });
+                    y += 20;
+
+                    // Summary
+                    doc.setFontSize(12);
+                    const totalQuestions = questionHistory.length;
+                    const correctAnswers = questionHistory.filter(q => q.isCorrect).length;
+                    const wrongAnswers = totalQuestions - correctAnswers;
+                    const totalTime = questionHistory.reduce((s, q) => s + q.timeTaken, 0);
+                    const avgSec = totalQuestions ? (totalTime / totalQuestions) / 1000 : 0;
+
+                    doc.text(`Total Questions: ${totalQuestions}`, 40, y); y += 16;
+                    doc.text(`Correct: ${correctAnswers}`, 40, y); y += 16;
+                    doc.text(`Wrong: ${wrongAnswers}`, 40, y); y += 16;
+                    doc.text(`Average Time per Question: ${avgSec.toFixed(2)}s`, 40, y); y += 24;
+
+                    // Table header
+                    doc.setFontSize(13);
+                    doc.text('Question Summary', 40, y); y += 14;
+                    doc.setFontSize(11);
+                    doc.text('No.', 40, y);
+                    doc.text('Correct', 80, y);
+                    doc.text('Time(s)', 140, y);
+                    doc.text('Your Answer', 200, y);
+                    doc.text('Correct Answer', 360, y);
+                    y += 10;
+                    doc.setLineWidth(0.5); doc.line(40, y, pageWidth - 40, y); y += 10;
+
+                    // Rows
+                    for (const q of questionHistory) {
+                      if (y > 760) { doc.addPage(); y = 40; }
+                      doc.text(String(q.questionNumber), 40, y);
+                      doc.text(q.isCorrect ? 'Yes' : 'No', 80, y);
+                      doc.text((q.timeTaken / 1000).toFixed(2), 140, y);
+                      doc.text(String(q.selectedAnswer || ''), 200, y, { maxWidth: 140 });
+                      doc.text(String(q.correctAnswer || ''), 360, y, { maxWidth: 180 });
+                      y += 16;
+                    }
+
+                    doc.save('report_card.pdf');
+                  } catch (e) {
+                    console.error('Failed to generate report:', e);
+                    alert('Failed to generate report');
+                  }
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
+              >
+                Download Report
+              </button>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
               <div className="bg-blue-50 p-6 rounded-xl text-center">
@@ -179,7 +266,17 @@ const Assess = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {postError && (
+              <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-700 border border-red-200 text-sm text-center">
+                {postError}
+              </div>
+            )}
+            {savedId && (
+              <div className="mb-4 text-center">
+                <a href={`/results/${savedId}`} className="text-blue-600 underline">View detailed report</a>
+              </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
               <div className="bg-gray-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">
                   Difficulty Analysis
