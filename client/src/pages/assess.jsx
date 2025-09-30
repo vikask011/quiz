@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { percentageQuestions } from "../assets/dataset/quiz-data.js";
+import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import api from "../lib/api";
 import jsPDF from "jspdf";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -58,7 +58,7 @@ const Assess = () => {
     const selectedQuestions = [];
 
     Object.keys(testConfig).forEach((difficulty) => {
-      const questionsPool = percentageQuestions[difficulty];
+      const questionsPool = mixedQuestions[difficulty];
       const count = testConfig[difficulty];
 
       // Shuffle and select required number of questions
@@ -104,16 +104,19 @@ const Assess = () => {
   };
 
   const handleNextQuestion = () => {
-    const allAnswered = questionHistory.length === testQuestions.length && testQuestions.length > 0;
+    const allAnswered =
+      questionHistory.length === testQuestions.length &&
+      testQuestions.length > 0;
     if (questionNumber >= testQuestions.length) {
       if (allAnswered) {
         setTestEnded(true);
         setShowResults(true);
       } else {
         // Jump to the first unanswered question
-        const unansweredIdx = Array.from({ length: testQuestions.length }, (_, i) => i).find(
-          (i) => !questionHistory.find((q) => q.questionNumber === i + 1)
-        );
+        const unansweredIdx = Array.from(
+          { length: testQuestions.length },
+          (_, i) => i
+        ).find((i) => !questionHistory.find((q) => q.questionNumber === i + 1));
         if (unansweredIdx !== undefined) {
           goToQuestion(unansweredIdx);
         }
@@ -167,7 +170,9 @@ const Assess = () => {
   };
 
   const handleSubmitTest = () => {
-    const allAnswered = questionHistory.length === testQuestions.length && testQuestions.length > 0;
+    const allAnswered =
+      questionHistory.length === testQuestions.length &&
+      testQuestions.length > 0;
     if (!allAnswered) return;
     setTestEnded(true);
     setShowResults(true);
@@ -201,7 +206,13 @@ const Assess = () => {
         }
       };
       postOnce();
-    }, [submitted, totalQuestions, correctAnswers, averageTime, questionHistory]);
+    }, [
+      submitted,
+      totalQuestions,
+      correctAnswers,
+      averageTime,
+      questionHistory,
+    ]);
     const accuracy = (correctAnswers / totalQuestions) * 100;
 
     const difficultyStats = {
@@ -231,7 +242,10 @@ const Assess = () => {
     return (
       <div className="relative z-10 mx-auto container mt-10 px-4 py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
-          <div id="report-card" className="bg-white/65 rounded-2xl shadow-xl p-8 border border-gray-200 h-120 overflow-y-scroll">
+          <div
+            id="report-card"
+            className="bg-white/65 rounded-2xl shadow-xl p-8 border border-gray-200 h-120 overflow-y-scroll"
+          >
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
               Test Results
             </h1>
@@ -239,12 +253,22 @@ const Assess = () => {
               <button
                 onClick={async () => {
                   try {
-                    const pdf = new jsPDF({ orientation: 'p', unit: 'pt', format: 'a4' });
+                    const pdf = new jsPDF({
+                      orientation: "p",
+                      unit: "pt",
+                      format: "a4",
+                    });
                     const pageWidth = pdf.internal.pageSize.getWidth();
                     const pageHeight = pdf.internal.pageSize.getHeight();
 
                     // Access user details for the styled header
-                    const { user } = (function(){ try { return useAuth(); } catch { return { user: null }; } })();
+                    const { user } = (function () {
+                      try {
+                        return useAuth();
+                      } catch {
+                        return { user: null };
+                      }
+                    })();
 
                     // Colors
                     const blue = [37, 99, 235]; // #2563eb
@@ -255,59 +279,109 @@ const Assess = () => {
 
                     // Header banner
                     pdf.setFillColor(...blue);
-                    pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, 'F');
+                    pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
                     pdf.setTextColor(255, 255, 255);
                     pdf.setFontSize(22);
-                    pdf.text('NeuroQuiz — Marks Card', pageWidth / 2, 65, { align: 'center' });
+                    pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, {
+                      align: "center",
+                    });
                     pdf.setFillColor(...orange);
-                    pdf.circle(pageWidth - 60, 40, 6, 'F');
+                    pdf.circle(pageWidth - 60, 40, 6, "F");
 
                     // User card
                     const userTop = 120;
                     pdf.setFillColor(255, 255, 255);
-                    pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, 'F');
+                    pdf.roundedRect(
+                      20,
+                      userTop,
+                      pageWidth - 40,
+                      90,
+                      10,
+                      10,
+                      "F"
+                    );
                     pdf.setDrawColor(230, 236, 245);
-                    pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, 'S');
+                    pdf.roundedRect(
+                      20,
+                      userTop,
+                      pageWidth - 40,
+                      90,
+                      10,
+                      10,
+                      "S"
+                    );
 
-                    const initials = (user?.name || 'User').split(/\s+/).map(w => w[0]?.toUpperCase() || '').slice(0,2).join('');
+                    const initials = (user?.name || "User")
+                      .split(/\s+/)
+                      .map((w) => w[0]?.toUpperCase() || "")
+                      .slice(0, 2)
+                      .join("");
                     pdf.setFillColor(...orange);
-                    pdf.circle(50, userTop + 45, 22, 'F');
+                    pdf.circle(50, userTop + 45, 22, "F");
                     pdf.setTextColor(255, 255, 255);
                     pdf.setFontSize(14);
-                    pdf.text(initials || 'U', 50, userTop + 50, { align: 'center' });
+                    pdf.text(initials || "U", 50, userTop + 50, {
+                      align: "center",
+                    });
 
                     pdf.setTextColor(...slate);
                     pdf.setFontSize(12);
                     const testDate = new Date().toLocaleString();
-                    pdf.text(`Name: ${user?.name || ''}`, 90, userTop + 30);
-                    pdf.text(`Email: ${user?.email || ''}`, 90, userTop + 50);
+                    pdf.text(`Name: ${user?.name || ""}`, 90, userTop + 30);
+                    pdf.text(`Email: ${user?.email || ""}`, 90, userTop + 50);
                     pdf.text(`Test Date: ${testDate}`, 90, userTop + 70);
 
                     // Compute metrics
                     const totalQuestions = questionHistory.length;
-                    const correctAnswers = questionHistory.filter(q => q.isCorrect).length;
-                    const wrongAnswers = Math.max(0, totalQuestions - correctAnswers);
-                    const totalTime = questionHistory.reduce((s, q) => s + q.timeTaken, 0);
-                    const avgSec = totalQuestions ? (totalTime / totalQuestions) / 1000 : 0;
+                    const correctAnswers = questionHistory.filter(
+                      (q) => q.isCorrect
+                    ).length;
+                    const wrongAnswers = Math.max(
+                      0,
+                      totalQuestions - correctAnswers
+                    );
+                    const totalTime = questionHistory.reduce(
+                      (s, q) => s + q.timeTaken,
+                      0
+                    );
+                    const avgSec = totalQuestions
+                      ? totalTime / totalQuestions / 1000
+                      : 0;
 
                     // Summary cards row
                     const cardsTop = userTop + 110;
                     const gap = 16;
                     const cardW = (pageWidth - 40 - gap * 3) / 4;
                     const metrics = [
-                      { label: 'Total', value: String(totalQuestions), color: blue },
-                      { label: 'Correct', value: String(correctAnswers), color: green },
-                      { label: 'Wrong', value: String(wrongAnswers), color: red },
-                      { label: 'Avg Time', value: `${avgSec.toFixed(2)}s`, color: orange },
+                      {
+                        label: "Total",
+                        value: String(totalQuestions),
+                        color: blue,
+                      },
+                      {
+                        label: "Correct",
+                        value: String(correctAnswers),
+                        color: green,
+                      },
+                      {
+                        label: "Wrong",
+                        value: String(wrongAnswers),
+                        color: red,
+                      },
+                      {
+                        label: "Avg Time",
+                        value: `${avgSec.toFixed(2)}s`,
+                        color: orange,
+                      },
                     ];
                     let x = 20;
-                    metrics.forEach(m => {
+                    metrics.forEach((m) => {
                       pdf.setFillColor(255, 255, 255);
-                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, 'F');
+                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
                       pdf.setDrawColor(230, 236, 245);
-                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, 'S');
+                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
                       pdf.setFillColor(...m.color);
-                      pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, 'F');
+                      pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
                       pdf.setTextColor(...slate);
                       pdf.setFontSize(12);
                       pdf.text(m.label, x + 12, cardsTop + 32);
@@ -324,21 +398,41 @@ const Assess = () => {
                     pdf.setTextColor(...slate);
                     pdf.setFontSize(12);
                     let ly = linesTop + 24;
-                    pdf.text(`Total Questions: ${totalQuestions}`, 40, ly); ly += 18;
-                    pdf.text(`Correct: ${correctAnswers}`, 40, ly); ly += 18;
-                    pdf.text(`Wrong: ${wrongAnswers}`, 40, ly); ly += 18;
-                    pdf.text(`Average Time per Question: ${avgSec.toFixed(2)}s`, 40, ly);
+                    pdf.text(`Total Questions: ${totalQuestions}`, 40, ly);
+                    ly += 18;
+                    pdf.text(`Correct: ${correctAnswers}`, 40, ly);
+                    ly += 18;
+                    pdf.text(`Wrong: ${wrongAnswers}`, 40, ly);
+                    ly += 18;
+                    pdf.text(
+                      `Average Time per Question: ${avgSec.toFixed(2)}s`,
+                      40,
+                      ly
+                    );
 
                     // Footer ribbon
                     pdf.setFillColor(...blue);
-                    pdf.roundedRect(20, pageHeight - 40, pageWidth - 40, 10, 6, 6, 'F');
+                    pdf.roundedRect(
+                      20,
+                      pageHeight - 40,
+                      pageWidth - 40,
+                      10,
+                      6,
+                      6,
+                      "F"
+                    );
 
-                    const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
-                    const name = user?.name ? user.name.replace(/\s+/g, '_') : 'user';
+                    const stamp = new Date()
+                      .toISOString()
+                      .slice(0, 19)
+                      .replace(/[:T]/g, "-");
+                    const name = user?.name
+                      ? user.name.replace(/\s+/g, "_")
+                      : "user";
                     pdf.save(`report_${name}_${stamp}.pdf`);
                   } catch (e) {
-                    console.error('Failed to generate report:', e);
-                    alert('Failed to generate report');
+                    console.error("Failed to generate report:", e);
+                    alert("Failed to generate report");
                   }
                 }}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
@@ -381,7 +475,12 @@ const Assess = () => {
             )}
             {savedId && (
               <div className="mb-4 text-center">
-                <a href={`/results/${savedId}`} className="text-blue-600 underline">View detailed report</a>
+                <a
+                  href={`/results/${savedId}`}
+                  className="text-blue-600 underline"
+                >
+                  View detailed report
+                </a>
               </div>
             )}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -528,8 +627,12 @@ const Assess = () => {
     );
   }
 
-  const allAnswered = questionHistory.length === testQuestions.length && testQuestions.length > 0;
-  const remainingToSubmit = Math.max(0, testQuestions.length - questionHistory.length);
+  const allAnswered =
+    questionHistory.length === testQuestions.length && testQuestions.length > 0;
+  const remainingToSubmit = Math.max(
+    0,
+    testQuestions.length - questionHistory.length
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -543,7 +646,7 @@ const Assess = () => {
                 <span className="text-white text-sm font-bold">🎯</span>
               </div>
               <div>
-                <h2 className="font-bold text-gray-800 -mt-1">Percentage Problems</h2>
+                <h2 className="font-bold text-gray-800 -mt-1">Problems</h2>
                 <p className="text-sm text-gray-600">Timed assessment</p>
               </div>
             </div>
@@ -551,19 +654,34 @@ const Assess = () => {
             {/* Timer */}
             <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
-                <span className="text-sm font-medium text-gray-700">Time Elapsed</span>
+                <span className="text-sm font-medium text-gray-700">
+                  Time Elapsed
+                </span>
               </div>
-              <div className="text-2xl font-bold text-gray-800">{formatTime(currentQuestionTime)}</div>
+              <div className="text-2xl font-bold text-gray-800">
+                {formatTime(currentQuestionTime)}
+              </div>
             </div>
 
             {/* Progress */}
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
-                <span className="text-sm font-medium text-gray-700">Progress</span>
+                <span className="text-sm font-medium text-gray-700">
+                  Progress
+                </span>
               </div>
-              <div className="text-sm text-gray-600 mb-2">{getAnsweredCount()} of {testQuestions.length} answered</div>
+              <div className="text-sm text-gray-600 mb-2">
+                {getAnsweredCount()} of {testQuestions.length} answered
+              </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300" style={{ width: `${(getAnsweredCount() / testQuestions.length) * 100}%` }}></div>
+                <div
+                  className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
+                  style={{
+                    width: `${
+                      (getAnsweredCount() / testQuestions.length) * 100
+                    }%`,
+                  }}
+                ></div>
               </div>
             </div>
           </div>
@@ -575,13 +693,17 @@ const Assess = () => {
               {testQuestions.map((_, idx) => {
                 const status = getQuestionStatus(idx);
                 return (
-                  <button key={idx} onClick={() => handleQuestionNavigation(idx)} className={`w-10 h-10 rounded-full text-sm font-semibold transition-all duration-200 flex items-center justify-center ${
-                    status === 'answered'
-                      ? 'bg-green-500 text-white shadow-md hover:bg-green-600'
-                      : status === 'current'
-                      ? 'bg-blue-500 text-white shadow-md ring-2 ring-blue-300'
-                      : 'bg-white text-gray-600 border-2 border-gray-300 hover:bg-gray-50'
-                  }`}>
+                  <button
+                    key={idx}
+                    onClick={() => handleQuestionNavigation(idx)}
+                    className={`w-10 h-10 rounded-full text-sm font-semibold transition-all duration-200 flex items-center justify-center ${
+                      status === "answered"
+                        ? "bg-green-500 text-white shadow-md hover:bg-green-600"
+                        : status === "current"
+                        ? "bg-blue-500 text-white shadow-md ring-2 ring-blue-300"
+                        : "bg-white text-gray-600 border-2 border-gray-300 hover:bg-gray-50"
+                    }`}
+                  >
                     {idx + 1}
                   </button>
                 );
@@ -591,11 +713,22 @@ const Assess = () => {
 
           {/* Instructions */}
           <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-            <h4 className="font-semibold text-gray-800 mb-2 text-sm">Instructions</h4>
+            <h4 className="font-semibold text-gray-800 mb-2 text-sm">
+              Instructions
+            </h4>
             <div className="space-y-1 text-xs text-gray-600">
-              <div className="flex items-center"><div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>Answered</div>
-              <div className="flex items-center"><div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>Current</div>
-              <div className="flex items-center"><div className="w-3 h-3 bg-gray-300 rounded-full mr-2"></div>Not Answered</div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                Answered
+              </div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                Current
+              </div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-gray-300 rounded-full mr-2"></div>Not
+                Answered
+              </div>
             </div>
           </div>
         </div>
@@ -606,14 +739,31 @@ const Assess = () => {
           <div className="bg-white border-b border-gray-200 p-6">
             <div className="flex justify-between items-center">
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">Question {questionNumber} of {testQuestions.length}</h1>
-                <p className="text-gray-600 capitalize">Difficulty: {currentQuestion.difficulty?.replace('_',' ') || 'moderate'}</p>
+                <h1 className="text-2xl font-bold text-gray-800">
+                  Question {questionNumber} of {testQuestions.length}
+                </h1>
+                <p className="text-gray-600 capitalize">
+                  Difficulty:{" "}
+                  {currentQuestion.difficulty?.replace("_", " ") || "moderate"}
+                </p>
               </div>
               <div className="flex items-center gap-3">
                 {!allAnswered && (
-                  <span className="text-sm text-gray-500 hidden md:inline-block">Answer {remainingToSubmit} more to enable submit</span>
+                  <span className="text-sm text-gray-500 hidden md:inline-block">
+                    Answer {remainingToSubmit} more to enable submit
+                  </span>
                 )}
-                <button onClick={allAnswered ? handleSubmitTest : undefined} disabled={!allAnswered} className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${allAnswered ? 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}>Submit Test</button>
+                <button
+                  onClick={allAnswered ? handleSubmitTest : undefined}
+                  disabled={!allAnswered}
+                  className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${
+                    allAnswered
+                      ? "bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl"
+                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  }`}
+                >
+                  Submit Test
+                </button>
               </div>
             </div>
           </div>
@@ -623,26 +773,46 @@ const Assess = () => {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
                 <div className="mb-8">
-                  <div className="text-xl font-medium text-gray-800 leading-relaxed">{currentQuestion.question}</div>
+                  <div className="text-xl font-medium text-gray-800 leading-relaxed">
+                    {currentQuestion.question}
+                  </div>
                 </div>
 
                 <div className="space-y-4 mb-8">
                   {currentQuestion.options.map((option, index) => {
-                    let buttonClass = 'w-full p-4 rounded-2xl border-2 text-left transition-all duration-300 ';
+                    let buttonClass =
+                      "w-full p-4 rounded-2xl border-2 text-left transition-all duration-300 ";
                     if (isAnswered && index === selectedAnswer) {
-                      buttonClass += 'bg-blue-50 border-blue-400 text-blue-800 shadow-md';
+                      buttonClass +=
+                        "bg-blue-50 border-blue-400 text-blue-800 shadow-md";
                     } else if (!isAnswered) {
-                      buttonClass += 'bg-white border-gray-200 text-gray-700 hover:bg-blue-25 hover:border-blue-300 shadow-sm hover:shadow-md';
+                      buttonClass +=
+                        "bg-white border-gray-200 text-gray-700 hover:bg-blue-25 hover:border-blue-300 shadow-sm hover:shadow-md";
                     } else {
-                      buttonClass += 'bg-gray-50 border-gray-200 text-gray-600';
+                      buttonClass += "bg-gray-50 border-gray-200 text-gray-600";
                     }
                     return (
-                      <button key={index} onClick={() => handleAnswerSelect(index)} className={buttonClass} disabled={isAnswered}>
+                      <button
+                        key={index}
+                        onClick={() => handleAnswerSelect(index)}
+                        className={buttonClass}
+                        disabled={isAnswered}
+                      >
                         <div className="flex items-center">
-                          <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center ${isAnswered && index === selectedAnswer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'}`}>
-                            {isAnswered && index === selectedAnswer && (<div className="w-2 h-2 bg-white rounded-full"></div>)}
+                          <div
+                            className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center ${
+                              isAnswered && index === selectedAnswer
+                                ? "bg-blue-500 border-blue-500"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {isAnswered && index === selectedAnswer && (
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                            )}
                           </div>
-                          <span className="font-semibold text-blue-600 mr-3">{String.fromCharCode(65 + index)}.</span>
+                          <span className="font-semibold text-blue-600 mr-3">
+                            {String.fromCharCode(65 + index)}.
+                          </span>
                           <span className="flex-1">{option}</span>
                         </div>
                       </button>
@@ -656,11 +826,37 @@ const Assess = () => {
           {/* Navigation Footer */}
           <div className="bg-white border-t border-gray-200 p-6">
             <div className="flex justify-between items-center max-w-4xl mx-auto">
-              <button onClick={handlePrevQuestion} disabled={questionNumber === 1} className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${questionNumber === 1 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-sm hover:shadow-md'}`}>← Previous</button>
+              <button
+                onClick={handlePrevQuestion}
+                disabled={questionNumber === 1}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  questionNumber === 1
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-sm hover:shadow-md"
+                }`}
+              >
+                ← Previous
+              </button>
 
-              <div className="text-sm text-gray-600">Question {questionNumber} of {testQuestions.length}</div>
+              <div className="text-sm text-gray-600">
+                Question {questionNumber} of {testQuestions.length}
+              </div>
 
-              <button onClick={isAnswered ? handleNextQuestion : undefined} disabled={!isAnswered} className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${!isAnswered ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'}`}>{questionNumber >= testQuestions.length ? (allAnswered ? 'View Results' : 'Review Unanswered →') : 'Next →'}</button>
+              <button
+                onClick={isAnswered ? handleNextQuestion : undefined}
+                disabled={!isAnswered}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  !isAnswered
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl"
+                }`}
+              >
+                {questionNumber >= testQuestions.length
+                  ? allAnswered
+                    ? "View Results"
+                    : "Review Unanswered →"
+                  : "Next →"}
+              </button>
             </div>
           </div>
         </div>

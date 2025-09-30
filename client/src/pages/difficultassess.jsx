@@ -26,10 +26,10 @@ const DiffAssess = ({
 
   // Test configuration
   const testConfig = {
-    very_easy: 1,
-    easy: 3,
-    moderate: 3,
-    difficult: 3,
+    very_easy: 25,
+    easy: 25,
+    moderate: 25,
+    difficult: 25,
   };
 
   // Timer effect
@@ -230,7 +230,6 @@ const DiffAssess = ({
               </div>
 
               {/* ADD THIS DOWNLOAD BUTTON SECTION */}
-              
 
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center border border-blue-200">

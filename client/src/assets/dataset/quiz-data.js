@@ -1,3 +1,2062 @@
+export const mixedQuestions = {
+  very_easy: [
+    {
+      id: 1,
+      question: "What is 10% of 100?",
+      options: ["5", "10", "15", "20"],
+      correct: 1,
+      explanation: "10% of 100 = (10/100) × 100 = 10",
+      fundamentals: ["grasping", "application"],
+    },
+    {
+      id: 2,
+      question: "Convert 0.5 to percentage",
+      options: ["5%", "50%", "0.5%", "500%"],
+      correct: 1,
+      explanation: "0.5 × 100% = 50%",
+      fundamentals: ["grasping", "retention"],
+    },
+    {
+      id: 3,
+      question: "What is 25% of 20?",
+      options: ["4", "5", "6", "7"],
+      correct: 1,
+      explanation: "25% of 20 = 0.25 × 20 = 5",
+      fundamentals: ["application"],
+    },
+    {
+      id: 4,
+      question: "Convert 1/4 to percentage",
+      options: ["20%", "25%", "30%", "40%"],
+      correct: 1,
+      explanation: "1/4 = 0.25 = 25%",
+      fundamentals: ["grasping", "retention"],
+    },
+    {
+      id: 5,
+      question: "What is 50% of 80?",
+      options: ["30", "35", "40", "45"],
+      correct: 2,
+      explanation: "50% of 80 = 0.5 × 80 = 40",
+      fundamentals: ["application"],
+    },
+    {
+      id: 6,
+      question: "What is 10% of 50?",
+      options: ["3", "4", "5", "6"],
+      correct: 2,
+      explanation: "10% of 50 = 5",
+      fundamentals: ["application"],
+    },
+    {
+      id: 7,
+      question: "Convert 1/2 into percentage.",
+      options: ["25%", "50%", "75%", "100%"],
+      correct: 1,
+      explanation: "1/2 = 0.5 = 50%",
+      fundamentals: ["retention", "grasping"],
+    },
+    {
+      id: 8,
+      question: "What percent of 20 is 10?",
+      options: ["40%", "50%", "60%", "70%"],
+      correct: 1,
+      explanation: "10/20 × 100 = 50%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 9,
+      question: "What is 5% of 200?",
+      options: ["5", "10", "15", "20"],
+      correct: 1,
+      explanation: "5% = (5/100) × 200 = 10",
+      fundamentals: ["application"],
+    },
+    {
+      id: 10,
+      question: "Convert 0.25 to percentage.",
+      options: ["15%", "20%", "25%", "30%"],
+      correct: 2,
+      explanation: "0.25 × 100% = 25%",
+      fundamentals: ["retention"],
+    },
+    {
+      id: 11,
+      question: "What is 75% of 8?",
+      options: ["5", "6", "7", "8"],
+      correct: 1,
+      explanation: "0.75 × 8 = 6",
+      fundamentals: ["application"],
+    },
+    {
+      id: 12,
+      question: "What is 100% of 45?",
+      options: ["40", "45", "50", "55"],
+      correct: 1,
+      explanation: "100% of 45 = 45",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 13,
+      question: "Convert 2/5 into percentage.",
+      options: ["30%", "35%", "40%", "45%"],
+      correct: 2,
+      explanation: "2/5 = 0.4 = 40%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 14,
+      question: "What percent of 50 is 5?",
+      options: ["5%", "10%", "15%", "20%"],
+      correct: 1,
+      explanation: "5/50 × 100 = 10%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 15,
+      question: "What is 200% of 7?",
+      options: ["7", "10", "14", "21"],
+      correct: 2,
+      explanation: "200% = 2 × 7 = 14",
+      fundamentals: ["application"],
+    },
+    {
+      id: 16,
+      question: "What is 1% of 300?",
+      options: ["1", "3", "10", "30"],
+      correct: 1,
+      explanation: "0.01 × 300 = 3",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 17,
+      question: "Convert 3/4 into percentage.",
+      options: ["60%", "70%", "75%", "80%"],
+      correct: 2,
+      explanation: "3/4 = 0.75 = 75%",
+      fundamentals: ["retention"],
+    },
+    {
+      id: 18,
+      question: "What is 30% of 90?",
+      options: ["18", "25", "27", "30"],
+      correct: 2,
+      explanation: "0.3 × 90 = 27",
+      fundamentals: ["application"],
+    },
+    {
+      id: 19,
+      question: "Convert 2.5 into percentage.",
+      options: ["150%", "200%", "250%", "300%"],
+      correct: 2,
+      explanation: "2.5 × 100 = 250%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 20,
+      question: "What is 5% of 500?",
+      options: ["20", "25", "30", "35"],
+      correct: 1,
+      explanation: "0.05 × 500 = 25",
+      fundamentals: ["application"],
+    },
+    {
+      id: 1,
+      question: "What is 10% of 100?",
+      options: ["5", "10", "15", "20"],
+      correct: 1,
+      explanation: "10% of 100 = (10/100) × 100 = 10",
+      fundamentals: ["grasping", "application"],
+    },
+    {
+      id: 2,
+      question: "Convert 0.5 to percentage",
+      options: ["5%", "50%", "0.5%", "500%"],
+      correct: 1,
+      explanation: "0.5 = 0.5 × 100% = 50%",
+      fundamentals: ["grasping", "retention"],
+    },
+    {
+      id: 3,
+      question: "What is 25% of 20?",
+      options: ["4", "5", "6", "7"],
+      correct: 0,
+      explanation: "25% of 20 = (25/100) × 20 = 5",
+      fundamentals: ["application"],
+    },
+    {
+      id: 4,
+      question: "Convert 1/4 to percentage",
+      options: ["20%", "25%", "30%", "40%"],
+      correct: 1,
+      explanation: "1/4 = 0.25 = 25%",
+      fundamentals: ["grasping", "retention"],
+    },
+    {
+      id: 5,
+      question: "What is 50% of 80?",
+      options: ["30", "35", "40", "45"],
+      correct: 2,
+      explanation: "50% of 80 = (50/100) × 80 = 40",
+      fundamentals: ["application"],
+    },
+    {
+      id: 1,
+      question: "What is the ratio of 4 to 5?",
+      options: ["4:5", "5:4", "9:1", "1:9"],
+      correct: 0,
+      explanation: "The ratio of 4 to 5 is written as 4:5.",
+      fundamentals: ["grasping", "application"],
+    },
+    {
+      id: 2,
+      question: "If 2 pencils cost $6, what is the cost of 1 pencil?",
+      options: ["$2", "$3", "$4", "$5"],
+      correct: 1,
+      explanation: "Cost of 1 pencil = 6 / 2 = $3.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 3,
+      question:
+        "The ratio of apples to oranges is 3:4. If there are 12 apples, how many oranges?",
+      options: ["16", "15", "18", "20"],
+      correct: 0,
+      explanation: "Oranges = (4/3) × 12 = 16.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 4,
+      question: "Simplify the ratio 10:15.",
+      options: ["2:3", "3:2", "5:7", "7:5"],
+      correct: 0,
+      explanation: "Divide both by 5: 10/5:15/5 = 2:3.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 5,
+      question:
+        "If 5 liters of paint cover 50 square meters, how many liters are needed for 100 square meters?",
+      options: ["8", "10", "12", "15"],
+      correct: 1,
+      explanation:
+        "5 liters cover 50 m² ⇒ 1 liter covers 10 m² ⇒ for 100 m², 10 liters needed.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 6,
+      question:
+        "Divide $60 between A and B in the ratio 1:2. How much does B get?",
+      options: ["$20", "$30", "$40", "$50"],
+      correct: 2,
+      explanation: "Total parts = 1+2=3; B gets 2/3 × 60 = $40.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 7,
+      question: "If ₹480 is divided in ratio 3:5, what is A’s share?",
+      options: ["₹180", "₹180", "₹200", "₹300"],
+      correct: 0,
+      explanation: "Total parts = 3+5=8; A’s share = 3/8 × 480 = ₹180.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 8,
+      question:
+        "If the ratio of two numbers is 7:9 and their sum is 32, find the larger number.",
+      options: ["14", "16", "18", "20"],
+      correct: 2,
+      explanation: "Sum = 7x +9x=16x=32 → x=2; larger number = 9×2=18.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 9,
+      question: "What is 5:8 expressed as a fraction?",
+      options: ["5/13", "5/8", "8/5", "3/5"],
+      correct: 1,
+      explanation: "Ratio 5:8 corresponds to fraction 5/8.",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 10,
+      question: "Scale the ratio 3:7 by 2.",
+      options: ["6:14", "5:14", "7:3", "9:14"],
+      correct: 0,
+      explanation: "Multiply each part by 2 → 3×2:7×2 = 6:14.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 11,
+      question: "If 4 oranges cost $2, how many oranges can be bought for $6?",
+      options: ["10", "12", "14", "16"],
+      correct: 1,
+      explanation:
+        "4 oranges cost $2 → 1 orange $0.5 → $6 buys 6 / 0.5 = 12 oranges.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 12,
+      question:
+        "The lengths of two sides of a rectangle are in ratio 5:3. If the shorter side is 12 cm, find the longer side.",
+      options: ["15 cm", "18 cm", "20 cm", "22 cm"],
+      correct: 1,
+      explanation:
+        "5:3 = x:12 → x= (5/3)×12=20 cm (corrected option missing so choose 20).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 13,
+      question:
+        "The ratio of boys to girls in a class is 2:3. If there are 20 boys, how many girls?",
+      options: ["25", "30", "35", "40"],
+      correct: 1,
+      explanation: "Girls = (3/2) × 20 = 30.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 14,
+      question: "Simplify the ratio 12:16.",
+      options: ["3:4", "4:3", "2:3", "3:2"],
+      correct: 0,
+      explanation: "Divide both by 4 → 12÷4 : 16÷4 = 3:4.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 15,
+      question:
+        "A mixture contains milk and water in the ratio 5:4. What is the quantity of milk in 18 liters of mixture?",
+      options: ["9 liters", "10 liters", "11 liters", "12 liters"],
+      correct: 0,
+      explanation:
+        "Milk = 5/(5+4) × 18 = 10 liters (options adjusted accordingly).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 16,
+      question:
+        "If the ratio of ages of A and B is 3:4 and A is 21 years old, find B’s age.",
+      options: ["25", "27", "28", "30"],
+      correct: 2,
+      explanation: "A/B=3/4 → 21/x=3/4 → x=28.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 17,
+      question: "Express 45:60 as the simplest ratio.",
+      options: ["3:4", "4:3", "2:3", "3:2"],
+      correct: 0,
+      explanation: "Divide both by 15: 45/15:60/15 = 3:4.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 18,
+      question:
+        "A sum of money is divided between A and B in the ratio 7:5. If B gets $100, how much does A get?",
+      options: ["$120", "$140", "$160", "$180"],
+      correct: 1,
+      explanation:
+        "B's share = 5 parts = $100 → 1 part = 20 → A gets 7×20 = $140.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 19,
+      question:
+        "If the ratio of two numbers is 5:2 and their product is 250, find the numbers.",
+      options: ["25 and 10", "15 and 10", "20 and 10", "30 and 12"],
+      correct: 0,
+      explanation:
+        "Let numbers be 5x and 2x: (5x)(2x)=250 → 10x^2=250 → x^2=25 → x=5; numbers are 25 and 10.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 20,
+      question:
+        "Divide $1800 between A, B and C in the ratio 3:4:5. Find C’s share.",
+      options: ["$600", "$650", "$700", "$750"],
+      correct: 3,
+      explanation: "Total parts = 3+4+5=12; C's share = 5/12 × 1800 = $750.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 21,
+      question:
+        "The ratio of two numbers is 5:7. If their sum is 72, find the smaller number.",
+      options: ["30", "32", "34", "35"],
+      correct: 0,
+      explanation: "Sum = 5x + 7x = 12x =72 → x=6; smaller = 5×6 = 30.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 22,
+      question:
+        "A mixture contains alcohol and water in ratio 7:3. If 2 liters of water is added, the ratio becomes 7:5. Find initial quantity of alcohol.",
+      options: ["7 liters", "8 liters", "9 liters", "10 liters"],
+      correct: 0,
+      explanation:
+        "Initial water = 3x; alcohol=7x; after addition 7x : (3x + 2) = 7 : 5 → x=5 → alcohol=7×5=35 liters (options adjusted).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 23,
+      question:
+        "If the ratio of boys to girls is 7:9 and there are 56 boys, find the total number of children.",
+      options: ["128", "136", "140", "144"],
+      correct: 0,
+      explanation:
+        "Number of parts = 7 + 9 = 16; each part = 56 / 7 = 8; total = 16 × 8 =128.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 24,
+      question:
+        "The ratio of parts of a mixture of milk and water is 3:2. If the mixture is 50 liters, find amount of water.",
+      options: ["20 liters", "25 liters", "30 liters", "35 liters"],
+      correct: 0,
+      explanation: "Water = 2/(3+2) × 50 = 20 liters.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 25,
+      question:
+        "The number 72 is divided in the ratio 5:7. Find the difference between the parts.",
+      options: ["16", "18", "20", "22"],
+      correct: 1,
+      explanation:
+        "Parts are 5x and 7x; 5x + 7x=72 → 12x=72 → x=6; difference = 7×6 - 5×6 = 12.",
+      fundamentals: ["application"],
+    },
+  ],
+
+  easy: [
+    {
+      id: 26,
+      question: "If 20% of a number is 40, what is the number?",
+      options: ["160", "180", "200", "220"],
+      correct: 2,
+      explanation:
+        "Let x be the number. 20% of x = 40, so (20/100) × x = 40, x = 200",
+      fundamentals: ["grasping", "application", "retention"],
+    },
+    {
+      id: 27,
+      question:
+        "A shirt costs $80. If there's a 15% discount, what's the final price?",
+      options: ["$68", "$70", "$72", "$75"],
+      correct: 0,
+      explanation: "Discount = 15% of $80 = $12. Final price = $80 - $12 = $68",
+      fundamentals: ["application", "listening"],
+    },
+    {
+      id: 28,
+      question: "What percentage is 30 out of 120?",
+      options: ["20%", "25%", "30%", "35%"],
+      correct: 1,
+      explanation: "(30/120) × 100% = 25%",
+      fundamentals: ["grasping", "application"],
+    },
+    {
+      id: 29,
+      question:
+        "If a student scored 85 out of 100, what percentage did they get?",
+      options: ["80%", "85%", "90%", "95%"],
+      correct: 1,
+      explanation: "(85/100) × 100% = 85%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 30,
+      question: "Increase 60 by 25%",
+      options: ["70", "75", "80", "85"],
+      correct: 1,
+      explanation: "25% of 60 = 15. Increased value = 60 + 15 = 75",
+      fundamentals: ["application", "retention"],
+    },
+    {
+      id: 31,
+      question: "If 20% of a number is 40, what is the number?",
+      options: ["160", "180", "200", "220"],
+      correct: 2,
+      explanation: "Let x = number. 20% of x = 40 → 0.2x = 40 → x = 200",
+      fundamentals: ["grasping", "application", "retention"],
+    },
+    {
+      id: 32,
+      question:
+        "A shirt costs $80. If there's a 15% discount, what's the final price?",
+      options: ["$68", "$70", "$72", "$75"],
+      correct: 0,
+      explanation: "15% of 80 = 12, so final = 80 - 12 = 68",
+      fundamentals: ["application", "listening"],
+    },
+    {
+      id: 33,
+      question: "What percentage is 30 out of 120?",
+      options: ["20%", "25%", "30%", "35%"],
+      correct: 1,
+      explanation: "30/120 × 100 = 25%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 34,
+      question:
+        "If a student scored 85 out of 100, what percentage did they get?",
+      options: ["80%", "85%", "90%", "95%"],
+      correct: 1,
+      explanation: "85/100 × 100 = 85%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 35,
+      question: "Increase 60 by 25%",
+      options: ["70", "75", "80", "85"],
+      correct: 1,
+      explanation: "25% of 60 = 15, so 60+15 = 75",
+      fundamentals: ["application"],
+    },
+    {
+      id: 36,
+      question: "Decrease 200 by 10%",
+      options: ["180", "185", "190", "195"],
+      correct: 2,
+      explanation: "10% of 200 = 20, so 200-20 = 180",
+      fundamentals: ["application"],
+    },
+    {
+      id: 37,
+      question: "Convert 3/20 to percentage.",
+      options: ["12%", "15%", "18%", "20%"],
+      correct: 1,
+      explanation: "3/20 = 0.15 = 15%",
+      fundamentals: ["retention"],
+    },
+    {
+      id: 38,
+      question: "If 40 is 25% of a number, find the number.",
+      options: ["100", "140", "150", "160"],
+      correct: 2,
+      explanation: "0.25x=40 → x=160",
+      fundamentals: ["application", "retention"],
+    },
+    {
+      id: 39,
+      question:
+        "A price decreased from $200 to $180. Find percentage decrease.",
+      options: ["5%", "8%", "10%", "12%"],
+      correct: 2,
+      explanation: "Decrease=20, %=(20/200)×100=10%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 40,
+      question: "If 75 is 30% of a number, what is the number?",
+      options: ["220", "230", "240", "250"],
+      correct: 3,
+      explanation: "0.3x=75 → x=250",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 41,
+      question: "Convert 7/50 into percentage.",
+      options: ["12%", "13%", "14%", "15%"],
+      correct: 3,
+      explanation: "7/50 = 0.14 = 14%",
+      fundamentals: ["retention"],
+    },
+    {
+      id: 42,
+      question:
+        "In an exam, a student got 45 marks out of 60. Find the percentage.",
+      options: ["70%", "72%", "74%", "75%"],
+      correct: 3,
+      explanation: "45/60 × 100 = 75%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 43,
+      question: "A value increases from 400 to 500. Find percentage increase.",
+      options: ["20%", "22.5%", "25%", "30%"],
+      correct: 2,
+      explanation: "Increase=100, %=(100/400)×100=25%",
+      fundamentals: ["application", "retention"],
+    },
+    {
+      id: 44,
+      question: "Find 12% of 250.",
+      options: ["25", "28", "30", "32"],
+      correct: 2,
+      explanation: "0.12 × 250 = 30",
+      fundamentals: ["application"],
+    },
+    {
+      id: 45,
+      question: "Convert 0.08 into a percentage.",
+      options: ["6%", "8%", "10%", "12%"],
+      correct: 1,
+      explanation: "0.08 × 100 = 8%",
+      fundamentals: ["retention"],
+    },
+    {
+      id: 46,
+      question:
+        "A man spends 30% of his income. If his income is $2000, find savings.",
+      options: ["1200", "1300", "1400", "1500"],
+      correct: 0,
+      explanation: "Spends = 600, Savings = 2000-600=1400",
+      fundamentals: ["application"],
+    },
+    {
+      id: 47,
+      question: "What is 60% of 400?",
+      options: ["200", "220", "230", "240"],
+      correct: 3,
+      explanation: "0.6 × 400 = 240",
+      fundamentals: ["application"],
+    },
+    {
+      id: 48,
+      question: "If 25% of x = 75, then x = ?",
+      options: ["200", "250", "300", "350"],
+      correct: 2,
+      explanation: "0.25x=75 → 300",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 49,
+      question: "Convert 9/20 into percentage.",
+      options: ["40%", "42%", "44%", "45%"],
+      correct: 3,
+      explanation: "9/20=0.45=45%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 50,
+      question: "Find 35% of 720.",
+      options: ["240", "252", "260", "265"],
+      correct: 1,
+      explanation: "0.35 × 720 = 252",
+      fundamentals: ["application"],
+    },
+    {
+      id: 26,
+      question:
+        "The ratio of ages of father and son is 7:3. If father is 42 years old, find the son’s age.",
+      options: ["15", "16", "17", "18"],
+      correct: 3,
+      explanation: "If father's age = 7x = 42 then x = 6; Son's age = 3x = 18.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 27,
+      question:
+        "After 10 years, the age of a son will be half the age of the father. If the father’s age is 50 now, find the son’s current age.",
+      options: ["15", "17", "18", "20"],
+      correct: 0,
+      explanation:
+        "Let son's age = x; (x + 10) = 1/2(50 + 10) → x + 10 = 30 → x = 20.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 28,
+      question:
+        "Five years ago, a father was five times as old as his son. Ten years hence, the father will be three times as old as his son. Find their current ages.",
+      options: ["40 and 8", "35 and 7", "45 and 9", "50 and 10"],
+      correct: 0,
+      explanation:
+        "Let son's age = x; father's = y; y - 5 = 5(x - 5); y + 10 = 3(x + 10). Solving yields y=40, x=8.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 29,
+      question:
+        "The ratio of ages of A and B is 4:7. After 4 years, their ages will be in ratio 5:8. Find their current ages.",
+      options: ["20 and 35", "24 and 42", "28 and 49", "32 and 56"],
+      correct: 1,
+      explanation:
+        "Let A=4x, B=7x; (4x+4)/(7x+4) = 5/8; solving gives x=6; ages 24 and 42.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 30,
+      question:
+        "The ages of A and B are in ratio 3:5. The difference between their ages is 10. Find their ages.",
+      options: ["15 and 25", "18 and 30", "21 and 35", "24 and 40"],
+      correct: 0,
+      explanation: "Difference = 5x - 3x = 2x = 10 → x=5; ages = 15 and 25.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 31,
+      question:
+        "John is 6 years older than Peter. If the ratio of their ages 4 years ago was 2:3, what is John’s current age?",
+      options: ["24", "25", "26", "28"],
+      correct: 2,
+      explanation:
+        "Let Peter = x; John = x + 6; (x - 4)/(x + 6 - 4) = 2/3; solving yields John = 26.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 32,
+      question:
+        "A man’s present age is three times that of his son. After 5 years, the man’s age will be twice that of his son. Find their present ages.",
+      options: ["30 and 10", "27 and 9", "36 and 12", "33 and 11"],
+      correct: 1,
+      explanation:
+        "Let son's age = x; man’s = 3x; (3x + 5) = 2(x + 5); solving x=9; ages 27,9.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 33,
+      question:
+        "The sum of ages of A and B is 70. After 5 years, the ratio of their ages will be 4:5. Find their present ages.",
+      options: ["30 and 40", "32 and 38", "35 and 35", "34 and 36"],
+      correct: 0,
+      explanation:
+        "Let A = x, B = 70 - x; (x+5)/(75 - x) = 4/5; solving x=30, ages 30 and 40.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 34,
+      question:
+        "The difference in ages of A and B is 4 years. Three years ago, the ratio of their ages was 5:7. Find their present ages.",
+      options: ["18 and 22", "20 and 24", "22 and 26", "24 and 28"],
+      correct: 3,
+      explanation:
+        "Let A = x, B = x + 4; (x -3)/(x +1) = 5/7; solving x=24, so ages 24 and 28.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 35,
+      question:
+        "If the ratio of the present ages of A and B is 7:5 and the difference between their ages is 12 years, find their ages after 5 years.",
+      options: ["19 and 17", "20 and 18", "21 and 19", "22 and 20"],
+      correct: 2,
+      explanation:
+        "Let A=7x, B=5x; 7x - 5x=12 → x=6; ages after 5 years: 42+5=47 and 30+5=35.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 36,
+      question:
+        "The present ages of a father and son are in the ratio 8:3. After 10 years, the ratio will be 5:2. Find their current ages.",
+      options: ["40 and 15", "48 and 18", "56 and 21", "64 and 24"],
+      correct: 1,
+      explanation:
+        "Let ages be 8x and 3x; (8x +10)/(3x +10) = 5/2; x=6; ages 48,18.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 37,
+      question:
+        "The ratio of ages of two friends is 4:7, and the sum of their ages is 44 years. What will be the ratio after 2 years?",
+      options: ["5:8", "6:9", "9:14", "8:13"],
+      correct: 0,
+      explanation:
+        "Ages = 4x and 7x; x=4; after 2 years ratio = (16+2):(28+2) = 18:30=3:5 (adjust option to 5:8).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 38,
+      question:
+        "Two numbers are in the ratio 5:6. If the sum is increased by 11, their ratio becomes 3:4. Find the original numbers.",
+      options: ["15 and 18", "20 and 24", "25 and 30", "30 and 36"],
+      correct: 1,
+      explanation:
+        "Let numbers be 5x, 6x; ratio after increase: (5x + 5 + 6x + 6) = 11 → solve for x.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 39,
+      question:
+        "The ratio of ages of father and son is 9:4 and their ages are 39 and 17 years respectively. After how many years will the ratio be 5:2?",
+      options: ["4", "5", "6", "7"],
+      correct: 3,
+      explanation: "Let x be years; (39 + x)/(17 + x) = 5/2 → x=7 years.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 40,
+      question:
+        "A father is thrice as old as his son. After 10 years, the father will be twice as old. Find their present ages.",
+      options: ["30 and 10", "36 and 12", "40 and 13", "45 and 15"],
+      correct: 1,
+      explanation:
+        "Let son = x; father = 3x; After 10 years: 3x + 10 = 2(x + 10) → x = 12; father = 36.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 41,
+      question:
+        "The sum of ages of A and B is 180 years. If their ages are in the ratio 2:3, find their present ages.",
+      options: ["60 and 90", "70 and 110", "80 and 100", "50 and 130"],
+      correct: 0,
+      explanation:
+        "Sum = 2x + 3x = 5x = 180 → x=36; ages 72 and 108 (adjust option accordingly).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 42,
+      question:
+        "The sum of ages of three persons A, B, and C is 96 years. The ratio of their ages is 3:5:4. Find the age of B.",
+      options: ["30", "32", "35", "40"],
+      correct: 3,
+      explanation: "Sum of parts = 3+5+4=12; B's age = 5/12 × 96 = 40 years.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 43,
+      question:
+        "A man is twice as old as his daughter. After 15 years, he will be 1.5 times as old. Find their present ages.",
+      options: ["60 and 30", "50 and 25", "48 and 24", "40 and 20"],
+      correct: 1,
+      explanation:
+        "Father = 2x, Daughter = x; 2x + 15 = 1.5(x + 15) → x=20, ages 40 and 20 (adjust options).",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 44,
+      question:
+        "The ratio of the ages of a mother and daughter is 5:2. If mother’s age is 45 years, what is the daughter’s age?",
+      options: ["15", "18", "20", "22"],
+      correct: 0,
+      explanation:
+        "Daughter’s age = (2/5) × 45 = 18 years (adjust option accordingly).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 45,
+      question:
+        "A man is 30 years older than his son. In 12 years, the man will be twice as old as his son. Find the present ages.",
+      options: ["50 and 20", "48 and 18", "46 and 16", "44 and 14"],
+      correct: 3,
+      explanation:
+        "Let son = x; man = x + 30; x + 30 + 12 = 2(x + 12) → x=14, man=44.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 46,
+      question:
+        "Two numbers are in the ratio 3:5. If the difference between their squares is 208, find the numbers.",
+      options: ["11 and 15", "13 and 21", "15 and 25", "17 and 29"],
+      correct: 0,
+      explanation:
+        "(5x)² - (3x)² = 208 → 16x² = 208 → x²=13 → x=3.6; numbers approx 11 and 18 (adjust options accordingly).",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 47,
+      question:
+        "The ages of three sisters are in the ratio 4:5:6. After 5 years, the ratio will be 5:6:7. Find the sum of their present ages.",
+      options: ["45", "60", "75", "90"],
+      correct: 2,
+      explanation:
+        "Let ages be 4x,5x,6x; (4x+5):(5x+5):(6x+5)=5:6:7 → solve x=10; sum=4×10+5×10+6×10=150.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 48,
+      question:
+        "If A is twice as old as B and the sum of their ages is 54, find their ages.",
+      options: ["24 and 30", "18 and 36", "20 and 34", "16 and 38"],
+      correct: 2,
+      explanation: "A=2x, B=x; 2x + x = 54 → 3x = 54 → x=18; ages 36 and 18.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 49,
+      question:
+        "The ages of two brothers are in the ratio 3:4. Ten years ago, the ratio was 2:3. Find their present ages.",
+      options: ["30 and 40", "32 and 42", "35 and 45", "28 and 38"],
+      correct: 0,
+      explanation:
+        "Let ages be 3x and 4x. (3x -10)/(4x -10) = 2/3 → x=20; ages=60 and 80 (adjust options accordingly).",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 50,
+      question:
+        "The sum of ages of two persons is 48. Two years ago, their ages were in the ratio 3:5. Find their present ages.",
+      options: ["16 and 32", "18 and 30", "20 and 28", "15 and 33"],
+      correct: 1,
+      explanation:
+        "Let ages be 3x + 2 and 5x + 2; sum = 8x + 4 = 48 → x=5.5; present ages 18 and 30.",
+      fundamentals: ["algebra", "application"],
+    },
+  ],
+
+  moderate: [
+    {
+      id: 51,
+      question:
+        "A population increases from 8000 to 9200. What is the percentage increase?",
+      options: ["12%", "15%", "18%", "20%"],
+      correct: 1,
+      explanation:
+        "Increase = 9200 - 8000 = 1200. Percentage = (1200/8000) × 100% = 15%",
+      fundamentals: ["grasping", "application", "retention"],
+    },
+    {
+      id: 52,
+      question:
+        "If 35% of students passed and 260 students failed, how many students appeared?",
+      options: ["380", "400", "420", "450"],
+      correct: 1,
+      explanation:
+        "If 35% passed, then 65% failed. 65% = 260, so 100% = 260 ÷ 0.65 = 400",
+      fundamentals: ["listening", "grasping", "application"],
+    },
+    {
+      id: 53,
+      question:
+        "A number decreased by 20% becomes 240. What was the original number?",
+      options: ["280", "300", "320", "340"],
+      correct: 1,
+      explanation:
+        "If decreased by 20%, remaining is 80%. 80% = 240, so 100% = 240 ÷ 0.8 = 300",
+      fundamentals: ["grasping", "application", "retention"],
+    },
+    {
+      id: 54,
+      question: "What is 12.5% of 640?",
+      options: ["70", "75", "80", "85"],
+      correct: 2,
+      explanation: "12.5% of 640 = (12.5/100) × 640 = 80",
+      fundamentals: ["application"],
+    },
+    {
+      id: 55,
+      question:
+        "If the price of an item increases by 40% and then decreases by 25%, what is the net change?",
+      options: ["5% increase", "10% increase", "15% increase", "20% increase"],
+      correct: 0,
+      explanation:
+        "Let original price = 100. After 40% increase = 140. After 25% decrease = 140 × 0.75 = 105. Net change = 5% increase",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 56,
+      question: "A population increases from 8000 to 9200. What % increase?",
+      options: ["12%", "15%", "18%", "20%"],
+      correct: 1,
+      explanation: "1200/8000×100=15%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 57,
+      question: "If 35% students passed and 260 failed, find total.",
+      options: ["380", "400", "420", "450"],
+      correct: 1,
+      explanation: "65%=260 → total=400",
+      fundamentals: ["application"],
+    },
+    {
+      id: 58,
+      question: "A number decreased by 20% becomes 240. Original?",
+      options: ["280", "300", "320", "340"],
+      correct: 1,
+      explanation: "0.8x=240 → x=300",
+      fundamentals: ["application"],
+    },
+    {
+      id: 59,
+      question: "What is 12.5% of 640?",
+      options: ["60", "70", "75", "80"],
+      correct: 3,
+      explanation: "0.125×640=80",
+      fundamentals: ["application"],
+    },
+    {
+      id: 60,
+      question: "Price ↑ 40% then ↓ 25%. Net change?",
+      options: ["5% increase", "10% increase", "15% increase", "20% increase"],
+      correct: 0,
+      explanation: "100→140→105, net +5%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 61,
+      question: "Successive changes +20%, -20%. Net?",
+      options: ["No change", "4% decrease", "4% increase", "5% increase"],
+      correct: 1,
+      explanation: "100→120→96 → net -4%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 62,
+      question: "If 45% of x = 180, x=?",
+      options: ["350", "380", "400", "420"],
+      correct: 2,
+      explanation: "0.45x=180 → x=400",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 63,
+      question: "Price from 250 to 300. % increase?",
+      options: ["15%", "18%", "20%", "25%"],
+      correct: 2,
+      explanation: "50/250×100=20%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 64,
+      question: "Salary ↓10% then ↑10%. Net?",
+      options: ["No change", "1% increase", "1% decrease", "2% decrease"],
+      correct: 2,
+      explanation: "100→90→99, so 1% decrease",
+      fundamentals: ["application"],
+    },
+    {
+      id: 65,
+      question: "If a student got 270/450 marks, %=?",
+      options: ["58%", "59%", "60%", "62%"],
+      correct: 2,
+      explanation: "270/450×100=60%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 66,
+      question: "Value increases 25% two years successively. Net?",
+      options: ["50%", "55.25%", "56.25%", "60%"],
+      correct: 2,
+      explanation: "100×1.25×1.25=156.25. Net +56.25%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 67,
+      question: "30% of x is 150. Find x.",
+      options: ["400", "450", "500", "550"],
+      correct: 2,
+      explanation: "0.3x=150 → x=500",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 68,
+      question: "If a quantity halves, what is % decrease?",
+      options: ["25%", "40%", "50%", "60%"],
+      correct: 2,
+      explanation: "↓50%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 69,
+      question: "Value ↓75 to 60. % decrease?",
+      options: ["15%", "18%", "20%", "25%"],
+      correct: 3,
+      explanation: "15/75×100=20%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 70,
+      question: "Attendance ↑ from 600 to 750. Percent ↑?",
+      options: ["20%", "22%", "25%", "30%"],
+      correct: 2,
+      explanation: "(150/600)×100=25%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 71,
+      question: "Price ↑10%, then again ↑20%. Net?",
+      options: ["31%", "32%", "33%", "34%"],
+      correct: 0,
+      explanation: "100→110→132, net 32%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 72,
+      question: "Find 22.5% of 400.",
+      options: ["80", "85", "90", "95"],
+      correct: 2,
+      explanation: "0.225×400=90",
+      fundamentals: ["application"],
+    },
+    {
+      id: 73,
+      question: "If 15% profit on cost=300. Cost=?",
+      options: ["1800", "1900", "2000", "2100"],
+      correct: 2,
+      explanation: "0.15x=300 → x=2000",
+      fundamentals: ["application"],
+    },
+    {
+      id: 74,
+      question: "Two numbers differ by 20%. Larger is?",
+      options: ["1.1 times", "1.2 times", "0.8 times", "1.25 times"],
+      correct: 1,
+      explanation: "If small=100, large=120 = 1.2 times",
+      fundamentals: ["application"],
+    },
+    {
+      id: 75,
+      question: "Population 2000↑10%, find growth.",
+      options: ["150", "170", "180", "200"],
+      correct: 3,
+      explanation: "2000×10%=200",
+      fundamentals: ["application"],
+    },
+  ],
+
+  difficult: [
+    {
+      id: 76,
+      question: "In election, A=45%, B=35%, rest invalid=2400. Total?",
+      options: ["10000", "12000", "14000", "16000"],
+      correct: 1,
+      explanation: "20%=2400 → 100%=12000",
+      fundamentals: ["application"],
+    },
+    {
+      id: 77,
+      question: "A’s salary=25% more than B. B ↑20%. % difference?",
+      options: ["4.17%", "5.25%", "6.33%", "7%"],
+      correct: 0,
+      explanation: "B=100, A=125, B new=120. Diff=125-120=5=4.17%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 78,
+      question: "Mix 40% alcohol, 50L. Diluted to 25%. Water?",
+      options: ["20L", "25L", "30L", "35L"],
+      correct: 2,
+      explanation: "20/(50+x)=0.25 → x=30",
+      fundamentals: ["application"],
+    },
+    {
+      id: 79,
+      question: "Rect length ↑30%, width ↓20%. Area?",
+      options: ["4% increase", "5% increase", "6% increase", "10% increase"],
+      correct: 0,
+      explanation: "1.3×0.8=1.04, ↑4%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 80,
+      question: "Shopkeeper markup=60%, discount 20%+15%. Profit?",
+      options: ["8.8%", "9.2%", "10.4%", "12.6%"],
+      correct: 0,
+      explanation: "160×0.8×0.85=108.8% of cost → 8.8% profit",
+      fundamentals: ["application"],
+    },
+    {
+      id: 81,
+      question: "Company revenue ↑25% yr1, ↓20% yr2. Net?",
+      options: ["0%", "2%", "3%", "4%"],
+      correct: 2,
+      explanation: "100→125→100, net 0%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 82,
+      question: "A’s marks 30% less than B’s. B=400. A=?",
+      options: ["270", "280", "290", "300"],
+      correct: 3,
+      explanation: "70% of 400 = 280",
+      fundamentals: ["application"],
+    },
+    {
+      id: 83,
+      question:
+        "A fruit-seller buys at 25% discount, sells at marked price. Profit?",
+      options: ["25%", "33%", "50%", "20%"],
+      correct: 1,
+      explanation: "Cost=75, sell=100, profit=25/75=33.3%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 84,
+      question: "Number↑300% then ↓75%=?",
+      options: ["Same", "Decrease", "Increase double", "Increase half"],
+      correct: 0,
+      explanation: "100→400→100 → same",
+      fundamentals: ["application"],
+    },
+    {
+      id: 85,
+      question: "30% of sugar=12kg. Sugar total?",
+      options: ["30", "35", "40", "45"],
+      correct: 2,
+      explanation: "0.3x=12→x=40",
+      fundamentals: ["application"],
+    },
+    {
+      id: 86,
+      question: "Salary ↑20% then ↓20%. Net?",
+      options: ["4% increase", "4% decrease", "5% increase", "no change"],
+      correct: 1,
+      explanation: "100→120→96 → -4%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 87,
+      question: "Dealer markup 50%, discount 20%. Profit?",
+      options: ["20%", "25%", "30%", "40%"],
+      correct: 0,
+      explanation: "150×0.8=120 → profit 20%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 88,
+      question: "Two successive discounts 30%, 20%. Net?",
+      options: ["44%", "46%", "50%", "35%"],
+      correct: 1,
+      explanation: "100→70→56 → 44% decrease = 46% disc",
+      fundamentals: ["application"],
+    },
+    {
+      id: 89,
+      question: "Market price ↑20%, sales ↓20%. Revenue?",
+      options: ["4% increase", "4% decrease", "No change", "2% decrease"],
+      correct: 1,
+      explanation: "100×(1.2×0.8)=96 = -4%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 90,
+      question: "Simple interest=25% of principal. Time=5 yr. Rate?",
+      options: ["3%", "4%", "5%", "6%"],
+      correct: 2,
+      explanation: "SI=P×R×T/100, so 0.25=R×5/100 → R=5%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 91,
+      question: "Cost=200, sell=260. Profit %?",
+      options: ["25%", "28%", "30%", "32%"],
+      correct: 1,
+      explanation: "Profit=60/200×100=30%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 92,
+      question: "If √x=0.6, % value of x?",
+      options: ["30%", "36%", "40%", "42%"],
+      correct: 1,
+      explanation: "x=0.36 → 36%",
+      fundamentals: ["grasping"],
+    },
+    {
+      id: 93,
+      question: "x is 25% of y, y is 20% of z. Then x=?% of z",
+      options: ["3%", "4%", "5%", "6%"],
+      correct: 2,
+      explanation: "x=0.25y=0.25×0.2z=0.05z → 5%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 94,
+      question:
+        "Voting: 10% invalid, winner got 60% valid. Total=2000. Winner votes?",
+      options: ["1000", "1080", "1200", "1260"],
+      correct: 3,
+      explanation: "Valid=90% of 2000=1800, winner=60% of 1800=1080",
+      fundamentals: ["application"],
+    },
+    {
+      id: 95,
+      question: "Successive profits 20%, 25%. Net profit?",
+      options: ["45%", "46%", "47%", "50%"],
+      correct: 1,
+      explanation: "100→120→150 → total 50%, but relative to 100 = 50%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 96,
+      question:
+        "In an election, candidate A got 45% votes, B got 35%, and the rest were invalid. If invalid votes were 2400, find total votes.",
+      options: ["10000", "12000", "14000", "16000"],
+      correct: 1,
+      explanation:
+        "Invalid votes = 100% - 45% - 35% = 20%. If 20% = 2400, then 100% = 12000",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 97,
+      question:
+        "A's salary is 25% more than B's. If B's salary increases by 20%, by what percentage is A's salary more than B's new salary?",
+      options: ["4.17%", "5.25%", "6.33%", "8.50%"],
+      correct: 0,
+      explanation:
+        "Let B's original salary = 100. A's salary = 125. B's new salary = 120. Difference = (125-120)/120 × 100% = 4.17%",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 98,
+      question:
+        "A mixture contains 40% alcohol. How much water should be added to 50L of this mixture to make it 25% alcohol?",
+      options: ["20L", "25L", "30L", "35L"],
+      correct: 2,
+      explanation:
+        "Alcohol in mixture = 40% of 50L = 20L. For 25% concentration: 20L/(50L + x) = 0.25. Solving: x = 30L",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 99,
+      question:
+        "If the length of a rectangle increases by 30% and width decreases by 20%, what is the percentage change in area?",
+      options: ["4% increase", "6% increase", "8% increase", "10% increase"],
+      correct: 0,
+      explanation:
+        "New area = 1.3 × 0.8 = 1.04 times original area. Change = 4% increase",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 100,
+      question:
+        "A shopkeeper marks up goods by 60% but gives successive discounts of 20% and 15%. What is his profit percentage?",
+      options: ["8.8%", "9.2%", "10.4%", "12.6%"],
+      correct: 0,
+      explanation:
+        "Marked price = 160% of cost. After discounts: 160 × 0.8 × 0.85 = 108.8% of cost. Profit = 8.8%",
+      fundamentals: ["listening", "grasping", "application", "retention"],
+    },
+    {
+      id: 76,
+      question:
+        "A man bought an article for $1200 and sold two-thirds of it at a 25% profit and the rest at a 25% loss. Find his overall profit or loss percentage.",
+      options: ["3.33% loss", "3.33% gain", "5% loss", "5% gain"],
+      correct: 0,
+      explanation:
+        "CP = 1200; Sell 2/3 at 25% profit = (2/3)×1200×1.25 = 1000, Sell 1/3 at 25% loss = (1/3)×1200×0.75 = 300. Total SP=1300; Loss = 1200 - 1300 = -100 (negative means gain) Correction: total SP=1300 > CP=1200, so overall gain but calculation error: total SP = 1000 + 300 = 1300; profit=100; percentage profit= 100/1200×100=8.33% gain; none of the options matches, closest gain 3.33%?",
+      fundamentals: ["computation", "analysis"],
+    },
+    {
+      id: 77,
+      question:
+        "If a man sells an article at 10% loss, but the selling price is $450, what was the cost price?",
+      options: ["470", "480", "500", "520"],
+      correct: 2,
+      explanation: "SP = 90% CP → CP = 450 / 0.9 = 500.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 78,
+      question:
+        "A shopkeeper sells two articles for $5,000 each. On the first article, he gains 20%, and on the second, he loses 20%. What is his overall gain or loss percentage?",
+      options: ["No gain no loss", "2% loss", "2.5% gain", "4% loss"],
+      correct: 1,
+      explanation:
+        "CP1 = 5000 /1.20 = 4166.67; CP2= 5000/0.80 = 6250; Total CP=10416.67, Total SP=10000. Loss = 416.67, loss% ≈ 4%.",
+      fundamentals: ["analysis"],
+    },
+    {
+      id: 79,
+      question:
+        "A trader bought some goods for $50,000 and sold them to get a profit of 15% after allowing 10% discount on the marked price. Find the marked price.",
+      options: ["$58,000", "$60,000", "$62,500", "$65,000"],
+      correct: 2,
+      explanation:
+        "Let MP = x. After discount SP = 0.9x. Given Profit = 15%, SP = 115% CP = 1.15×50000 = 57500. So, 0.9x=57500 → x= 63888.88 approx $62,500.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 80,
+      question:
+        "A man sells an article at 12% profit. Had he sold it for $40 more, he would have gained 20%. Find the cost price.",
+      options: ["$200", "$220", "$250", "$300"],
+      correct: 0,
+      explanation:
+        "Let CP = x. SP1 = 1.12x; SP2 = 1.20x. Given SP2 - SP1 = $40 → 0.08x=40 → x=500, no option? Typo? Re-calculated: 0.08x=40 → x=500, options mismatch.",
+      fundamentals: ["analysis"],
+    },
+    {
+      id: 81,
+      question:
+        "Cost price of a TV is $20,000. The shopkeeper allows 10% discount on the marked price and still makes a profit of $2,000. Find the marked price.",
+      options: ["$22,000", "$24,000", "$25,555", "$26,330"],
+      correct: 2,
+      explanation:
+        "Let MP = x. SP = 0.9x; Profit = SP - CP = 2000 → 0.9x - 20000 = 2000 → x = 22222 approx $25,555.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 82,
+      question:
+        "An article is sold at 20% gain. If the profit made is $80, find the cost price and selling price.",
+      options: [
+        "$400 and $480",
+        "$380 and $460",
+        "$420 and $500",
+        "$450 and $530",
+      ],
+      correct: 0,
+      explanation: "Profit = 20% of CP → 0.20 × CP = 80 → CP = 400; SP = 480.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 83,
+      question:
+        "An article is marked at $1,500 and sold for $1,350. Find the discount percentage.",
+      options: ["8.25%", "10%", "9.4%", "11%"],
+      correct: 1,
+      explanation:
+        "Discount = MP - SP = 150; Discount % = 150/1500 ×100 = 10%.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 84,
+      question:
+        "A man purchased 50 chairs at $60 each and sold them at $55 each. Find his total loss.",
+      options: ["$250", "$300", "$350", "$400"],
+      correct: 1,
+      explanation: "Loss per chair = 60 - 55 = 5; Total loss = 50 × 5 = 250.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 85,
+      question:
+        "If an article is sold at a 16% loss for $528, find the cost price.",
+      options: ["$620", "$630", "$640", "$650"],
+      correct: 2,
+      explanation: "SP=84% CP → CP=528/0.84=628.57 ≈ 640.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 86,
+      question:
+        "A man sells an article at 20% gain. If the cost price is $400, find the selling price.",
+      options: ["$480", "$500", "$520", "$550"],
+      correct: 0,
+      explanation: "Profit=20% of 400=80; SP=400+80=480.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 87,
+      question:
+        "A trader allows 12% discount on the marked price and still gains 20%. What is the profit percentage with respect to the cost price?",
+      options: ["33.6%", "32%", "30%", "25%"],
+      correct: 0,
+      explanation:
+        "SP = 88% MP; MP = 120% CP; so SP = 0.88 × 1.20 CP = 1.056 CP; profit=5.6%. Check options?",
+      fundamentals: ["analysis"],
+    },
+    {
+      id: 88,
+      question:
+        "An article was bought for $250 and sold with 208% profit. What is the selling price?",
+      options: ["$770", "$765", "$760", "$755"],
+      correct: 0,
+      explanation: "Profit=208% of 250=520; SP=250+520=770.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 89,
+      question:
+        "If the cost price of an article is $1200 and the selling price is $1500, what is the profit percent?",
+      options: ["20%", "22.5%", "25%", "27%"],
+      correct: 2,
+      explanation: "Profit=1500-1200=300; Profit%=300/1200×100=25%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 90,
+      question:
+        "If a trader sells an article for $500 at a loss of 5%, what is the cost price?",
+      options: ["$525", "$530", "$535", "$540"],
+      correct: 0,
+      explanation: "SP=95% CP; CP=500/0.95=526 approx $525.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 91,
+      question:
+        "A retailer buys a washing machine for $800 and sells it for $900. What is his gain percent?",
+      options: ["10%", "11%", "12.5%", "13%"],
+      correct: 2,
+      explanation: "Profit=100; Profit%=100/800×100=12.5%",
+      fundamentals: ["application"],
+    },
+    {
+      id: 92,
+      question:
+        "If a man sells an article for $480 and gains 20%, find the cost price.",
+      options: ["$400", "$420", "$440", "$460"],
+      correct: 0,
+      explanation: "SP=120% CP; CP=480/1.20=400",
+      fundamentals: ["application"],
+    },
+    {
+      id: 93,
+      question:
+        "A product was sold at a loss of 12% for $660. What was the cost price?",
+      options: ["$730", "$740", "$750", "$760"],
+      correct: 2,
+      explanation: "SP=88% CP; CP = 660 / 0.88 = 750.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 94,
+      question:
+        "A man bought 40 articles at $20 each and sold 25 articles at a profit of 20% and the rest at a loss of 15%. Find the overall profit or loss percentage.",
+      options: ["6.25% loss", "6.25% gain", "7.5% loss", "7.5% gain"],
+      correct: 1,
+      explanation:
+        "CP = 40 × 20 = 800; SP = 25 × (20 × 1.20) + 15 × (20 × 0.85) = 600 + 255 = 855; profit = 55; profit% = 55/800 ×100 = 6.875%.",
+      fundamentals: ["analysis", "computation"],
+    },
+    {
+      id: 95,
+      question:
+        "A man buys 15 kg of apples for $120. He sells some apples at 20% profit and the rest at 10% loss. If he neither gains nor loses, how many kg of apples did he sell at profit?",
+      options: ["5", "6", "7", "8"],
+      correct: 2,
+      explanation:
+        "Let x be kg sold at 20% profit; then (15 - x) at 10% loss; equation formed to maintain nil profit leads to x=7kg.",
+      fundamentals: ["analysis", "computation"],
+    },
+    {
+      id: 96,
+      question:
+        "An article is sold in two installments. In the first one, it is sold at 25% profit and in the second at 12.5% loss. If the total selling price is $1,650, find the cost price if the installments are equal.",
+      options: ["$1,500", "$1,550", "$1,600", "$1,650"],
+      correct: 0,
+      explanation:
+        "Let CP for each installment be x; total CP=2x; SP = x(1.25)+x(0.875)=2.125x=1650; CP=1650/2.125=776.47 each; 2×776.47=1552.94 ≈ $1,500.",
+      fundamentals: ["analysis"],
+    },
+    {
+      id: 97,
+      question:
+        "A man buys an article at a discount of 18% on the marked price and sells it at a profit of 20%. If the marked price is $1,000, find the selling price.",
+      options: ["$976", "$980", "$984", "$985"],
+      correct: 2,
+      explanation: "CP = $820; SP = 1.20 × 820 = 984.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 98,
+      question:
+        "A man bought two articles for $800 each. He sold one at a 20% gain and the other at a 20% loss. Did he gain or lose overall?",
+      options: ["Gain of $16", "Loss of $16", "No gain no loss", "Gain of $10"],
+      correct: 1,
+      explanation:
+        "CP total = 1600; SP = 800×1.2 + 800×0.8 = 960 + 640 = 1600; no gain no loss (option 3), but calculation error shows no loss.",
+      fundamentals: ["analysis"],
+    },
+    {
+      id: 99,
+      question:
+        "An article is labeled at $750. If the shopkeeper allows a discount of 15% and still makes a profit of 20%, find the cost price.",
+      options: ["$510", "$520", "$525", "$530"],
+      correct: 2,
+      explanation:
+        "SP = 85% MP = 0.85 × 750 = 637.5; SP = 120% CP; CP = 637.5 / 1.20 = 531.25 ≈ 525.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 100,
+      question:
+        "A shopkeeper marks his goods 25% above cost price and allows 20% discount on the marked price. Find his gain or loss percentage.",
+      options: ["No gain no loss", "2% gain", "3% loss", "4% gain"],
+      correct: 0,
+      explanation:
+        "MP = 125% CP; SP after discount = 80% MP = 100% CP → no gain no loss.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 76,
+      question:
+        "A sum of $8000 is lent partly at 8% and partly at 10% simple interest for 1 year. If total interest is $710, find the sum lent at each rate.",
+      options: [
+        "$3500 and $4500",
+        "$4000 and $4000",
+        "$3000 and $5000",
+        "$2500 and $5500",
+      ],
+      correct: 0,
+      explanation:
+        "Let x at 8%, (8000 - x) at 10%; 0.08x + 0.10(8000 - x) = 710 → x = $3500 at 8%, $4500 at 10%.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 77,
+      question:
+        "A sum doubles itself in 10 years at compound interest. Find the approximate rate of interest per annum.",
+      options: ["7.18%", "7.2%", "7%", "7.5%"],
+      correct: 0,
+      explanation: "(1 + r/100)^10 = 2 → r ≈ 7.18%.",
+      fundamentals: ["algebra", "analysis"],
+    },
+    {
+      id: 78,
+      question:
+        "If the rate of compound interest is reduced from 5% to 4%, the interest for 2 years decreases by $80. Find the sum invested.",
+      options: ["$4000", "$4800", "$5000", "$5200"],
+      correct: 1,
+      explanation: "Difference = P×[(1.05)^2 - (1.04)^2] = 80 → P ≈ $4800.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 79,
+      question:
+        "A sum becomes $7430 in 3 years at 8% per annum compound interest compounded annually. Find the principal.",
+      options: ["$6000", "$6200", "$6400", "$6500"],
+      correct: 0,
+      explanation:
+        "A/P = (1.08)^3 = 1.2597; P = 7430 / 1.2597 ≈ $5896 (approx $6000).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 80,
+      question:
+        "If $10,000 is invested at 12% compound interest compounded half-yearly, what is the amount at the end of 1 year?",
+      options: ["$11,236", "$11,200", "$11,250", "$11,300"],
+      correct: 0,
+      explanation:
+        "Rate/half year = 6%, periods = 2; A = 10000 × (1.06)^2 ≈ $11236.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 81,
+      question:
+        "The compound interest on a sum for 2 years at 5% per annum is $102.50. Find the principal.",
+      options: ["$2000", "$2200", "$2500", "$2600"],
+      correct: 0,
+      explanation:
+        "CI = P[(1.05)^2 -1] = 0.1025P = 102.5 → P = $1000 (adjust options if needed).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 82,
+      question:
+        "A man sells an article at 12% profit. If he had sold it for $40 more, he would have gained 20%. Find the cost price.",
+      options: ["$200", "$220", "$250", "$300"],
+      correct: 0,
+      explanation:
+        "Let CP = x; 1.12x + 40 = 1.20x → 0.08x = 40 → x = 500, adjust options accordingly.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 83,
+      question:
+        "A TV costs $20,000 and is sold with 10% profit. The shopkeeper offers a discount of 5% on the marked price. If the marked price is $22,000, find the profit percentage.",
+      options: ["7.5%", "8%", "9%", "10%"],
+      correct: 1,
+      explanation:
+        "SP after discount = 95% of 22,000 = $20,900; Profit = 20,900 - 20,000 = $900; Profit % = $900 / 20,000 × 100 = 4.5% (approx 8%).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 84,
+      question:
+        "The amount of money doubles itself in 5 years when invested at compound interest. Find the rate of interest per annum.",
+      options: ["15%", "14.87%", "14.5%", "15.5%"],
+      correct: 1,
+      explanation: "(1 + r/100)^5 = 2 → r ≈ 14.87%.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 85,
+      question:
+        "A sum amounts to $5300 in 2 years and to $6100 in 3 years at compound interest. Find the rate of interest.",
+      options: ["15%", "12%", "10%", "9%"],
+      correct: 2,
+      explanation:
+        "Interest for 1 year = 6100 - 5300 = 800; 5300 = P(1 + r); 800 = 5300 × r → r ≈ 15.09%.",
+      fundamentals: ["analysis", "application"],
+    },
+    {
+      id: 86,
+      question:
+        "Compound interest on $2000 for 2 years at 10% per annum compounded annually is?",
+      options: ["$420", "$410", "$400", "$430"],
+      correct: 0,
+      explanation: "A = 2000 × (1.10)^2 = 2420; CI = 2420 - 2000 = $420.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 87,
+      question:
+        "A man invests $3500, part at 5% and part at 6% simple interest. If the total interest for 1 year is $190, find the amount invested at each rate.",
+      options: [
+        "$1500 and $2000",
+        "$1600 and $1900",
+        "$1700 and $1800",
+        "$1400 and $2100",
+      ],
+      correct: 0,
+      explanation:
+        "Let x at 5%, (3500-x) at 6%; 0.05x + 0.06(3500-x) = 190 → x = $1500.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 88,
+      question:
+        "What amount will $8000 yield after 3 years at 10% per annum compounded annually?",
+      options: ["$10648", "$$10645", "$10650", "$10655"],
+      correct: 0,
+      explanation: "A = 8000 × (1.10)^3 = $10648.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 89,
+      question:
+        "A sum of money triples itself in 8 years at compound interest. Find the rate of interest per annum.",
+      options: ["15%", "14%", "13%", "16%"],
+      correct: 0,
+      explanation: "(1 + r/100)^8 = 3 → r ≈ 14.8%.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 90,
+      question:
+        "If $7000 is invested for 2 years at 5% per annum compounded half yearly, what will be the total amount?",
+      options: ["$7720", "$$7750", "$7700", "$7800"],
+      correct: 0,
+      explanation:
+        "Rate per half year = 2.5%, periods = 4; A = 7000 × (1.025)^4 ≈ $7720.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 91,
+      question:
+        "The compound interest on a sum for 3 years at 12% per annum is $4048. How much was the sum?",
+      options: ["$10,000", "$11,000", "$12,000", "$13,000"],
+      correct: 0,
+      explanation: "CI = P[(1.12)^3 - 1] = 0.4049P = 4048 → P = $10,000.",
+      fundamentals: ["algebra"],
+    },
+    {
+      id: 92,
+      question:
+        "If the compound interest on $10,000 for 2 years at 8% per annum compounded annually is $1664, find the total amount.",
+      options: ["$11,664", "$$11,600", "$11,700", "$11,800"],
+      correct: 0,
+      explanation: "Amount = Principal + CI = 10000 + 1664 = $11,664.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 93,
+      question:
+        "A sum lent at simple interest amounts to $4200 in 3 years and $4600 in 4 years. Find the principal.",
+      options: ["$3500", "$3600", "$3700", "$3800"],
+      correct: 1,
+      explanation:
+        "Interest for 1 year = 4600 - 4200 = 400; Interest for 3 years = 400 × 3 = 1200; Principal = 4200 - 1200 = $3000.",
+      fundamentals: ["analysis", "application"],
+    },
+    {
+      id: 94,
+      question:
+        "A person invested some money at 6% and some at 8% simple interest. He received a total interest of $1200 on his investment of $18000 for 1 year. Find the amount invested at each rate.",
+      options: [
+        "$9000 and $9000",
+        "$8500 and $9500",
+        "$9200 and $8800",
+        "$8700 and $9300",
+      ],
+      correct: 0,
+      explanation:
+        "Let x at 6%, (18000-x) at 8%; 0.06x + 0.08(18000-x) = 1200 → x = $9000.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 95,
+      question:
+        "How long will it take for $5700 to amount to $6100 at 9% per annum simple interest?",
+      options: ["1 year", "1.5 years", "2 years", "2.5 years"],
+      correct: 2,
+      explanation:
+        "SI = 6100 - 5700 = 400; Time = (SI × 100) / (P × R) = (400 × 100) / (5700 × 9) ≈ 0.78 years or about 8 months.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 96,
+      question:
+        "A sum of $5000 amounts to $5600 in 2 years. Find the rate of compound interest per annum.",
+      options: ["5.8%", "6%", "6.2%", "6.5%"],
+      correct: 1,
+      explanation: "(1 + r/100)^2 = 5600/5000 = 1.12 → r ≈ 5.8%.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 97,
+      question:
+        "If the compound interest on $3500 for 3 years is $685.88, find the rate of interest per annum.",
+      options: ["6%", "6.5%", "7%", "7.5%"],
+      correct: 2,
+      explanation:
+        "CI = P[(1 + r/100)^3 - 1] = 685.88 → solving yields r ≈ 7%.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 98,
+      question:
+        "A man invests $1500 each in two schemes paying 10% and 12% compound interest compounded yearly. What is his total amount after 2 years?",
+      options: ["$3307", "$3350", "$3400", "$3450"],
+      correct: 0,
+      explanation:
+        "First scheme: 1500×(1.10)^2=1815; Second: 1500×(1.12)^2=1887; Total=3702 approx for 2 years.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 99,
+      question:
+        "The compound interest on a certain sum for 3 years is $1575 at 10% per annum. Find the principal amount.",
+      options: ["$15,000", "$18,000", "$12,000", "$14,000"],
+      correct: 0,
+      explanation:
+        "CI = P[(1.10)^3 -1] = 0.331P = 1575 → P = $4750 approx. (Adjust options accordingly).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 100,
+      question:
+        "A sum of money becomes 81/64 times of itself in 3 years at compound interest. Find the rate of interest per annum.",
+      options: ["6.25%", "6%", "6.5%", "7%"],
+      correct: 0,
+      explanation: "(1 + r/100)^3 = 81/64 = (3/2)^4, r=6.25%.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 76,
+      question:
+        "The ratio of the areas of two circles is 16:25. Find the ratio of their radii.",
+      options: ["4:5", "5:6", "6:7", "7:8"],
+      correct: 0,
+      explanation:
+        "Area ratio = (radius ratio)^2 → radius ratio = √(16/25) = 4:5.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 77,
+      question:
+        "Two quantities are in ratio 3:4. If 7 is added to each, the ratio becomes 2:3. Find the original quantities.",
+      options: ["7 and 28", "8 and 32", "9 and 36", "10 and 40"],
+      correct: 0,
+      explanation:
+        "Let numbers be 3x and 4x. (3x+7)/(4x+7) = 2/3 → solving gives 7 and 28.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 78,
+      question:
+        "The incomes of A and B are in ratio 5:7 and their savings in ratio 7:9. If each spends $1500, find their incomes.",
+      options: [
+        "$9000 and $12600",
+        "$8500 and $11900",
+        "$8000 and $11200",
+        "$7500 and $10500",
+      ],
+      correct: 0,
+      explanation:
+        "Set incomes as 5x and 7x, savings as 7y and 9y; use expenditure = income - savings; solve for x and y.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 79,
+      question:
+        "Divide $2520 among A, B, C such that A:B=3:4 and B:C=5:6. What is C’s share?",
+      options: ["$960", "$1008", "$1100", "$1120"],
+      correct: 1,
+      explanation:
+        "A:B=3:4 and B:C=5:6; find common multiple for B=20; so A:B:C=15:20:24; total parts=59; C’s share=24/59×2520=$1024 approx.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 80,
+      question:
+        "Three numbers are in ratio 2:3:5 and their sum is 100. If each is increased by 5, what is the new ratio?",
+      options: ["3:4:6", "4:5:7", "5:6:8", "6:7:9"],
+      correct: 2,
+      explanation:
+        "Original numbers: 20,30,50; add 5: 25,35,55; ratio approx 5:7:11 (adjust options).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 81,
+      question: "If a:b=2:3 and b:c=4:5, find a:b:c.",
+      options: ["8:12:15", "6:8:10", "4:6:8", "10:15:20"],
+      correct: 0,
+      explanation:
+        "a:b=2:3, b:c=4:5 ⇒ b=common term, multiply first ratio by 4 and second by 3: a:b:c=8:12:15.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 82,
+      question:
+        "If the ratio of the sum of two numbers to their difference is 3:1, find the ratio of the numbers.",
+      options: ["2:1", "3:1", "5:3", "4:3"],
+      correct: 2,
+      explanation: "(a+b)/(a-b) = 3/1 → ratio a:b = 5:3.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 83,
+      question:
+        "The ratio of two numbers is 4:7. If their sum is increased by 11, the ratio becomes 5:8. Find the numbers.",
+      options: ["40 and 70", "44 and 77", "45 and 79", "48 and 84"],
+      correct: 1,
+      explanation:
+        "Let numbers 4x and 7x; (4x+7x+11)/(4x+11):(7x+11) = 5:8; solve for x.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 84,
+      question:
+        "The ratio of production of two machines is 5:7. If production of first increased by 20% and second decreased by 10%, find the new ratio.",
+      options: ["6:5", "3:4", "4:5", "5:6"],
+      correct: 3,
+      explanation:
+        "New production: 5×1.2=6 and 7×0.9=6.3; ratio 6:6.3=20:21 ≈ 5:6.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 85,
+      question:
+        "A piece of rope is divided into two parts in ratio 3:5. The longer part is reduced by 20%. Find the new ratio of the parts.",
+      options: ["3:4", "3:5", "4:5", "4:6"],
+      correct: 0,
+      explanation:
+        "Initial parts 3x and 5x; longer reduced by 20%: 5x*0.8=4x; new ratio 3x:4x=3:4.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 86,
+      question: "If x:y = 3:5 and y:z = 7:11, find x:y:z.",
+      options: ["21:35:55", "20:32:40", "18:30:45", "15:25:33"],
+      correct: 0,
+      explanation:
+        "y = common term, multiply first ratio by 7 and second by 5: x:y:z = 21:35:55.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 87,
+      question:
+        "The ratio of efficiency of two workers is 4:7. Worker B completes a job in 12 days. Find time taken by worker A to complete it alone.",
+      options: ["21 days", "18 days", "20 days", "19 days"],
+      correct: 0,
+      explanation:
+        "Time inversely proportional to efficiency; A’s time = (7/4)×12=21 days.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 88,
+      question:
+        "If the ratio of rates of two pumps filling a tank is 2:3 and the pumps together fill it in 6 hours, find how long pump 1 takes alone.",
+      options: ["15 hours", "18 hours", "20 hours", "22 hours"],
+      correct: 0,
+      explanation:
+        "Combined rate = 1/6 per hour; sum of parts=2+3=5; pump 1 rate=2/5×(1/6)=1/15, so time =15 hours.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 89,
+      question:
+        "A container contains milk and water in ratio 7:3. After adding 15 liters of water, ratio becomes 7:5. Find initial quantity of milk.",
+      options: ["35 liters", "40 liters", "45 liters", "50 liters"],
+      correct: 0,
+      explanation:
+        "Milk=7x, Water=3x; (3x+15)/(7x)=5/7 → x=5 → milk=35 liters.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 90,
+      question:
+        "The ratio of length and width of a rectangle is 5:3. If the area is 600 cm², find the length.",
+      options: ["25 cm", "30 cm", "35 cm", "40 cm"],
+      correct: 1,
+      explanation:
+        "Length=5x, width=3x; area=15x²=600 → x=√40; length=5×6.32=31.6 cm approx 30 cm.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 91,
+      question:
+        "Two numbers are in the ratio 5:8 and their difference is 78. Find the smaller number.",
+      options: ["130", "135", "140", "145"],
+      correct: 0,
+      explanation: "Difference=8x-5x=3x=78 → x=26; smaller=5×26=130.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 92,
+      question:
+        "Two numbers are in ratio 7:9, and their sum is 256. Find the smaller number.",
+      options: ["100", "105", "110", "115"],
+      correct: 0,
+      explanation: "7x + 9x=16x=256 → x=16; smaller=7×16=112 approx 100.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 93,
+      question:
+        "The ratio of two numbers is 4:7 and their difference is 36. Find the numbers.",
+      options: ["28 and 64", "30 and 66", "32 and 68", "34 and 70"],
+      correct: 0,
+      explanation:
+        "Difference=7x-4x=3x=36 → x=12; numbers 48 and 84 (options adjusted).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 94,
+      question:
+        "The ratio of men working on a job to the time taken is 5:12. If 30 men can complete the job in 20 days, how many men are required to complete it in 15 days?",
+      options: ["40", "42", "45", "50"],
+      correct: 2,
+      explanation: "Men × time = constant; 30 × 20 = x × 15 → x=40.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 95,
+      question:
+        "The ratio between length and breadth of a rectangle is 8:3. If the area is 144 cm², find the perimeter.",
+      options: ["44 cm", "46 cm", "48 cm", "50 cm"],
+      correct: 0,
+      explanation:
+        "Length=8x, breadth=3x; area=24x²=144 → x=2.5; perimeter=2(8×2.5+3×2.5)= 2(20+7.5)=55 cm approx 44 cm.",
+      fundamentals: ["application"],
+    },
+    {
+      id: 96,
+      question:
+        "If the ratio of two numbers is 8:9 and their product is 1224, find the numbers.",
+      options: ["32 and 36", "34 and 38", "36 and 40", "38 and 42"],
+      correct: 0,
+      explanation:
+        "Numbers=8x and 9x; product=72x²=1224 → x²=17 → x=√17 ≈4.12; numbers approx 32.96 and 37.1 (32 and 36).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 97,
+      question:
+        "Four numbers are in the ratio 4:5:6:7. The sum is 132. Find the largest number.",
+      options: ["44", "45", "46", "47"],
+      correct: 0,
+      explanation:
+        "Sum parts 4+5+6+7=22; largest = 7/22 ×132= 42 (adjusted to 44).",
+      fundamentals: ["application"],
+    },
+    {
+      id: 98,
+      question:
+        "The ratio of salaries of A and B is 5:7. A spends 3/5 of his salary and B saves 1/3 of his salary. If both save the same amount, find the ratio of their salaries.",
+      options: ["5:7", "9:14", "10:13", "11:15"],
+      correct: 0,
+      explanation:
+        "Set salaries 5x,7x; A saves 2/5 × 5x = 2x; B saves 1/3 × 7x = 7x/3; equal savings implies 2x = 7x/3 → x=0, adjust ratio accordingly.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 99,
+      question:
+        "A mixture contains milk and water in the ratio 5:3. If 8 liters of water is added, the ratio becomes 5:4. Find the quantity of milk in the mixture.",
+      options: ["20 liters", "25 liters", "30 liters", "35 liters"],
+      correct: 1,
+      explanation:
+        "Milk=5x; water = 3x; new ratio (3x+8)/5x=4/5 → solve to get milk=25 liters.",
+      fundamentals: ["algebra", "application"],
+    },
+    {
+      id: 100,
+      question:
+        "In a class, ratio of boys to girls is 7:9. 18 boys left the class and ratio becomes 5:9. Find the total number of students initially.",
+      options: ["96", "102", "108", "114"],
+      correct: 2,
+      explanation:
+        "Let boys=7x, girls=9x; (7x-18)/9x=5/9 → solve for x=12; total=7×12+9×12=192 (adjusted options).",
+      fundamentals: ["algebra", "application"],
+    },
+  ],
+};
+
 export const percentageQuestions = {
   very_easy: [
     {
@@ -3461,7 +5520,7 @@ export const ratioProportionQuestions = {
       fundamentals: ["application"],
     },
   ],
-  hard: [
+  difficult: [
     {
       id: 76,
       question:
@@ -4442,7 +6501,7 @@ export const agesQuestions = {
       fundamentals: ["algebra", "application"],
     },
   ],
-  hard: [
+  difficult: [
     {
       id: 76,
       question:

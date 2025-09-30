@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { percentageQuestions } from "../assets/dataset/quiz-data.js";
+import {mixedQuestions} from "../assets/dataset/quiz-data.js";
 import mygif from "../assets/images/firework.gif";
 
 const Apti = () => {
@@ -88,7 +88,7 @@ const Apti = () => {
 
   const loadNextQuestion = () => {
     const difficulty = getNextDifficulty();
-    const questionsPool = percentageQuestions[difficulty];
+    const questionsPool = mixedQuestions[difficulty];
 
     const availableQuestions = questionsPool.filter(
       (q) => !usedQuestions.has(q.id)
@@ -569,7 +569,7 @@ const Apti = () => {
               className="text-4xl font-mono font-bold text-gray-800 mb-2 animate-slide-in-left mt-4"
               style={{ paddingLeft: "20vw" }}
             >
-              Aptitude: <span className="text-blue-600">Percentage</span>
+              Aptitude: <span className="text-blue-600">Mixed</span>
             </h1>
           </div>
 
