@@ -18,7 +18,6 @@ const Assess = () => {
   const [submitted, setSubmitted] = useState(false);
   const { user } = useAuth();
 
-
   const [currentQuestionTime, setCurrentQuestionTime] = useState(0);
 
   // Test configuration: 1 very easy, 3 easy, 3 moderate, 3 difficult = 10 total
@@ -82,8 +81,8 @@ const Assess = () => {
   // };
 
   const generateTestQuestions = () => {
-    console.log("=== Starting Test Generation ===");
-    console.log("Available difficulties:", Object.keys(mixedQuestions));
+    // console.log("=== Starting Test Generation ===");
+    // console.log("Available difficulties:", Object.keys(mixedQuestions));
 
     const selectedQuestions = [];
     const errors = [];
@@ -120,7 +119,7 @@ const Assess = () => {
 
       const selected = shuffled.slice(0, Math.min(count, questionsPool.length));
 
-      console.log(`  ✅ Selected: ${selected.length} questions`);
+      // console.log(`  ✅ Selected: ${selected.length} questions`);
 
       // Add difficulty field if it doesn't exist
       const questionsWithDifficulty = selected.map((q) => ({
@@ -131,9 +130,9 @@ const Assess = () => {
       selectedQuestions.push(...questionsWithDifficulty);
     });
 
-    console.log(
-      `\n=== Total Selected: ${selectedQuestions.length} questions ===`
-    );
+    // console.log(
+    // `\n=== Total Selected: ${selectedQuestions.length} questions ===`
+    // );
 
     // Show errors if any
     if (errors.length > 0) {
@@ -149,7 +148,7 @@ const Assess = () => {
     shuffledTest.forEach((q) => {
       distribution[q.difficulty] = (distribution[q.difficulty] || 0) + 1;
     });
-    console.log("Final distribution:", distribution);
+    // console.log("Final distribution:", distribution);
 
     setTestQuestions(shuffledTest);
 
@@ -334,8 +333,9 @@ const Assess = () => {
               Test Results
             </h1>
             <h6 className="text-md text-center text-gray-800 mb-8">
-  (Note: To view completed questions and answers, please download the report card from the "Previous Results" section.)
-</h6>
+              (Note: To view completed questions and answers, please download
+              the report card from the "Previous Results" section.)
+            </h6>
 
             <div className="flex justify-center mb-4">
               <button
@@ -350,7 +350,6 @@ const Assess = () => {
                     const pageHeight = pdf.internal.pageSize.getHeight();
 
                     // Access user details for the styled header
-                  
 
                     // Colors
                     const blue = [37, 99, 235]; // #2563eb
@@ -521,7 +520,6 @@ const Assess = () => {
               >
                 Download Report
               </button>
-              
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
