@@ -54,28 +54,110 @@ const Assess = () => {
       .padStart(2, "0")}`;
   };
 
+  // const generateTestQuestions = () => {
+  //   const selectedQuestions = [];
+
+  //   Object.keys(testConfig).forEach((difficulty) => {
+  //     const questionsPool = mixedQuestions[difficulty];
+  //     const count = testConfig[difficulty];
+
+  //     // Shuffle and select required number of questions
+  //     const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
+  //     const selected = shuffled.slice(0, count);
+
+  //     selectedQuestions.push(...selected);
+  //   });
+
+  //   // Shuffle the final test questions
+  //   const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
+  //   setTestQuestions(shuffledTest);
+
+  //   if (shuffledTest.length > 0) {
+  //     setCurrentQuestion(shuffledTest[0]);
+  //     setQuestionStartTime(Date.now());
+  //     setCurrentQuestionTime(0);
+  //   }
+  // };
+
   const generateTestQuestions = () => {
+    console.log("=== Starting Test Generation ===");
+    console.log("Available difficulties:", Object.keys(mixedQuestions));
+
     const selectedQuestions = [];
+    const errors = [];
 
-    Object.keys(testConfig).forEach((difficulty) => {
+    // Iterate through each difficulty level in testConfig
+    Object.entries(testConfig).forEach(([difficulty, count]) => {
       const questionsPool = mixedQuestions[difficulty];
-      const count = testConfig[difficulty];
 
-      // Shuffle and select required number of questions
+      console.log(`\n${difficulty}:`);
+      console.log(`  Required: ${count}`);
+      console.log(`  Available: ${questionsPool?.length || 0}`);
+
+      // Validate questions pool exists and has questions
+      if (
+        !questionsPool ||
+        !Array.isArray(questionsPool) ||
+        questionsPool.length === 0
+      ) {
+        const error = `No questions available for difficulty: ${difficulty}`;
+        console.error(`  ❌ ${error}`);
+        errors.push(error);
+        return;
+      }
+
+      // Check if we have enough questions
+      if (questionsPool.length < count) {
+        console.warn(
+          `  ⚠️ Only ${questionsPool.length} questions available, need ${count}`
+        );
+      }
+
+      // Create a shuffled copy and select questions
       const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, count);
 
-      selectedQuestions.push(...selected);
+      const selected = shuffled.slice(0, Math.min(count, questionsPool.length));
+
+      console.log(`  ✅ Selected: ${selected.length} questions`);
+
+      // Add difficulty field if it doesn't exist
+      const questionsWithDifficulty = selected.map((q) => ({
+        ...q,
+        difficulty: q.difficulty || difficulty,
+      }));
+
+      selectedQuestions.push(...questionsWithDifficulty);
     });
 
-    // Shuffle the final test questions
+    console.log(
+      `\n=== Total Selected: ${selectedQuestions.length} questions ===`
+    );
+
+    // Show errors if any
+    if (errors.length > 0) {
+      console.error("Errors encountered:", errors);
+      alert(`Failed to load questions:\n${errors.join("\n")}`);
+    }
+
+    // Shuffle all selected questions together
     const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
+
+    // Log final distribution
+    const distribution = {};
+    shuffledTest.forEach((q) => {
+      distribution[q.difficulty] = (distribution[q.difficulty] || 0) + 1;
+    });
+    console.log("Final distribution:", distribution);
+
     setTestQuestions(shuffledTest);
 
     if (shuffledTest.length > 0) {
       setCurrentQuestion(shuffledTest[0]);
       setQuestionStartTime(Date.now());
       setCurrentQuestionTime(0);
+    } else {
+      console.error("No questions were generated!");
+      alert("Failed to generate test. Please check console for details.");
     }
   };
 

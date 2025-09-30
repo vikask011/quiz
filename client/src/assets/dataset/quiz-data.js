@@ -161,7 +161,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 1,
+      id: 21,
       question: "What is 10% of 100?",
       options: ["5", "10", "15", "20"],
       correct: 1,
@@ -169,7 +169,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application"],
     },
     {
-      id: 2,
+      id: 22,
       question: "Convert 0.5 to percentage",
       options: ["5%", "50%", "0.5%", "500%"],
       correct: 1,
@@ -177,7 +177,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "retention"],
     },
     {
-      id: 3,
+      id: 23,
       question: "What is 25% of 20?",
       options: ["4", "5", "6", "7"],
       correct: 0,
@@ -185,7 +185,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 4,
+      id: 24,
       question: "Convert 1/4 to percentage",
       options: ["20%", "25%", "30%", "40%"],
       correct: 1,
@@ -193,7 +193,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "retention"],
     },
     {
-      id: 5,
+      id: 25,
       question: "What is 50% of 80?",
       options: ["30", "35", "40", "45"],
       correct: 2,
@@ -201,7 +201,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 1,
+      id: 26,
       question: "What is the ratio of 4 to 5?",
       options: ["4:5", "5:4", "9:1", "1:9"],
       correct: 0,
@@ -209,7 +209,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application"],
     },
     {
-      id: 2,
+      id: 27,
       question: "If 2 pencils cost $6, what is the cost of 1 pencil?",
       options: ["$2", "$3", "$4", "$5"],
       correct: 1,
@@ -217,7 +217,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 3,
+      id: 28,
       question:
         "The ratio of apples to oranges is 3:4. If there are 12 apples, how many oranges?",
       options: ["16", "15", "18", "20"],
@@ -226,7 +226,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 4,
+      id: 29,
       question: "Simplify the ratio 10:15.",
       options: ["2:3", "3:2", "5:7", "7:5"],
       correct: 0,
@@ -234,7 +234,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 5,
+      id: 30,
       question:
         "If 5 liters of paint cover 50 square meters, how many liters are needed for 100 square meters?",
       options: ["8", "10", "12", "15"],
@@ -244,7 +244,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 6,
+      id: 31,
       question:
         "Divide $60 between A and B in the ratio 1:2. How much does B get?",
       options: ["$20", "$30", "$40", "$50"],
@@ -253,7 +253,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 7,
+      id: 32,
       question: "If ₹480 is divided in ratio 3:5, what is A’s share?",
       options: ["₹180", "₹180", "₹200", "₹300"],
       correct: 0,
@@ -261,7 +261,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 8,
+      id: 33,
       question:
         "If the ratio of two numbers is 7:9 and their sum is 32, find the larger number.",
       options: ["14", "16", "18", "20"],
@@ -270,7 +270,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 9,
+      id: 34,
       question: "What is 5:8 expressed as a fraction?",
       options: ["5/13", "5/8", "8/5", "3/5"],
       correct: 1,
@@ -278,7 +278,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 10,
+      id: 35,
       question: "Scale the ratio 3:7 by 2.",
       options: ["6:14", "5:14", "7:3", "9:14"],
       correct: 0,
@@ -286,7 +286,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 11,
+      id: 36,
       question: "If 4 oranges cost $2, how many oranges can be bought for $6?",
       options: ["10", "12", "14", "16"],
       correct: 1,
@@ -295,7 +295,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 12,
+      id: 37,
       question:
         "The lengths of two sides of a rectangle are in ratio 5:3. If the shorter side is 12 cm, find the longer side.",
       options: ["15 cm", "18 cm", "20 cm", "22 cm"],
@@ -305,7 +305,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 13,
+      id: 38,
       question:
         "The ratio of boys to girls in a class is 2:3. If there are 20 boys, how many girls?",
       options: ["25", "30", "35", "40"],
@@ -314,7 +314,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 14,
+      id: 39,
       question: "Simplify the ratio 12:16.",
       options: ["3:4", "4:3", "2:3", "3:2"],
       correct: 0,
@@ -322,7 +322,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 15,
+      id: 40,
       question:
         "A mixture contains milk and water in the ratio 5:4. What is the quantity of milk in 18 liters of mixture?",
       options: ["9 liters", "10 liters", "11 liters", "12 liters"],
@@ -332,7 +332,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 16,
+      id: 41,
       question:
         "If the ratio of ages of A and B is 3:4 and A is 21 years old, find B’s age.",
       options: ["25", "27", "28", "30"],
@@ -341,7 +341,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 17,
+      id: 42,
       question: "Express 45:60 as the simplest ratio.",
       options: ["3:4", "4:3", "2:3", "3:2"],
       correct: 0,
@@ -349,7 +349,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 18,
+      id: 43,
       question:
         "A sum of money is divided between A and B in the ratio 7:5. If B gets $100, how much does A get?",
       options: ["$120", "$140", "$160", "$180"],
@@ -359,7 +359,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 19,
+      id: 44,
       question:
         "If the ratio of two numbers is 5:2 and their product is 250, find the numbers.",
       options: ["25 and 10", "15 and 10", "20 and 10", "30 and 12"],
@@ -369,7 +369,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 20,
+      id: 45,
       question:
         "Divide $1800 between A, B and C in the ratio 3:4:5. Find C’s share.",
       options: ["$600", "$650", "$700", "$750"],
@@ -378,7 +378,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 21,
+      id: 46,
       question:
         "The ratio of two numbers is 5:7. If their sum is 72, find the smaller number.",
       options: ["30", "32", "34", "35"],
@@ -387,7 +387,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 22,
+      id: 47,
       question:
         "A mixture contains alcohol and water in ratio 7:3. If 2 liters of water is added, the ratio becomes 7:5. Find initial quantity of alcohol.",
       options: ["7 liters", "8 liters", "9 liters", "10 liters"],
@@ -397,7 +397,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 23,
+      id: 48,
       question:
         "If the ratio of boys to girls is 7:9 and there are 56 boys, find the total number of children.",
       options: ["128", "136", "140", "144"],
@@ -407,7 +407,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 24,
+      id: 49,
       question:
         "The ratio of parts of a mixture of milk and water is 3:2. If the mixture is 50 liters, find amount of water.",
       options: ["20 liters", "25 liters", "30 liters", "35 liters"],
@@ -416,7 +416,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 25,
+      id: 50,
       question:
         "The number 72 is divided in the ratio 5:7. Find the difference between the parts.",
       options: ["16", "18", "20", "22"],
@@ -429,7 +429,7 @@ export const mixedQuestions = {
 
   easy: [
     {
-      id: 26,
+      id: 51,
       question: "If 20% of a number is 40, what is the number?",
       options: ["160", "180", "200", "220"],
       correct: 2,
@@ -438,7 +438,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application", "retention"],
     },
     {
-      id: 27,
+      id: 52,
       question:
         "A shirt costs $80. If there's a 15% discount, what's the final price?",
       options: ["$68", "$70", "$72", "$75"],
@@ -447,7 +447,7 @@ export const mixedQuestions = {
       fundamentals: ["application", "listening"],
     },
     {
-      id: 28,
+      id: 53,
       question: "What percentage is 30 out of 120?",
       options: ["20%", "25%", "30%", "35%"],
       correct: 1,
@@ -455,7 +455,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application"],
     },
     {
-      id: 29,
+      id: 54,
       question:
         "If a student scored 85 out of 100, what percentage did they get?",
       options: ["80%", "85%", "90%", "95%"],
@@ -464,7 +464,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 30,
+      id: 55,
       question: "Increase 60 by 25%",
       options: ["70", "75", "80", "85"],
       correct: 1,
@@ -472,7 +472,7 @@ export const mixedQuestions = {
       fundamentals: ["application", "retention"],
     },
     {
-      id: 31,
+      id: 56,
       question: "If 20% of a number is 40, what is the number?",
       options: ["160", "180", "200", "220"],
       correct: 2,
@@ -480,7 +480,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application", "retention"],
     },
     {
-      id: 32,
+      id: 57,
       question:
         "A shirt costs $80. If there's a 15% discount, what's the final price?",
       options: ["$68", "$70", "$72", "$75"],
@@ -489,7 +489,7 @@ export const mixedQuestions = {
       fundamentals: ["application", "listening"],
     },
     {
-      id: 33,
+      id: 58,
       question: "What percentage is 30 out of 120?",
       options: ["20%", "25%", "30%", "35%"],
       correct: 1,
@@ -497,7 +497,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 34,
+      id: 59,
       question:
         "If a student scored 85 out of 100, what percentage did they get?",
       options: ["80%", "85%", "90%", "95%"],
@@ -506,7 +506,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 35,
+      id: 60,
       question: "Increase 60 by 25%",
       options: ["70", "75", "80", "85"],
       correct: 1,
@@ -514,7 +514,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 36,
+      id: 61,
       question: "Decrease 200 by 10%",
       options: ["180", "185", "190", "195"],
       correct: 2,
@@ -522,7 +522,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 37,
+      id: 62,
       question: "Convert 3/20 to percentage.",
       options: ["12%", "15%", "18%", "20%"],
       correct: 1,
@@ -530,7 +530,7 @@ export const mixedQuestions = {
       fundamentals: ["retention"],
     },
     {
-      id: 38,
+      id: 63,
       question: "If 40 is 25% of a number, find the number.",
       options: ["100", "140", "150", "160"],
       correct: 2,
@@ -538,7 +538,7 @@ export const mixedQuestions = {
       fundamentals: ["application", "retention"],
     },
     {
-      id: 39,
+      id: 64,
       question:
         "A price decreased from $200 to $180. Find percentage decrease.",
       options: ["5%", "8%", "10%", "12%"],
@@ -547,7 +547,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 40,
+      id: 65,
       question: "If 75 is 30% of a number, what is the number?",
       options: ["220", "230", "240", "250"],
       correct: 3,
@@ -555,7 +555,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 41,
+      id: 66,
       question: "Convert 7/50 into percentage.",
       options: ["12%", "13%", "14%", "15%"],
       correct: 3,
@@ -563,7 +563,7 @@ export const mixedQuestions = {
       fundamentals: ["retention"],
     },
     {
-      id: 42,
+      id: 67,
       question:
         "In an exam, a student got 45 marks out of 60. Find the percentage.",
       options: ["70%", "72%", "74%", "75%"],
@@ -572,7 +572,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 43,
+      id: 68,
       question: "A value increases from 400 to 500. Find percentage increase.",
       options: ["20%", "22.5%", "25%", "30%"],
       correct: 2,
@@ -580,7 +580,7 @@ export const mixedQuestions = {
       fundamentals: ["application", "retention"],
     },
     {
-      id: 44,
+      id: 69,
       question: "Find 12% of 250.",
       options: ["25", "28", "30", "32"],
       correct: 2,
@@ -588,7 +588,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 45,
+      id: 70,
       question: "Convert 0.08 into a percentage.",
       options: ["6%", "8%", "10%", "12%"],
       correct: 1,
@@ -596,7 +596,7 @@ export const mixedQuestions = {
       fundamentals: ["retention"],
     },
     {
-      id: 46,
+      id: 71,
       question:
         "A man spends 30% of his income. If his income is $2000, find savings.",
       options: ["1200", "1300", "1400", "1500"],
@@ -605,7 +605,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 47,
+      id: 72,
       question: "What is 60% of 400?",
       options: ["200", "220", "230", "240"],
       correct: 3,
@@ -613,7 +613,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 48,
+      id: 73,
       question: "If 25% of x = 75, then x = ?",
       options: ["200", "250", "300", "350"],
       correct: 2,
@@ -621,7 +621,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 49,
+      id: 74,
       question: "Convert 9/20 into percentage.",
       options: ["40%", "42%", "44%", "45%"],
       correct: 3,
@@ -629,7 +629,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 50,
+      id: 75,
       question: "Find 35% of 720.",
       options: ["240", "252", "260", "265"],
       correct: 1,
@@ -637,7 +637,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 26,
+      id: 76,
       question:
         "The ratio of ages of father and son is 7:3. If father is 42 years old, find the son’s age.",
       options: ["15", "16", "17", "18"],
@@ -646,7 +646,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 27,
+      id: 77,
       question:
         "After 10 years, the age of a son will be half the age of the father. If the father’s age is 50 now, find the son’s current age.",
       options: ["15", "17", "18", "20"],
@@ -656,7 +656,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 28,
+      id: 78,
       question:
         "Five years ago, a father was five times as old as his son. Ten years hence, the father will be three times as old as his son. Find their current ages.",
       options: ["40 and 8", "35 and 7", "45 and 9", "50 and 10"],
@@ -666,7 +666,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 29,
+      id: 79,
       question:
         "The ratio of ages of A and B is 4:7. After 4 years, their ages will be in ratio 5:8. Find their current ages.",
       options: ["20 and 35", "24 and 42", "28 and 49", "32 and 56"],
@@ -676,7 +676,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 30,
+      id: 80,
       question:
         "The ages of A and B are in ratio 3:5. The difference between their ages is 10. Find their ages.",
       options: ["15 and 25", "18 and 30", "21 and 35", "24 and 40"],
@@ -685,7 +685,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 31,
+      id: 81,
       question:
         "John is 6 years older than Peter. If the ratio of their ages 4 years ago was 2:3, what is John’s current age?",
       options: ["24", "25", "26", "28"],
@@ -695,7 +695,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 32,
+      id: 82,
       question:
         "A man’s present age is three times that of his son. After 5 years, the man’s age will be twice that of his son. Find their present ages.",
       options: ["30 and 10", "27 and 9", "36 and 12", "33 and 11"],
@@ -705,7 +705,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 33,
+      id: 83,
       question:
         "The sum of ages of A and B is 70. After 5 years, the ratio of their ages will be 4:5. Find their present ages.",
       options: ["30 and 40", "32 and 38", "35 and 35", "34 and 36"],
@@ -715,7 +715,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 34,
+      id: 84,
       question:
         "The difference in ages of A and B is 4 years. Three years ago, the ratio of their ages was 5:7. Find their present ages.",
       options: ["18 and 22", "20 and 24", "22 and 26", "24 and 28"],
@@ -725,7 +725,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 35,
+      id: 85,
       question:
         "If the ratio of the present ages of A and B is 7:5 and the difference between their ages is 12 years, find their ages after 5 years.",
       options: ["19 and 17", "20 and 18", "21 and 19", "22 and 20"],
@@ -735,7 +735,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 36,
+      id: 86,
       question:
         "The present ages of a father and son are in the ratio 8:3. After 10 years, the ratio will be 5:2. Find their current ages.",
       options: ["40 and 15", "48 and 18", "56 and 21", "64 and 24"],
@@ -745,7 +745,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 37,
+      id: 87,
       question:
         "The ratio of ages of two friends is 4:7, and the sum of their ages is 44 years. What will be the ratio after 2 years?",
       options: ["5:8", "6:9", "9:14", "8:13"],
@@ -755,7 +755,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 38,
+      id: 88,
       question:
         "Two numbers are in the ratio 5:6. If the sum is increased by 11, their ratio becomes 3:4. Find the original numbers.",
       options: ["15 and 18", "20 and 24", "25 and 30", "30 and 36"],
@@ -765,7 +765,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 39,
+      id: 89,
       question:
         "The ratio of ages of father and son is 9:4 and their ages are 39 and 17 years respectively. After how many years will the ratio be 5:2?",
       options: ["4", "5", "6", "7"],
@@ -774,7 +774,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 40,
+      id: 90,
       question:
         "A father is thrice as old as his son. After 10 years, the father will be twice as old. Find their present ages.",
       options: ["30 and 10", "36 and 12", "40 and 13", "45 and 15"],
@@ -784,7 +784,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 41,
+      id: 91,
       question:
         "The sum of ages of A and B is 180 years. If their ages are in the ratio 2:3, find their present ages.",
       options: ["60 and 90", "70 and 110", "80 and 100", "50 and 130"],
@@ -794,7 +794,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 42,
+      id: 92,
       question:
         "The sum of ages of three persons A, B, and C is 96 years. The ratio of their ages is 3:5:4. Find the age of B.",
       options: ["30", "32", "35", "40"],
@@ -803,7 +803,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 43,
+      id: 93,
       question:
         "A man is twice as old as his daughter. After 15 years, he will be 1.5 times as old. Find their present ages.",
       options: ["60 and 30", "50 and 25", "48 and 24", "40 and 20"],
@@ -813,7 +813,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 44,
+      id: 94,
       question:
         "The ratio of the ages of a mother and daughter is 5:2. If mother’s age is 45 years, what is the daughter’s age?",
       options: ["15", "18", "20", "22"],
@@ -823,7 +823,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 45,
+      id: 95,
       question:
         "A man is 30 years older than his son. In 12 years, the man will be twice as old as his son. Find the present ages.",
       options: ["50 and 20", "48 and 18", "46 and 16", "44 and 14"],
@@ -833,7 +833,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 46,
+      id: 96,
       question:
         "Two numbers are in the ratio 3:5. If the difference between their squares is 208, find the numbers.",
       options: ["11 and 15", "13 and 21", "15 and 25", "17 and 29"],
@@ -843,7 +843,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 47,
+      id: 97,
       question:
         "The ages of three sisters are in the ratio 4:5:6. After 5 years, the ratio will be 5:6:7. Find the sum of their present ages.",
       options: ["45", "60", "75", "90"],
@@ -853,7 +853,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 48,
+      id: 98,
       question:
         "If A is twice as old as B and the sum of their ages is 54, find their ages.",
       options: ["24 and 30", "18 and 36", "20 and 34", "16 and 38"],
@@ -862,7 +862,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 49,
+      id: 99,
       question:
         "The ages of two brothers are in the ratio 3:4. Ten years ago, the ratio was 2:3. Find their present ages.",
       options: ["30 and 40", "32 and 42", "35 and 45", "28 and 38"],
@@ -872,7 +872,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 50,
+      id: 100,
       question:
         "The sum of ages of two persons is 48. Two years ago, their ages were in the ratio 3:5. Find their present ages.",
       options: ["16 and 32", "18 and 30", "20 and 28", "15 and 33"],
@@ -885,7 +885,7 @@ export const mixedQuestions = {
 
   moderate: [
     {
-      id: 51,
+      id: 101,
       question:
         "A population increases from 8000 to 9200. What is the percentage increase?",
       options: ["12%", "15%", "18%", "20%"],
@@ -895,7 +895,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application", "retention"],
     },
     {
-      id: 52,
+      id: 102,
       question:
         "If 35% of students passed and 260 students failed, how many students appeared?",
       options: ["380", "400", "420", "450"],
@@ -905,7 +905,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application"],
     },
     {
-      id: 53,
+      id: 103,
       question:
         "A number decreased by 20% becomes 240. What was the original number?",
       options: ["280", "300", "320", "340"],
@@ -915,7 +915,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping", "application", "retention"],
     },
     {
-      id: 54,
+      id: 104,
       question: "What is 12.5% of 640?",
       options: ["70", "75", "80", "85"],
       correct: 2,
@@ -923,7 +923,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 55,
+      id: 105,
       question:
         "If the price of an item increases by 40% and then decreases by 25%, what is the net change?",
       options: ["5% increase", "10% increase", "15% increase", "20% increase"],
@@ -933,7 +933,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 56,
+      id: 106,
       question: "A population increases from 8000 to 9200. What % increase?",
       options: ["12%", "15%", "18%", "20%"],
       correct: 1,
@@ -941,7 +941,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 57,
+      id: 107,
       question: "If 35% students passed and 260 failed, find total.",
       options: ["380", "400", "420", "450"],
       correct: 1,
@@ -949,7 +949,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 58,
+      id: 108,
       question: "A number decreased by 20% becomes 240. Original?",
       options: ["280", "300", "320", "340"],
       correct: 1,
@@ -957,7 +957,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 59,
+      id: 109,
       question: "What is 12.5% of 640?",
       options: ["60", "70", "75", "80"],
       correct: 3,
@@ -965,7 +965,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 60,
+      id: 110,
       question: "Price ↑ 40% then ↓ 25%. Net change?",
       options: ["5% increase", "10% increase", "15% increase", "20% increase"],
       correct: 0,
@@ -973,7 +973,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 61,
+      id: 111,
       question: "Successive changes +20%, -20%. Net?",
       options: ["No change", "4% decrease", "4% increase", "5% increase"],
       correct: 1,
@@ -981,7 +981,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 62,
+      id: 112,
       question: "If 45% of x = 180, x=?",
       options: ["350", "380", "400", "420"],
       correct: 2,
@@ -989,7 +989,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 63,
+      id: 113,
       question: "Price from 250 to 300. % increase?",
       options: ["15%", "18%", "20%", "25%"],
       correct: 2,
@@ -997,7 +997,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 64,
+      id: 114,
       question: "Salary ↓10% then ↑10%. Net?",
       options: ["No change", "1% increase", "1% decrease", "2% decrease"],
       correct: 2,
@@ -1005,7 +1005,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 65,
+      id: 115,
       question: "If a student got 270/450 marks, %=?",
       options: ["58%", "59%", "60%", "62%"],
       correct: 2,
@@ -1013,7 +1013,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 66,
+      id: 116,
       question: "Value increases 25% two years successively. Net?",
       options: ["50%", "55.25%", "56.25%", "60%"],
       correct: 2,
@@ -1021,7 +1021,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 67,
+      id: 117,
       question: "30% of x is 150. Find x.",
       options: ["400", "450", "500", "550"],
       correct: 2,
@@ -1029,7 +1029,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 68,
+      id: 118,
       question: "If a quantity halves, what is % decrease?",
       options: ["25%", "40%", "50%", "60%"],
       correct: 2,
@@ -1037,7 +1037,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 69,
+      id: 119,
       question: "Value ↓75 to 60. % decrease?",
       options: ["15%", "18%", "20%", "25%"],
       correct: 3,
@@ -1045,7 +1045,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 70,
+      id: 120,
       question: "Attendance ↑ from 600 to 750. Percent ↑?",
       options: ["20%", "22%", "25%", "30%"],
       correct: 2,
@@ -1053,7 +1053,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 71,
+      id: 121,
       question: "Price ↑10%, then again ↑20%. Net?",
       options: ["31%", "32%", "33%", "34%"],
       correct: 0,
@@ -1061,7 +1061,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 72,
+      id: 122,
       question: "Find 22.5% of 400.",
       options: ["80", "85", "90", "95"],
       correct: 2,
@@ -1069,7 +1069,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 73,
+      id: 123,
       question: "If 15% profit on cost=300. Cost=?",
       options: ["1800", "1900", "2000", "2100"],
       correct: 2,
@@ -1077,7 +1077,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 74,
+      id: 124,
       question: "Two numbers differ by 20%. Larger is?",
       options: ["1.1 times", "1.2 times", "0.8 times", "1.25 times"],
       correct: 1,
@@ -1085,7 +1085,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 75,
+      id: 125,
       question: "Population 2000↑10%, find growth.",
       options: ["150", "170", "180", "200"],
       correct: 3,
@@ -1096,7 +1096,7 @@ export const mixedQuestions = {
 
   difficult: [
     {
-      id: 76,
+      id: 126,
       question: "In election, A=45%, B=35%, rest invalid=2400. Total?",
       options: ["10000", "12000", "14000", "16000"],
       correct: 1,
@@ -1104,7 +1104,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 77,
+      id: 127,
       question: "A’s salary=25% more than B. B ↑20%. % difference?",
       options: ["4.17%", "5.25%", "6.33%", "7%"],
       correct: 0,
@@ -1112,7 +1112,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 78,
+      id: 128,
       question: "Mix 40% alcohol, 50L. Diluted to 25%. Water?",
       options: ["20L", "25L", "30L", "35L"],
       correct: 2,
@@ -1120,7 +1120,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 79,
+      id: 129,
       question: "Rect length ↑30%, width ↓20%. Area?",
       options: ["4% increase", "5% increase", "6% increase", "10% increase"],
       correct: 0,
@@ -1128,7 +1128,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 80,
+      id: 130,
       question: "Shopkeeper markup=60%, discount 20%+15%. Profit?",
       options: ["8.8%", "9.2%", "10.4%", "12.6%"],
       correct: 0,
@@ -1136,7 +1136,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 81,
+      id: 131,
       question: "Company revenue ↑25% yr1, ↓20% yr2. Net?",
       options: ["0%", "2%", "3%", "4%"],
       correct: 2,
@@ -1144,7 +1144,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 82,
+      id: 132,
       question: "A’s marks 30% less than B’s. B=400. A=?",
       options: ["270", "280", "290", "300"],
       correct: 3,
@@ -1152,7 +1152,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 83,
+      id: 133,
       question:
         "A fruit-seller buys at 25% discount, sells at marked price. Profit?",
       options: ["25%", "33%", "50%", "20%"],
@@ -1161,7 +1161,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 84,
+      id: 134,
       question: "Number↑300% then ↓75%=?",
       options: ["Same", "Decrease", "Increase double", "Increase half"],
       correct: 0,
@@ -1169,7 +1169,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 85,
+      id: 135,
       question: "30% of sugar=12kg. Sugar total?",
       options: ["30", "35", "40", "45"],
       correct: 2,
@@ -1177,7 +1177,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 86,
+      id: 136,
       question: "Salary ↑20% then ↓20%. Net?",
       options: ["4% increase", "4% decrease", "5% increase", "no change"],
       correct: 1,
@@ -1185,7 +1185,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 87,
+      id: 137,
       question: "Dealer markup 50%, discount 20%. Profit?",
       options: ["20%", "25%", "30%", "40%"],
       correct: 0,
@@ -1193,7 +1193,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 88,
+      id: 138,
       question: "Two successive discounts 30%, 20%. Net?",
       options: ["44%", "46%", "50%", "35%"],
       correct: 1,
@@ -1201,7 +1201,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 89,
+      id: 139,
       question: "Market price ↑20%, sales ↓20%. Revenue?",
       options: ["4% increase", "4% decrease", "No change", "2% decrease"],
       correct: 1,
@@ -1209,7 +1209,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 90,
+      id: 140,
       question: "Simple interest=25% of principal. Time=5 yr. Rate?",
       options: ["3%", "4%", "5%", "6%"],
       correct: 2,
@@ -1217,7 +1217,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 91,
+      id: 141,
       question: "Cost=200, sell=260. Profit %?",
       options: ["25%", "28%", "30%", "32%"],
       correct: 1,
@@ -1225,7 +1225,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 92,
+      id: 142,
       question: "If √x=0.6, % value of x?",
       options: ["30%", "36%", "40%", "42%"],
       correct: 1,
@@ -1233,7 +1233,7 @@ export const mixedQuestions = {
       fundamentals: ["grasping"],
     },
     {
-      id: 93,
+      id: 143,
       question: "x is 25% of y, y is 20% of z. Then x=?% of z",
       options: ["3%", "4%", "5%", "6%"],
       correct: 2,
@@ -1241,7 +1241,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 94,
+      id: 144,
       question:
         "Voting: 10% invalid, winner got 60% valid. Total=2000. Winner votes?",
       options: ["1000", "1080", "1200", "1260"],
@@ -1250,7 +1250,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 95,
+      id: 145,
       question: "Successive profits 20%, 25%. Net profit?",
       options: ["45%", "46%", "47%", "50%"],
       correct: 1,
@@ -1258,7 +1258,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 96,
+      id: 146,
       question:
         "In an election, candidate A got 45% votes, B got 35%, and the rest were invalid. If invalid votes were 2400, find total votes.",
       options: ["10000", "12000", "14000", "16000"],
@@ -1268,7 +1268,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 97,
+      id: 147,
       question:
         "A's salary is 25% more than B's. If B's salary increases by 20%, by what percentage is A's salary more than B's new salary?",
       options: ["4.17%", "5.25%", "6.33%", "8.50%"],
@@ -1278,7 +1278,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 98,
+      id: 148,
       question:
         "A mixture contains 40% alcohol. How much water should be added to 50L of this mixture to make it 25% alcohol?",
       options: ["20L", "25L", "30L", "35L"],
@@ -1288,7 +1288,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 99,
+      id: 149,
       question:
         "If the length of a rectangle increases by 30% and width decreases by 20%, what is the percentage change in area?",
       options: ["4% increase", "6% increase", "8% increase", "10% increase"],
@@ -1298,7 +1298,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 100,
+      id: 150,
       question:
         "A shopkeeper marks up goods by 60% but gives successive discounts of 20% and 15%. What is his profit percentage?",
       options: ["8.8%", "9.2%", "10.4%", "12.6%"],
@@ -1308,7 +1308,7 @@ export const mixedQuestions = {
       fundamentals: ["listening", "grasping", "application", "retention"],
     },
     {
-      id: 76,
+      id: 151,
       question:
         "A man bought an article for $1200 and sold two-thirds of it at a 25% profit and the rest at a 25% loss. Find his overall profit or loss percentage.",
       options: ["3.33% loss", "3.33% gain", "5% loss", "5% gain"],
@@ -1318,7 +1318,7 @@ export const mixedQuestions = {
       fundamentals: ["computation", "analysis"],
     },
     {
-      id: 77,
+      id: 152,
       question:
         "If a man sells an article at 10% loss, but the selling price is $450, what was the cost price?",
       options: ["470", "480", "500", "520"],
@@ -1327,7 +1327,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 78,
+      id: 153,
       question:
         "A shopkeeper sells two articles for $5,000 each. On the first article, he gains 20%, and on the second, he loses 20%. What is his overall gain or loss percentage?",
       options: ["No gain no loss", "2% loss", "2.5% gain", "4% loss"],
@@ -1337,7 +1337,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis"],
     },
     {
-      id: 79,
+      id: 154,
       question:
         "A trader bought some goods for $50,000 and sold them to get a profit of 15% after allowing 10% discount on the marked price. Find the marked price.",
       options: ["$58,000", "$60,000", "$62,500", "$65,000"],
@@ -1347,7 +1347,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 80,
+      id: 155,
       question:
         "A man sells an article at 12% profit. Had he sold it for $40 more, he would have gained 20%. Find the cost price.",
       options: ["$200", "$220", "$250", "$300"],
@@ -1357,7 +1357,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis"],
     },
     {
-      id: 81,
+      id: 156,
       question:
         "Cost price of a TV is $20,000. The shopkeeper allows 10% discount on the marked price and still makes a profit of $2,000. Find the marked price.",
       options: ["$22,000", "$24,000", "$25,555", "$26,330"],
@@ -1367,7 +1367,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 82,
+      id: 157,
       question:
         "An article is sold at 20% gain. If the profit made is $80, find the cost price and selling price.",
       options: [
@@ -1381,7 +1381,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 83,
+      id: 158,
       question:
         "An article is marked at $1,500 and sold for $1,350. Find the discount percentage.",
       options: ["8.25%", "10%", "9.4%", "11%"],
@@ -1391,7 +1391,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 84,
+      id: 159,
       question:
         "A man purchased 50 chairs at $60 each and sold them at $55 each. Find his total loss.",
       options: ["$250", "$300", "$350", "$400"],
@@ -1400,7 +1400,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 85,
+      id: 160,
       question:
         "If an article is sold at a 16% loss for $528, find the cost price.",
       options: ["$620", "$630", "$640", "$650"],
@@ -1409,7 +1409,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 86,
+      id: 161,
       question:
         "A man sells an article at 20% gain. If the cost price is $400, find the selling price.",
       options: ["$480", "$500", "$520", "$550"],
@@ -1418,7 +1418,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 87,
+      id: 162,
       question:
         "A trader allows 12% discount on the marked price and still gains 20%. What is the profit percentage with respect to the cost price?",
       options: ["33.6%", "32%", "30%", "25%"],
@@ -1428,7 +1428,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis"],
     },
     {
-      id: 88,
+      id: 163,
       question:
         "An article was bought for $250 and sold with 208% profit. What is the selling price?",
       options: ["$770", "$765", "$760", "$755"],
@@ -1437,7 +1437,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 89,
+      id: 164,
       question:
         "If the cost price of an article is $1200 and the selling price is $1500, what is the profit percent?",
       options: ["20%", "22.5%", "25%", "27%"],
@@ -1446,7 +1446,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 90,
+      id: 165,
       question:
         "If a trader sells an article for $500 at a loss of 5%, what is the cost price?",
       options: ["$525", "$530", "$535", "$540"],
@@ -1455,7 +1455,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 91,
+      id: 166,
       question:
         "A retailer buys a washing machine for $800 and sells it for $900. What is his gain percent?",
       options: ["10%", "11%", "12.5%", "13%"],
@@ -1464,7 +1464,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 92,
+      id: 167,
       question:
         "If a man sells an article for $480 and gains 20%, find the cost price.",
       options: ["$400", "$420", "$440", "$460"],
@@ -1473,7 +1473,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 93,
+      id: 168,
       question:
         "A product was sold at a loss of 12% for $660. What was the cost price?",
       options: ["$730", "$740", "$750", "$760"],
@@ -1482,7 +1482,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 94,
+      id: 169,
       question:
         "A man bought 40 articles at $20 each and sold 25 articles at a profit of 20% and the rest at a loss of 15%. Find the overall profit or loss percentage.",
       options: ["6.25% loss", "6.25% gain", "7.5% loss", "7.5% gain"],
@@ -1492,7 +1492,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis", "computation"],
     },
     {
-      id: 95,
+      id: 170,
       question:
         "A man buys 15 kg of apples for $120. He sells some apples at 20% profit and the rest at 10% loss. If he neither gains nor loses, how many kg of apples did he sell at profit?",
       options: ["5", "6", "7", "8"],
@@ -1502,7 +1502,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis", "computation"],
     },
     {
-      id: 96,
+      id: 171,
       question:
         "An article is sold in two installments. In the first one, it is sold at 25% profit and in the second at 12.5% loss. If the total selling price is $1,650, find the cost price if the installments are equal.",
       options: ["$1,500", "$1,550", "$1,600", "$1,650"],
@@ -1512,7 +1512,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis"],
     },
     {
-      id: 97,
+      id: 172,
       question:
         "A man buys an article at a discount of 18% on the marked price and sells it at a profit of 20%. If the marked price is $1,000, find the selling price.",
       options: ["$976", "$980", "$984", "$985"],
@@ -1521,7 +1521,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 98,
+      id: 173,
       question:
         "A man bought two articles for $800 each. He sold one at a 20% gain and the other at a 20% loss. Did he gain or lose overall?",
       options: ["Gain of $16", "Loss of $16", "No gain no loss", "Gain of $10"],
@@ -1531,7 +1531,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis"],
     },
     {
-      id: 99,
+      id: 174,
       question:
         "An article is labeled at $750. If the shopkeeper allows a discount of 15% and still makes a profit of 20%, find the cost price.",
       options: ["$510", "$520", "$525", "$530"],
@@ -1541,7 +1541,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 100,
+      id: 175,
       question:
         "A shopkeeper marks his goods 25% above cost price and allows 20% discount on the marked price. Find his gain or loss percentage.",
       options: ["No gain no loss", "2% gain", "3% loss", "4% gain"],
@@ -1551,7 +1551,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 76,
+      id: 176,
       question:
         "A sum of $8000 is lent partly at 8% and partly at 10% simple interest for 1 year. If total interest is $710, find the sum lent at each rate.",
       options: [
@@ -1566,7 +1566,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 77,
+      id: 177,
       question:
         "A sum doubles itself in 10 years at compound interest. Find the approximate rate of interest per annum.",
       options: ["7.18%", "7.2%", "7%", "7.5%"],
@@ -1575,7 +1575,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "analysis"],
     },
     {
-      id: 78,
+      id: 178,
       question:
         "If the rate of compound interest is reduced from 5% to 4%, the interest for 2 years decreases by $80. Find the sum invested.",
       options: ["$4000", "$4800", "$5000", "$5200"],
@@ -1584,7 +1584,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 79,
+      id: 179,
       question:
         "A sum becomes $7430 in 3 years at 8% per annum compound interest compounded annually. Find the principal.",
       options: ["$6000", "$6200", "$6400", "$6500"],
@@ -1594,7 +1594,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 80,
+      id: 180,
       question:
         "If $10,000 is invested at 12% compound interest compounded half-yearly, what is the amount at the end of 1 year?",
       options: ["$11,236", "$11,200", "$11,250", "$11,300"],
@@ -1604,7 +1604,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 81,
+      id: 181,
       question:
         "The compound interest on a sum for 2 years at 5% per annum is $102.50. Find the principal.",
       options: ["$2000", "$2200", "$2500", "$2600"],
@@ -1614,7 +1614,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 82,
+      id: 182,
       question:
         "A man sells an article at 12% profit. If he had sold it for $40 more, he would have gained 20%. Find the cost price.",
       options: ["$200", "$220", "$250", "$300"],
@@ -1624,7 +1624,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 83,
+      id: 183,
       question:
         "A TV costs $20,000 and is sold with 10% profit. The shopkeeper offers a discount of 5% on the marked price. If the marked price is $22,000, find the profit percentage.",
       options: ["7.5%", "8%", "9%", "10%"],
@@ -1634,7 +1634,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 84,
+      id: 184,
       question:
         "The amount of money doubles itself in 5 years when invested at compound interest. Find the rate of interest per annum.",
       options: ["15%", "14.87%", "14.5%", "15.5%"],
@@ -1643,7 +1643,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 85,
+      id: 185,
       question:
         "A sum amounts to $5300 in 2 years and to $6100 in 3 years at compound interest. Find the rate of interest.",
       options: ["15%", "12%", "10%", "9%"],
@@ -1653,7 +1653,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis", "application"],
     },
     {
-      id: 86,
+      id: 186,
       question:
         "Compound interest on $2000 for 2 years at 10% per annum compounded annually is?",
       options: ["$420", "$410", "$400", "$430"],
@@ -1662,7 +1662,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 87,
+      id: 187,
       question:
         "A man invests $3500, part at 5% and part at 6% simple interest. If the total interest for 1 year is $190, find the amount invested at each rate.",
       options: [
@@ -1677,7 +1677,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 88,
+      id: 188,
       question:
         "What amount will $8000 yield after 3 years at 10% per annum compounded annually?",
       options: ["$10648", "$$10645", "$10650", "$10655"],
@@ -1686,7 +1686,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 89,
+      id: 189,
       question:
         "A sum of money triples itself in 8 years at compound interest. Find the rate of interest per annum.",
       options: ["15%", "14%", "13%", "16%"],
@@ -1695,7 +1695,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 90,
+      id: 190,
       question:
         "If $7000 is invested for 2 years at 5% per annum compounded half yearly, what will be the total amount?",
       options: ["$7720", "$$7750", "$7700", "$7800"],
@@ -1705,7 +1705,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 91,
+      id: 191,
       question:
         "The compound interest on a sum for 3 years at 12% per annum is $4048. How much was the sum?",
       options: ["$10,000", "$11,000", "$12,000", "$13,000"],
@@ -1714,7 +1714,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra"],
     },
     {
-      id: 92,
+      id: 192,
       question:
         "If the compound interest on $10,000 for 2 years at 8% per annum compounded annually is $1664, find the total amount.",
       options: ["$11,664", "$$11,600", "$11,700", "$11,800"],
@@ -1723,7 +1723,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 93,
+      id: 193,
       question:
         "A sum lent at simple interest amounts to $4200 in 3 years and $4600 in 4 years. Find the principal.",
       options: ["$3500", "$3600", "$3700", "$3800"],
@@ -1733,7 +1733,7 @@ export const mixedQuestions = {
       fundamentals: ["analysis", "application"],
     },
     {
-      id: 94,
+      id: 194,
       question:
         "A person invested some money at 6% and some at 8% simple interest. He received a total interest of $1200 on his investment of $18000 for 1 year. Find the amount invested at each rate.",
       options: [
@@ -1748,7 +1748,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 95,
+      id: 195,
       question:
         "How long will it take for $5700 to amount to $6100 at 9% per annum simple interest?",
       options: ["1 year", "1.5 years", "2 years", "2.5 years"],
@@ -1758,7 +1758,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 96,
+      id: 196,
       question:
         "A sum of $5000 amounts to $5600 in 2 years. Find the rate of compound interest per annum.",
       options: ["5.8%", "6%", "6.2%", "6.5%"],
@@ -1767,7 +1767,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 97,
+      id: 197,
       question:
         "If the compound interest on $3500 for 3 years is $685.88, find the rate of interest per annum.",
       options: ["6%", "6.5%", "7%", "7.5%"],
@@ -1777,7 +1777,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 98,
+      id: 198,
       question:
         "A man invests $1500 each in two schemes paying 10% and 12% compound interest compounded yearly. What is his total amount after 2 years?",
       options: ["$3307", "$3350", "$3400", "$3450"],
@@ -1787,7 +1787,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 99,
+      id: 199,
       question:
         "The compound interest on a certain sum for 3 years is $1575 at 10% per annum. Find the principal amount.",
       options: ["$15,000", "$18,000", "$12,000", "$14,000"],
@@ -1797,7 +1797,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 100,
+      id: 200,
       question:
         "A sum of money becomes 81/64 times of itself in 3 years at compound interest. Find the rate of interest per annum.",
       options: ["6.25%", "6%", "6.5%", "7%"],
@@ -1806,7 +1806,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 76,
+      id: 201,
       question:
         "The ratio of the areas of two circles is 16:25. Find the ratio of their radii.",
       options: ["4:5", "5:6", "6:7", "7:8"],
@@ -1816,7 +1816,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 77,
+      id: 202,
       question:
         "Two quantities are in ratio 3:4. If 7 is added to each, the ratio becomes 2:3. Find the original quantities.",
       options: ["7 and 28", "8 and 32", "9 and 36", "10 and 40"],
@@ -1826,7 +1826,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 78,
+      id: 203,
       question:
         "The incomes of A and B are in ratio 5:7 and their savings in ratio 7:9. If each spends $1500, find their incomes.",
       options: [
@@ -1841,7 +1841,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 79,
+      id: 204,
       question:
         "Divide $2520 among A, B, C such that A:B=3:4 and B:C=5:6. What is C’s share?",
       options: ["$960", "$1008", "$1100", "$1120"],
@@ -1851,7 +1851,7 @@ export const mixedQuestions = {
       fundamentals: ["algebra", "application"],
     },
     {
-      id: 80,
+      id: 205,
       question:
         "Three numbers are in ratio 2:3:5 and their sum is 100. If each is increased by 5, what is the new ratio?",
       options: ["3:4:6", "4:5:7", "5:6:8", "6:7:9"],
@@ -1861,7 +1861,7 @@ export const mixedQuestions = {
       fundamentals: ["application"],
     },
     {
-      id: 81,
+      id: 206,
       question: "If a:b=2:3 and b:c=4:5, find a:b:c.",
       options: ["8:12:15", "6:8:10", "4:6:8", "10:15:20"],
       correct: 0,
