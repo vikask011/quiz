@@ -6,12 +6,15 @@ export default function Profile() {
   const [form, setForm] = useState({ name: "", email: "", gender: "", photoUrl: "" });
   const [saved, setSaved] = useState("");
 
-  const initial = useMemo(() => ({
-    name: user?.name || "",
-    email: user?.email || "",
-    gender: user?.gender || "",
-    photoUrl: user?.photoUrl || "",
-  }), [user]);
+  const initial = useMemo(
+    () => ({
+      name: user?.name || "",
+      email: user?.email || "",
+      gender: user?.gender || "",
+      photoUrl: user?.photoUrl || "",
+    }),
+    [user]
+  );
 
   useEffect(() => {
     setForm(initial);
@@ -26,7 +29,12 @@ export default function Profile() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateProfile({ name: form.name, email: form.email, gender: form.gender, photoUrl: form.photoUrl });
+      await updateProfile({
+        name: form.name,
+        email: form.email,
+        gender: form.gender,
+        photoUrl: form.photoUrl,
+      });
       setSaved("Profile updated successfully");
     } catch (_) {
       // error handled in context state
@@ -34,11 +42,33 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-2xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-6 text-blue-900">Your Profile</h1>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+      <div className="max-w-3xl mx-auto p-8">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-blue-900">Your Profile</h1>
+          <p className="text-gray-600 mt-2">Manage your personal information</p>
+        </div>
 
-        <form onSubmit={onSubmit} className="space-y-6 bg-white border border-blue-100 rounded-2xl p-6 shadow-sm">
+        {/* Profile Card */}
+        <form
+          onSubmit={onSubmit}
+          className="space-y-6 bg-white border border-blue-100 rounded-2xl p-8 shadow-xl"
+        >
+          {/* Profile Image */}
+          <div className="flex flex-col items-center">
+            <img
+              src={
+                form.photoUrl ||
+                "https://ui-avatars.com/api/?name=" + (form.name || "User")
+              }
+              alt="Profile"
+              className="w-28 h-28 rounded-full object-cover border-4 border-blue-200 shadow-md"
+            />
+            
+          </div>
+
+          {/* Name */}
           <div>
             <label className="block text-sm font-medium text-blue-900 mb-2">Name</label>
             <input
@@ -49,6 +79,8 @@ export default function Profile() {
               placeholder="Your name"
             />
           </div>
+
+          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-blue-900 mb-2">Email</label>
             <input
@@ -61,47 +93,10 @@ export default function Profile() {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-blue-900 mb-2">Gender</label>
-            <select
-              name="gender"
-              value={form.gender}
-              onChange={onChange}
-              className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-              <option value="">Select gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+          {/* Gender */}
+         
 
-          <div>
-            <label className="block text-sm font-medium text-blue-900 mb-2">Profile Photo</label>
-            <div className="flex items-center gap-4">
-              <img src={form.photoUrl || "https://i.pravatar.cc/80"} alt="avatar" className="w-16 h-16 rounded-full border" />
-              <input
-                name="photoUrl"
-                value={form.photoUrl}
-                onChange={onChange}
-                className="flex-1 px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Paste image URL or leave blank"
-              />
-            </div>
-            <div className="mt-3 flex gap-2">
-              {[
-                "https://i.pravatar.cc/150?img=1",
-                "https://i.pravatar.cc/150?img=5",
-                "https://i.pravatar.cc/150?img=10",
-                "https://i.pravatar.cc/150?img=15",
-              ].map((u) => (
-                <button key={u} type="button" onClick={() => setForm({ ...form, photoUrl: u })} className="border rounded-lg p-1">
-                  <img src={u} alt="suggestion" className="w-12 h-12 rounded" />
-                </button>
-              ))}
-            </div>
-          </div>
-
+          {/* Alerts */}
           {error && (
             <div className="p-3 rounded-lg bg-red-50 text-red-700 border border-red-200 text-sm">
               {error}
@@ -113,10 +108,11 @@ export default function Profile() {
             </div>
           )}
 
+          {/* Save Button */}
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl disabled:opacity-60"
+            className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow hover:bg-blue-700 transition disabled:opacity-60"
           >
             {loading ? "Saving..." : "Save Changes"}
           </button>

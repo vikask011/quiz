@@ -16,15 +16,17 @@ const Assess = () => {
   const [testEnded, setTestEnded] = useState(false);
   const [testQuestions, setTestQuestions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const { user } = useAuth();
+
 
   const [currentQuestionTime, setCurrentQuestionTime] = useState(0);
 
   // Test configuration: 1 very easy, 3 easy, 3 moderate, 3 difficult = 10 total
   const testConfig = {
-    very_easy: 1,
-    easy: 3,
-    moderate: 3,
-    difficult: 3,
+    very_easy: 8,
+    easy: 7,
+    moderate: 8,
+    difficult: 7,
   };
 
   useEffect(() => {
@@ -249,6 +251,10 @@ const Assess = () => {
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
               Test Results
             </h1>
+            <h6 className="text-md text-center text-gray-800 mb-8">
+  (Note: To view completed questions and answers, please download the report card from the "Previous Results" section.)
+</h6>
+
             <div className="flex justify-center mb-4">
               <button
                 onClick={async () => {
@@ -262,13 +268,7 @@ const Assess = () => {
                     const pageHeight = pdf.internal.pageSize.getHeight();
 
                     // Access user details for the styled header
-                    const { user } = (function () {
-                      try {
-                        return useAuth();
-                      } catch {
-                        return { user: null };
-                      }
-                    })();
+                  
 
                     // Colors
                     const blue = [37, 99, 235]; // #2563eb
@@ -439,6 +439,7 @@ const Assess = () => {
               >
                 Download Report
               </button>
+              
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

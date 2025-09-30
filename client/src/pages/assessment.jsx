@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";  // ✅ import Link
 import Assess from "./assess";
 
 function Assessment() {
@@ -22,11 +23,20 @@ function Assessment() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-2">Assessment</h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Start your timed test right away with smooth animations like Practice Now
-          </p>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-2">
+            Assessment
+          </h1>
         </motion.div>
+
+        {/* ✅ Back Button */}
+        <div className="mb-6">
+          <Link
+            to="/"
+            className="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition"
+          >
+            ← Back
+          </Link>
+        </div>
 
         {/* Animated container for test content */}
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
