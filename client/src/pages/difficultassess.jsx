@@ -49,6 +49,7 @@ const DiffAssess = ({
   useEffect(() => {
     generateTestQuestions();
     setTestStartTime(Date.now());
+    console.log(questionsData);
   }, []);
 
   useEffect(() => {
@@ -81,13 +82,43 @@ const DiffAssess = ({
   //   const selectedQuestions = [];
 
   //   Object.keys(testConfig).forEach((difficulty) => {
-  //     const questionsPool = percentageQuestions[difficulty];
-  //     const count = testConfig[difficulty];
-  //     const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
-  //     const selected = shuffled.slice(0, count);
-  //     selectedQuestions.push(...selected);
+  //     // Change this line to use questionsData instead of percentageQuestions
+  //     const questionsPool = questionsData[difficulty] || [];
+  //     const count = Math.min(testConfig[difficulty], questionsPool.length);
+
+  //     if (questionsPool.length > 0) {
+  //       const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
+  //       const selected = shuffled.slice(0, count);
+  //       selectedQuestions.push(...selected);
+  //     }
   //   });
 
+  //   const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
+  //   setTestQuestions(shuffledTest);
+  // };
+
+  // const generateTestQuestions = () => {
+  //   const selectedQuestions = [];
+
+  //   Object.keys(testConfig).forEach((difficulty) => {
+  //     const questionsPool = questionsData[difficulty] || [];
+  //     const count = Math.min(testConfig[difficulty], questionsPool.length);
+
+  //     console.log(
+  //       `Difficulty: ${difficulty}, Available: ${questionsPool.length}, Required: ${count}`
+  //     );
+
+  //     if (questionsPool.length > 0) {
+  //       const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
+  //       const selected = shuffled.slice(0, count);
+  //       selectedQuestions.push(...selected);
+  //       console.log(`Added ${selected.length} ${difficulty} questions`);
+  //     } else {
+  //       console.warn(`No questions available for difficulty: ${difficulty}`);
+  //     }
+  //   });
+
+  //   console.log(`Total questions selected: ${selectedQuestions.length}`);
   //   const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
   //   setTestQuestions(shuffledTest);
   // };
@@ -96,17 +127,27 @@ const DiffAssess = ({
     const selectedQuestions = [];
 
     Object.keys(testConfig).forEach((difficulty) => {
-      // Change this line to use questionsData instead of percentageQuestions
       const questionsPool = questionsData[difficulty] || [];
       const count = Math.min(testConfig[difficulty], questionsPool.length);
 
+      console.log(
+        `Difficulty: ${difficulty}, Available: ${questionsPool.length}, Required: ${count}`
+      );
+
       if (questionsPool.length > 0) {
         const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
-        const selected = shuffled.slice(0, count);
+        const selected = shuffled.slice(0, count).map((q) => ({
+          ...q,
+          difficulty: difficulty, // Ensure difficulty property is set
+        }));
         selectedQuestions.push(...selected);
+        console.log(`Added ${selected.length} ${difficulty} questions`);
+      } else {
+        console.warn(`No questions available for difficulty: ${difficulty}`);
       }
     });
 
+    console.log(`Total questions selected: ${selectedQuestions.length}`);
     const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
     setTestQuestions(shuffledTest);
   };
