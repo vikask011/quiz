@@ -1,0 +1,501 @@
+id,question_text,option_a,option_b,option_c,option_d,answer,difficulty,tags
+1,What is 10% of 337?,50.55,38.7,28.7,33.7,d,Easy,Percentages
+2,What is 20% of 135?,40.5,27,22,32,b,Easy,Percentages
+3,What is 10% of 356?,40.6,30.6,35.6,53.4,c,Easy,Percentages
+4,What is 20% of 57?,17.1,11.4,6.4,16.4,b,Easy,Percentages
+5,What is 20% of 297?,54.4,64.4,59.4,89.1,c,Easy,Percentages
+6,What is 25% of 311?,72.75,82.75,116.62,77.75,d,Easy,Percentages
+7,What is 25% of 184?,41,69,46,51,c,Easy,Percentages
+8,What is 10% of 62?,1.2,11.2,6.2,9.3,c,Easy,Percentages
+9,What is 30% of 443?,199.35,137.9,132.9,127.9,c,Easy,Percentages
+10,What is 10% of 284?,23.4,33.4,28.4,42.6,c,Easy,Percentages
+11,What is 30% of 434?,195.3,130.2,125.2,135.2,b,Easy,Percentages
+12,What is 20% of 33?,11.6,9.9,6.6,1.6,c,Easy,Percentages
+13,What is 10% of 453?,45.3,40.3,50.3,67.95,a,Easy,Percentages
+14,What is 30% of 335?,100.5,95.5,150.75,105.5,a,Easy,Percentages
+15,What is 25% of 117?,34.25,43.88,24.25,29.25,d,Easy,Percentages
+16,What is 20% of 283?,56.6,51.6,84.9,61.6,a,Easy,Percentages
+17,What is 20% of 148?,34.6,44.4,29.6,24.6,c,Easy,Percentages
+18,What is 5% of 430?,21.5,32.25,26.5,16.5,a,Easy,Percentages
+19,What is 20% of 43?,12.9,13.6,8.6,3.6,c,Easy,Percentages
+20,What is 50% of 212?,101,106,159,111,b,Easy,Percentages
+21,What is 25% of 136?,34,39,29,51,a,Easy,Percentages
+22,What is 20% of 195?,39,58.5,34,44,a,Easy,Percentages
+23,What is 5% of 56?,7.8,-2.2,4.2,2.8,d,Easy,Percentages
+24,What is 40% of 415?,249,161,171,166,d,Easy,Percentages
+25,What is 50% of 315?,162.5,157.5,236.25,152.5,b,Easy,Percentages
+26,What is 10% of 358?,35.8,40.8,53.7,30.8,a,Easy,Percentages
+27,What is 25% of 67?,11.75,21.75,16.75,25.12,c,Easy,Percentages
+28,What is 25% of 11?,4.12,2.75,-2.25,7.75,b,Easy,Percentages
+29,What is 25% of 455?,108.75,170.62,113.75,118.75,c,Easy,Percentages
+30,What is 12.5% of 400?,75,55,45,50,d,Easy,Percentages
+31,What is 5% of 260?,19.5,8,18,13,d,Easy,Percentages
+32,What is 5% of 132?,9.9,6.6,1.6,11.6,b,Easy,Percentages
+33,What is 50% of 53?,31.5,39.75,21.5,26.5,d,Easy,Percentages
+34,What is 50% of 75?,37.5,32.5,56.25,42.5,a,Easy,Percentages
+35,What is 20% of 118?,23.6,35.4,28.6,18.6,a,Easy,Percentages
+36,What is 50% of 234?,122,112,175.5,117,d,Easy,Percentages
+37,What is 30% of 42?,17.6,18.9,7.6,12.6,d,Easy,Percentages
+38,What is 20% of 311?,67.2,57.2,93.3,62.2,d,Easy,Percentages
+39,What is 10% of 127?,7.7,19.05,17.7,12.7,d,Easy,Percentages
+40,What is 20% of 273?,54.6,59.6,81.9,49.6,a,Easy,Percentages
+41,What is 12.5% of 119?,9.88,19.88,14.88,22.32,c,Easy,Percentages
+42,What is 40% of 423?,253.8,164.2,169.2,174.2,c,Easy,Percentages
+43,What is 40% of 347?,138.8,208.2,143.8,133.8,a,Easy,Percentages
+44,What is 5% of 249?,7.45,17.45,18.67,12.45,d,Easy,Percentages
+45,What is 30% of 382?,119.6,109.6,171.9,114.6,d,Easy,Percentages
+46,What is 50% of 107?,48.5,53.5,80.25,58.5,b,Easy,Percentages
+47,What is 50% of 152?,71,114,76,81,c,Easy,Percentages
+48,What is 10% of 423?,47.3,63.45,37.3,42.3,d,Easy,Percentages
+49,What is 20% of 57?,11.4,6.4,17.1,16.4,a,Easy,Percentages
+50,What is 20% of 256?,56.2,46.2,51.2,76.8,c,Easy,Percentages
+51,What is 5% of 204?,10.2,5.2,15.2,15.3,a,Easy,Percentages
+52,What is 40% of 156?,67.4,57.4,62.4,93.6,c,Easy,Percentages
+53,What is 20% of 161?,37.2,48.3,27.2,32.2,d,Easy,Percentages
+54,What is 30% of 392?,112.6,122.6,176.4,117.6,d,Easy,Percentages
+55,What is 12.5% of 267?,38.38,50.07,28.38,33.38,d,Easy,Percentages
+56,What is 12.5% of 445?,60.62,83.43,50.62,55.62,d,Easy,Percentages
+57,What is 20% of 355?,76,66,71,106.5,c,Easy,Percentages
+58,What is 5% of 306?,22.95,10.3,20.3,15.3,d,Easy,Percentages
+59,What is 25% of 488?,122,183,117,127,a,Easy,Percentages
+60,What is 25% of 132?,28,38,33,49.5,c,Easy,Percentages
+61,What is 30% of 244?,68.2,78.2,109.8,73.2,d,Easy,Percentages
+62,What is 10% of 328?,37.8,49.2,27.8,32.8,d,Easy,Percentages
+63,What is 25% of 269?,62.25,67.25,100.88,72.25,b,Easy,Percentages
+64,What is 20% of 460?,138,92,97,87,b,Easy,Percentages
+65,What is 25% of 234?,87.75,63.5,53.5,58.5,d,Easy,Percentages
+66,What is 10% of 487?,43.7,48.7,73.05,53.7,b,Easy,Percentages
+67,What is 10% of 465?,46.5,41.5,69.75,51.5,a,Easy,Percentages
+68,What is 20% of 319?,95.7,68.8,63.8,58.8,c,Easy,Percentages
+69,What is 50% of 268?,139,201,134,129,c,Easy,Percentages
+70,What is 40% of 334?,138.6,200.4,133.6,128.6,c,Easy,Percentages
+71,A can finish a work in 12 days and B in 26 days. How long to finish together?,8.21,12.32,6.21,10.21,a,Moderate,Time & Work
+72,A can finish a work in 7 days and B in 25 days. How long to finish together?,5.47,7.47,3.47,8.21,a,Moderate,Time & Work
+73,A can finish a work in 19 days and B in 2 days. How long to finish together?,3.81,-0.19,2.71,1.81,d,Moderate,Time & Work
+74,A can finish a work in 19 days and B in 3 days. How long to finish together?,4.59,2.59,3.88,0.59,b,Moderate,Time & Work
+75,A can finish a work in 15 days and B in 6 days. How long to finish together?,6.44,2.29,6.29,4.29,d,Moderate,Time & Work
+76,A can finish a work in 30 days and B in 27 days. How long to finish together?,12.21,21.32,16.21,14.21,d,Moderate,Time & Work
+77,A can finish a work in 23 days and B in 9 days. How long to finish together?,9.71,4.47,8.47,6.47,d,Moderate,Time & Work
+78,A can finish a work in 21 days and B in 25 days. How long to finish together?,17.12,9.41,11.41,13.41,c,Moderate,Time & Work
+79,A can finish a work in 27 days and B in 27 days. How long to finish together?,11.5,13.5,20.25,15.5,b,Moderate,Time & Work
+80,A can finish a work in 7 days and B in 25 days. How long to finish together?,8.21,5.47,7.47,3.47,b,Moderate,Time & Work
+81,A can finish a work in 10 days and B in 7 days. How long to finish together?,2.12,6.18,6.12,4.12,d,Moderate,Time & Work
+82,A can finish a work in 29 days and B in 17 days. How long to finish together?,8.72,16.08,10.72,12.72,c,Moderate,Time & Work
+83,A can finish a work in 13 days and B in 11 days. How long to finish together?,8.94,3.96,5.96,7.96,c,Moderate,Time & Work
+84,A can finish a work in 23 days and B in 8 days. How long to finish together?,5.94,3.94,7.94,8.91,a,Moderate,Time & Work
+85,A can finish a work in 29 days and B in 4 days. How long to finish together?,3.52,5.28,5.52,1.52,a,Moderate,Time & Work
+86,A can finish a work in 23 days and B in 28 days. How long to finish together?,14.63,18.95,12.63,10.63,c,Moderate,Time & Work
+87,A can finish a work in 30 days and B in 10 days. How long to finish together?,7.5,11.25,5.5,9.5,a,Moderate,Time & Work
+88,A can finish a work in 3 days and B in 5 days. How long to finish together?,1.88,-0.12,3.88,2.82,a,Moderate,Time & Work
+89,A can finish a work in 15 days and B in 21 days. How long to finish together?,6.75,13.12,10.75,8.75,d,Moderate,Time & Work
+90,A can finish a work in 10 days and B in 3 days. How long to finish together?,4.31,0.31,2.31,3.46,c,Moderate,Time & Work
+91,A can finish a work in 13 days and B in 15 days. How long to finish together?,10.44,8.96,4.96,6.96,d,Moderate,Time & Work
+92,A can finish a work in 21 days and B in 12 days. How long to finish together?,11.46,9.64,5.64,7.64,d,Moderate,Time & Work
+93,A can finish a work in 18 days and B in 11 days. How long to finish together?,6.83,4.83,8.83,10.25,a,Moderate,Time & Work
+94,A can finish a work in 24 days and B in 11 days. How long to finish together?,5.54,11.31,7.54,9.54,c,Moderate,Time & Work
+95,A can finish a work in 23 days and B in 14 days. How long to finish together?,8.7,13.05,6.7,10.7,a,Moderate,Time & Work
+96,A can finish a work in 14 days and B in 19 days. How long to finish together?,12.09,6.06,10.06,8.06,d,Moderate,Time & Work
+97,A can finish a work in 8 days and B in 15 days. How long to finish together?,5.22,7.83,7.22,3.22,a,Moderate,Time & Work
+98,A can finish a work in 16 days and B in 23 days. How long to finish together?,9.44,14.16,7.44,11.44,a,Moderate,Time & Work
+99,A can finish a work in 27 days and B in 30 days. How long to finish together?,21.32,14.21,12.21,16.21,b,Moderate,Time & Work
+100,A can finish a work in 11 days and B in 18 days. How long to finish together?,8.83,10.25,6.83,4.83,c,Moderate,Time & Work
+101,A can finish a work in 23 days and B in 11 days. How long to finish together?,11.16,5.44,7.44,9.44,c,Moderate,Time & Work
+102,A can finish a work in 2 days and B in 3 days. How long to finish together?,-0.8,1.2,1.8,3.2,b,Moderate,Time & Work
+103,A can finish a work in 16 days and B in 15 days. How long to finish together?,7.74,11.61,5.74,9.74,a,Moderate,Time & Work
+104,A can finish a work in 17 days and B in 14 days. How long to finish together?,11.52,5.68,7.68,9.68,c,Moderate,Time & Work
+105,A can finish a work in 30 days and B in 26 days. How long to finish together?,11.93,20.89,15.93,13.93,d,Moderate,Time & Work
+106,A can finish a work in 7 days and B in 27 days. How long to finish together?,7.56,3.56,5.56,8.34,c,Moderate,Time & Work
+107,A can finish a work in 29 days and B in 5 days. How long to finish together?,2.26,6.26,4.26,6.39,c,Moderate,Time & Work
+108,A can finish a work in 23 days and B in 18 days. How long to finish together?,10.1,15.15,12.1,8.1,a,Moderate,Time & Work
+109,A can finish a work in 28 days and B in 19 days. How long to finish together?,9.32,13.32,11.32,16.98,c,Moderate,Time & Work
+110,A can finish a work in 16 days and B in 10 days. How long to finish together?,6.15,9.23,4.15,8.15,a,Moderate,Time & Work
+111,A can finish a work in 26 days and B in 26 days. How long to finish together?,15,13,11,19.5,b,Moderate,Time & Work
+112,A can finish a work in 10 days and B in 16 days. How long to finish together?,9.23,8.15,4.15,6.15,d,Moderate,Time & Work
+113,A can finish a work in 9 days and B in 10 days. How long to finish together?,7.11,4.74,6.74,2.74,b,Moderate,Time & Work
+114,A can finish a work in 6 days and B in 6 days. How long to finish together?,1,3,4.5,5,b,Moderate,Time & Work
+115,A can finish a work in 24 days and B in 8 days. How long to finish together?,9,4,8,6,d,Moderate,Time & Work
+116,A can finish a work in 12 days and B in 19 days. How long to finish together?,5.35,7.35,9.35,11.02,b,Moderate,Time & Work
+117,A can finish a work in 8 days and B in 28 days. How long to finish together?,4.22,6.22,8.22,9.33,b,Moderate,Time & Work
+118,A can finish a work in 29 days and B in 30 days. How long to finish together?,12.75,14.75,16.75,22.12,b,Moderate,Time & Work
+119,A can finish a work in 13 days and B in 11 days. How long to finish together?,3.96,5.96,7.96,8.94,b,Moderate,Time & Work
+120,A can finish a work in 17 days and B in 9 days. How long to finish together?,5.88,8.82,7.88,3.88,a,Moderate,Time & Work
+121,A can finish a work in 2 days and B in 14 days. How long to finish together?,1.75,3.75,2.62,-0.25,a,Moderate,Time & Work
+122,A can finish a work in 25 days and B in 7 days. How long to finish together?,7.47,3.47,5.47,8.21,c,Moderate,Time & Work
+123,A can finish a work in 14 days and B in 20 days. How long to finish together?,6.24,10.24,12.36,8.24,d,Moderate,Time & Work
+124,A can finish a work in 6 days and B in 29 days. How long to finish together?,6.97,2.97,4.97,7.46,c,Moderate,Time & Work
+125,A can finish a work in 10 days and B in 14 days. How long to finish together?,8.75,7.83,5.83,3.83,c,Moderate,Time & Work
+126,A can finish a work in 12 days and B in 12 days. How long to finish together?,6,4,8,9,a,Moderate,Time & Work
+127,A can finish a work in 10 days and B in 28 days. How long to finish together?,5.37,11.05,9.37,7.37,d,Moderate,Time & Work
+128,A can finish a work in 25 days and B in 19 days. How long to finish together?,8.8,16.2,12.8,10.8,d,Moderate,Time & Work
+129,A can finish a work in 22 days and B in 4 days. How long to finish together?,5.38,1.38,5.07,3.38,d,Moderate,Time & Work
+130,A can finish a work in 8 days and B in 28 days. How long to finish together?,8.22,9.33,4.22,6.22,d,Moderate,Time & Work
+131,A can finish a work in 9 days and B in 6 days. How long to finish together?,5.6,3.6,1.6,5.4,b,Moderate,Time & Work
+132,A can finish a work in 20 days and B in 8 days. How long to finish together?,5.71,7.71,3.71,8.56,a,Moderate,Time & Work
+133,A can finish a work in 26 days and B in 13 days. How long to finish together?,13.0,8.67,6.67,10.67,b,Moderate,Time & Work
+134,A can finish a work in 26 days and B in 28 days. How long to finish together?,11.48,13.48,20.22,15.48,b,Moderate,Time & Work
+135,A can finish a work in 20 days and B in 2 days. How long to finish together?,1.82,3.82,2.73,-0.18,a,Moderate,Time & Work
+136,A can finish a work in 14 days and B in 24 days. How long to finish together?,13.26,6.84,8.84,10.84,c,Moderate,Time & Work
+137,A can finish a work in 5 days and B in 24 days. How long to finish together?,6.14,4.14,6.21,2.14,b,Moderate,Time & Work
+138,A can finish a work in 27 days and B in 20 days. How long to finish together?,17.23,9.49,13.49,11.49,d,Moderate,Time & Work
+139,A can finish a work in 23 days and B in 13 days. How long to finish together?,12.46,10.31,6.31,8.31,d,Moderate,Time & Work
+140,A can finish a work in 2 days and B in 29 days. How long to finish together?,-0.13,1.87,3.87,2.81,b,Moderate,Time & Work
+141,A train runs at 75 km/h for 2 hours. Find the distance covered.,160,150,140,165,b,Easy,Speed/Distance/Time
+142,A train runs at 75 km/h for 1 hours. Find the distance covered.,75,85,82.5,65,a,Easy,Speed/Distance/Time
+143,A train runs at 79 km/h for 3 hours. Find the distance covered.,260.7,237,247,227,b,Easy,Speed/Distance/Time
+144,A train runs at 31 km/h for 2 hours. Find the distance covered.,52,72,62,68.2,c,Easy,Speed/Distance/Time
+145,A train runs at 92 km/h for 3 hours. Find the distance covered.,303.6,286,276,266,c,Easy,Speed/Distance/Time
+146,A train runs at 61 km/h for 1 hours. Find the distance covered.,51,71,61,67.1,c,Easy,Speed/Distance/Time
+147,A train runs at 53 km/h for 2 hours. Find the distance covered.,106,116,116.6,96,a,Easy,Speed/Distance/Time
+148,A train runs at 91 km/h for 0.5 hours. Find the distance covered.,50.05,35.5,45.5,55.5,c,Easy,Speed/Distance/Time
+149,A train runs at 72 km/h for 3 hours. Find the distance covered.,216,237.6,206,226,a,Easy,Speed/Distance/Time
+150,A train runs at 82 km/h for 3 hours. Find the distance covered.,236,256,270.6,246,d,Easy,Speed/Distance/Time
+151,A train runs at 48 km/h for 3 hours. Find the distance covered.,144,134,158.4,154,a,Easy,Speed/Distance/Time
+152,A train runs at 80 km/h for 2 hours. Find the distance covered.,160,170,150,176,a,Easy,Speed/Distance/Time
+153,A train runs at 65 km/h for 3 hours. Find the distance covered.,195,214.5,205,185,a,Easy,Speed/Distance/Time
+154,A train runs at 49 km/h for 0.5 hours. Find the distance covered.,14.5,24.5,26.95,34.5,b,Easy,Speed/Distance/Time
+155,A train runs at 88 km/h for 1 hours. Find the distance covered.,78,96.8,88,98,c,Easy,Speed/Distance/Time
+156,A train runs at 55 km/h for 2 hours. Find the distance covered.,100,120,121.0,110,d,Easy,Speed/Distance/Time
+157,A train runs at 49 km/h for 2 hours. Find the distance covered.,88,98,107.8,108,b,Easy,Speed/Distance/Time
+158,A train runs at 88 km/h for 1 hours. Find the distance covered.,98,96.8,88,78,c,Easy,Speed/Distance/Time
+159,A train runs at 90 km/h for 2 hours. Find the distance covered.,180,198.0,170,190,a,Easy,Speed/Distance/Time
+160,A train runs at 33 km/h for 0.5 hours. Find the distance covered.,16.5,18.15,26.5,6.5,a,Easy,Speed/Distance/Time
+161,A train runs at 76 km/h for 2 hours. Find the distance covered.,142,167.2,152,162,c,Easy,Speed/Distance/Time
+162,A train runs at 81 km/h for 0.5 hours. Find the distance covered.,44.55,30.5,50.5,40.5,d,Easy,Speed/Distance/Time
+163,A train runs at 29 km/h for 0.5 hours. Find the distance covered.,4.5,15.95,14.5,24.5,c,Easy,Speed/Distance/Time
+164,A train runs at 30 km/h for 1 hours. Find the distance covered.,33,40,20,30,d,Easy,Speed/Distance/Time
+165,A train runs at 97 km/h for 1 hours. Find the distance covered.,97,87,107,106.7,a,Easy,Speed/Distance/Time
+166,A train runs at 58 km/h for 3 hours. Find the distance covered.,184,174,191.4,164,b,Easy,Speed/Distance/Time
+167,A train runs at 98 km/h for 0.5 hours. Find the distance covered.,53.9,49,39,59,b,Easy,Speed/Distance/Time
+168,A train runs at 53 km/h for 0.5 hours. Find the distance covered.,29.15,16.5,26.5,36.5,c,Easy,Speed/Distance/Time
+169,A train runs at 90 km/h for 0.5 hours. Find the distance covered.,35,49.5,45,55,c,Easy,Speed/Distance/Time
+170,A train runs at 77 km/h for 3 hours. Find the distance covered.,241,254.1,231,221,c,Easy,Speed/Distance/Time
+171,A train runs at 56 km/h for 2 hours. Find the distance covered.,122,102,112,123.2,c,Easy,Speed/Distance/Time
+172,A train runs at 53 km/h for 1 hours. Find the distance covered.,63,43,53,58.3,c,Easy,Speed/Distance/Time
+173,A train runs at 39 km/h for 2 hours. Find the distance covered.,85.8,68,78,88,c,Easy,Speed/Distance/Time
+174,A train runs at 41 km/h for 2 hours. Find the distance covered.,90.2,82,92,72,b,Easy,Speed/Distance/Time
+175,A train runs at 79 km/h for 2 hours. Find the distance covered.,158,148,168,173.8,a,Easy,Speed/Distance/Time
+176,A train runs at 76 km/h for 0.5 hours. Find the distance covered.,41.8,28,48,38,d,Easy,Speed/Distance/Time
+177,A train runs at 97 km/h for 2 hours. Find the distance covered.,204,184,213.4,194,d,Easy,Speed/Distance/Time
+178,A train runs at 93 km/h for 0.5 hours. Find the distance covered.,56.5,46.5,51.15,36.5,b,Easy,Speed/Distance/Time
+179,A train runs at 42 km/h for 3 hours. Find the distance covered.,116,126,136,138.6,b,Easy,Speed/Distance/Time
+180,A train runs at 94 km/h for 3 hours. Find the distance covered.,272,292,282,310.2,c,Easy,Speed/Distance/Time
+181,A train runs at 64 km/h for 3 hours. Find the distance covered.,211.2,192,202,182,b,Easy,Speed/Distance/Time
+182,A train runs at 40 km/h for 2 hours. Find the distance covered.,80,90,70,88,a,Easy,Speed/Distance/Time
+183,A train runs at 56 km/h for 3 hours. Find the distance covered.,158,184.8,178,168,d,Easy,Speed/Distance/Time
+184,A train runs at 60 km/h for 2 hours. Find the distance covered.,132,130,120,110,c,Easy,Speed/Distance/Time
+185,A train runs at 85 km/h for 0.5 hours. Find the distance covered.,32.5,42.5,52.5,46.75,b,Easy,Speed/Distance/Time
+186,A train runs at 44 km/h for 2 hours. Find the distance covered.,88,98,78,96.8,a,Easy,Speed/Distance/Time
+187,A train runs at 26 km/h for 1 hours. Find the distance covered.,36,26,28.6,16,b,Easy,Speed/Distance/Time
+188,A train runs at 56 km/h for 3 hours. Find the distance covered.,178,158,168,184.8,c,Easy,Speed/Distance/Time
+189,A train runs at 100 km/h for 1 hours. Find the distance covered.,90,100,110.0,110,b,Easy,Speed/Distance/Time
+190,A train runs at 90 km/h for 3 hours. Find the distance covered.,280,260,297,270,d,Easy,Speed/Distance/Time
+191,A train runs at 79 km/h for 0.5 hours. Find the distance covered.,39.5,29.5,43.45,49.5,a,Easy,Speed/Distance/Time
+192,A train runs at 85 km/h for 2 hours. Find the distance covered.,170,160,180,187.0,a,Easy,Speed/Distance/Time
+193,A train runs at 51 km/h for 3 hours. Find the distance covered.,143,153,168.3,163,b,Easy,Speed/Distance/Time
+194,A train runs at 96 km/h for 1 hours. Find the distance covered.,105.6,86,106,96,d,Easy,Speed/Distance/Time
+195,A train runs at 63 km/h for 2 hours. Find the distance covered.,138.6,116,136,126,d,Easy,Speed/Distance/Time
+196,A train runs at 95 km/h for 3 hours. Find the distance covered.,285,275,313.5,295,a,Easy,Speed/Distance/Time
+197,A train runs at 64 km/h for 2 hours. Find the distance covered.,128,118,138,140.8,a,Easy,Speed/Distance/Time
+198,A train runs at 44 km/h for 1 hours. Find the distance covered.,34,54,44,48.4,c,Easy,Speed/Distance/Time
+199,A train runs at 25 km/h for 2 hours. Find the distance covered.,50,60,40,55.0,a,Easy,Speed/Distance/Time
+200,A train runs at 69 km/h for 1 hours. Find the distance covered.,79,59,69,75.9,c,Easy,Speed/Distance/Time
+201,A train runs at 84 km/h for 2 hours. Find the distance covered.,158,184.8,178,168,d,Easy,Speed/Distance/Time
+202,A train runs at 87 km/h for 3 hours. Find the distance covered.,271,287.1,251,261,d,Easy,Speed/Distance/Time
+203,A train runs at 72 km/h for 1 hours. Find the distance covered.,79.2,62,82,72,d,Easy,Speed/Distance/Time
+204,A train runs at 63 km/h for 3 hours. Find the distance covered.,207.9,179,199,189,d,Easy,Speed/Distance/Time
+205,A train runs at 60 km/h for 3 hours. Find the distance covered.,190,198.0,170,180,d,Easy,Speed/Distance/Time
+206,A train runs at 50 km/h for 2 hours. Find the distance covered.,110.0,100,90,110,b,Easy,Speed/Distance/Time
+207,A train runs at 75 km/h for 0.5 hours. Find the distance covered.,27.5,41.25,47.5,37.5,d,Easy,Speed/Distance/Time
+208,A train runs at 58 km/h for 0.5 hours. Find the distance covered.,19,31.9,39,29,d,Easy,Speed/Distance/Time
+209,A train runs at 57 km/h for 2 hours. Find the distance covered.,125.4,114,124,104,b,Easy,Speed/Distance/Time
+210,A train runs at 51 km/h for 3 hours. Find the distance covered.,168.3,143,153,163,c,Easy,Speed/Distance/Time
+211,"If Aman is the mother of Esha and Esha is the brother of Deepak, what is Deepak's relation to Aman?",father,son or daughter,sister,uncle,b,Easy,Blood Relations
+212,"If Bhavya is the mother of Deepak and Deepak is the brother of Charu, what is Charu's relation to Bhavya?",father,son or daughter,uncle,sister,b,Easy,Blood Relations
+213,"If Deepak is the mother of Charu and Charu is the brother of Bhavya, what is Bhavya's relation to Deepak?",sister,father,uncle,son or daughter,d,Easy,Blood Relations
+214,"If Esha is the mother of Charu and Charu is the brother of Deepak, what is Deepak's relation to Esha?",son or daughter,sister,uncle,father,a,Easy,Blood Relations
+215,"If Bhavya is the mother of Deepak and Deepak is the brother of Esha, what is Esha's relation to Bhavya?",father,uncle,sister,son or daughter,d,Easy,Blood Relations
+216,"If Esha is the mother of Charu and Charu is the brother of Farhan, what is Farhan's relation to Esha?",sister,uncle,son or daughter,father,c,Easy,Blood Relations
+217,"If Charu is the mother of Aman and Aman is the brother of Esha, what is Esha's relation to Charu?",father,son or daughter,uncle,sister,b,Easy,Blood Relations
+218,"If Esha is the mother of Charu and Charu is the brother of Bhavya, what is Bhavya's relation to Esha?",son or daughter,sister,father,uncle,a,Easy,Blood Relations
+219,"If Farhan is the mother of Bhavya and Bhavya is the brother of Aman, what is Aman's relation to Farhan?",sister,father,uncle,son or daughter,d,Easy,Blood Relations
+220,"If Aman is the mother of Esha and Esha is the brother of Charu, what is Charu's relation to Aman?",father,sister,son or daughter,uncle,c,Easy,Blood Relations
+221,"If Charu is the mother of Deepak and Deepak is the brother of Bhavya, what is Bhavya's relation to Charu?",father,sister,son or daughter,uncle,c,Easy,Blood Relations
+222,"If Esha is the mother of Farhan and Farhan is the brother of Charu, what is Charu's relation to Esha?",son or daughter,father,sister,uncle,a,Easy,Blood Relations
+223,"If Charu is the mother of Farhan and Farhan is the brother of Aman, what is Aman's relation to Charu?",uncle,father,son or daughter,sister,c,Easy,Blood Relations
+224,"If Bhavya is the mother of Deepak and Deepak is the brother of Charu, what is Charu's relation to Bhavya?",father,sister,uncle,son or daughter,d,Easy,Blood Relations
+225,"If Charu is the mother of Esha and Esha is the brother of Aman, what is Aman's relation to Charu?",son or daughter,father,uncle,sister,a,Easy,Blood Relations
+226,"If Esha is the mother of Deepak and Deepak is the brother of Charu, what is Charu's relation to Esha?",uncle,sister,father,son or daughter,d,Easy,Blood Relations
+227,"If Deepak is the mother of Aman and Aman is the brother of Charu, what is Charu's relation to Deepak?",sister,son or daughter,father,uncle,b,Easy,Blood Relations
+228,"If Farhan is the mother of Deepak and Deepak is the brother of Charu, what is Charu's relation to Farhan?",uncle,father,son or daughter,sister,c,Easy,Blood Relations
+229,"If Aman is the mother of Farhan and Farhan is the brother of Charu, what is Charu's relation to Aman?",uncle,father,son or daughter,sister,c,Easy,Blood Relations
+230,"If Bhavya is the mother of Esha and Esha is the brother of Farhan, what is Farhan's relation to Bhavya?",son or daughter,father,uncle,sister,a,Easy,Blood Relations
+231,"If Farhan is the mother of Esha and Esha is the brother of Deepak, what is Deepak's relation to Farhan?",father,son or daughter,sister,uncle,b,Easy,Blood Relations
+232,"If Deepak is the mother of Esha and Esha is the brother of Farhan, what is Farhan's relation to Deepak?",sister,uncle,son or daughter,father,c,Easy,Blood Relations
+233,"If Bhavya is the mother of Deepak and Deepak is the brother of Esha, what is Esha's relation to Bhavya?",father,son or daughter,sister,uncle,b,Easy,Blood Relations
+234,"If Farhan is the mother of Charu and Charu is the brother of Esha, what is Esha's relation to Farhan?",sister,father,uncle,son or daughter,d,Easy,Blood Relations
+235,"If Bhavya is the mother of Aman and Aman is the brother of Deepak, what is Deepak's relation to Bhavya?",uncle,sister,father,son or daughter,d,Easy,Blood Relations
+236,"If Farhan is the mother of Esha and Esha is the brother of Aman, what is Aman's relation to Farhan?",father,sister,uncle,son or daughter,d,Easy,Blood Relations
+237,"If Bhavya is the mother of Esha and Esha is the brother of Farhan, what is Farhan's relation to Bhavya?",uncle,sister,father,son or daughter,d,Easy,Blood Relations
+238,"If Esha is the mother of Bhavya and Bhavya is the brother of Farhan, what is Farhan's relation to Esha?",uncle,sister,son or daughter,father,c,Easy,Blood Relations
+239,"If Charu is the mother of Bhavya and Bhavya is the brother of Esha, what is Esha's relation to Charu?",uncle,sister,son or daughter,father,c,Easy,Blood Relations
+240,"If Farhan is the mother of Aman and Aman is the brother of Bhavya, what is Bhavya's relation to Farhan?",father,sister,uncle,son or daughter,d,Easy,Blood Relations
+241,"If Esha is the mother of Charu and Charu is the brother of Aman, what is Aman's relation to Esha?",father,son or daughter,sister,uncle,b,Easy,Blood Relations
+242,"If Bhavya is the mother of Deepak and Deepak is the brother of Aman, what is Aman's relation to Bhavya?",sister,father,uncle,son or daughter,d,Easy,Blood Relations
+243,"If Charu is the mother of Esha and Esha is the brother of Aman, what is Aman's relation to Charu?",uncle,son or daughter,father,sister,b,Easy,Blood Relations
+244,"If Esha is the mother of Aman and Aman is the brother of Charu, what is Charu's relation to Esha?",uncle,son or daughter,father,sister,b,Easy,Blood Relations
+245,"If Aman is the mother of Deepak and Deepak is the brother of Esha, what is Esha's relation to Aman?",uncle,son or daughter,father,sister,b,Easy,Blood Relations
+246,"If Deepak is the mother of Farhan and Farhan is the brother of Aman, what is Aman's relation to Deepak?",father,sister,uncle,son or daughter,d,Easy,Blood Relations
+247,"If Aman is the mother of Bhavya and Bhavya is the brother of Charu, what is Charu's relation to Aman?",son or daughter,sister,uncle,father,a,Easy,Blood Relations
+248,"If Deepak is the mother of Esha and Esha is the brother of Farhan, what is Farhan's relation to Deepak?",uncle,sister,father,son or daughter,d,Easy,Blood Relations
+249,"If Farhan is the mother of Esha and Esha is the brother of Bhavya, what is Bhavya's relation to Farhan?",father,son or daughter,uncle,sister,b,Easy,Blood Relations
+250,"If Deepak is the mother of Charu and Charu is the brother of Farhan, what is Farhan's relation to Deepak?",father,son or daughter,uncle,sister,b,Easy,Blood Relations
+251,"If Charu is the mother of Deepak and Deepak is the brother of Farhan, what is Farhan's relation to Charu?",sister,son or daughter,uncle,father,b,Easy,Blood Relations
+252,"If Farhan is the mother of Deepak and Deepak is the brother of Aman, what is Aman's relation to Farhan?",uncle,father,sister,son or daughter,d,Easy,Blood Relations
+253,"If Deepak is the mother of Aman and Aman is the brother of Charu, what is Charu's relation to Deepak?",sister,son or daughter,father,uncle,b,Easy,Blood Relations
+254,"If Esha is the mother of Farhan and Farhan is the brother of Charu, what is Charu's relation to Esha?",sister,father,uncle,son or daughter,d,Easy,Blood Relations
+255,"If Farhan is the mother of Deepak and Deepak is the brother of Aman, what is Aman's relation to Farhan?",son or daughter,uncle,sister,father,a,Easy,Blood Relations
+256,"If Charu is the mother of Aman and Aman is the brother of Bhavya, what is Bhavya's relation to Charu?",son or daughter,sister,father,uncle,a,Easy,Blood Relations
+257,"If Bhavya is the mother of Aman and Aman is the brother of Charu, what is Charu's relation to Bhavya?",sister,uncle,son or daughter,father,c,Easy,Blood Relations
+258,"If Esha is the mother of Bhavya and Bhavya is the brother of Deepak, what is Deepak's relation to Esha?",sister,uncle,father,son or daughter,d,Easy,Blood Relations
+259,"If Aman is the mother of Bhavya and Bhavya is the brother of Charu, what is Charu's relation to Aman?",son or daughter,sister,uncle,father,a,Easy,Blood Relations
+260,"If Aman is the mother of Bhavya and Bhavya is the brother of Esha, what is Esha's relation to Aman?",uncle,father,son or daughter,sister,c,Easy,Blood Relations
+261,"If Farhan is the mother of Aman and Aman is the brother of Esha, what is Esha's relation to Farhan?",son or daughter,father,sister,uncle,a,Easy,Blood Relations
+262,"If Deepak is the mother of Charu and Charu is the brother of Bhavya, what is Bhavya's relation to Deepak?",son or daughter,sister,uncle,father,a,Easy,Blood Relations
+263,"If Esha is the mother of Farhan and Farhan is the brother of Aman, what is Aman's relation to Esha?",uncle,father,sister,son or daughter,d,Easy,Blood Relations
+264,"If Esha is the mother of Aman and Aman is the brother of Farhan, what is Farhan's relation to Esha?",son or daughter,sister,uncle,father,a,Easy,Blood Relations
+265,"If Deepak is the mother of Esha and Esha is the brother of Farhan, what is Farhan's relation to Deepak?",father,son or daughter,uncle,sister,b,Easy,Blood Relations
+266,"If Esha is the mother of Aman and Aman is the brother of Charu, what is Charu's relation to Esha?",father,uncle,son or daughter,sister,c,Easy,Blood Relations
+267,"If Farhan is the mother of Esha and Esha is the brother of Deepak, what is Deepak's relation to Farhan?",uncle,sister,son or daughter,father,c,Easy,Blood Relations
+268,"If Deepak is the mother of Esha and Esha is the brother of Aman, what is Aman's relation to Deepak?",father,uncle,sister,son or daughter,d,Easy,Blood Relations
+269,"If Bhavya is the mother of Farhan and Farhan is the brother of Charu, what is Charu's relation to Bhavya?",sister,son or daughter,uncle,father,b,Easy,Blood Relations
+270,"If Aman is the mother of Deepak and Deepak is the brother of Esha, what is Esha's relation to Aman?",father,sister,son or daughter,uncle,c,Easy,Blood Relations
+271,"If A:B = 10:5 and A + B = 356, find A.",284.8,247.33,237.33,227.33,c,Moderate,Ratio & Proportion
+272,"If A:B = 2:8 and A + B = 109, find A.",11.8,31.8,21.8,26.16,c,Moderate,Ratio & Proportion
+273,"If A:B = 8:8 and A + B = 463, find A.",221.5,231.5,241.5,277.8,b,Moderate,Ratio & Proportion
+274,"If A:B = 8:2 and A + B = 266, find A.",212.8,255.36,202.8,222.8,a,Moderate,Ratio & Proportion
+275,"If A:B = 7:3 and A + B = 323, find A.",216.1,236.1,271.32,226.1,d,Moderate,Ratio & Proportion
+276,"If A:B = 8:10 and A + B = 140, find A.",62.22,52.22,72.22,74.66,a,Moderate,Ratio & Proportion
+277,"If A:B = 5:7 and A + B = 498, find A.",249,197.5,207.5,217.5,c,Moderate,Ratio & Proportion
+278,"If A:B = 10:10 and A + B = 199, find A.",119.4,99.5,109.5,89.5,b,Moderate,Ratio & Proportion
+279,"If A:B = 5:3 and A + B = 174, find A.",118.75,130.5,108.75,98.75,c,Moderate,Ratio & Proportion
+280,"If A:B = 4:3 and A + B = 190, find A.",108.57,98.57,118.57,130.28,a,Moderate,Ratio & Proportion
+281,"If A:B = 7:7 and A + B = 177, find A.",78.5,98.5,88.5,106.2,c,Moderate,Ratio & Proportion
+282,"If A:B = 9:6 and A + B = 240, find A.",134,172.8,154,144,d,Moderate,Ratio & Proportion
+283,"If A:B = 6:9 and A + B = 331, find A.",122.4,142.4,158.88,132.4,d,Moderate,Ratio & Proportion
+284,"If A:B = 6:3 and A + B = 430, find A.",344.0,296.67,276.67,286.67,d,Moderate,Ratio & Proportion
+285,"If A:B = 9:10 and A + B = 478, find A.",216.42,271.7,236.42,226.42,d,Moderate,Ratio & Proportion
+286,"If A:B = 7:9 and A + B = 356, find A.",145.75,186.9,155.75,165.75,c,Moderate,Ratio & Proportion
+287,"If A:B = 3:7 and A + B = 465, find A.",149.5,167.4,129.5,139.5,d,Moderate,Ratio & Proportion
+288,"If A:B = 2:5 and A + B = 462, find A.",122,132,142,158.4,b,Moderate,Ratio & Proportion
+289,"If A:B = 7:7 and A + B = 244, find A.",122,112,132,146.4,a,Moderate,Ratio & Proportion
+290,"If A:B = 2:7 and A + B = 133, find A.",35.47,39.56,29.56,19.56,c,Moderate,Ratio & Proportion
+291,"If A:B = 6:6 and A + B = 470, find A.",225,235,282,245,b,Moderate,Ratio & Proportion
+292,"If A:B = 4:7 and A + B = 258, find A.",103.82,83.82,93.82,112.58,c,Moderate,Ratio & Proportion
+293,"If A:B = 6:10 and A + B = 292, find A.",119.5,131.4,109.5,99.5,c,Moderate,Ratio & Proportion
+294,"If A:B = 8:10 and A + B = 285, find A.",152.0,116.67,136.67,126.67,d,Moderate,Ratio & Proportion
+295,"If A:B = 4:5 and A + B = 274, find A.",131.78,111.78,121.78,146.14,c,Moderate,Ratio & Proportion
+296,"If A:B = 4:4 and A + B = 139, find A.",79.5,83.4,69.5,59.5,c,Moderate,Ratio & Proportion
+297,"If A:B = 7:4 and A + B = 405, find A.",267.73,247.73,257.73,309.28,c,Moderate,Ratio & Proportion
+298,"If A:B = 4:4 and A + B = 469, find A.",224.5,244.5,234.5,281.4,c,Moderate,Ratio & Proportion
+299,"If A:B = 7:5 and A + B = 327, find A.",190.75,200.75,228.9,180.75,a,Moderate,Ratio & Proportion
+300,"If A:B = 5:10 and A + B = 222, find A.",88.8,74,84,64,b,Moderate,Ratio & Proportion
+301,"If A:B = 7:9 and A + B = 336, find A.",147,176.4,157,137,a,Moderate,Ratio & Proportion
+302,"If A:B = 4:5 and A + B = 409, find A.",171.78,181.78,218.14,191.78,b,Moderate,Ratio & Proportion
+303,"If A:B = 9:7 and A + B = 383, find A.",225.44,258.53,205.44,215.44,d,Moderate,Ratio & Proportion
+304,"If A:B = 6:3 and A + B = 490, find A.",326.67,316.67,392.0,336.67,a,Moderate,Ratio & Proportion
+305,"If A:B = 10:4 and A + B = 323, find A.",220.71,240.71,276.85,230.71,d,Moderate,Ratio & Proportion
+306,"If A:B = 7:2 and A + B = 312, find A.",291.2,232.67,252.67,242.67,d,Moderate,Ratio & Proportion
+307,"If A:B = 5:8 and A + B = 141, find A.",64.23,65.08,54.23,44.23,c,Moderate,Ratio & Proportion
+308,"If A:B = 7:3 and A + B = 465, find A.",335.5,390.6,325.5,315.5,c,Moderate,Ratio & Proportion
+309,"If A:B = 2:6 and A + B = 341, find A.",85.25,102.3,75.25,95.25,a,Moderate,Ratio & Proportion
+310,"If A:B = 9:2 and A + B = 140, find A.",104.55,137.46,124.55,114.55,d,Moderate,Ratio & Proportion
+311,"If A:B = 4:10 and A + B = 472, find A.",124.86,144.86,134.86,161.83,c,Moderate,Ratio & Proportion
+312,"If A:B = 5:6 and A + B = 162, find A.",63.64,83.64,88.37,73.64,d,Moderate,Ratio & Proportion
+313,"If A:B = 9:3 and A + B = 156, find A.",127,117,107,140.4,b,Moderate,Ratio & Proportion
+314,"If A:B = 10:5 and A + B = 467, find A.",311.33,301.33,373.6,321.33,a,Moderate,Ratio & Proportion
+315,"If A:B = 2:7 and A + B = 223, find A.",59.56,39.56,49.56,59.47,c,Moderate,Ratio & Proportion
+316,"If A:B = 10:7 and A + B = 134, find A.",94.58,68.82,88.82,78.82,d,Moderate,Ratio & Proportion
+317,"If A:B = 2:8 and A + B = 291, find A.",68.2,58.2,69.84,48.2,b,Moderate,Ratio & Proportion
+318,"If A:B = 7:3 and A + B = 276, find A.",231.84,193.2,183.2,203.2,b,Moderate,Ratio & Proportion
+319,"If A:B = 7:4 and A + B = 122, find A.",77.64,87.64,93.17,67.64,a,Moderate,Ratio & Proportion
+320,"If A:B = 4:9 and A + B = 456, find A.",150.31,140.31,130.31,168.37,b,Moderate,Ratio & Proportion
+321,"If A:B = 4:3 and A + B = 466, find A.",256.29,276.29,266.29,319.55,c,Moderate,Ratio & Proportion
+322,"If A:B = 5:2 and A + B = 202, find A.",173.15,134.29,154.29,144.29,d,Moderate,Ratio & Proportion
+323,"If A:B = 10:8 and A + B = 378, find A.",200,210,220,252,b,Moderate,Ratio & Proportion
+324,"If A:B = 5:6 and A + B = 282, find A.",153.82,138.18,118.18,128.18,d,Moderate,Ratio & Proportion
+325,"If A:B = 6:3 and A + B = 288, find A.",192,182,202,230.4,a,Moderate,Ratio & Proportion
+326,"If A:B = 8:7 and A + B = 195, find A.",104,114,94,124.8,a,Moderate,Ratio & Proportion
+327,"If A:B = 7:10 and A + B = 236, find A.",116.62,107.18,87.18,97.18,d,Moderate,Ratio & Proportion
+328,"If A:B = 3:8 and A + B = 408, find A.",111.27,133.52,101.27,121.27,a,Moderate,Ratio & Proportion
+329,"If A:B = 7:3 and A + B = 140, find A.",98,108,117.6,88,a,Moderate,Ratio & Proportion
+330,"If A:B = 6:9 and A + B = 408, find A.",153.2,173.2,163.2,195.84,c,Moderate,Ratio & Proportion
+331,A product costs Rs.819 and is sold for Rs.982.8. Find profit percentage.,15%,5%,10%,20%,d,Easy,Profit & Loss
+332,A product costs Rs.1359 and is sold for Rs.1630.8. Find profit percentage.,5%,20%,15%,10%,b,Easy,Profit & Loss
+333,A product costs Rs.253 and is sold for Rs.303.6. Find profit percentage.,5%,20%,15%,10%,b,Easy,Profit & Loss
+334,A product costs Rs.163 and is sold for Rs.179.3. Find profit percentage.,5%,10%,10%,15%,b,Easy,Profit & Loss
+335,A product costs Rs.237 and is sold for Rs.260.7. Find profit percentage.,10%,15%,5%,10%,a,Easy,Profit & Loss
+336,A product costs Rs.1261 and is sold for Rs.1324.05. Find profit percentage.,5%,15%,10%,5%,a,Easy,Profit & Loss
+337,A product costs Rs.859 and is sold for Rs.987.85. Find profit percentage.,5%,10%,15%,15%,c,Easy,Profit & Loss
+338,A product costs Rs.1184 and is sold for Rs.1361.6. Find profit percentage.,15%,10%,5%,15%,a,Easy,Profit & Loss
+339,A product costs Rs.611 and is sold for Rs.641.55. Find profit percentage.,5%,15%,10%,5%,a,Easy,Profit & Loss
+340,A product costs Rs.1122 and is sold for Rs.1402.5. Find profit percentage.,5%,25%,10%,15%,b,Easy,Profit & Loss
+341,A product costs Rs.636 and is sold for Rs.731.4. Find profit percentage.,10%,5%,15%,15%,c,Easy,Profit & Loss
+342,A product costs Rs.1521 and is sold for Rs.1825.2. Find profit percentage.,15%,10%,20%,5%,c,Easy,Profit & Loss
+343,A product costs Rs.1846 and is sold for Rs.1938.3. Find profit percentage.,10%,5%,5%,15%,b,Easy,Profit & Loss
+344,A product costs Rs.279 and is sold for Rs.320.85. Find profit percentage.,5%,15%,15%,10%,b,Easy,Profit & Loss
+345,A product costs Rs.1226 and is sold for Rs.1532.5. Find profit percentage.,15%,25%,5%,10%,b,Easy,Profit & Loss
+346,A product costs Rs.1557 and is sold for Rs.1712.7. Find profit percentage.,5%,10%,15%,10%,b,Easy,Profit & Loss
+347,A product costs Rs.348 and is sold for Rs.382.8. Find profit percentage.,10%,15%,10%,5%,a,Easy,Profit & Loss
+348,A product costs Rs.153 and is sold for Rs.175.95. Find profit percentage.,15%,15%,5%,10%,a,Easy,Profit & Loss
+349,A product costs Rs.1353 and is sold for Rs.1420.65. Find profit percentage.,15%,10%,5%,5%,c,Easy,Profit & Loss
+350,A product costs Rs.1568 and is sold for Rs.1881.6. Find profit percentage.,10%,20%,5%,15%,b,Easy,Profit & Loss
+351,A product costs Rs.356 and is sold for Rs.409.4. Find profit percentage.,15%,10%,5%,15%,a,Easy,Profit & Loss
+352,A product costs Rs.1492 and is sold for Rs.1865.0. Find profit percentage.,5%,15%,25%,10%,c,Easy,Profit & Loss
+353,A product costs Rs.1672 and is sold for Rs.1839.2. Find profit percentage.,5%,10%,10%,15%,b,Easy,Profit & Loss
+354,A product costs Rs.1802 and is sold for Rs.1892.1. Find profit percentage.,10%,5%,15%,5%,b,Easy,Profit & Loss
+355,A product costs Rs.431 and is sold for Rs.495.65. Find profit percentage.,15%,10%,15%,5%,a,Easy,Profit & Loss
+356,A product costs Rs.1832 and is sold for Rs.1923.6. Find profit percentage.,15%,5%,5%,10%,b,Easy,Profit & Loss
+357,A product costs Rs.356 and is sold for Rs.409.4. Find profit percentage.,5%,15%,10%,15%,b,Easy,Profit & Loss
+358,A product costs Rs.1312 and is sold for Rs.1640.0. Find profit percentage.,10%,15%,25%,5%,c,Easy,Profit & Loss
+359,A product costs Rs.1825 and is sold for Rs.2281.25. Find profit percentage.,5%,10%,15%,25%,d,Easy,Profit & Loss
+360,A product costs Rs.193 and is sold for Rs.241.25. Find profit percentage.,5%,25%,15%,10%,b,Easy,Profit & Loss
+361,A product costs Rs.1670 and is sold for Rs.2087.5. Find profit percentage.,5%,25%,10%,15%,b,Easy,Profit & Loss
+362,A product costs Rs.1119 and is sold for Rs.1398.75. Find profit percentage.,25%,5%,15%,10%,a,Easy,Profit & Loss
+363,A product costs Rs.1089 and is sold for Rs.1197.9. Find profit percentage.,10%,10%,5%,15%,a,Easy,Profit & Loss
+364,A product costs Rs.249 and is sold for Rs.261.45. Find profit percentage.,5%,10%,15%,5%,a,Easy,Profit & Loss
+365,A product costs Rs.1091 and is sold for Rs.1309.2. Find profit percentage.,10%,20%,15%,5%,b,Easy,Profit & Loss
+366,A product costs Rs.740 and is sold for Rs.851.0. Find profit percentage.,15%,15%,5%,10%,a,Easy,Profit & Loss
+367,A product costs Rs.1657 and is sold for Rs.1905.55. Find profit percentage.,10%,15%,5%,15%,b,Easy,Profit & Loss
+368,A product costs Rs.1055 and is sold for Rs.1107.75. Find profit percentage.,15%,5%,5%,10%,b,Easy,Profit & Loss
+369,A product costs Rs.388 and is sold for Rs.407.4. Find profit percentage.,15%,10%,5%,5%,c,Easy,Profit & Loss
+370,A product costs Rs.1869 and is sold for Rs.2336.25. Find profit percentage.,5%,10%,25%,15%,c,Easy,Profit & Loss
+371,A product costs Rs.1766 and is sold for Rs.2030.9. Find profit percentage.,5%,15%,15%,10%,b,Easy,Profit & Loss
+372,A product costs Rs.1120 and is sold for Rs.1400.0. Find profit percentage.,25%,10%,5%,15%,a,Easy,Profit & Loss
+373,A product costs Rs.1118 and is sold for Rs.1173.9. Find profit percentage.,15%,10%,5%,5%,c,Easy,Profit & Loss
+374,A product costs Rs.593 and is sold for Rs.652.3. Find profit percentage.,5%,15%,10%,10%,c,Easy,Profit & Loss
+375,A product costs Rs.676 and is sold for Rs.811.2. Find profit percentage.,10%,20%,5%,15%,b,Easy,Profit & Loss
+376,A product costs Rs.1835 and is sold for Rs.1926.75. Find profit percentage.,10%,5%,5%,15%,b,Easy,Profit & Loss
+377,A product costs Rs.1589 and is sold for Rs.1827.35. Find profit percentage.,10%,15%,5%,15%,b,Easy,Profit & Loss
+378,A product costs Rs.920 and is sold for Rs.966.0. Find profit percentage.,5%,10%,15%,5%,a,Easy,Profit & Loss
+379,A product costs Rs.250 and is sold for Rs.300.0. Find profit percentage.,20%,5%,10%,15%,a,Easy,Profit & Loss
+380,A product costs Rs.1790 and is sold for Rs.2237.5. Find profit percentage.,5%,10%,15%,25%,d,Easy,Profit & Loss
+381,A product costs Rs.906 and is sold for Rs.1041.9. Find profit percentage.,15%,5%,15%,10%,a,Easy,Profit & Loss
+382,A product costs Rs.1646 and is sold for Rs.1810.6. Find profit percentage.,10%,15%,10%,5%,a,Easy,Profit & Loss
+383,A product costs Rs.1124 and is sold for Rs.1180.2. Find profit percentage.,5%,10%,15%,5%,a,Easy,Profit & Loss
+384,A product costs Rs.1561 and is sold for Rs.1795.15. Find profit percentage.,15%,5%,10%,15%,a,Easy,Profit & Loss
+385,A product costs Rs.405 and is sold for Rs.506.25. Find profit percentage.,25%,10%,15%,5%,a,Easy,Profit & Loss
+386,A product costs Rs.432 and is sold for Rs.518.4. Find profit percentage.,20%,5%,15%,10%,a,Easy,Profit & Loss
+387,A product costs Rs.1138 and is sold for Rs.1422.5. Find profit percentage.,25%,5%,10%,15%,a,Easy,Profit & Loss
+388,A product costs Rs.1072 and is sold for Rs.1125.6. Find profit percentage.,15%,5%,5%,10%,b,Easy,Profit & Loss
+389,A product costs Rs.953 and is sold for Rs.1191.25. Find profit percentage.,5%,25%,15%,10%,b,Easy,Profit & Loss
+390,A product costs Rs.1322 and is sold for Rs.1586.4. Find profit percentage.,5%,20%,15%,10%,b,Easy,Profit & Loss
+391,Find the simple interest on Rs.1841 for 4 years at 12% p.a.,883.68,972.05,683.68,1083.68,a,Moderate,Simple Interest
+392,Find the simple interest on Rs.3421 for 1 years at 6% p.a.,405.26,5.26,225.79,205.26,d,Moderate,Simple Interest
+393,Find the simple interest on Rs.8225 for 4 years at 8% p.a.,2432,2632,2895.2,2832,b,Moderate,Simple Interest
+394,Find the simple interest on Rs.7723 for 5 years at 12% p.a.,4833.8,4633.8,4433.8,5097.18,b,Moderate,Simple Interest
+395,Find the simple interest on Rs.3262 for 2 years at 12% p.a.,782.88,982.88,861.17,582.88,a,Moderate,Simple Interest
+396,Find the simple interest on Rs.9609 for 3 years at 10% p.a.,2882.7,2682.7,3170.97,3082.7,a,Moderate,Simple Interest
+397,Find the simple interest on Rs.9950 for 3 years at 8% p.a.,2588,2188,2388,2626.8,c,Moderate,Simple Interest
+398,Find the simple interest on Rs.5571 for 3 years at 12% p.a.,2005.56,1805.56,2206.12,2205.56,a,Moderate,Simple Interest
+399,Find the simple interest on Rs.4396 for 3 years at 10% p.a.,1318.8,1118.8,1518.8,1450.68,a,Moderate,Simple Interest
+400,Find the simple interest on Rs.5715 for 5 years at 5% p.a.,1428.75,1228.75,1628.75,1571.63,a,Moderate,Simple Interest
+401,Find the simple interest on Rs.3399 for 1 years at 8% p.a.,471.92,271.92,299.11,71.92,b,Moderate,Simple Interest
+402,Find the simple interest on Rs.6674 for 3 years at 10% p.a.,2202.2,1802.2,2002.2,2202.42,c,Moderate,Simple Interest
+403,Find the simple interest on Rs.9824 for 5 years at 8% p.a.,4129.6,4322.56,3929.6,3729.6,c,Moderate,Simple Interest
+404,Find the simple interest on Rs.4920 for 1 years at 6% p.a.,324.72,295.2,95.2,495.2,b,Moderate,Simple Interest
+405,Find the simple interest on Rs.1860 for 4 years at 5% p.a.,372,572,409.2,172,a,Moderate,Simple Interest
+406,Find the simple interest on Rs.2647 for 1 years at 6% p.a.,158.82,-41.18,174.7,358.82,a,Moderate,Simple Interest
+407,Find the simple interest on Rs.8822 for 3 years at 6% p.a.,1746.76,1587.96,1787.96,1387.96,b,Moderate,Simple Interest
+408,Find the simple interest on Rs.2465 for 2 years at 12% p.a.,391.6,791.6,650.76,591.6,d,Moderate,Simple Interest
+409,Find the simple interest on Rs.3880 for 4 years at 5% p.a.,576,976,776,853.6,c,Moderate,Simple Interest
+410,Find the simple interest on Rs.1613 for 3 years at 5% p.a.,266.14,41.95,441.95,241.95,d,Moderate,Simple Interest
+411,Find the simple interest on Rs.8444 for 5 years at 12% p.a.,4866.4,5266.4,5066.4,5573.04,c,Moderate,Simple Interest
+412,Find the simple interest on Rs.5470 for 1 years at 6% p.a.,361.02,528.2,328.2,128.2,c,Moderate,Simple Interest
+413,Find the simple interest on Rs.5215 for 1 years at 6% p.a.,344.19,312.9,512.9,112.9,b,Moderate,Simple Interest
+414,Find the simple interest on Rs.3875 for 4 years at 12% p.a.,1860,2060,1660,2046.0,a,Moderate,Simple Interest
+415,Find the simple interest on Rs.2421 for 1 years at 10% p.a.,42.1,266.31,242.1,442.1,c,Moderate,Simple Interest
+416,Find the simple interest on Rs.6301 for 1 years at 6% p.a.,415.87,378.06,578.06,178.06,b,Moderate,Simple Interest
+417,Find the simple interest on Rs.8319 for 3 years at 8% p.a.,2196.56,1996.56,2196.22,1796.56,b,Moderate,Simple Interest
+418,Find the simple interest on Rs.5285 for 2 years at 8% p.a.,1045.6,930.16,645.6,845.6,d,Moderate,Simple Interest
+419,Find the simple interest on Rs.8625 for 2 years at 8% p.a.,1380,1580,1180,1518.0,a,Moderate,Simple Interest
+420,Find the simple interest on Rs.2923 for 3 years at 8% p.a.,771.67,501.52,701.52,901.52,c,Moderate,Simple Interest
+421,Find the simple interest on Rs.8834 for 4 years at 6% p.a.,2120.16,2332.18,2320.16,1920.16,a,Moderate,Simple Interest
+422,Find the simple interest on Rs.9806 for 2 years at 6% p.a.,1294.39,1376.72,976.72,1176.72,d,Moderate,Simple Interest
+423,Find the simple interest on Rs.9653 for 1 years at 8% p.a.,972.24,572.24,849.46,772.24,d,Moderate,Simple Interest
+424,Find the simple interest on Rs.9792 for 2 years at 6% p.a.,1175.04,1375.04,1292.54,975.04,a,Moderate,Simple Interest
+425,Find the simple interest on Rs.2904 for 5 years at 6% p.a.,671.2,1071.2,871.2,958.32,c,Moderate,Simple Interest
+426,Find the simple interest on Rs.1911 for 2 years at 10% p.a.,182.2,382.2,582.2,420.42,b,Moderate,Simple Interest
+427,Find the simple interest on Rs.8575 for 1 years at 8% p.a.,486,686,886,754.6,b,Moderate,Simple Interest
+428,Find the simple interest on Rs.4570 for 1 years at 12% p.a.,603.24,348.4,748.4,548.4,d,Moderate,Simple Interest
+429,Find the simple interest on Rs.2044 for 1 years at 12% p.a.,45.28,269.81,445.28,245.28,d,Moderate,Simple Interest
+430,Find the simple interest on Rs.5703 for 2 years at 10% p.a.,1140.6,1254.66,940.6,1340.6,a,Moderate,Simple Interest
+431,Find the simple interest on Rs.7135 for 4 years at 10% p.a.,2654,2854,3054,3139.4,b,Moderate,Simple Interest
+432,Find the simple interest on Rs.9835 for 3 years at 6% p.a.,1570.3,1970.3,1947.33,1770.3,d,Moderate,Simple Interest
+433,Find the simple interest on Rs.9664 for 2 years at 6% p.a.,959.68,1359.68,1275.65,1159.68,d,Moderate,Simple Interest
+434,Find the simple interest on Rs.8585 for 4 years at 12% p.a.,4320.8,3920.8,4120.8,4532.88,c,Moderate,Simple Interest
+435,Find the simple interest on Rs.8546 for 2 years at 8% p.a.,1567.36,1504.1,1367.36,1167.36,c,Moderate,Simple Interest
+436,Find the simple interest on Rs.1527 for 5 years at 10% p.a.,963.5,563.5,839.85,763.5,d,Moderate,Simple Interest
+437,Find the simple interest on Rs.2102 for 5 years at 5% p.a.,325.5,578.05,725.5,525.5,d,Moderate,Simple Interest
+438,Find the simple interest on Rs.5009 for 4 years at 5% p.a.,1201.8,801.8,1001.8,1101.98,c,Moderate,Simple Interest
+439,Find the simple interest on Rs.1924 for 5 years at 6% p.a.,634.92,777.2,577.2,377.2,c,Moderate,Simple Interest
+440,Find the simple interest on Rs.6253 for 3 years at 6% p.a.,1238.09,1125.54,925.54,1325.54,b,Moderate,Simple Interest
+441,Find the simple interest on Rs.7775 for 3 years at 8% p.a.,2066,2052.6,1666,1866,d,Moderate,Simple Interest
+442,Find the simple interest on Rs.7999 for 4 years at 12% p.a.,4223.47,3639.52,4039.52,3839.52,d,Moderate,Simple Interest
+443,Find the simple interest on Rs.9592 for 4 years at 8% p.a.,2869.44,3269.44,3069.44,3376.38,c,Moderate,Simple Interest
+444,Find the simple interest on Rs.7167 for 5 years at 6% p.a.,2350.1,1950.1,2150.1,2365.11,c,Moderate,Simple Interest
+445,Find the simple interest on Rs.5927 for 4 years at 6% p.a.,1564.73,1622.48,1222.48,1422.48,d,Moderate,Simple Interest
+446,"Find the average of the numbers 63, 81, 77, 27, 59.",58.4,61.4,67.54,64.4,b,Easy,Average
+447,"Find the average of the numbers 52, 92, 20, 67, 57.",60.6,63.36,54.6,57.6,d,Easy,Average
+448,"Find the average of the numbers 16, 44, 58, 96, 87.",63.2,57.2,66.22,60.2,d,Easy,Average
+449,"Find the average of the numbers 85, 95, 81, 37, 71.",73.8,70.8,81.18,76.8,a,Easy,Average
+450,"Find the average of the numbers 11, 37, 34, 25, 71.",39.16,35.6,32.6,38.6,b,Easy,Average
+451,"Find the average of the numbers 60, 40, 80, 51, 46.",55.4,52.4,58.4,60.94,a,Easy,Average
+452,"Find the average of the numbers 49, 43, 56, 75, 73.",56.2,62.2,59.2,65.12,c,Easy,Average
+453,"Find the average of the numbers 50, 36, 57, 50, 62.",54,56.1,48,51,d,Easy,Average
+454,"Find the average of the numbers 28, 12, 43, 80, 84.",46.4,49.4,52.4,54.34,b,Easy,Average
+455,"Find the average of the numbers 35, 52, 39, 58, 82.",53.2,50.2,58.52,56.2,a,Easy,Average
+456,"Find the average of the numbers 42, 72, 92, 72, 68.",69.2,76.12,66.2,72.2,a,Easy,Average
+457,"Find the average of the numbers 31, 27, 79, 72, 33.",51.4,53.24,45.4,48.4,d,Easy,Average
+458,"Find the average of the numbers 19, 95, 16, 10, 62.",44.44,40.4,37.4,43.4,b,Easy,Average
+459,"Find the average of the numbers 18, 100, 29, 11, 37.",36,39,42,42.9,b,Easy,Average
+460,"Find the average of the numbers 89, 91, 95, 88, 71.",89.8,83.8,86.8,95.48,c,Easy,Average
+461,"Find the average of the numbers 78, 80, 62, 11, 12.",48.6,51.6,53.46,45.6,a,Easy,Average
+462,"Find the average of the numbers 12, 74, 99, 96, 65.",76.12,66.2,69.2,72.2,c,Easy,Average
+463,"Find the average of the numbers 77, 29, 40, 34, 89.",53.8,59.18,56.8,50.8,a,Easy,Average
+464,"Find the average of the numbers 60, 20, 57, 61, 68.",58.52,53.2,50.2,56.2,b,Easy,Average
+465,"Find the average of the numbers 48, 97, 20, 93, 93.",67.2,73.2,77.22,70.2,d,Easy,Average
+466,"Find the average of the numbers 58, 58, 80, 70, 17.",59.6,62.26,53.6,56.6,d,Easy,Average
+467,"Find the average of the numbers 20, 73, 65, 92, 52.",63.4,66.44,57.4,60.4,d,Easy,Average
+468,"Find the average of the numbers 39, 37, 98, 82, 70.",68.2,71.72,65.2,62.2,c,Easy,Average
+469,"Find the average of the numbers 97, 45, 79, 82, 94.",76.4,82.4,87.34,79.4,d,Easy,Average
+470,"Find the average of the numbers 12, 36, 85, 28, 60.",41.2,48.62,47.2,44.2,d,Easy,Average
+471,"Find the average of the numbers 82, 40, 82, 59, 96.",78.98,71.8,74.8,68.8,b,Easy,Average
+472,"Find the average of the numbers 98, 20, 74, 54, 16.",49.4,57.64,55.4,52.4,d,Easy,Average
+473,"Find the average of the numbers 19, 53, 87, 88, 86.",63.6,66.6,69.6,73.26,b,Easy,Average
+474,"Find the average of the numbers 91, 44, 67, 72, 39.",62.6,65.6,68.86,59.6,a,Easy,Average
+475,"Find the average of the numbers 65, 33, 97, 84, 94.",71.6,77.6,74.6,82.06,c,Easy,Average
+476,"Find the average of the numbers 41, 19, 20, 44, 29.",33.6,30.6,27.6,33.66,b,Easy,Average
+477,"Find the average of the numbers 59, 50, 56, 23, 21.",45.98,38.8,44.8,41.8,d,Easy,Average
+478,"Find the average of the numbers 56, 44, 23, 26, 21.",34,31,37.4,37,a,Easy,Average
+479,"Find the average of the numbers 81, 81, 75, 62, 23.",61.4,67.4,70.84,64.4,d,Easy,Average
+480,"Find the average of the numbers 80, 21, 86, 86, 51.",61.8,67.8,64.8,71.28,c,Easy,Average
+481,"Find the average of the numbers 62, 59, 20, 81, 41.",52.6,57.86,49.6,55.6,a,Easy,Average
+482,"Find the average of the numbers 31, 27, 44, 48, 44.",41.8,35.8,38.8,42.68,c,Easy,Average
+483,"Find the average of the numbers 31, 65, 45, 63, 48.",47.4,53.4,50.4,55.44,c,Easy,Average
+484,"Find the average of the numbers 42, 41, 90, 73, 86.",63.4,66.4,73.04,69.4,b,Easy,Average
+485,"Find the average of the numbers 27, 48, 10, 60, 52.",39.4,36.4,42.4,43.34,a,Easy,Average
+486,"Find the average of the numbers 52, 65, 93, 86, 27.",71.06,64.6,67.6,61.6,b,Easy,Average
+487,"Find the average of the numbers 71, 50, 32, 60, 50.",52.6,55.6,57.86,49.6,a,Easy,Average
+488,"Find the average of the numbers 83, 41, 51, 58, 45.",52.6,55.6,58.6,61.16,b,Easy,Average
+489,"Find the average of the numbers 82, 35, 85, 79, 33.",69.08,65.8,59.8,62.8,d,Easy,Average
+490,"Find the average of the numbers 100, 36, 66, 47, 98.",76.34,66.4,72.4,69.4,d,Easy,Average
+491,"Find the average of the numbers 27, 91, 48, 40, 42.",49.6,54.56,46.6,52.6,a,Easy,Average
+492,"Find the average of the numbers 58, 19, 67, 86, 71.",60.2,63.2,57.2,66.22,a,Easy,Average
+493,"Find the average of the numbers 79, 14, 56, 99, 78.",68.2,62.2,71.72,65.2,d,Easy,Average
+494,"Find the average of the numbers 94, 95, 55, 31, 92.",80.74,76.4,70.4,73.4,d,Easy,Average
+495,"Find the average of the numbers 52, 65, 23, 11, 22.",37.6,38.06,34.6,31.6,c,Easy,Average
+496,"Find the average of the numbers 67, 57, 60, 69, 96.",66.8,69.8,76.78,72.8,b,Easy,Average
+497,"Find the average of the numbers 71, 23, 47, 63, 20.",47.8,49.28,41.8,44.8,d,Easy,Average
+498,"Find the average of the numbers 54, 49, 53, 68, 36.",52,49,55,57.2,a,Easy,Average
+499,"Find the average of the numbers 22, 66, 99, 67, 50.",57.8,66.88,63.8,60.8,d,Easy,Average
+500,"Find the average of the numbers 100, 24, 12, 53, 92.",59.2,61.82,53.2,56.2,d,Easy,Average
