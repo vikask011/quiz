@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {mixedQuestions} from "../assets/dataset/quiz-data.js";
+import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import mygif from "../assets/images/firework.gif";
 
 const Apti = () => {
@@ -9,7 +9,6 @@ const Apti = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [questionStartTime, setQuestionStartTime] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  //   const [isAnsweredCorrect, setIsAnsweredCorrect] = useState(false);
   const [currentDifficulty, setCurrentDifficulty] = useState("very_easy");
   const [difficultyProgress, setDifficultyProgress] = useState({
     very_easy: 0,
@@ -169,51 +168,15 @@ const Apti = () => {
   };
 
   const triggerCorrectEffects = () => {
-    // Confetti burst
-    // triggerConfetti();
-    // Particle burst effect
-    // triggerBurst();
-    // Screen flash
     triggerFlash("success");
-    // Flying congratulatory text
     triggerFlyingText("Excellent!", "success");
   };
 
   const triggerWrongEffects = () => {
-    // Shake effect
     triggerShake();
-    // Screen flash
-    // triggerFlash("error");
-    // Flying text showing correct answer
     const correctAnswer = currentQuestion.options[currentQuestion.correct];
     triggerFlyingText(`Correct Answer is: ${correctAnswer}`, "error");
   };
-
-  //   const triggerConfetti = () => {
-  //     if (confettiRef.current) {
-  //       confettiRef.current.style.display = "block";
-  //       confettiRef.current.style.animation = "confetti-burst 2s ease-out";
-  //       setTimeout(() => {
-  //         if (confettiRef.current) {
-  //           confettiRef.current.style.display = "none";
-  //           confettiRef.current.style.animation = "";
-  //         }
-  //       }, 2000);
-  //     }
-  //   };
-
-  //   const triggerBurst = () => {
-  //     if (burstRef.current) {
-  //       burstRef.current.style.display = "block";
-  //       burstRef.current.style.animation = "particle-burst 1.5s ease-out";
-  //       setTimeout(() => {
-  //         if (burstRef.current) {
-  //           burstRef.current.style.display = "none";
-  //           burstRef.current.style.animation = "";
-  //         }
-  //       }, 1500);
-  //     }
-  //   };
 
   const triggerFlash = (type) => {
     if (flashRef.current) {
@@ -313,9 +276,9 @@ const Apti = () => {
     };
 
     return (
-      <div className="relative z-10 container mx-auto mt-10 px-4 py-8">
+      <div className="relative z-10 container mx-auto  px-4 py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
-          <div className="bg-white/65 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200 h-120 overflow-y-scroll">
+          <div className="bg-white/65 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200 w-full h-120 overflow-y-scroll">
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
               {accuracy >= 80
                 ? "Outstanding Performance!"
@@ -586,9 +549,6 @@ const Apti = () => {
               <div className="text-xl font-mono font-bold text-gray-700">
                 Duration: {formatTime(currentQuestionTime)}
               </div>
-              {/* <div className="text-xs text-gray-500 text-center">
-                Current Question
-              </div> */}
             </div>
           </div>
         </div>

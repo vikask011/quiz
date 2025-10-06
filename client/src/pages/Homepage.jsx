@@ -196,7 +196,7 @@ const Homepage = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate("/assessment")}
+                onClick={() => navigate("/assessment/selection")}
                 className="px-8 py-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold rounded-2xl hover:from-violet-600 hover:to-purple-600 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Take Assessment
@@ -209,10 +209,13 @@ const Homepage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                className="w-14 h-14 rounded-2xl overflow-hidden border-3 border-gradient-to-r from-violet-300 to-pink-300 hover:from-violet-400 hover:to-pink-400 transition-all duration-300 shadow-lg"
+                className="w-10 h-10 rounded-full overflow-hidden border-3 border-gradient-to-r from-violet-300 to-pink-300 hover:from-violet-400 hover:to-pink-400 transition-all duration-300 shadow-lg p-1.5"
               >
                 <img
-                  src={user?.photoUrl || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACUCAMAAAC6AgsRAAAAaVBMVEX///8uNDb7+/sDExcoLzHq6upUWFkrMTMAAADn5+gjKiwfJykVHiH09PQ8QUMcJCfNzs5zdnfFxsdFSksNGBvZ2tpMUVK4ubo0Ojytr6+anJ1laGmOkJFrbnDS1NQABg1/gYKipKVcX2HRbAoPAAAElElEQVR4nO2ci7aiMAxFBQqFtlB5CMhDkP//yMFxOV7nqrcNJXXNsL/grLRN0+TAbrex8a/g/sa2imfEp6rrcyI8wfK+qfaxbUEPnNLAKQQnlDoOJVwUdBpPtkXdiBo5MOI8QtjAz5FtaTNxlxTUeQYtks72MrvHWv4dui9BlHVl9bT46fA8dn8UDqNvT94pl2/VXZD5wZa8Kny9tF9DmNmRd5Tv1/YGZZUVeaGSuguhBYEZU5bnOGyPLS/6lpHfQShyqo5LnfDNp3jCzYPNz4nlEXHElHdiakf3DqWYaXDSDd8cwBRP3l49tdwJ8Y5Ir3c4rvARS96p1t19F2iCtQMbAZCHd4TdXCc132FIOTCCnI4LIU4pWHlAfR5OmZByoD6OkwJL2Pabq4QSQ16cQLLLBZpgPOcOoOz3W1+NcYXsgeouYPQUMmj45gBivJQ2fctYsv8wnklLzi9GBeN/eP7b5WB9OYa8j79/jwVQX4FToH56/Qetn0mJ1EOAvj8aHHnQ91uNNnFoIQtMWix5uwOof4DYgAn0UyCf8OTtDvr9K4Laxu90G1gS6/BecRO9FhFLkOdIB73+s4M+pDnqJGlhYcBwVm9zeKjN5xvNi7nq39AC92z84ciV5m/cSvQuVPXPeZrXVqZvV6JAvA8hFYHdIX+TvDvHIjlbVTcTpeGLOSuVYfoJDgl/zOW3fUi5zK27I25EVS9DwegNJkLeV58QuxtuvG/aMknquk6SvG1O8Se6nFw/OkT+p6zqxsbGxv+LG/s/Etu5SS5+2LFvp+AnprYfuwrz+eZG+zHxhOSMERUY40IUZXfyMSIZV2M9vPF0voIJLxmrte/maKwZh/bvCWd1t2bVlb2slVWhYhjXGiJFLdG3NX1H0nSNPrk/hhDX0DN4aN7UW5WwpvhzisDsJDNOPagp4jnEGw0e5UNgYuM9IiZjOTsjpnbeVxg1dJDPYllOeQWVRhpHa8mbN6EJR1sHnVaqsLwzeF5T3nydLIxgZTLrPRW4KBHu6Vp77wZZ4plwV0ksjzAHXBW6LdRpoAPcGH00f2s8gwO3YOStvfmuUAmrWVOc8M0VIWiFK4zNd4UDRhDxtP7ZvcEm/WIL7CKGUOgHkJgtSN9DHF15GWb4HMfTzDEuyEICR9d8ArPgwNE17wAtTHAKvUFdgru88wJreRfBFjo4WuY79OXVXOAJe3nnO0TjBMMtunBorn7HLbFgg/VpZBikwvQRjSLGwvHQsX+6I17pd0d2qvriFq/0u8N61QMSg7+AWqRPuUj1kYuDKyRXvUEiYkMfrZX1abtLjegjqs9MS/rYpm/Tt+l7qY8r67OT/xzV/OcDP5BZhvr9Yak+aJULaG33vwnU66vd0Ur9pz4KgX9iCYcmGl1exN7kDZ335S4b0PUNWtPWADuAmp8nZdgvOKnZoOxwBWp/WxgrfJpgDqn/eVKU421BXgL8MFGCNj/KQQOuqEQRSEUAdBPFjVh/E0p5htsC98Gwaq1KWTgt++p2n+bi8uNQ89IIF7JMl5uIoqzpc154ZilY3p8zU2ZFdw0MadvYWI9fhfNXEpU96GQAAAAASUVORK5CYII="}
+                  src={
+                    user?.photoUrl ||
+                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACUCAMAAAC6AgsRAAAAaVBMVEX///8uNDb7+/sDExcoLzHq6upUWFkrMTMAAADn5+gjKiwfJykVHiH09PQ8QUMcJCfNzs5zdnfFxsdFSksNGBvZ2tpMUVK4ubo0Ojytr6+anJ1laGmOkJFrbnDS1NQABg1/gYKipKVcX2HRbAoPAAAElElEQVR4nO2ci7aiMAxFBQqFtlB5CMhDkP//yMFxOV7nqrcNJXXNsL/grLRN0+TAbrex8a/g/sa2imfEp6rrcyI8wfK+qfaxbUEPnNLAKQQnlDoOJVwUdBpPtkXdiBo5MOI8QtjAz5FtaTNxlxTUeQYtks72MrvHWv4dui9BlHVl9bT46fA8dn8UDqNvT94pl2/VXZD5wZa8Kny9tF9DmNmRd5Tv1/YGZZUVeaGSuguhBYEZU5bnOGyPLS/6lpHfQShyqo5LnfDNp3jCzYPNz4nlEXHElHdiakf3DqWYaXDSDd8cwBRP3l49tdwJ8Y5Ir3c4rvARS96p1t19F2iCtQMbAZCHd4TdXCc132FIOTCCnI4LIU4pWHlAfR5OmZByoD6OkwJL2Pabq4QSQ16cQLLLBZpgPOcOoOz3W1+NcYXsgeouYPQUMmj45gBivJQ2fctYsv8wnklLzi9GBeN/eP7b5WB9OYa8j79/jwVQX4FToH56/Qetn0mJ1EOAvj8aHHnQ91uNNnFoIQtMWix5uwOof4DYgAn0UyCf8OTtDvr9K4Laxu90G1gS6/BecRO9FhFLkOdIB73+s4M+pDnqJGlhYcBwVm9zeKjN5xvNi7nq39AC92z84ciV5m/cSvQuVPXPeZrXVqZvV6JAvA8hFYHdIX+TvDvHIjlbVTcTpeGLOSuVYfoJDgl/zOW3fUi5zK27I25EVS9DwegNJkLeV58QuxtuvG/aMknquk6SvG1O8Se6nFw/OkT+p6zqxsbGxv+LG/s/Etu5SS5+2LFvp+AnprYfuwrz+eZG+zHxhOSMERUY40IUZXfyMSIZV2M9vPF0voIJLxmrte/maKwZh/bvCWd1t2bVlb2slVWhYhjXGiJFLdG3NX1H0nSNPrk/hhDX0DN4aN7UW5WwpvhzisDsJDNOPagp4jnEGw0e5UNgYuM9IiZjOTsjpnbeVxg1dJDPYllOeQWVRhpHa8mbN6EJR1sHnVaqsLwzeF5T3nydLIxgZTLrPRW4KBHu6Vp77wZZ4plwV0ksjzAHXBW6LdRpoAPcGH00f2s8gwO3YOStvfmuUAmrWVOc8M0VIWiFK4zNd4UDRhDxtP7ZvcEm/WIL7CKGUOgHkJgtSN9DHF15GWb4HMfTzDEuyEICR9d8ArPgwNE17wAtTHAKvUFdgru88wJreRfBFjo4WuY79OXVXOAJe3nnO0TjBMMtunBorn7HLbFgg/VpZBikwvQRjSLGwvHQsX+6I17pd0d2qvriFq/0u8N61QMSg7+AWqRPuUj1kYuDKyRXvUEiYkMfrZX1abtLjegjqs9MS/rYpm/Tt+l7qY8r67OT/xzV/OcDP5BZhvr9Yak+aJULaG33vwnU66vd0Ur9pz4KgX9iCYcmGl1exN7kDZ335S4b0PUNWtPWADuAmp8nZdgvOKnZoOxwBWp/WxgrfJpgDqn/eVKU421BXgL8MFGCNj/KQQOuqEQRSEUAdBPFjVh/E0p5htsC98Gwaq1KWTgt++p2n+bi8uNQ89IIF7JMl5uIoqzpc154ZilY3p8zU2ZFdw0MadvYWI9fhfNXEpU96GQAAAAASUVORK5CYII="
+                  }
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
@@ -230,7 +233,10 @@ const Homepage = () => {
                     <div className="px-6 py-4 border-b border-violet-100">
                       <div className="flex items-center gap-4">
                         <img
-                          src={user?.photoUrl || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACUCAMAAAC6AgsRAAAAaVBMVEX///8uNDb7+/sDExcoLzHq6upUWFkrMTMAAADn5+gjKiwfJykVHiH09PQ8QUMcJCfNzs5zdnfFxsdFSksNGBvZ2tpMUVK4ubo0Ojytr6+anJ1laGmOkJFrbnDS1NQABg1/gYKipKVcX2HRbAoPAAAElElEQVR4nO2ci7aiMAxFBQqFtlB5CMhDkP//yMFxOV7nqrcNJXXNsL/grLRN0+TAbrex8a/g/sa2imfEp6rrcyI8wfK+qfaxbUEPnNLAKQQnlDoOJVwUdBpPtkXdiBo5MOI8QtjAz5FtaTNxlxTUeQYtks72MrvHWv4dui9BlHVl9bT46fA8dn8UDqNvT94pl2/VXZD5wZa8Kny9tF9DmNmRd5Tv1/YGZZUVeaGSuguhBYEZU5bnOGyPLS/6lpHfQShyqo5LnfDNp3jCzYPNz4nlEXHElHdiakf3DqWYaXDSDd8cwBRP3l49tdwJ8Y5Ir3c4rvARS96p1t19F2iCtQMbAZCHd4TdXCc132FIOTCCnI4LIU4pWHlAfR5OmZByoD6OkwJL2Pabq4QSQ16cQLLLBZpgPOcOoOz3W1+NcYXsgeouYPQUMmj45gBivJQ2fctYsv8wnklLzi9GBeN/eP7b5WB9OYa8j79/jwVQX4FToH56/Qetn0mJ1EOAvj8aHHnQ91uNNnFoIQtMWix5uwOof4DYgAn0UyCf8OTtDvr9K4Laxu90G1gS6/BecRO9FhFLkOdIB73+s4M+pDnqJGlhYcBwVm9zeKjN5xvNi7nq39AC92z84ciV5m/cSvQuVPXPeZrXVqZvV6JAvA8hFYHdIX+TvDvHIjlbVTcTpeGLOSuVYfoJDgl/zOW3fUi5zK27I25EVS9DwegNJkLeV58QuxtuvG/aMknquk6SvG1O8Se6nFw/OkT+p6zqxsbGxv+LG/s/Etu5SS5+2LFvp+AnprYfuwrz+eZG+zHxhOSMERUY40IUZXfyMSIZV2M9vPF0voIJLxmrte/maKwZh/bvCWd1t2bVlb2slVWhYhjXGiJFLdG3NX1H0nSNPrk/hhDX0DN4aN7UW5WwpvhzisDsJDNOPagp4jnEGw0e5UNgYuM9IiZjOTsjpnbeVxg1dJDPYllOeQWVRhpHa8mbN6EJR1sHnVaqsLwzeF5T3nydLIxgZTLrPRW4KBHu6Vp77wZZ4plwV0ksjzAHXBW6LdRpoAPcGH00f2s8gwO3YOStvfmuUAmrWVOc8M0VIWiFK4zNd4UDRhDxtP7ZvcEm/WIL7CKGUOgHkJgtSN9DHF15GWb4HMfTzDEuyEICR9d8ArPgwNE17wAtTHAKvUFdgru88wJreRfBFjo4WuY79OXVXOAJe3nnO0TjBMMtunBorn7HLbFgg/VpZBikwvQRjSLGwvHQsX+6I17pd0d2qvriFq/0u8N61QMSg7+AWqRPuUj1kYuDKyRXvUEiYkMfrZX1abtLjegjqs9MS/rYpm/Tt+l7qY8r67OT/xzV/OcDP5BZhvr9Yak+aJULaG33vwnU66vd0Ur9pz4KgX9iCYcmGl1exN7kDZ335S4b0PUNWtPWADuAmp8nZdgvOKnZoOxwBWp/WxgrfJpgDqn/eVKU421BXgL8MFGCNj/KQQOuqEQRSEUAdBPFjVh/E0p5htsC98Gwaq1KWTgt++p2n+bi8uNQ89IIF7JMl5uIoqzpc154ZilY3p8zU2ZFdw0MadvYWI9fhfNXEpU96GQAAAAASUVORK5CYII="}
+                          src={
+                            user?.photoUrl ||
+                            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACUCAMAAAC6AgsRAAAAaVBMVEX///8uNDb7+/sDExcoLzHq6upUWFkrMTMAAADn5+gjKiwfJykVHiH09PQ8QUMcJCfNzs5zdnfFxsdFSksNGBvZ2tpMUVK4ubo0Ojytr6+anJ1laGmOkJFrbnDS1NQABg1/gYKipKVcX2HRbAoPAAAElElEQVR4nO2ci7aiMAxFBQqFtlB5CMhDkP//yMFxOV7nqrcNJXXNsL/grLRN0+TAbrex8a/g/sa2imfEp6rrcyI8wfK+qfaxbUEPnNLAKQQnlDoOJVwUdBpPtkXdiBo5MOI8QtjAz5FtaTNxlxTUeQYtks72MrvHWv4dui9BlHVl9bT46fA8dn8UDqNvT94pl2/VXZD5wZa8Kny9tF9DmNmRd5Tv1/YGZZUVeaGSuguhBYEZU5bnOGyPLS/6lpHfQShyqo5LnfDNp3jCzYPNz4nlEXHElHdiakf3DqWYaXDSDd8cwBRP3l49tdwJ8Y5Ir3c4rvARS96p1t19F2iCtQMbAZCHd4TdXCc132FIOTCCnI4LIU4pWHlAfR5OmZByoD6OkwJL2Pabq4QSQ16cQLLLBZpgPOcOoOz3W1+NcYXsgeouYPQUMmj45gBivJQ2fctYsv8wnklLzi9GBeN/eP7b5WB9OYa8j79/jwVQX4FToH56/Qetn0mJ1EOAvj8aHHnQ91uNNnFoIQtMWix5uwOof4DYgAn0UyCf8OTtDvr9K4Laxu90G1gS6/BecRO9FhFLkOdIB73+s4M+pDnqJGlhYcBwVm9zeKjN5xvNi7nq39AC92z84ciV5m/cSvQuVPXPeZrXVqZvV6JAvA8hFYHdIX+TvDvHIjlbVTcTpeGLOSuVYfoJDgl/zOW3fUi5zK27I25EVS9DwegNJkLeV58QuxtuvG/aMknquk6SvG1O8Se6nFw/OkT+p6zqxsbGxv+LG/s/Etu5SS5+2LFvp+AnprYfuwrz+eZG+zHxhOSMERUY40IUZXfyMSIZV2M9vPF0voIJLxmrte/maKwZh/bvCWd1t2bVlb2slVWhYhjXGiJFLdG3NX1H0nSNPrk/hhDX0DN4aN7UW5WwpvhzisDsJDNOPagp4jnEGw0e5UNgYuM9IiZjOTsjpnbeVxg1dJDPYllOeQWVRhpHa8mbN6EJR1sHnVaqsLwzeF5T3nydLIxgZTLrPRW4KBHu6Vp77wZZ4plwV0ksjzAHXBW6LdRpoAPcGH00f2s8gwO3YOStvfmuUAmrWVOc8M0VIWiFK4zNd4UDRhDxtP7ZvcEm/WIL7CKGUOgHkJgtSN9DHF15GWb4HMfTzDEuyEICR9d8ArPgwNE17wAtTHAKvUFdgru88wJreRfBFjo4WuY79OXVXOAJe3nnO0TjBMMtunBorn7HLbFgg/VpZBikwvQRjSLGwvHQsX+6I17pd0d2qvriFq/0u8N61QMSg7+AWqRPuUj1kYuDKyRXvUEiYkMfrZX1abtLjegjqs9MS/rYpm/Tt+l7qY8r67OT/xzV/OcDP5BZhvr9Yak+aJULaG33vwnU66vd0Ur9pz4KgX9iCYcmGl1exN7kDZ335S4b0PUNWtPWADuAmp8nZdgvOKnZoOxwBWp/WxgrfJpgDqn/eVKU421BXgL8MFGCNj/KQQOuqEQRSEUAdBPFjVh/E0p5htsC98Gwaq1KWTgt++p2n+bi8uNQ89IIF7JMl5uIoqzpc154ZilY3p8zU2ZFdw0MadvYWI9fhfNXEpU96GQAAAAASUVORK5CYII="
+                          }
                           alt="avatar"
                           className="w-12 h-12 rounded-xl border-2 border-violet-200"
                         />
@@ -313,7 +319,7 @@ const Homepage = () => {
       </nav>
 
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-violet-100/50 via-white to-rose-100/50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-violet-100/50 via-white to-rose-100/50 py-10 px-4 sm:px-6 lg:px-8">
         {/* Background decorations */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-300 to-purple-300 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-rose-300 to-pink-300 rounded-full opacity-20 blur-3xl"></div>
@@ -327,12 +333,14 @@ const Homepage = () => {
           >
             {/* Text Content */}
             <div className="lg:w-1/2 text-center lg:text-left">
-              <motion.div variants={fadeInUp} className="mb-6">
-                <span className="inline-block px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 font-bold rounded-full text-sm mb-4 border border-violet-200 flex items-center gap-2 w-fit mx-auto lg:mx-0">
-                  <StarIcon className="w-4 h-4" />
-                  Enhance Your Mind Today
+              {/* <motion.div variants={fadeInUp} className="mb-6">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 font-bold rounded-full text-sm mb-4 border border-violet-200 flex flex-row items-center gap-2 w-fit mx-auto lg:mx-0">
+                  <div>
+                    <StarIcon className="w-4 h-4" />
+                  </div>
+                  <div>Enhance Your Mind Today</div>
                 </span>
-              </motion.div>
+              </motion.div> */}
 
               <motion.h1
                 variants={fadeInUp}
@@ -363,7 +371,7 @@ const Homepage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => navigate("/assessment")}
+                  onClick={() => navigate("/assessment/selection")}
                   className="group px-10 py-5 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-black text-lg rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
                 >
                   <span className="relative z-10">Take Assessment</span>
