@@ -266,12 +266,12 @@ const AdaptiveAssess = () => {
         <div className="max-w-6xl mx-auto flex align-center justify-center">
           <div
             id="report-card"
-            className="bg-white/65 rounded-xl md:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 border border-gray-200 h-120 overflow-y-scroll w-full"
+            className="bg-white/65 rounded-2xl shadow-xl p-4 md:p-8 border border-gray-200 h-[90vh] md:h-120 overflow-y-scroll w-full"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 md:mb-8">
+            <h1 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-4 md:mb-8">
               Test Results
             </h1>
-            <h6 className="text-xs sm:text-sm md:text-md text-center text-gray-800 mb-4 md:mb-8 px-2">
+            <h6 className="text-xs md:text-md text-center text-gray-800 mb-4 md:mb-8 px-2">
               (Note: To view completed questions and answers, please download
               the report card from the "Previous Results" section.)
             </h6>
