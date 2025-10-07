@@ -7,9 +7,9 @@ import { useAuth } from "../context/AuthContext.jsx";
 // Adaptive progression configuration
 const ADAPTIVE_CONFIG = {
   very_easy: { next: "easy", correctToAdvance: 2, prev: null },
-  easy: { next: "moderate", correctToAdvance: 3, prev: "very_easy" },
-  moderate: { next: "difficult", correctToAdvance: 3, prev: "easy" },
-  difficult: { next: "difficult", correctToAdvance: 3, prev: "moderate" },
+  easy: { next: "moderate", correctToAdvance: 2, prev: "very_easy" },
+  moderate: { next: "difficult", correctToAdvance: 2, prev: "easy" },
+  difficult: { next: "difficult", correctToAdvance: 2, prev: "moderate" },
 };
 
 const DIFFICULTY_SEQUENCE = ["very_easy", "easy", "moderate", "difficult"];

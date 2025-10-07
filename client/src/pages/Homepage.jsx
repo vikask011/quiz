@@ -309,7 +309,7 @@ const Homepage = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/assessment")}
+              onClick={() => navigate("/assessment/selection")}
               className="flex-1 px-4 py-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold rounded-xl shadow-lg transition-all duration-300"
             >
               Assessment
@@ -736,7 +736,7 @@ const Homepage = () => {
               <ul className="space-y-3">
                 {[
                   { label: "Practice", path: "/practice" },
-                  { label: "Assessment", path: "/assessment" },
+                  { label: "Assessment", path: "/assessment/selection" },
                   { label: "Results", path: "/results" },
                   { label: "Profile", path: "/profile" },
                 ].map((link, index) => (
