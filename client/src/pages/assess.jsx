@@ -229,13 +229,16 @@ const Assess = () => {
       const postOnce = async () => {
         if (submitted) return;
         try {
-          const { data } = await api.post("https://quiz-mu-dun.vercel.app/api/results", {
-            totalQuestions,
-            correct: correctAnswers,
-            wrong: Math.max(0, totalQuestions - correctAnswers),
-            avgTimeSec: Number((averageTime / 1000).toFixed(2)),
-            questions: questionHistory,
-          });
+          const { data } = await api.post(
+            "https://quiz-mu-dun.vercel.app/api/results",
+            {
+              totalQuestions,
+              correct: correctAnswers,
+              wrong: Math.max(0, totalQuestions - correctAnswers),
+              avgTimeSec: Number((averageTime / 1000).toFixed(2)),
+              questions: questionHistory,
+            }
+          );
           setSavedId(data?.result?._id || "");
           setPostError("");
         } catch (err) {
@@ -252,7 +255,7 @@ const Assess = () => {
       averageTime,
       questionHistory,
     ]);
-    
+
     const accuracy = (correctAnswers / totalQuestions) * 100;
 
     const difficultyStats = {
@@ -475,25 +478,33 @@ const Assess = () => {
                 <div className="text-xl md:text-3xl font-bold text-blue-600">
                   {totalQuestions}
                 </div>
-                <div className="text-xs md:text-base text-gray-600">Questions</div>
+                <div className="text-xs md:text-base text-gray-600">
+                  Questions
+                </div>
               </div>
               <div className="bg-green-50 p-3 md:p-6 rounded-xl text-center">
                 <div className="text-xl md:text-3xl font-bold text-green-600">
                   {correctAnswers}
                 </div>
-                <div className="text-xs md:text-base text-gray-600">Correct</div>
+                <div className="text-xs md:text-base text-gray-600">
+                  Correct
+                </div>
               </div>
               <div className="bg-purple-50 p-3 md:p-6 rounded-xl text-center">
                 <div className="text-xl md:text-3xl font-bold text-purple-600">
                   {accuracy.toFixed(1)}%
                 </div>
-                <div className="text-xs md:text-base text-gray-600">Accuracy</div>
+                <div className="text-xs md:text-base text-gray-600">
+                  Accuracy
+                </div>
               </div>
               <div className="bg-orange-50 p-3 md:p-6 rounded-xl text-center">
                 <div className="text-xl md:text-3xl font-bold text-orange-600">
                   {formatTime(averageTime)}
                 </div>
-                <div className="text-xs md:text-base text-gray-600">Avg Time</div>
+                <div className="text-xs md:text-base text-gray-600">
+                  Avg Time
+                </div>
               </div>
             </div>
 
@@ -512,7 +523,7 @@ const Assess = () => {
                 </a>
               </div>
             )}
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
               <div className="bg-gray-50 rounded-xl p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">
@@ -686,8 +697,18 @@ const Assess = () => {
             className="lg:hidden absolute top-4 right-4 text-gray-600 hover:text-gray-800"
             onClick={() => setShowSidebar(false)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
 
@@ -695,11 +716,17 @@ const Assess = () => {
           <div className="mb-6 md:mb-8">
             <div className="flex items-start mb-4">
               <div className="w-8 h-6 md:w-10 md:h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-xs md:text-sm font-bold">🎯</span>
+                <span className="text-white text-xs md:text-sm font-bold">
+                  🎯
+                </span>
               </div>
               <div>
-                <h2 className="font-bold text-gray-800 -mt-1 text-sm md:text-base">Problems</h2>
-                <p className="text-xs md:text-sm text-gray-600">Timed assessment</p>
+                <h2 className="font-bold text-gray-800 -mt-1 text-sm md:text-base">
+                  Problems
+                </h2>
+                <p className="text-xs md:text-sm text-gray-600">
+                  Timed assessment
+                </p>
               </div>
             </div>
 
@@ -740,7 +767,9 @@ const Assess = () => {
 
           {/* Question Grid */}
           <div className="mb-6">
-            <h3 className="font-semibold text-gray-800 mb-4 text-sm md:text-base">Questions</h3>
+            <h3 className="font-semibold text-gray-800 mb-4 text-sm md:text-base">
+              Questions
+            </h3>
             <div className="grid grid-cols-5 gap-2">
               {testQuestions.map((_, idx) => {
                 const status = getQuestionStatus(idx);
@@ -796,8 +825,18 @@ const Assess = () => {
                   className="lg:hidden text-gray-600 hover:text-gray-800"
                   onClick={() => setShowSidebar(true)}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 </button>
                 <div>
@@ -828,7 +867,7 @@ const Assess = () => {
           </div>
 
           {/* Question Content */}
-          <div className="flex-1 p-3 md:p-6 overflow-y-auto">
+          <div className="flex-1 p-3 pt-10 md:p-6 overflow-y-auto">
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-3xl shadow-lg p-4 md:p-8 border border-gray-100">
                 <div className="mb-6 md:mb-8">
@@ -872,7 +911,9 @@ const Assess = () => {
                           <span className="font-semibold text-blue-600 mr-2 md:mr-3 text-sm md:text-base">
                             {String.fromCharCode(65 + index)}.
                           </span>
-                          <span className="flex-1 text-sm md:text-base">{option}</span>
+                          <span className="flex-1 text-sm md:text-base">
+                            {option}
+                          </span>
                         </div>
                       </button>
                     );
