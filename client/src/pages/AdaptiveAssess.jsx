@@ -262,7 +262,7 @@ const AdaptiveAssess = () => {
     }));
 
     return (
-      <div className="relative z-10 mx-auto container mt-4 md:mt-10 px-2 sm:px-4 py-4 md:py-8">
+      <div className="relative z-10 mx-auto container mt-4 md:mt-10 px-2 md:px-4 py-4 md:py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
           <div
             id="report-card"
