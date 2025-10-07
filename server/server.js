@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // CORS: allow your Vite dev server
 app.use(
   cors({
-    origin: [process.env.CLIENT_ORIGIN || "https://quiz-jmux.vercel.app/"],
+    origin: [process.env.CLIENT_ORIGIN || "https://quiz-jmux.vercel.app"],
     credentials: true,
   })
 );
