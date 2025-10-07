@@ -21,7 +21,6 @@ const Apti = () => {
   const [showResults, setShowResults] = useState(false);
   const [practiceEnded, setPracticeEnded] = useState(false);
 
-  //   const confettiRef = useRef(null);
   const shakeRef = useRef(null);
   const burstRef = useRef(null);
   const flashRef = useRef(null);
@@ -58,10 +57,10 @@ const Apti = () => {
 
   const getDifficultyColor = (difficulty) => {
     const colors = {
-      very_easy: "bg-green-100 text-green-800 border-green-200",
-      easy: "bg-blue-100 text-blue-800 border-blue-200",
-      moderate: "bg-yellow-100 text-yellow-800 border-yellow-200",
-      difficult: "bg-red-100 text-red-800 border-red-200",
+      very_easy: "bg-green-100 text-green-800 border-green-300",
+      easy: "bg-blue-100 text-blue-800 border-blue-300",
+      moderate: "bg-yellow-100 text-yellow-800 border-yellow-300",
+      difficult: "bg-red-100 text-red-800 border-red-300",
     };
     return colors[difficulty];
   };
@@ -150,20 +149,18 @@ const Apti = () => {
   };
 
   const handleNextQuestion = () => {
-    // Logic to handle the next question
     setQuestionNumber((prev) => prev + 1);
     loadNextQuestion();
   };
 
   const handleEndPractice = () => {
-    // Logic to end the practice
     setPracticeEnded(true);
     setShowResults(true);
   };
 
   const handleUnderstood = () => {
-    // Logic to handle when the user understands the explanation
     setShowExplanation(false);
+    setQuestionNumber((prev) => prev + 1);
     loadNextQuestion();
   };
 
@@ -276,208 +273,210 @@ const Apti = () => {
     };
 
     return (
-      <div className="relative z-10 container mx-auto  px-4 py-8">
-        <div className="max-w-6xl mx-auto flex align-center justify-center">
-          <div className="bg-white/65 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200 w-full h-120 overflow-y-scroll">
-            <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-              {accuracy >= 80
-                ? "Outstanding Performance!"
-                : accuracy >= 60
-                ? "Good Job!"
-                : "Keep Learning!"}
-            </h1>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+              <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+                {accuracy >= 80
+                  ? "Outstanding Performance!"
+                  : accuracy >= 60
+                  ? "Good Job!"
+                  : "Keep Learning!"}
+              </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-              <div className="bg-blue-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-blue-600">
-                  {totalQuestions}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div className="bg-blue-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-3xl font-bold text-blue-600">
+                    {totalQuestions}
+                  </div>
+                  <div className="text-gray-600">Questions</div>
                 </div>
-                <div className="text-gray-600">Questions</div>
-              </div>
-              <div className="bg-green-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-green-600">
-                  {correctAnswers}
+                <div className="bg-green-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-3xl font-bold text-green-600">
+                    {correctAnswers}
+                  </div>
+                  <div className="text-gray-600">Correct</div>
                 </div>
-                <div className="text-gray-600">Correct</div>
-              </div>
-              <div className="bg-purple-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-purple-600">
-                  {accuracy.toFixed(1)}%
+                <div className="bg-purple-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-3xl font-bold text-purple-600">
+                    {accuracy.toFixed(1)}%
+                  </div>
+                  <div className="text-gray-600">Accuracy</div>
                 </div>
-                <div className="text-gray-600">Accuracy</div>
-              </div>
-              <div className="bg-orange-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-orange-600">
-                  {formatTime(averageTime)}
+                <div className="bg-orange-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-3xl font-bold text-orange-600">
+                    {formatTime(averageTime)}
+                  </div>
+                  <div className="text-gray-600">Avg Time</div>
                 </div>
-                <div className="text-gray-600">Avg Time</div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  Difficulty Analysis
-                </h3>
-                <div className="space-y-4">
-                  {difficultyAccuracy.map((stat, index) => (
-                    <div key={index} className="bg-white p-4 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-semibold capitalize">
-                          {stat.difficulty.replace("_", " ")}
-                        </span>
-                        <span
-                          className={`font-bold ${
-                            stat.accuracy >= 70
-                              ? "text-green-600"
-                              : stat.accuracy >= 50
-                              ? "text-yellow-600"
-                              : "text-red-600"
-                          }`}
-                        >
-                          {stat.accuracy.toFixed(1)}%
-                        </span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    Difficulty Analysis
+                  </h3>
+                  <div className="space-y-4">
+                    {difficultyAccuracy.map((stat, index) => (
+                      <div key={index} className="bg-white p-4 rounded-lg">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-semibold capitalize">
+                            {stat.difficulty.replace("_", " ")}
+                          </span>
+                          <span
+                            className={`font-bold ${
+                              stat.accuracy >= 70
+                                ? "text-green-600"
+                                : stat.accuracy >= 50
+                                ? "text-yellow-600"
+                                : "text-red-600"
+                            }`}
+                          >
+                            {stat.accuracy.toFixed(1)}%
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            className={`h-2 rounded-full ${
+                              stat.accuracy >= 70
+                                ? "bg-green-500"
+                                : stat.accuracy >= 50
+                                ? "bg-yellow-500"
+                                : "bg-red-500"
+                            }`}
+                            style={{ width: `${stat.accuracy}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-sm text-gray-600 mt-1">
+                          {stat.correct}/{stat.total} correct • Avg:{" "}
+                          {formatTime(stat.avgTime)}
+                        </div>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          className={`h-2 rounded-full ${
-                            stat.accuracy >= 70
-                              ? "bg-green-500"
-                              : stat.accuracy >= 50
-                              ? "bg-yellow-500"
-                              : "bg-red-500"
-                          }`}
-                          style={{ width: `${stat.accuracy}%` }}
-                        ></div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    Recommendations
+                  </h3>
+                  <div className="space-y-3">
+                    {getRecommendations().map((rec, index) => (
+                      <div
+                        key={index}
+                        className="bg-white p-3 rounded-lg border border-blue-200"
+                      >
+                        <p className="text-gray-700">{rec}</p>
                       </div>
-                      <div className="text-sm text-gray-600 mt-1">
-                        {stat.correct}/{stat.total} correct • Avg:{" "}
-                        {formatTime(stat.avgTime)}
-                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 bg-white p-4 rounded-lg">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      Performance Insights
+                    </h4>
+                    <div className="text-sm text-gray-600 space-y-1">
+                      <p>
+                        • Fastest Question:{" "}
+                        {formatTime(
+                          Math.min(...questionHistory.map((q) => q.timeTaken))
+                        )}
+                      </p>
+                      <p>
+                        • Slowest Question:{" "}
+                        {formatTime(
+                          Math.max(...questionHistory.map((q) => q.timeTaken))
+                        )}
+                      </p>
+                      <p>• Total Practice Time: {formatTime(totalTime)}</p>
+                      <p>
+                        • Questions per Minute:{" "}
+                        {(totalQuestions / (totalTime / 60000)).toFixed(1)}
+                      </p>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-blue-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  Recommendations
-                </h3>
-                <div className="space-y-3">
-                  {getRecommendations().map((rec, index) => (
-                    <div
-                      key={index}
-                      className="bg-white p-3 rounded-lg border-1 border-blue-500"
-                    >
-                      <p className="text-gray-700">{rec}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 bg-white p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">
-                    Performance Insights
-                  </h4>
-                  <div className="text-sm text-gray-600 space-y-1">
-                    <p>
-                      • Fastest Question:{" "}
-                      {formatTime(
-                        Math.min(...questionHistory.map((q) => q.timeTaken))
-                      )}
-                    </p>
-                    <p>
-                      • Slowest Question:{" "}
-                      {formatTime(
-                        Math.max(...questionHistory.map((q) => q.timeTaken))
-                      )}
-                    </p>
-                    <p>• Total Practice Time: {formatTime(totalTime)}</p>
-                    <p>
-                      • Questions per Minute:{" "}
-                      {(totalQuestions / (totalTime / 60000)).toFixed(1)}
-                    </p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Detailed History
-              </h2>
-              <div className="space-y-4 max-h-96 overflow-y-auto">
-                {questionHistory.map((q, index) => (
-                  <div
-                    key={index}
-                    className={`p-4 rounded-lg border-1 transition-all hover:shadow-md ${
-                      q.isCorrect
-                        ? "border-green-500 bg-green-50 hover:bg-green-100"
-                        : "border-red-500 bg-red-50 hover:bg-red-100"
-                    }`}
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <span className="font-semibold text-gray-800">
-                        Q{q.questionNumber}
-                      </span>
-                      <div className="flex items-center space-x-4">
-                        <span
-                          className={`px-2 py-1 rounded text-xs font-medium ${
-                            q.difficulty === "very_easy"
-                              ? "bg-green-100 text-green-800"
-                              : q.difficulty === "easy"
-                              ? "bg-blue-100 text-blue-800"
-                              : q.difficulty === "moderate"
-                              ? "bg-yellow-100 text-yellow-800"
-                              : "bg-red-100 text-red-800"
-                          }`}
-                        >
-                          {q.difficulty.replace("_", " ").toUpperCase()}
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  Detailed History
+                </h2>
+                <div className="space-y-4 max-h-96 overflow-y-auto">
+                  {questionHistory.map((q, index) => (
+                    <div
+                      key={index}
+                      className={`p-4 rounded-lg border transition-all hover:shadow-md ${
+                        q.isCorrect
+                          ? "border-green-500 bg-green-50 hover:bg-green-100"
+                          : "border-red-500 bg-red-50 hover:bg-red-100"
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="font-semibold text-gray-800">
+                          Q{q.questionNumber}
                         </span>
-                        <span className="text-sm text-gray-600 font-mono">
-                          {formatTime(q.timeTaken)}
-                        </span>
+                        <div className="flex items-center space-x-4">
+                          <span
+                            className={`px-2 py-1 rounded text-xs font-medium ${
+                              q.difficulty === "very_easy"
+                                ? "bg-green-100 text-green-800"
+                                : q.difficulty === "easy"
+                                ? "bg-blue-100 text-blue-800"
+                                : q.difficulty === "moderate"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {q.difficulty.replace("_", " ").toUpperCase()}
+                          </span>
+                          <span className="text-sm text-gray-600 font-mono">
+                            {formatTime(q.timeTaken)}
+                          </span>
+                          <span
+                            className={`text-lg ${
+                              q.isCorrect ? "text-green-600" : "text-red-600"
+                            }`}
+                          >
+                            {q.isCorrect ? "✓" : "✗"}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="text-sm text-gray-700 mb-2 font-medium">
+                        {q.question}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Your answer:{" "}
                         <span
-                          className={`text-lg ${
+                          className={`font-semibold ${
                             q.isCorrect ? "text-green-600" : "text-red-600"
                           }`}
                         >
-                          {q.isCorrect ? "✓" : "✗"}
+                          {q.selectedAnswer}
                         </span>
+                        {!q.isCorrect && (
+                          <span className="ml-2">
+                            | Correct:{" "}
+                            <span className="text-green-600 font-semibold">
+                              {q.correctAnswer}
+                            </span>
+                          </span>
+                        )}
                       </div>
                     </div>
-                    <div className="text-sm text-gray-700 mb-2 font-medium">
-                      {q.question}
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      Your answer:{" "}
-                      <span
-                        className={`font-semibold ${
-                          q.isCorrect ? "text-green-600" : "text-red-600"
-                        }`}
-                      >
-                        {q.selectedAnswer}
-                      </span>
-                      {!q.isCorrect && (
-                        <span className="ml-2">
-                          | Correct:{" "}
-                          <span className="text-green-600 font-semibold">
-                            {q.correctAnswer}
-                          </span>
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="flex justify-center mt-8">
-              <button
-                onClick={() => window.location.reload()}
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Start New Practice
-              </button>
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={() => window.location.reload()}
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Start New Practice
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -500,7 +499,7 @@ const Apti = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       <div
         ref={burstRef}
         className="fixed inset-0 pointer-events-none z-40"
@@ -525,65 +524,104 @@ const Apti = () => {
         style={{ display: "none" }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
-        <div className="flex justify-between items-start mb-8 animate-fade-in">
-          <div>
-            <h1
-              className="text-4xl font-mono font-bold text-gray-800 mb-2 animate-slide-in-left mt-4"
-              style={{ paddingLeft: "20vw" }}
-            >
-              Aptitude: <span className="text-blue-600">Mixed</span>
-            </h1>
+      <div className="flex min-h-screen">
+        {/* Left Sidebar */}
+        <div className="w-80 bg-white shadow-lg p-6 flex flex-col border-r border-gray-200">
+          <button
+            onClick={handleEndPractice}
+            className="flex items-center text-gray-600 hover:text-gray-800 mb-8 transition-colors text-sm font-medium"
+          >
+            <span className="mr-2">←</span> Back to Selection
+          </button>
+
+          {/* Topic Card */}
+         
+
+          {/* Current Level */}
+          <div className={`rounded-xl p-4 mb-6 border-2 ${getDifficultyColor(currentDifficulty)}`}>
+            <div className="text-xs font-semibold mb-1 opacity-80">Current Level</div>
+            <div className="text-xl font-bold">{getDifficultyLabel(currentDifficulty)}</div>
+            
           </div>
 
-          <div className="flex flex-col items-end space-y-3 animate-slide-in-right">
-            <div
-              className={`px-4 py-2 rounded-xl border-2 font-semibold text-m transition-all duration-300 transform hover:scale-105 ${getDifficultyColor(
-                currentDifficulty
-              )}`}
-            >
-              {getDifficultyLabel(currentDifficulty)}
+          {/* Time Elapsed */}
+          <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-200">
+            <div className="flex items-center text-gray-600 mb-2">
+              <span className="mr-2">⏱</span>
+              <span className="text-sm font-semibold">Time Elapsed</span>
             </div>
+            <div className="text-3xl font-bold text-gray-800">
+              {formatTime(currentQuestionTime)}
+            </div>
+          </div>
 
-            <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-xl font-mono font-bold text-gray-700">
-                Duration: {formatTime(currentQuestionTime)}
-              </div>
+          {/* Progress */}
+          <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <div className="flex items-center text-gray-600 mb-2">
+              <span className="mr-2">📊</span>
+              <span className="text-sm font-semibold">Progress</span>
+            </div>
+            <div className="text-sm text-gray-600 mb-2">
+              {questionHistory.length} of {questionHistory.length + 1} answered
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div
+                className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
+                style={{
+                  width: `${(questionHistory.length / (questionHistory.length + 1)) * 100}%`,
+                }}
+              ></div>
             </div>
           </div>
         </div>
 
-        <div className="relative max-w-4xl -mt-6 font-mono mx-auto flex flex-col items-center justify-center">
-          <div
-            ref={shakeRef}
-            className="bg-white/25 w-[70%] backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-6 border border-gray-200"
-          >
-            <div className="text-2xl font-semibold text-gray-800 mb-6 leading-relaxed">
-              <span className="text-blue-600 font-bold">{questionNumber}.</span>{" "}
+        {/* Main Content */}
+        <div className="flex-1 p-8 overflow-y-auto">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Question {questionNumber} of {questionNumber}
+              </h1>
+              <p className="text-sm text-gray-500 mt-1">
+                Difficulty: {getDifficultyLabel(currentDifficulty)}
+              </p>
+            </div>
+            <button
+              onClick={handleEndPractice}
+              className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md"
+            >
+              Submit Assessment
+            </button>
+          </div>
+
+          {/* Question Card */}
+          <div ref={shakeRef} className="bg-white rounded-2xl shadow-lg p-8 mb-6 relative border border-gray-200">
+            <div className="text-2xl font-semibold text-gray-800 mb-8">
               {currentQuestion.question}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               {currentQuestion.options.map((option, index) => {
                 let buttonClass =
-                  "p-4 rounded-xl border-2 text-left font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ";
+                  "p-4 rounded-xl border-2 text-left font-medium transition-all duration-200 relative flex items-center ";
 
                 if (isAnswered) {
                   if (index === currentQuestion.correct) {
                     buttonClass +=
-                      "bg-green-100 border-green-400 text-green-800 shadow-green-200 shadow-lg glow-green-once";
+                      "bg-green-50 border-green-400 text-green-800";
                   } else if (
                     index === selectedAnswer &&
                     index !== currentQuestion.correct
                   ) {
                     buttonClass +=
-                      "bg-red-100 border-red-400 text-red-800 shadow-red-200 shadow-lg animate-pulse-red";
+                      "bg-red-50 border-red-400 text-red-800";
                   } else {
-                    buttonClass += "bg-gray-50 border-gray-200 text-gray-600";
+                    buttonClass += "bg-gray-50 border-gray-200 text-gray-400";
                   }
                 } else {
                   buttonClass +=
-                    "bg-white border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-300 cursor-pointer";
+                    "bg-white border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-400 cursor-pointer";
                 }
 
                 return (
@@ -593,112 +631,79 @@ const Apti = () => {
                     className={buttonClass}
                     disabled={isAnswered}
                   >
-                    <span className="font-bold text-blue-600 mr-3">
-                      {String.fromCharCode(65 + index)}.
+                    {isAnswered && index === currentQuestion.correct ? (
+                      <span className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
+                        ✓
+                      </span>
+                    ) : isAnswered && index === selectedAnswer && index !== currentQuestion.correct ? (
+                      <span className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
+                        ✗
+                      </span>
+                    ) : (
+                      <span className="w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex-shrink-0"></span>
+                    )}
+                    <span>
+                      <span className="font-bold text-blue-600 mr-2">
+                        {String.fromCharCode(65 + index)}.
+                      </span>
+                      {option}
                     </span>
-                    {option}
                   </button>
                 );
               })}
             </div>
 
-            {isAnswered && !showExplanation && (
-              <>
-                <img
-                  src={mygif}
-                  alt="celebration"
-                  className="absolute -top-10 -left-10 pointer-events-none"
-                />
-                <div className="flex justify-center animate-fade-in">
-                  <button
-                    onClick={handleNextQuestion}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    Next Question →
-                  </button>
-                </div>
-              </>
+            {isAnswered && !showExplanation && selectedAnswer === currentQuestion.correct && (
+              <img
+                src={mygif}
+                alt="celebration"
+                className="absolute -top-10 -right-10 w-32 h-32 pointer-events-none"
+              />
             )}
           </div>
 
-          <div className="ml-110 mb-6">
-            <button
-              onClick={handleEndPractice}
-              className="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
-            >
-              End Practice
-            </button>
-          </div>
-
+          {/* Explanation Box */}
           {showExplanation && (
-            <div className="absolute top-0 w-full h-[80%] bg-orange-50/95 backdrop-blur-sm rounded-2xl shadow-xl p-8 border-2 border-orange-200 animate-slide-in-up flex flex-col items-center justify-center">
-              <div className="flex items-center mb-4 w-full">
-                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">!</span>
-                </div>
-                <h3 className="text-xl font-bold text-orange-800">
-                  Step-by-Step Solution
-                </h3>
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-white animate-slide-in-up mb-6">
+              <div className="flex items-center mb-4">
+                
+                <h3 className="text-lg font-bold text-black">Explanation</h3>
               </div>
-
-              <div className="text-gray-700 text-lg mb-6 w-full leading-relaxed bg-white/70 p-4 rounded-xl">
+              <div className="text-gray-700 text-base leading-relaxed">
                 {currentQuestion.explanation}
-              </div>
-
-              <div className="flex w-full justify-end">
-                <button
-                  onClick={handleUnderstood}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  I Understood ✓
-                </button>
               </div>
             </div>
           )}
+
+          {/* Bottom Navigation */}
+          <div className="flex justify-between items-center">
+            <div className="text-sm text-gray-500">
+              Question {questionNumber} of {questionNumber}
+            </div>
+            {isAnswered && (
+              <button
+                onClick={showExplanation ? handleUnderstood : handleNextQuestion}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg flex items-center"
+              >
+                Next Question →
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes slide-in-left {
-          from {
-            transform: translateX(-50px);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-
-        @keyframes slide-in-right {
-          from {
-            transform: translateX(50px);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-
-        @keyframes fade-in-up {
-          from {
-            transform: translateY(30px);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
+        @keyframes shake-wrong {
+          0%, 100% { transform: translateX(0); }
+          10% { transform: translateX(-15px); }
+          20% { transform: translateX(15px); }
+          30% { transform: translateX(-12px); }
+          40% { transform: translateX(12px); }
+          50% { transform: translateX(-8px); }
+          60% { transform: translateX(8px); }
+          70% { transform: translateX(-5px); }
+          80% { transform: translateX(5px); }
+          90% { transform: translateX(-2px); }
         }
 
         @keyframes slide-in-up {
@@ -712,108 +717,10 @@ const Apti = () => {
           }
         }
 
-        @keyframes shake-wrong {
-          0%,
-          100% {
-            transform: translateX(0);
-          }
-          10% {
-            transform: translateX(-15px);
-          } /* Start strong */
-          20% {
-            transform: translateX(15px);
-          }
-          30% {
-            transform: translateX(-12px);
-          } /* Weaken */
-          40% {
-            transform: translateX(12px);
-          }
-          50% {
-            transform: translateX(-8px);
-          } /* Continue weakening */
-          60% {
-            transform: translateX(8px);
-          }
-          70% {
-            transform: translateX(-5px);
-          } /* Almost done */
-          80% {
-            transform: translateX(5px);
-          }
-          90% {
-            transform: translateX(-2px);
-          } /* Gentle finish */
-        }
-
-        @keyframes glow-green-once {
-          0% {
-            box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
-          }
-          50% {
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.8),
-              0 0 30px rgba(34, 197, 94, 0.6);
-          }
-          100% {
-            box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
-          }
-        }
-
-        @keyframes pulse-red {
-          0%,
-          100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.02);
-          }
-        }
-
-        @keyframes confetti-burst {
-          0% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-
-        @keyframes confetti-fall {
-          0% {
-            transform: translateY(-100vh) rotate(0deg);
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-          }
-        }
-
-        @keyframes particle-burst {
-          0% {
-            opacity: 1;
-            transform: scale(0);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          100% {
-            opacity: 0;
-            transform: scale(1.5);
-          }
-        }
-
         @keyframes screen-flash {
-          0% {
-            opacity: 0;
-          }
-          50% {
-            opacity: 0.3;
-          }
-          100% {
-            opacity: 0;
-          }
+          0% { opacity: 0; }
+          50% { opacity: 0.3; }
+          100% { opacity: 0; }
         }
 
         @keyframes fly-to-center {
@@ -835,103 +742,23 @@ const Apti = () => {
           }
         }
 
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-
-        .animate-slide-in-left {
-          animation: slide-in-left 0.8s ease-out;
-        }
-
-        .animate-slide-in-right {
-          animation: slide-in-right 0.8s ease-out;
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out;
+        @keyframes particle-burst {
+          0% {
+            opacity: 1;
+            transform: scale(0);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.5);
+          }
         }
 
         .animate-slide-in-up {
           animation: slide-in-up 0.5s ease-out;
-        }
-
-        .animate-glow-green {
-          animation: glow-green 2s ease-in-out infinite;
-        }
-
-        .animate-pulse-red {
-          animation: pulse-red 1s ease-in-out infinite;
-        }
-
-        .confetti-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-        }
-
-        .confetti {
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          animation: confetti-fall 3s linear infinite;
-        }
-
-        .confetti-0 {
-          background: #ff6b6b;
-          left: 10%;
-          animation-delay: 0s;
-        }
-
-        .confetti-1 {
-          background: #4ecdc4;
-          left: 20%;
-          animation-delay: 0.2s;
-        }
-
-        .confetti-2 {
-          background: #45b7d1;
-          left: 30%;
-          animation-delay: 0.4s;
-        }
-
-        .confetti-3 {
-          background: #f9ca24;
-          left: 40%;
-          animation-delay: 0.6s;
-        }
-
-        .confetti-4 {
-          background: #6c5ce7;
-          left: 50%;
-          animation-delay: 0.8s;
-        }
-
-        .confetti-5 {
-          background: #e17055;
-          left: 15%;
-          animation-delay: 0.1s;
-        }
-
-        .confetti:nth-child(5n + 1) {
-          left: 60%;
-          animation-delay: 1s;
-        }
-        .confetti:nth-child(5n + 2) {
-          left: 70%;
-          animation-delay: 1.2s;
-        }
-        .confetti:nth-child(5n + 3) {
-          left: 80%;
-          animation-delay: 1.4s;
-        }
-        .confetti:nth-child(5n + 4) {
-          left: 90%;
-          animation-delay: 1.6s;
-        }
-        .confetti:nth-child(5n + 5) {
-          left: 95%;
-          animation-delay: 1.8s;
         }
 
         .burst-container {
