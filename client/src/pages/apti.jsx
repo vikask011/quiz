@@ -164,6 +164,16 @@ const Apti = () => {
     loadNextQuestion();
   };
 
+    const triggerCorrectEffects = () => {
+    triggerFlash("success");
+    
+  };
+
+  const triggerWrongEffects = () => {
+    triggerShake();
+    const correctAnswer = currentQuestion.options[currentQuestion.correct];
+   
+  };
   
 
   const triggerFlash = (type) => {
@@ -846,3 +856,6 @@ const Apti = () => {
 };
 
 export default Apti;
+
+
+
