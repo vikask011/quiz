@@ -11,6 +11,8 @@ import Results from "./pages/Results.jsx";
 import ResultDetail from "./pages/ResultDetail.jsx";
 import MixedPractice from "./pages/MixedPractice.jsx";
 import DifficultPractice from "./pages/DifficultPractice.jsx";
+import AssessmentSelection from "./pages/AssessmentSelection.jsx";
+import AdaptiveAssess from "./pages/AdaptiveAssess.jsx";
 
 function App() {
   return (
@@ -29,10 +31,27 @@ function App() {
         }
       />
       <Route
-        path="/assessment"
+        path="/assessment/selection"
+        element={
+          <ProtectedRoute>
+            <AssessmentSelection />
+            {/* <Assessment /> */}
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/traditional/assessment"
         element={
           <ProtectedRoute>
             <Assessment />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/adaptive/assessment"
+        element={
+          <ProtectedRoute>
+            <AdaptiveAssess />
           </ProtectedRoute>
         }
       />
@@ -85,7 +104,6 @@ function App() {
         }
       />
     </Routes>
-    
   );
 }
 

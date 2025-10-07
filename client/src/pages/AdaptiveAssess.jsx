@@ -4,31 +4,47 @@ import api from "../lib/api";
 import jsPDF from "jspdf";
 import { useAuth } from "../context/AuthContext.jsx";
 
-const Assess = () => {
+// Adaptive progression configuration
+const ADAPTIVE_CONFIG = {
+  very_easy: { next: "easy", correctToAdvance: 2, prev: null },
+  easy: { next: "moderate", correctToAdvance: 2, prev: "very_easy" },
+  moderate: { next: "difficult", correctToAdvance: 2, prev: "easy" },
+  difficult: { next: "difficult", correctToAdvance: 2, prev: "moderate" },
+};
+
+const DIFFICULTY_SEQUENCE = ["very_easy", "easy", "moderate", "difficult"];
+const MAX_QUESTIONS = 30;
+
+const AdaptiveAssess = () => {
+  const { user } = useAuth();
+  const [currentDifficulty, setCurrentDifficulty] = useState("very_easy");
+  const [askedQuestions, setAskedQuestions] = useState({
+    very_easy: [],
+    easy: [],
+    moderate: [],
+    difficult: [],
+  });
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [questionHistory, setQuestionHistory] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [questionStartTime, setQuestionStartTime] = useState(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  //   const [usedQuestions, setUsedQuestions] = useState(new Set());
-  const [questionHistory, setQuestionHistory] = useState([]);
+  const [currentQuestionTime, setCurrentQuestionTime] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [testEnded, setTestEnded] = useState(false);
-  const [testQuestions, setTestQuestions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const { user } = useAuth();
 
-  const [currentQuestionTime, setCurrentQuestionTime] = useState(0);
-
-  // Test configuration: 1 very easy, 3 easy, 3 moderate, 3 difficult = 10 total
-  const testConfig = {
-    very_easy: 8,
-    easy: 7,
-    moderate: 8,
-    difficult: 7,
-  };
+  // Correct answers per difficulty (for adaptive stepping)
+  const [correctTrack, setCorrectTrack] = useState({
+    very_easy: 0,
+    easy: 0,
+    moderate: 0,
+    difficult: 0,
+  });
 
   useEffect(() => {
+    // Timer
     let interval = null;
     if (questionStartTime && !isAnswered && !testEnded) {
       interval = setInterval(() => {
@@ -41,10 +57,27 @@ const Assess = () => {
   }, [questionStartTime, isAnswered, testEnded]);
 
   useEffect(() => {
-    if (!testEnded) {
-      generateTestQuestions();
+    // Begin test with first question
+    if (!testEnded && !currentQuestion) {
+      askNextQuestion("very_easy");
     }
+    // eslint-disable-next-line
   }, []);
+
+  // Helper to pick a fresh question from a difficulty
+  const pickQuestion = (difficulty, alreadyAsked) => {
+    // Filter unused questions
+    const pool = mixedQuestions[difficulty].filter(
+      (q, idx) => !alreadyAsked.includes(idx)
+    );
+    if (pool.length === 0) return null;
+    // Pick random unused question
+    const randIdx = Math.floor(Math.random() * pool.length);
+    const origIdx = mixedQuestions[difficulty].findIndex(
+      (q) => q === pool[randIdx]
+    );
+    return { ...pool[randIdx], difficulty, poolIndex: origIdx };
+  };
 
   const formatTime = (milliseconds) => {
     const seconds = Math.floor(milliseconds / 1000);
@@ -55,122 +88,61 @@ const Assess = () => {
       .padStart(2, "0")}`;
   };
 
-  // const generateTestQuestions = () => {
-  //   const selectedQuestions = [];
-
-  //   Object.keys(testConfig).forEach((difficulty) => {
-  //     const questionsPool = mixedQuestions[difficulty];
-  //     const count = testConfig[difficulty];
-
-  //     // Shuffle and select required number of questions
-  //     const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
-  //     const selected = shuffled.slice(0, count);
-
-  //     selectedQuestions.push(...selected);
-  //   });
-
-  //   // Shuffle the final test questions
-  //   const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
-  //   setTestQuestions(shuffledTest);
-
-  //   if (shuffledTest.length > 0) {
-  //     setCurrentQuestion(shuffledTest[0]);
-  //     setQuestionStartTime(Date.now());
-  //     setCurrentQuestionTime(0);
-  //   }
-  // };
-
-  const generateTestQuestions = () => {
-    // console.log("=== Starting Test Generation ===");
-    // console.log("Available difficulties:", Object.keys(mixedQuestions));
-
-    const selectedQuestions = [];
-    const errors = [];
-
-    // Iterate through each difficulty level in testConfig
-    Object.entries(testConfig).forEach(([difficulty, count]) => {
-      const questionsPool = mixedQuestions[difficulty];
-
-      console.log(`\n${difficulty}:`);
-      console.log(`  Required: ${count}`);
-      console.log(`  Available: ${questionsPool?.length || 0}`);
-
-      // Validate questions pool exists and has questions
-      if (
-        !questionsPool ||
-        !Array.isArray(questionsPool) ||
-        questionsPool.length === 0
-      ) {
-        const error = `No questions available for difficulty: ${difficulty}`;
-        console.error(`  ❌ ${error}`);
-        errors.push(error);
-        return;
-      }
-
-      // Check if we have enough questions
-      if (questionsPool.length < count) {
-        console.warn(
-          `  ⚠️ Only ${questionsPool.length} questions available, need ${count}`
-        );
-      }
-
-      // Create a shuffled copy and select questions
-      const shuffled = [...questionsPool].sort(() => Math.random() - 0.5);
-
-      const selected = shuffled.slice(0, Math.min(count, questionsPool.length));
-
-      // console.log(`  ✅ Selected: ${selected.length} questions`);
-
-      // Add difficulty field if it doesn't exist
-      const questionsWithDifficulty = selected.map((q) => ({
-        ...q,
-        difficulty: q.difficulty || difficulty,
-      }));
-
-      selectedQuestions.push(...questionsWithDifficulty);
-    });
-
-    // console.log(
-    // `\n=== Total Selected: ${selectedQuestions.length} questions ===`
-    // );
-
-    // Show errors if any
-    if (errors.length > 0) {
-      console.error("Errors encountered:", errors);
-      alert(`Failed to load questions:\n${errors.join("\n")}`);
+  // Adaptive logic to ask next question
+  const askNextQuestion = (difficulty) => {
+    // If max reached, end test
+    if (questionHistory.length >= MAX_QUESTIONS) {
+      setTestEnded(true);
+      setShowResults(true);
+      return;
     }
-
-    // Shuffle all selected questions together
-    const shuffledTest = selectedQuestions.sort(() => Math.random() - 0.5);
-
-    // Log final distribution
-    const distribution = {};
-    shuffledTest.forEach((q) => {
-      distribution[q.difficulty] = (distribution[q.difficulty] || 0) + 1;
-    });
-    // console.log("Final distribution:", distribution);
-
-    setTestQuestions(shuffledTest);
-
-    if (shuffledTest.length > 0) {
-      setCurrentQuestion(shuffledTest[0]);
-      setQuestionStartTime(Date.now());
-      setCurrentQuestionTime(0);
-    } else {
-      console.error("No questions were generated!");
-      alert("Failed to generate test. Please check console for details.");
+    // Find an unused question
+    const askedIdxs = askedQuestions[difficulty];
+    const questionObj = pickQuestion(difficulty, askedIdxs);
+    if (!questionObj) {
+      // Pool exhausted, fallback to lower diff or end test
+      const prev = ADAPTIVE_CONFIG[difficulty].prev;
+      if (prev) return askNextQuestion(prev);
+      setTestEnded(true);
+      setShowResults(true);
+      return;
     }
+    setCurrentDifficulty(difficulty);
+    setCurrentQuestion(questionObj);
+    setQuestionNumber(questionHistory.length + 1);
+    setSelectedAnswer(null);
+    setIsAnswered(false);
+    setQuestionStartTime(Date.now());
+    setCurrentQuestionTime(0);
+  };
+
+  const getDifficultyColor = (difficulty) => {
+    const colors = {
+      very_easy: "bg-green-100 text-green-800 border-green-300",
+      easy: "bg-blue-100 text-blue-800 border-blue-300",
+      moderate: "bg-yellow-100 text-yellow-800 border-yellow-300",
+      difficult: "bg-red-100 text-red-800 border-red-300",
+    };
+    return colors[difficulty] || colors.moderate;
   };
 
   const handleAnswerSelect = (answerIndex) => {
-    if (isAnswered) return;
-
+   
     const timeTaken = Date.now() - questionStartTime;
+    const isCorrect = answerIndex === currentQuestion.correct;
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
 
-    const isCorrect = answerIndex === currentQuestion.correct;
+    // Record answered idx for duplicate prevention
+    setAskedQuestions((prev) => ({
+      ...prev,
+      [currentDifficulty]: [
+        ...prev[currentDifficulty],
+        currentQuestion.poolIndex,
+      ],
+    }));
 
+    // History entry
     setQuestionHistory((prev) => [
       ...prev,
       {
@@ -181,86 +153,50 @@ const Assess = () => {
         selectedIndex: answerIndex,
         isCorrect,
         timeTaken,
-        difficulty: currentQuestion.difficulty || "moderate",
+        difficulty: currentDifficulty,
       },
     ]);
+
+    // Update correct track
+    setCorrectTrack((prev) => {
+      const upd = { ...prev };
+      if (isCorrect) upd[currentDifficulty] = prev[currentDifficulty] + 1;
+      return upd;
+    });
+
+    // Determine next difficulty
+// Short wait after answer
   };
+
 
   const handleNextQuestion = () => {
-    const allAnswered =
-      questionHistory.length === testQuestions.length &&
-      testQuestions.length > 0;
-    if (questionNumber >= testQuestions.length) {
-      if (allAnswered) {
-        setTestEnded(true);
-        setShowResults(true);
-      } else {
-        // Jump to the first unanswered question
-        const unansweredIdx = Array.from(
-          { length: testQuestions.length },
-          (_, i) => i
-        ).find((i) => !questionHistory.find((q) => q.questionNumber === i + 1));
-        if (unansweredIdx !== undefined) {
-          goToQuestion(unansweredIdx);
-        }
-      }
-      return;
+  if (!isAnswered) return;
+
+  // Determine next difficulty (reuse your adaptive logic)
+  let nextDifficulty = currentDifficulty;
+  const lastQuestion = questionHistory[questionHistory.length - 1];
+  const lastCorrect = lastQuestion?.isCorrect || false;
+
+  if (lastCorrect) {
+    if (
+      ADAPTIVE_CONFIG[currentDifficulty].next &&
+      correctTrack[currentDifficulty] >=
+        ADAPTIVE_CONFIG[currentDifficulty].correctToAdvance
+    ) {
+      nextDifficulty = ADAPTIVE_CONFIG[currentDifficulty].next;
     }
+  } else {
+    const prevDifficulty = ADAPTIVE_CONFIG[currentDifficulty].prev;
+    if (prevDifficulty) nextDifficulty = prevDifficulty;
+  }
 
-    setQuestionNumber((prev) => prev + 1);
-    setCurrentQuestion(testQuestions[questionNumber]);
-    setSelectedAnswer(null);
-    setIsAnswered(false);
-    setQuestionStartTime(Date.now());
-    setCurrentQuestionTime(0);
-  };
-
-  const getAnsweredCount = () => questionHistory.length;
-
-  const findHistoryEntry = (qIndex) =>
-    questionHistory.find((q) => q.questionNumber === qIndex + 1);
-
-  const getQuestionStatus = (qIndex) => {
-    if (qIndex + 1 === questionNumber) return "current";
-    return findHistoryEntry(qIndex) ? "answered" : "unanswered";
-  };
-
-  const goToQuestion = (qIndex) => {
-    if (!testQuestions[qIndex]) return;
-    setQuestionNumber(qIndex + 1);
-    setCurrentQuestion(testQuestions[qIndex]);
-    setSelectedAnswer(null);
-    setIsAnswered(false);
-
-    const entry = findHistoryEntry(qIndex);
-    if (entry) {
-      setSelectedAnswer(entry.selectedIndex ?? null);
-      setIsAnswered(true);
-    }
-
-    setQuestionStartTime(Date.now());
-    setCurrentQuestionTime(0);
-  };
-
-  const handlePrevQuestion = () => {
-    if (questionNumber > 1) {
-      goToQuestion(questionNumber - 2);
-    }
-  };
-
-  const handleQuestionNavigation = (idx) => {
-    goToQuestion(idx);
-  };
+  askNextQuestion(nextDifficulty);
+};
 
   const handleSubmitTest = () => {
-    const allAnswered =
-      questionHistory.length === testQuestions.length &&
-      testQuestions.length > 0;
-    if (!allAnswered) return;
     setTestEnded(true);
     setShowResults(true);
   };
-
   const ResultsScreen = () => {
     const totalQuestions = questionHistory.length;
     const correctAnswers = questionHistory.filter((q) => q.isCorrect).length;
@@ -320,9 +256,11 @@ const Assess = () => {
           ? difficultyStats[diff].reduce((sum, q) => sum + q.timeTaken, 0) /
             difficultyStats[diff].length
           : 0,
+          
     }));
 
     return (
+      
       <div className="relative z-10 mx-auto container mt-10 px-4 py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
           <div
@@ -338,188 +276,120 @@ const Assess = () => {
             </h6>
 
             <div className="flex justify-center mb-4">
-              <button
-                onClick={async () => {
-                  try {
-                    const pdf = new jsPDF({
-                      orientation: "p",
-                      unit: "pt",
-                      format: "a4",
-                    });
-                    const pageWidth = pdf.internal.pageSize.getWidth();
-                    const pageHeight = pdf.internal.pageSize.getHeight();
+           <button
+  onClick={async () => {
+    try {
+      const pdf = new jsPDF({
+        orientation: "p",
+        unit: "pt",
+        format: "a4",
+      });
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
 
-                    // Access user details for the styled header
+      // Colors
+      const blue = [37, 99, 235]; // #2563eb
+      const orange = [249, 115, 22]; // #f97316
+      const green = [22, 163, 74]; // #16a34a
+      const red = [220, 38, 38]; // #dc2626
+      const slate = [30, 41, 59]; // #1e293b
 
-                    // Colors
-                    const blue = [37, 99, 235]; // #2563eb
-                    const orange = [249, 115, 22]; // #f97316
-                    const green = [22, 163, 74]; // #16a34a
-                    const red = [220, 38, 38]; // #dc2626
-                    const slate = [30, 41, 59]; // #1e293b
+      // Header banner
+      pdf.setFillColor(...blue);
+      pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(22);
+      pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, { align: "center" });
 
-                    // Header banner
-                    pdf.setFillColor(...blue);
-                    pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
-                    pdf.setTextColor(255, 255, 255);
-                    pdf.setFontSize(22);
-                    pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, {
-                      align: "center",
-                    });
-                    pdf.setFillColor(...orange);
-                    pdf.circle(pageWidth - 60, 40, 6, "F");
+      // User info
+      const userTop = 120;
+      pdf.setFillColor(255, 255, 255);
+      pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, "F");
+      pdf.setDrawColor(230, 236, 245);
+      pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, "S");
 
-                    // User card
-                    const userTop = 120;
-                    pdf.setFillColor(255, 255, 255);
-                    pdf.roundedRect(
-                      20,
-                      userTop,
-                      pageWidth - 40,
-                      90,
-                      10,
-                      10,
-                      "F"
-                    );
-                    pdf.setDrawColor(230, 236, 245);
-                    pdf.roundedRect(
-                      20,
-                      userTop,
-                      pageWidth - 40,
-                      90,
-                      10,
-                      10,
-                      "S"
-                    );
+      const initials = (user?.name || "User")
+        .split(/\s+/)
+        .map((w) => w[0]?.toUpperCase() || "")
+        .slice(0, 2)
+        .join("");
+      pdf.setFillColor(...orange);
+      pdf.circle(50, userTop + 45, 22, "F");
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(14);
+      pdf.text(initials || "U", 50, userTop + 50, { align: "center" });
 
-                    const initials = (user?.name || "User")
-                      .split(/\s+/)
-                      .map((w) => w[0]?.toUpperCase() || "")
-                      .slice(0, 2)
-                      .join("");
-                    pdf.setFillColor(...orange);
-                    pdf.circle(50, userTop + 45, 22, "F");
-                    pdf.setTextColor(255, 255, 255);
-                    pdf.setFontSize(14);
-                    pdf.text(initials || "U", 50, userTop + 50, {
-                      align: "center",
-                    });
+      pdf.setTextColor(...slate);
+      pdf.setFontSize(12);
+      const testDate = new Date().toLocaleString();
+      pdf.text(`Name: ${user?.name || ""}`, 90, userTop + 30);
+      pdf.text(`Email: ${user?.email || ""}`, 90, userTop + 50);
+      pdf.text(`Test Date: ${testDate}`, 90, userTop + 70);
 
-                    pdf.setTextColor(...slate);
-                    pdf.setFontSize(12);
-                    const testDate = new Date().toLocaleString();
-                    pdf.text(`Name: ${user?.name || ""}`, 90, userTop + 30);
-                    pdf.text(`Email: ${user?.email || ""}`, 90, userTop + 50);
-                    pdf.text(`Test Date: ${testDate}`, 90, userTop + 70);
+      // Metrics summary
+      const totalQuestions = questionHistory.length;
+      const correctAnswers = questionHistory.filter(q => q.isCorrect).length;
+      const wrongAnswers = totalQuestions - correctAnswers;
+      const totalTime = questionHistory.reduce((s, q) => s + q.timeTaken, 0);
+      const avgSec = totalQuestions ? totalTime / totalQuestions / 1000 : 0;
 
-                    // Compute metrics
-                    const totalQuestions = questionHistory.length;
-                    const correctAnswers = questionHistory.filter(
-                      (q) => q.isCorrect
-                    ).length;
-                    const wrongAnswers = Math.max(
-                      0,
-                      totalQuestions - correctAnswers
-                    );
-                    const totalTime = questionHistory.reduce(
-                      (s, q) => s + q.timeTaken,
-                      0
-                    );
-                    const avgSec = totalQuestions
-                      ? totalTime / totalQuestions / 1000
-                      : 0;
+      const cardsTop = userTop + 110;
+      const gap = 16;
+      const cardW = (pageWidth - 40 - gap * 3) / 4;
+      const metrics = [
+        { label: "Total", value: totalQuestions, color: blue },
+        { label: "Correct", value: correctAnswers, color: green },
+        { label: "Wrong", value: wrongAnswers, color: red },
+        { label: "Avg Time", value: `${avgSec.toFixed(2)}s`, color: orange },
+      ];
 
-                    // Summary cards row
-                    const cardsTop = userTop + 110;
-                    const gap = 16;
-                    const cardW = (pageWidth - 40 - gap * 3) / 4;
-                    const metrics = [
-                      {
-                        label: "Total",
-                        value: String(totalQuestions),
-                        color: blue,
-                      },
-                      {
-                        label: "Correct",
-                        value: String(correctAnswers),
-                        color: green,
-                      },
-                      {
-                        label: "Wrong",
-                        value: String(wrongAnswers),
-                        color: red,
-                      },
-                      {
-                        label: "Avg Time",
-                        value: `${avgSec.toFixed(2)}s`,
-                        color: orange,
-                      },
-                    ];
-                    let x = 20;
-                    metrics.forEach((m) => {
-                      pdf.setFillColor(255, 255, 255);
-                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
-                      pdf.setDrawColor(230, 236, 245);
-                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
-                      pdf.setFillColor(...m.color);
-                      pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
-                      pdf.setTextColor(...slate);
-                      pdf.setFontSize(12);
-                      pdf.text(m.label, x + 12, cardsTop + 32);
-                      pdf.setFontSize(22);
-                      pdf.setTextColor(...m.color);
-                      pdf.text(m.value, x + 12, cardsTop + 64);
-                      x += cardW + gap;
-                    });
+      let x = 20;
+      metrics.forEach(m => {
+        pdf.setFillColor(255, 255, 255);
+        pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
+        pdf.setDrawColor(230, 236, 245);
+        pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
+        pdf.setFillColor(...m.color);
+        pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
+        pdf.setTextColor(...slate);
+        pdf.setFontSize(12);
+        pdf.text(m.label, x + 12, cardsTop + 32);
+        pdf.setFontSize(22);
+        pdf.setTextColor(...m.color);
+        pdf.text(String(m.value), x + 12, cardsTop + 64);
+        x += cardW + gap;
+      });
 
-                    // Divider and lines
-                    const linesTop = cardsTop + 120;
-                    pdf.setDrawColor(230, 236, 245);
-                    pdf.line(20, linesTop, pageWidth - 20, linesTop);
-                    pdf.setTextColor(...slate);
-                    pdf.setFontSize(12);
-                    let ly = linesTop + 24;
-                    pdf.text(`Total Questions: ${totalQuestions}`, 40, ly);
-                    ly += 18;
-                    pdf.text(`Correct: ${correctAnswers}`, 40, ly);
-                    ly += 18;
-                    pdf.text(`Wrong: ${wrongAnswers}`, 40, ly);
-                    ly += 18;
-                    pdf.text(
-                      `Average Time per Question: ${avgSec.toFixed(2)}s`,
-                      40,
-                      ly
-                    );
+      // Question-wise details
+      let y = cardsTop + 120;
+      pdf.setFontSize(12);
+      questionHistory.forEach((q, idx) => {
+        if (y > pageHeight - 100) pdf.addPage(), (y = 40);
 
-                    // Footer ribbon
-                    pdf.setFillColor(...blue);
-                    pdf.roundedRect(
-                      20,
-                      pageHeight - 40,
-                      pageWidth - 40,
-                      10,
-                      6,
-                      6,
-                      "F"
-                    );
+        pdf.setTextColor(...slate);
+        pdf.text(`Q${idx + 1}: ${q.question}`, 40, y);
+        y += 18;
 
-                    const stamp = new Date()
-                      .toISOString()
-                      .slice(0, 19)
-                      .replace(/[:T]/g, "-");
-                    const name = user?.name
-                      ? user.name.replace(/\s+/g, "_")
-                      : "user";
-                    pdf.save(`report_${name}_${stamp}.pdf`);
-                  } catch (e) {
-                    console.error("Failed to generate report:", e);
-                    alert("Failed to generate report");
-                  }
-                }}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
-              >
-                Download Report
-              </button>
+        pdf.setTextColor(...blue);
+        pdf.text(`Your Answer: ${q.selectedAnswer}`, 60, y);
+        y += 16;
+
+        pdf.setTextColor(...green);
+        pdf.text(`Correct Answer: ${q.correctAnswer}`, 60, y);
+        y += 24;
+      });
+
+      pdf.save(`report_${user?.name?.replace(/\s+/g,"_") || "user"}.pdf`);
+    } catch (e) {
+      console.error("Failed to generate report:", e);
+      alert("Failed to generate report");
+    }
+  }}
+  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
+>
+  Download Report
+</button>
+
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -695,9 +565,15 @@ const Assess = () => {
   };
 
   if (showResults) {
-    return <ResultsScreen />;
+    return (
+      <ResultsScreen
+        questionHistory={questionHistory}
+        user={user}
+        submitted={submitted}
+        setSubmitted={setSubmitted}
+      />
+    );
   }
-
   if (!currentQuestion) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -707,13 +583,9 @@ const Assess = () => {
       </div>
     );
   }
-
-  const allAnswered =
-    questionHistory.length === testQuestions.length && testQuestions.length > 0;
-  const remainingToSubmit = Math.max(
-    0,
-    testQuestions.length - questionHistory.length
-  );
+  const getAnsweredCount = () => questionHistory.length;
+  const allAnswered = questionHistory.length >= MAX_QUESTIONS;
+  const remainingToSubmit = Math.max(0, MAX_QUESTIONS - questionHistory.length);
 
   return (
     <div className="min-h-screen bg-white">
@@ -723,8 +595,8 @@ const Assess = () => {
           {/* Test Info */}
           <div className="mb-8">
             <div className="flex items-start mb-4">
-              <div className="w-10 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-sm font-bold">🎯</span>
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                <span className="text-white text-lg font-bold">🎯</span>
               </div>
               <div>
                 <h2 className="font-bold text-gray-800 -mt-1">Problems</h2>
@@ -744,6 +616,20 @@ const Assess = () => {
               </div>
             </div>
 
+            {/* Current Difficulty */}
+            <div
+              className={`rounded-2xl p-4 mb-4 shadow-sm border-2 ${getDifficultyColor(
+                currentDifficulty
+              )}`}
+            >
+              <div className="text-lg font-medium mb-1">
+                Current Level -{" "}
+                <span className="text-lg font-bold capitalize">
+                  {currentDifficulty.replace("_", " ")}
+                </span>
+              </div>
+            </div>
+
             {/* Progress */}
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
@@ -752,63 +638,15 @@ const Assess = () => {
                 </span>
               </div>
               <div className="text-sm text-gray-600 mb-2">
-                {getAnsweredCount()} of {testQuestions.length} answered
+                {getAnsweredCount()} of {MAX_QUESTIONS} answered
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div
                   className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
                   style={{
-                    width: `${
-                      (getAnsweredCount() / testQuestions.length) * 100
-                    }%`,
+                    width: `${(getAnsweredCount() / MAX_QUESTIONS) * 100}%`,
                   }}
                 ></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Question Grid */}
-          <div className="mb-6">
-            <h3 className="font-semibold text-gray-800 mb-4">Questions</h3>
-            <div className="grid grid-cols-5 gap-2">
-              {testQuestions.map((_, idx) => {
-                const status = getQuestionStatus(idx);
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => handleQuestionNavigation(idx)}
-                    className={`w-10 h-10 rounded-full text-sm font-semibold transition-all duration-200 flex items-center justify-center ${
-                      status === "answered"
-                        ? "bg-green-500 text-white shadow-md hover:bg-green-600"
-                        : status === "current"
-                        ? "bg-blue-500 text-white shadow-md ring-2 ring-blue-300"
-                        : "bg-white text-gray-600 border-2 border-gray-300 hover:bg-gray-50"
-                    }`}
-                  >
-                    {idx + 1}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-            <h4 className="font-semibold text-gray-800 mb-2 text-sm">
-              Instructions
-            </h4>
-            <div className="space-y-1 text-xs text-gray-600">
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                Answered
-              </div>
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                Current
-              </div>
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-gray-300 rounded-full mr-2"></div>Not
-                Answered
               </div>
             </div>
           </div>
@@ -821,7 +659,7 @@ const Assess = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h1 className="text-2xl font-bold text-gray-800">
-                  Question {questionNumber} of {testQuestions.length}
+                  Question {questionNumber} of {MAX_QUESTIONS}
                 </h1>
                 {/* <p className="text-gray-600 capitalize">
                   Difficulty:{" "}
@@ -852,7 +690,7 @@ const Assess = () => {
           {/* Question Content */}
           <div className="flex-1 p-6 overflow-y-auto">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+              <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-300 mt-16">
                 <div className="mb-8">
                   <div className="text-xl font-medium text-gray-800 leading-relaxed">
                     {currentQuestion.question}
@@ -877,7 +715,7 @@ const Assess = () => {
                         key={index}
                         onClick={() => handleAnswerSelect(index)}
                         className={buttonClass}
-                        disabled={isAnswered}
+                        
                       >
                         <div className="flex items-center">
                           <div
@@ -907,43 +745,32 @@ const Assess = () => {
           {/* Navigation Footer */}
           <div className="bg-white border-t border-gray-200 p-6">
             <div className="flex justify-between items-center max-w-4xl mx-auto">
-              <button
-                onClick={handlePrevQuestion}
-                disabled={questionNumber === 1}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  questionNumber === 1
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-sm hover:shadow-md"
-                }`}
-              >
-                ← Previous
-              </button>
-
               <div className="text-sm text-gray-600">
-                Question {questionNumber} of {testQuestions.length}
+                Question {questionNumber} of {MAX_QUESTIONS}
               </div>
 
               <button
-                onClick={isAnswered ? handleNextQuestion : undefined}
-                disabled={!isAnswered}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  !isAnswered
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl"
-                }`}
-              >
-                {questionNumber >= testQuestions.length
-                  ? allAnswered
-                    ? "View Results"
-                    : "Review Unanswered →"
-                  : "Next →"}
-              </button>
+  onClick={handleNextQuestion}
+  disabled={!isAnswered}
+  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+    !isAnswered
+      ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+      : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl"
+  }`}
+>
+  {questionNumber >= MAX_QUESTIONS
+    ? allAnswered
+      ? "View Results"
+      : "Review Unanswered →"
+    : "Next →"}
+</button>
+
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
   );
 };
 
-export default Assess;
+export default AdaptiveAssess;
