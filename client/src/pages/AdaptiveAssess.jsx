@@ -127,7 +127,6 @@ const AdaptiveAssess = () => {
   };
 
   const handleAnswerSelect = (answerIndex) => {
-   
     const timeTaken = Date.now() - questionStartTime;
     const isCorrect = answerIndex === currentQuestion.correct;
     setSelectedAnswer(answerIndex);
@@ -165,33 +164,32 @@ const AdaptiveAssess = () => {
     });
 
     // Determine next difficulty
-// Short wait after answer
+    // Short wait after answer
   };
 
-
   const handleNextQuestion = () => {
-  if (!isAnswered) return;
+    if (!isAnswered) return;
 
-  // Determine next difficulty (reuse your adaptive logic)
-  let nextDifficulty = currentDifficulty;
-  const lastQuestion = questionHistory[questionHistory.length - 1];
-  const lastCorrect = lastQuestion?.isCorrect || false;
+    // Determine next difficulty (reuse your adaptive logic)
+    let nextDifficulty = currentDifficulty;
+    const lastQuestion = questionHistory[questionHistory.length - 1];
+    const lastCorrect = lastQuestion?.isCorrect || false;
 
-  if (lastCorrect) {
-    if (
-      ADAPTIVE_CONFIG[currentDifficulty].next &&
-      correctTrack[currentDifficulty] >=
-        ADAPTIVE_CONFIG[currentDifficulty].correctToAdvance
-    ) {
-      nextDifficulty = ADAPTIVE_CONFIG[currentDifficulty].next;
+    if (lastCorrect) {
+      if (
+        ADAPTIVE_CONFIG[currentDifficulty].next &&
+        correctTrack[currentDifficulty] >=
+          ADAPTIVE_CONFIG[currentDifficulty].correctToAdvance
+      ) {
+        nextDifficulty = ADAPTIVE_CONFIG[currentDifficulty].next;
+      }
+    } else {
+      const prevDifficulty = ADAPTIVE_CONFIG[currentDifficulty].prev;
+      if (prevDifficulty) nextDifficulty = prevDifficulty;
     }
-  } else {
-    const prevDifficulty = ADAPTIVE_CONFIG[currentDifficulty].prev;
-    if (prevDifficulty) nextDifficulty = prevDifficulty;
-  }
 
-  askNextQuestion(nextDifficulty);
-};
+    askNextQuestion(nextDifficulty);
+  };
 
   const handleSubmitTest = () => {
     setTestEnded(true);
@@ -209,13 +207,16 @@ const AdaptiveAssess = () => {
       const postOnce = async () => {
         if (submitted) return;
         try {
-          const { data } = await api.post("https://quiz-mu-dun.vercel.app/api/results", {
-            totalQuestions,
-            correct: correctAnswers,
-            wrong: Math.max(0, totalQuestions - correctAnswers),
-            avgTimeSec: Number((averageTime / 1000).toFixed(2)),
-            questions: questionHistory,
-          });
+          const { data } = await api.post(
+            "https://quiz-mu-dun.vercel.app/api/results",
+            {
+              totalQuestions,
+              correct: correctAnswers,
+              wrong: Math.max(0, totalQuestions - correctAnswers),
+              avgTimeSec: Number((averageTime / 1000).toFixed(2)),
+              questions: questionHistory,
+            }
+          );
           setSavedId(data?.result?._id || "");
           setPostError("");
         } catch (err) {
@@ -256,11 +257,9 @@ const AdaptiveAssess = () => {
           ? difficultyStats[diff].reduce((sum, q) => sum + q.timeTaken, 0) /
             difficultyStats[diff].length
           : 0,
-          
     }));
 
     return (
-      
       <div className="relative z-10 mx-auto container mt-10 px-4 py-8">
         <div className="max-w-6xl mx-auto flex align-center justify-center">
           <div
@@ -276,120 +275,152 @@ const AdaptiveAssess = () => {
             </h6>
 
             <div className="flex justify-center mb-4">
-           <button
-  onClick={async () => {
-    try {
-      const pdf = new jsPDF({
-        orientation: "p",
-        unit: "pt",
-        format: "a4",
-      });
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
+              <button
+                onClick={async () => {
+                  try {
+                    const pdf = new jsPDF({
+                      orientation: "p",
+                      unit: "pt",
+                      format: "a4",
+                    });
+                    const pageWidth = pdf.internal.pageSize.getWidth();
+                    const pageHeight = pdf.internal.pageSize.getHeight();
 
-      // Colors
-      const blue = [37, 99, 235]; // #2563eb
-      const orange = [249, 115, 22]; // #f97316
-      const green = [22, 163, 74]; // #16a34a
-      const red = [220, 38, 38]; // #dc2626
-      const slate = [30, 41, 59]; // #1e293b
+                    // Colors
+                    const blue = [37, 99, 235]; // #2563eb
+                    const orange = [249, 115, 22]; // #f97316
+                    const green = [22, 163, 74]; // #16a34a
+                    const red = [220, 38, 38]; // #dc2626
+                    const slate = [30, 41, 59]; // #1e293b
 
-      // Header banner
-      pdf.setFillColor(...blue);
-      pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
-      pdf.setTextColor(255, 255, 255);
-      pdf.setFontSize(22);
-      pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, { align: "center" });
+                    // Header banner
+                    pdf.setFillColor(...blue);
+                    pdf.roundedRect(20, 20, pageWidth - 40, 80, 12, 12, "F");
+                    pdf.setTextColor(255, 255, 255);
+                    pdf.setFontSize(22);
+                    pdf.text("NeuroQuiz — Marks Card", pageWidth / 2, 65, {
+                      align: "center",
+                    });
 
-      // User info
-      const userTop = 120;
-      pdf.setFillColor(255, 255, 255);
-      pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, "F");
-      pdf.setDrawColor(230, 236, 245);
-      pdf.roundedRect(20, userTop, pageWidth - 40, 90, 10, 10, "S");
+                    // User info
+                    const userTop = 120;
+                    pdf.setFillColor(255, 255, 255);
+                    pdf.roundedRect(
+                      20,
+                      userTop,
+                      pageWidth - 40,
+                      90,
+                      10,
+                      10,
+                      "F"
+                    );
+                    pdf.setDrawColor(230, 236, 245);
+                    pdf.roundedRect(
+                      20,
+                      userTop,
+                      pageWidth - 40,
+                      90,
+                      10,
+                      10,
+                      "S"
+                    );
 
-      const initials = (user?.name || "User")
-        .split(/\s+/)
-        .map((w) => w[0]?.toUpperCase() || "")
-        .slice(0, 2)
-        .join("");
-      pdf.setFillColor(...orange);
-      pdf.circle(50, userTop + 45, 22, "F");
-      pdf.setTextColor(255, 255, 255);
-      pdf.setFontSize(14);
-      pdf.text(initials || "U", 50, userTop + 50, { align: "center" });
+                    const initials = (user?.name || "User")
+                      .split(/\s+/)
+                      .map((w) => w[0]?.toUpperCase() || "")
+                      .slice(0, 2)
+                      .join("");
+                    pdf.setFillColor(...orange);
+                    pdf.circle(50, userTop + 45, 22, "F");
+                    pdf.setTextColor(255, 255, 255);
+                    pdf.setFontSize(14);
+                    pdf.text(initials || "U", 50, userTop + 50, {
+                      align: "center",
+                    });
 
-      pdf.setTextColor(...slate);
-      pdf.setFontSize(12);
-      const testDate = new Date().toLocaleString();
-      pdf.text(`Name: ${user?.name || ""}`, 90, userTop + 30);
-      pdf.text(`Email: ${user?.email || ""}`, 90, userTop + 50);
-      pdf.text(`Test Date: ${testDate}`, 90, userTop + 70);
+                    pdf.setTextColor(...slate);
+                    pdf.setFontSize(12);
+                    const testDate = new Date().toLocaleString();
+                    pdf.text(`Name: ${user?.name || ""}`, 90, userTop + 30);
+                    pdf.text(`Email: ${user?.email || ""}`, 90, userTop + 50);
+                    pdf.text(`Test Date: ${testDate}`, 90, userTop + 70);
 
-      // Metrics summary
-      const totalQuestions = questionHistory.length;
-      const correctAnswers = questionHistory.filter(q => q.isCorrect).length;
-      const wrongAnswers = totalQuestions - correctAnswers;
-      const totalTime = questionHistory.reduce((s, q) => s + q.timeTaken, 0);
-      const avgSec = totalQuestions ? totalTime / totalQuestions / 1000 : 0;
+                    // Metrics summary
+                    const totalQuestions = questionHistory.length;
+                    const correctAnswers = questionHistory.filter(
+                      (q) => q.isCorrect
+                    ).length;
+                    const wrongAnswers = totalQuestions - correctAnswers;
+                    const totalTime = questionHistory.reduce(
+                      (s, q) => s + q.timeTaken,
+                      0
+                    );
+                    const avgSec = totalQuestions
+                      ? totalTime / totalQuestions / 1000
+                      : 0;
 
-      const cardsTop = userTop + 110;
-      const gap = 16;
-      const cardW = (pageWidth - 40 - gap * 3) / 4;
-      const metrics = [
-        { label: "Total", value: totalQuestions, color: blue },
-        { label: "Correct", value: correctAnswers, color: green },
-        { label: "Wrong", value: wrongAnswers, color: red },
-        { label: "Avg Time", value: `${avgSec.toFixed(2)}s`, color: orange },
-      ];
+                    const cardsTop = userTop + 110;
+                    const gap = 16;
+                    const cardW = (pageWidth - 40 - gap * 3) / 4;
+                    const metrics = [
+                      { label: "Total", value: totalQuestions, color: blue },
+                      { label: "Correct", value: correctAnswers, color: green },
+                      { label: "Wrong", value: wrongAnswers, color: red },
+                      {
+                        label: "Avg Time",
+                        value: `${avgSec.toFixed(2)}s`,
+                        color: orange,
+                      },
+                    ];
 
-      let x = 20;
-      metrics.forEach(m => {
-        pdf.setFillColor(255, 255, 255);
-        pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
-        pdf.setDrawColor(230, 236, 245);
-        pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
-        pdf.setFillColor(...m.color);
-        pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
-        pdf.setTextColor(...slate);
-        pdf.setFontSize(12);
-        pdf.text(m.label, x + 12, cardsTop + 32);
-        pdf.setFontSize(22);
-        pdf.setTextColor(...m.color);
-        pdf.text(String(m.value), x + 12, cardsTop + 64);
-        x += cardW + gap;
-      });
+                    let x = 20;
+                    metrics.forEach((m) => {
+                      pdf.setFillColor(255, 255, 255);
+                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "F");
+                      pdf.setDrawColor(230, 236, 245);
+                      pdf.roundedRect(x, cardsTop, cardW, 90, 10, 10, "S");
+                      pdf.setFillColor(...m.color);
+                      pdf.roundedRect(x, cardsTop, cardW, 10, 10, 10, "F");
+                      pdf.setTextColor(...slate);
+                      pdf.setFontSize(12);
+                      pdf.text(m.label, x + 12, cardsTop + 32);
+                      pdf.setFontSize(22);
+                      pdf.setTextColor(...m.color);
+                      pdf.text(String(m.value), x + 12, cardsTop + 64);
+                      x += cardW + gap;
+                    });
 
-      // Question-wise details
-      let y = cardsTop + 120;
-      pdf.setFontSize(12);
-      questionHistory.forEach((q, idx) => {
-        if (y > pageHeight - 100) pdf.addPage(), (y = 40);
+                    // Question-wise details
+                    let y = cardsTop + 120;
+                    pdf.setFontSize(12);
+                    questionHistory.forEach((q, idx) => {
+                      if (y > pageHeight - 100) pdf.addPage(), (y = 40);
 
-        pdf.setTextColor(...slate);
-        pdf.text(`Q${idx + 1}: ${q.question}`, 40, y);
-        y += 18;
+                      pdf.setTextColor(...slate);
+                      pdf.text(`Q${idx + 1}: ${q.question}`, 40, y);
+                      y += 18;
 
-        pdf.setTextColor(...blue);
-        pdf.text(`Your Answer: ${q.selectedAnswer}`, 60, y);
-        y += 16;
+                      pdf.setTextColor(...blue);
+                      pdf.text(`Your Answer: ${q.selectedAnswer}`, 60, y);
+                      y += 16;
 
-        pdf.setTextColor(...green);
-        pdf.text(`Correct Answer: ${q.correctAnswer}`, 60, y);
-        y += 24;
-      });
+                      pdf.setTextColor(...green);
+                      pdf.text(`Correct Answer: ${q.correctAnswer}`, 60, y);
+                      y += 24;
+                    });
 
-      pdf.save(`report_${user?.name?.replace(/\s+/g,"_") || "user"}.pdf`);
-    } catch (e) {
-      console.error("Failed to generate report:", e);
-      alert("Failed to generate report");
-    }
-  }}
-  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
->
-  Download Report
-</button>
-
+                    pdf.save(
+                      `report_${user?.name?.replace(/\s+/g, "_") || "user"}.pdf`
+                    );
+                  } catch (e) {
+                    console.error("Failed to generate report:", e);
+                    alert("Failed to generate report");
+                  }
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg"
+              >
+                Download Report
+              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -661,10 +692,6 @@ const AdaptiveAssess = () => {
                 <h1 className="text-2xl font-bold text-gray-800">
                   Question {questionNumber} of {MAX_QUESTIONS}
                 </h1>
-                {/* <p className="text-gray-600 capitalize">
-                  Difficulty:{" "}
-                  {currentQuestion.difficulty?.replace("_", " ") || "moderate"}
-                </p> */}
               </div>
               <div className="flex items-center gap-3">
                 {!allAnswered && (
@@ -715,7 +742,6 @@ const AdaptiveAssess = () => {
                         key={index}
                         onClick={() => handleAnswerSelect(index)}
                         className={buttonClass}
-                        
                       >
                         <div className="flex items-center">
                           <div
@@ -750,23 +776,22 @@ const AdaptiveAssess = () => {
               </div>
 
               <button
-  onClick={handleNextQuestion}
-  disabled={!isAnswered}
-  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-    !isAnswered
-      ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-      : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl"
-  }`}
->
-  {questionNumber >= MAX_QUESTIONS
-    ? allAnswered
-      ? "View Results"
-      : "Review Unanswered →"
-    : "Next →"}
-</button>
-
+                onClick={handleNextQuestion}
+                disabled={!isAnswered}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  !isAnswered
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl"
+                }`}
+              >
+                {questionNumber >= MAX_QUESTIONS
+                  ? allAnswered
+                    ? "View Results"
+                    : "Review Unanswered →"
+                  : "Next →"}
+              </button>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
