@@ -164,16 +164,7 @@ const Apti = () => {
     loadNextQuestion();
   };
 
-  const triggerCorrectEffects = () => {
-    triggerFlash("success");
-    triggerFlyingText("Excellent!", "success");
-  };
-
-  const triggerWrongEffects = () => {
-    triggerShake();
-    const correctAnswer = currentQuestion.options[currentQuestion.correct];
-    triggerFlyingText(`Correct Answer is: ${correctAnswer}`, "error");
-  };
+  
 
   const triggerFlash = (type) => {
     if (flashRef.current) {
