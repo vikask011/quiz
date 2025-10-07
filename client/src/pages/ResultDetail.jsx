@@ -13,7 +13,7 @@ export default function ResultDetail() {
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get(`/api/results/${id}`);
+        const { data } = await api.get(`https://quiz-mu-dun.vercel.app/api/results/${id}`);
         setResult(data.result);
       } catch (_) {
         setResult(null);

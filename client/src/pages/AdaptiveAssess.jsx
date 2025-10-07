@@ -209,7 +209,7 @@ const AdaptiveAssess = () => {
       const postOnce = async () => {
         if (submitted) return;
         try {
-          const { data } = await api.post("/api/results", {
+          const { data } = await api.post("https://quiz-mu-dun.vercel.app/api/results", {
             totalQuestions,
             correct: correctAnswers,
             wrong: Math.max(0, totalQuestions - correctAnswers),
