@@ -145,7 +145,7 @@ const Apti = () => {
       triggerWrongEffects();
       setTimeout(() => {
         setShowExplanation(true);
-      }, 1500);
+      }, 500);
     }
   };
 
@@ -213,7 +213,7 @@ const Apti = () => {
         if (shakeRef.current) {
           shakeRef.current.style.animation = "";
         }
-      }, 800);
+      }, 500);
     }
   };
 
