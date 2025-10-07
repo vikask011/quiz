@@ -790,7 +790,7 @@ const Homepage = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-slate-600 font-medium">
                 © 2025 NeuroQuiz. All rights reserved. Built with ❤️ for
-                learners worldwide.
+                learners worldwide from Team CODEAI.
               </p>
               <div className="flex gap-6">
                 {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
