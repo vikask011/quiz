@@ -10,7 +10,7 @@ export default function Results() {
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get("https://quiz-mu-dun.vercel.app//api/results/history?limit=50");
+        const { data } = await api.get("https://quiz-mu-dun.vercel.app/api/results/history?limit=50");
         setHistory(data.history || []);
       } catch (_) {
         setHistory([]);
