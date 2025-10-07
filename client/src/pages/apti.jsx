@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import mygif from "../assets/images/firework.gif";
@@ -164,17 +165,16 @@ const Apti = () => {
     loadNextQuestion();
   };
 
-    const triggerCorrectEffects = () => {
+  const triggerCorrectEffects = () => {
     triggerFlash("success");
-    
+    triggerFlyingText("Correct! 🎉", "success");
   };
 
   const triggerWrongEffects = () => {
     triggerShake();
-    const correctAnswer = currentQuestion.options[currentQuestion.correct];
-   
+    triggerFlash("error");
+    triggerFlyingText("Oops! ❌", "error");
   };
-  
 
   const triggerFlash = (type) => {
     if (flashRef.current) {
@@ -274,11 +274,11 @@ const Apti = () => {
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-4 md:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
-              <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 border border-gray-200">
+              <h1 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-6 md:mb-8">
                 {accuracy >= 80
                   ? "Outstanding Performance!"
                   : accuracy >= 60
@@ -286,47 +286,47 @@ const Apti = () => {
                   : "Keep Learning!"}
               </h1>
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div className="bg-blue-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                  <div className="text-3xl font-bold text-blue-600">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
+                <div className="bg-blue-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600">
                     {totalQuestions}
                   </div>
-                  <div className="text-gray-600">Questions</div>
+                  <div className="text-xs md:text-base text-gray-600">Questions</div>
                 </div>
-                <div className="bg-green-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                  <div className="text-3xl font-bold text-green-600">
+                <div className="bg-green-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-2xl md:text-3xl font-bold text-green-600">
                     {correctAnswers}
                   </div>
-                  <div className="text-gray-600">Correct</div>
+                  <div className="text-xs md:text-base text-gray-600">Correct</div>
                 </div>
-                <div className="bg-purple-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                  <div className="text-3xl font-bold text-purple-600">
+                <div className="bg-purple-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-2xl md:text-3xl font-bold text-purple-600">
                     {accuracy.toFixed(1)}%
                   </div>
-                  <div className="text-gray-600">Accuracy</div>
+                  <div className="text-xs md:text-base text-gray-600">Accuracy</div>
                 </div>
-                <div className="bg-orange-50 p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
-                  <div className="text-3xl font-bold text-orange-600">
+                <div className="bg-orange-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
+                  <div className="text-2xl md:text-3xl font-bold text-orange-600">
                     {formatTime(averageTime)}
                   </div>
-                  <div className="text-gray-600">Avg Time</div>
+                  <div className="text-xs md:text-base text-gray-600">Avg Time</div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-6 md:mb-8">
+                <div className="bg-gray-50 rounded-xl p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">
                     Difficulty Analysis
                   </h3>
                   <div className="space-y-4">
                     {difficultyAccuracy.map((stat, index) => (
-                      <div key={index} className="bg-white p-4 rounded-lg">
+                      <div key={index} className="bg-white p-3 md:p-4 rounded-lg">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="font-semibold capitalize">
+                          <span className="text-sm md:text-base font-semibold capitalize">
                             {stat.difficulty.replace("_", " ")}
                           </span>
                           <span
-                            className={`font-bold ${
+                            className={`text-sm md:text-base font-bold ${
                               stat.accuracy >= 70
                                 ? "text-green-600"
                                 : stat.accuracy >= 50
@@ -349,7 +349,7 @@ const Apti = () => {
                             style={{ width: `${stat.accuracy}%` }}
                           ></div>
                         </div>
-                        <div className="text-sm text-gray-600 mt-1">
+                        <div className="text-xs md:text-sm text-gray-600 mt-1">
                           {stat.correct}/{stat.total} correct • Avg:{" "}
                           {formatTime(stat.avgTime)}
                         </div>
@@ -358,8 +358,8 @@ const Apti = () => {
                   </div>
                 </div>
 
-                <div className="bg-blue-50 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                <div className="bg-blue-50 rounded-xl p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">
                     Recommendations
                   </h3>
                   <div className="space-y-3">
@@ -368,16 +368,16 @@ const Apti = () => {
                         key={index}
                         className="bg-white p-3 rounded-lg border border-blue-200"
                       >
-                        <p className="text-gray-700">{rec}</p>
+                        <p className="text-sm md:text-base text-gray-700">{rec}</p>
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-6 bg-white p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-800 mb-2">
                       Performance Insights
                     </h4>
-                    <div className="text-sm text-gray-600 space-y-1">
+                    <div className="text-xs md:text-sm text-gray-600 space-y-1">
                       <p>
                         • Fastest Question:{" "}
                         {formatTime(
@@ -400,25 +400,25 @@ const Apti = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              <div className="bg-gray-50 rounded-xl p-4 md:p-6">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
                   Detailed History
                 </h2>
                 <div className="space-y-4 max-h-96 overflow-y-auto">
                   {questionHistory.map((q, index) => (
                     <div
                       key={index}
-                      className={`p-4 rounded-lg border transition-all hover:shadow-md ${
+                      className={`p-3 md:p-4 rounded-lg border transition-all hover:shadow-md ${
                         q.isCorrect
                           ? "border-green-500 bg-green-50 hover:bg-green-100"
                           : "border-red-500 bg-red-50 hover:bg-red-100"
                       }`}
                     >
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="font-semibold text-gray-800">
+                      <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <span className="text-sm md:text-base font-semibold text-gray-800">
                           Q{q.questionNumber}
                         </span>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-2 md:space-x-4">
                           <span
                             className={`px-2 py-1 rounded text-xs font-medium ${
                               q.difficulty === "very_easy"
@@ -432,11 +432,11 @@ const Apti = () => {
                           >
                             {q.difficulty.replace("_", " ").toUpperCase()}
                           </span>
-                          <span className="text-sm text-gray-600 font-mono">
+                          <span className="text-xs md:text-sm text-gray-600 font-mono">
                             {formatTime(q.timeTaken)}
                           </span>
                           <span
-                            className={`text-lg ${
+                            className={`text-base md:text-lg ${
                               q.isCorrect ? "text-green-600" : "text-red-600"
                             }`}
                           >
@@ -444,7 +444,7 @@ const Apti = () => {
                           </span>
                         </div>
                       </div>
-                      <div className="text-sm text-gray-700 mb-2 font-medium">
+                      <div className="text-xs md:text-sm text-gray-700 mb-2 font-medium">
                         {q.question}
                       </div>
                       <div className="text-xs text-gray-600">
@@ -470,10 +470,10 @@ const Apti = () => {
                 </div>
               </div>
 
-              <div className="flex justify-center mt-8">
+              <div className="flex justify-center mt-6 md:mt-8">
                 <button
                   onClick={() => window.location.reload()}
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 md:px-8 py-2 md:py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base"
                 >
                   Start New Practice
                 </button>
@@ -525,9 +525,9 @@ const Apti = () => {
         style={{ display: "none" }}
       ></div>
 
-      <div className="flex min-h-screen">
-        {/* Left Sidebar */}
-        <div className="w-80 bg-white shadow-lg p-6 flex flex-col border-r border-gray-200">
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        {/* Left Sidebar - Desktop */}
+        <div className="hidden lg:flex lg:w-80 bg-white shadow-lg p-6 flex-col border-r border-gray-200">
           <button
             onClick={handleEndPractice}
             className="flex items-center text-gray-600 hover:text-gray-800 mb-8 transition-colors text-sm font-medium"
@@ -535,14 +535,10 @@ const Apti = () => {
             <span className="mr-2">←</span> Back to Selection
           </button>
 
-          {/* Topic Card */}
-         
-
           {/* Current Level */}
           <div className={`rounded-xl p-4 mb-6 border-2 ${getDifficultyColor(currentDifficulty)}`}>
             <div className="text-xs font-semibold mb-1 opacity-80">Current Level</div>
             <div className="text-xl font-bold">{getDifficultyLabel(currentDifficulty)}</div>
-            
           </div>
 
           {/* Time Elapsed */}
@@ -576,10 +572,49 @@ const Apti = () => {
           </div>
         </div>
 
+        {/* Mobile Top Bar */}
+        <div className="lg:hidden bg-white shadow-md p-4 border-b border-gray-200">
+          <div className="flex items-center justify-between mb-3">
+            <button
+              onClick={handleEndPractice}
+              className="flex items-center text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
+            >
+              <span className="mr-1">←</span> Back
+            </button>
+            <button
+              onClick={handleEndPractice}
+              className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold px-4 py-2 rounded-lg text-sm"
+            >
+              Submit
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-2">
+            <div className={`rounded-lg p-2 border ${getDifficultyColor(currentDifficulty)}`}>
+              <div className="text-xs font-semibold opacity-80">Level</div>
+              <div className="text-sm font-bold truncate">{getDifficultyLabel(currentDifficulty)}</div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
+              <div className="text-xs text-gray-600 font-semibold">⏱ Time</div>
+              <div className="text-sm font-bold text-gray-800">
+                {formatTime(currentQuestionTime)}
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
+              <div className="text-xs text-gray-600 font-semibold">📊 Progress</div>
+              <div className="text-sm font-bold text-gray-800">
+                {questionHistory.length}/{questionHistory.length + 1}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Content */}
-        <div className="flex-1 p-8 overflow-y-auto">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-6">
+        <div className="flex-1 p-4 lg:p-8 overflow-y-auto">
+          {/* Header - Desktop only */}
+          <div className="hidden lg:flex justify-between items-center mb-6">
             <div>
               <h1 className="text-2xl font-bold text-gray-800">
                 Question {questionNumber} of {questionNumber}
@@ -596,16 +631,23 @@ const Apti = () => {
             </button>
           </div>
 
+          {/* Mobile Header */}
+          <div className="lg:hidden mb-4">
+            <h1 className="text-lg font-bold text-gray-800">
+              Question {questionNumber}
+            </h1>
+          </div>
+
           {/* Question Card */}
-          <div ref={shakeRef} className="bg-white rounded-2xl shadow-lg p-8 mb-6 relative border border-gray-200">
-            <div className="text-2xl font-semibold text-gray-800 mb-8">
+          <div ref={shakeRef} className="bg-white rounded-2xl shadow-lg p-4 lg:p-8 mb-4 lg:mb-6 relative border border-gray-200">
+            <div className="text-lg lg:text-2xl font-semibold text-gray-800 mb-6 lg:mb-8">
               {currentQuestion.question}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 gap-3 lg:gap-4 mb-6">
               {currentQuestion.options.map((option, index) => {
                 let buttonClass =
-                  "p-4 rounded-xl border-2 text-left font-medium transition-all duration-200 relative flex items-center ";
+                  "p-3 lg:p-4 rounded-xl border-2 text-left font-medium transition-all duration-200 relative flex items-center ";
 
                 if (isAnswered) {
                   if (index === currentQuestion.correct) {
@@ -643,7 +685,7 @@ const Apti = () => {
                     ) : (
                       <span className="w-5 h-5 border-2 border-gray-300 rounded-full mr-3 flex-shrink-0"></span>
                     )}
-                    <span>
+                    <span className="text-sm lg:text-base">
                       <span className="font-bold text-blue-600 mr-2">
                         {String.fromCharCode(65 + index)}.
                       </span>
@@ -658,7 +700,7 @@ const Apti = () => {
               <img
                 src={mygif}
                 alt="celebration"
-                className="absolute -top-10 -right-10 w-32 h-32 pointer-events-none"
+                className="absolute -top-6 lg:-top-10 -right-6 lg:-right-10 w-20 h-20 lg:w-32 lg:h-32 pointer-events-none"
               />
             )}
           </div>
@@ -850,12 +892,12 @@ const Apti = () => {
           color: #ef4444;
           text-shadow: 2px 2px 4px rgba(239, 68, 68, 0.3);
         }
+        
+
+        
       `}</style>
     </div>
   );
 };
 
 export default Apti;
-
-
-
