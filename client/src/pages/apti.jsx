@@ -167,13 +167,13 @@ const Apti = () => {
 
   const triggerCorrectEffects = () => {
     triggerFlash("success");
-    triggerFlyingText("Correct! 🎉", "success");
+   
   };
 
   const triggerWrongEffects = () => {
     triggerShake();
     triggerFlash("error");
-    triggerFlyingText("Oops! ❌", "error");
+    
   };
 
   const triggerFlash = (type) => {
