@@ -10,6 +10,8 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@microsoft/clarity": "^1.0.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -17,6 +19,5 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.2",
     "nodemon": "^3.1.10"
-  },
-  "devDependencies": {}
+  }
 }

@@ -9,11 +9,13 @@ export default function ResultDetail() {
   const { user } = useAuth();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [genLoading, setGenLoading] = useState(false);
+  const [genError, setGenError] = useState("");
 
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get(`https://quiz-mu-dun.vercel.app/api/results/${id}`);
+        const { data } = await api.get(`/api/results/${id}`);
         setResult(data.result);
       } catch (_) {
         setResult(null);
@@ -119,6 +121,30 @@ export default function ResultDetail() {
       pdf.text(`Wrong: ${result.wrong}`, 40, y); y += 18;
       pdf.text(`Average Time per Question: ${(result.avgTimeSec || 0).toFixed(2)}s`, 40, y); y += 28;
 
+      // AI Summary Section (if available)
+      if (result.aiSummary && String(result.aiSummary).trim()) {
+        pdf.addPage();
+        let sy = 40;
+        const purple = [147, 51, 234];
+        pdf.setFillColor(...purple);
+        pdf.roundedRect(20, sy, pageWidth - 40, 50, 10, 10, 'F');
+        pdf.setTextColor(255, 255, 255);
+        pdf.setFontSize(18);
+        pdf.text('AI Performance Summary', pageWidth / 2, sy + 32, { align: 'center' });
+        sy += 70;
+        pdf.setTextColor(...slate);
+        pdf.setFontSize(12);
+        const lines = pdf.splitTextToSize(String(result.aiSummary), pageWidth - 80);
+        lines.forEach((line) => {
+          if (sy > pageHeight - 60) {
+            pdf.addPage();
+            sy = 40;
+          }
+          pdf.text(line, 40, sy);
+          sy += 16;
+        });
+      }
+
       // Questions section
       pdf.setFontSize(16);
       pdf.setTextColor(...blue);
@@ -171,6 +197,19 @@ export default function ResultDetail() {
   if (loading) return <div className="p-6 text-blue-700">Loading...</div>;
   if (!result) return <div className="p-6 text-red-600">Result not found.</div>;
 
+  const handleGenerate = async () => {
+    try {
+      setGenError("");
+      setGenLoading(true);
+      const { data } = await api.post(`/api/results/${id}/summary`);
+      setResult((prev) => ({ ...prev, aiSummary: data.summary }));
+    } catch (e) {
+      setGenError(e?.response?.data?.message || 'Failed to generate AI summary');
+    } finally {
+      setGenLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-5xl mx-auto p-6">
@@ -213,6 +252,29 @@ export default function ResultDetail() {
 
           <div className="bg-white border border-blue-100 rounded-xl p-4">
             <div className="text-blue-900 font-semibold">Accuracy: {accuracy.toFixed(1)}%</div>
+          </div>
+
+          {/* AI Summary */}
+          <div className="bg-white border border-purple-200 rounded-xl p-4">
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="text-xl font-bold text-purple-800">AI Performance Summary</h2>
+              {!result.aiSummary && (
+                <button
+                  onClick={handleGenerate}
+                  disabled={genLoading}
+                  className={`px-4 py-2 rounded-lg font-semibold text-sm ${genLoading ? 'bg-gray-300 text-gray-500' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
+                >
+                  {genLoading ? 'Generating...' : 'Generate Summary'}
+                </button>
+              )}
+            </div>
+            {genError ? (
+              <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">{genError}</div>
+            ) : result.aiSummary ? (
+              <div className="whitespace-pre-wrap text-blue-900">{result.aiSummary}</div>
+            ) : (
+              <div className="text-blue-700 text-sm">No AI summary yet. Click Generate Summary.</div>
+            )}
           </div>
 
           {/* Questions */}
