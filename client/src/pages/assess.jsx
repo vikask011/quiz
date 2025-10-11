@@ -234,7 +234,7 @@ const Assess = () => {
         if (submitted) return;
         try {
           const { data } = await api.post(
-            "/api/results",
+            "https://quiz-woad-pi.vercel.app/api/results",
             {
               totalQuestions,
               correct: correctAnswers,
@@ -254,7 +254,7 @@ const Assess = () => {
             
             try {
               const summaryResponse = await api.post(
-                `/api/results/${resultId}/summary`
+                `https://quiz-woad-pi.vercel.app/api/results/${resultId}/summary`
               );
               
               const summaryText = summaryResponse.data?.summary;

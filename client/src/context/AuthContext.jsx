@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const init = async () => {
       try {
         if (token) {
-          const { data } = await api.get("https://quiz-mu-dun.vercel.app/api/auth/me");
+          const { data } = await api.get("https://quiz-woad-pi.vercel.app/api/auth/me");
           setUser(data.user);
         } else {
           setUser(null);
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError("");
     try {
-      const { data } = await api.post("https://quiz-mu-dun.vercel.app/api/auth/login", { email, password });
+      const { data } = await api.post("https://quiz-woad-pi.vercel.app/api/auth/login", { email, password });
       handleAuthResponse(data);
     } catch (err) {
       const msg = err?.response?.data?.message || "Login failed";
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError("");
     try {
-      const { data } = await api.post("https://quiz-mu-dun.vercel.app/api/auth/register", { name, gender, email, password });
+      const { data } = await api.post("https://quiz-woad-pi.vercel.app/api/auth/register", { name, gender, email, password });
       handleAuthResponse(data);
     } catch (err) {
       const msg = err?.response?.data?.message || "Registration failed";
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError("");
     try {
-      const { data } = await api.put("/api/user/profile", { name, email });
+      const { data } = await api.put("https://quiz-woad-pi.vercel.app/api/user/profile", { name, email });
       setUser(data.user);
       return data.user;
     } catch (err) {

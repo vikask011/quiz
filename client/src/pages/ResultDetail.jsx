@@ -15,7 +15,7 @@ export default function ResultDetail() {
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get(`/api/results/${id}`);
+        const { data } = await api.get(`https://quiz-woad-pi.vercel.app/api/results/${id}`);
         setResult(data.result);
       } catch (_) {
         setResult(null);
@@ -201,7 +201,7 @@ export default function ResultDetail() {
     try {
       setGenError("");
       setGenLoading(true);
-      const { data } = await api.post(`/api/results/${id}/summary`);
+      const { data } = await api.post(`https://quiz-woad-pi.vercel.app/api/results/${id}/summary`);
       setResult((prev) => ({ ...prev, aiSummary: data.summary }));
     } catch (e) {
       setGenError(e?.response?.data?.message || 'Failed to generate AI summary');

@@ -226,7 +226,7 @@ const AdaptiveAssess = () => {
               isCorrect: q.isCorrect,
             })),
           };
-          const { data } = await api.post("/api/results", payload);
+          const { data } = await api.post("https://quiz-woad-pi.vercel.app/api/results", payload);
           setSavedId(data.result._id);
           setSubmitted(true);
         } catch (e) {
@@ -244,7 +244,7 @@ const AdaptiveAssess = () => {
       try {
         setSummaryError("");
         setLoadingSummary(true);
-        const { data } = await api.post(`/api/results/${savedId}/summary`);
+        const { data } = await api.post(`https://quiz-woad-pi.vercel.app/api/results/${savedId}/summary`);
         setAiSummary(data.summary);
       } catch (e) {
         setSummaryError(e?.response?.data?.message || "Failed to generate AI summary");
