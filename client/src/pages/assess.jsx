@@ -656,7 +656,7 @@ const Assess = () => {
                 <div className="text-gray-600 text-sm text-center">
   
     <a
-      href="/results"
+      href="https://quiz-jmux.vercel.app/results"
       className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
     >
       Previous Results
