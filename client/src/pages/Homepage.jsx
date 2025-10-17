@@ -37,7 +37,9 @@ const Homepage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const { data } = await api.get("https://quiz-mu-dun.vercel.app/api/results/summary");
+        const { data } = await api.get(
+          "https://quiz-mu-dun.vercel.app/api/results/summary"
+        );
         setSummary(data.summary);
       } catch (_) {
         // ignore

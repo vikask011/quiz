@@ -6,6 +6,11 @@ import {
   interestQuestions,
   ratioProportionQuestions,
   agesQuestions,
+  permuteCombQuestions,
+  logarithmQuestions,
+  algebraQuestions,
+  ARITHMETIC,
+  algebra,
 } from "../assets/dataset/quiz-data.js";
 import {
   Calculator,
@@ -17,12 +22,95 @@ import {
   ArrowRight,
   Trophy,
   Target,
+  Shuffle,
+  Activity,
+  Variable,
+  Hash,
+  FunctionSquare,
 } from "lucide-react";
 
 function DifficultPractice() {
   const [selectedAssessment, setSelectedAssessment] = useState(null);
 
   // Assessment configuration
+  const newAssess = [
+    {
+      id: "permute-combination",
+      title: "Permutations & Combinations",
+      description:
+        "Master counting principles, arrangements, and selection problems",
+      questions: permuteCombQuestions,
+      icon: Shuffle,
+      color: "from-indigo-500 to-indigo-600",
+      bgColor: "from-indigo-50 to-indigo-100",
+      borderColor: "border-indigo-200",
+      textColor: "text-indigo-600",
+      difficulty: "Intermediate to Advanced",
+      estimatedTime: "20-25 mins",
+      totalQuestions: Object.values(permuteCombQuestions).flat().length,
+    },
+    {
+      id: "logarithm",
+      title: "Logarithms",
+      description:
+        "Solve logarithmic equations, properties, and exponential relationships",
+      questions: logarithmQuestions,
+      icon: Activity,
+      color: "from-pink-500 to-pink-600",
+      bgColor: "from-pink-50 to-pink-100",
+      borderColor: "border-pink-200",
+      textColor: "text-pink-600",
+      difficulty: "Advanced",
+      estimatedTime: "25-30 mins",
+      totalQuestions: Object.values(logarithmQuestions).flat().length,
+    },
+    {
+      id: "algebra",
+      title: "Algebra",
+      description:
+        "Work with equations, inequalities, polynomials, and algebraic expressions",
+      questions: algebraQuestions,
+      icon: Variable,
+      color: "from-teal-500 to-teal-600",
+      bgColor: "from-teal-50 to-teal-100",
+      borderColor: "border-teal-200",
+      textColor: "text-teal-600",
+      difficulty: "Beginner to Advanced",
+      estimatedTime: "20-30 mins",
+      totalQuestions: Object.values(algebraQuestions).flat().length,
+    },
+    {
+      id: "arithmetic",
+      title: "Arithmetic",
+      description:
+        "Practice fundamental operations, number properties, and mental math",
+      questions: ARITHMETIC,
+      icon: Hash,
+      color: "from-cyan-500 to-cyan-600",
+      bgColor: "from-cyan-50 to-cyan-100",
+      borderColor: "border-cyan-200",
+      textColor: "text-cyan-600",
+      difficulty: "Beginner to Intermediate",
+      estimatedTime: "15-20 mins",
+      totalQuestions: Object.values(ARITHMETIC).flat().length,
+    },
+    {
+      id: "algebra-advanced",
+      title: "Advanced Algebra",
+      description:
+        "Tackle complex algebraic problems, systems of equations, and functions",
+      questions: algebra,
+      icon: FunctionSquare,
+      color: "from-amber-500 to-amber-600",
+      bgColor: "from-amber-50 to-amber-100",
+      borderColor: "border-amber-200",
+      textColor: "text-amber-600",
+      difficulty: "Advanced",
+      estimatedTime: "30-35 mins",
+      totalQuestions: Object.values(algebra).flat().length,
+    },
+  ];
+
   const assessmentTypes = [
     {
       id: "percentage",
@@ -144,6 +232,75 @@ function DifficultPractice() {
           </div>
 
           {/* Assessment Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {newAssess.map((assessment) => {
+              const IconComponent = assessment.icon;
+              return (
+                <div
+                  key={assessment.id}
+                  className={`bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${assessment.borderColor} overflow-hidden group cursor-pointer transform hover:scale-105`}
+                  onClick={() => setSelectedAssessment(assessment)}
+                >
+                  {/* Card Header */}
+                  <div
+                    className={`bg-gradient-to-r ${assessment.bgColor} p-6 relative`}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-r ${assessment.color} rounded-full flex items-center justify-center shadow-lg`}
+                      >
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <ArrowRight
+                        className={`w-6 h-6 ${assessment.textColor} group-hover:translate-x-1 transition-transform duration-300`}
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {assessment.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {assessment.description}
+                    </p>
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-6">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">
+                          Questions:
+                        </span>
+                        <span className="font-semibold text-gray-800">
+                          {assessment.totalQuestions}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Time:</span>
+                        <span className="font-semibold text-gray-800">
+                          {assessment.estimatedTime}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Level:</span>
+                        <span
+                          className={`font-semibold ${assessment.textColor}`}
+                        >
+                          {assessment.difficulty}
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      className={`w-full mt-6 bg-gradient-to-r ${assessment.color} hover:opacity-90 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl`}
+                    >
+                      Start Assessment
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="text-2xl font-bold py-6">Additional Resources</div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {assessmentTypes.map((assessment) => {
               const IconComponent = assessment.icon;
