@@ -10,9 +10,13 @@ export default function Results() {
   useEffect(() => {
     const load = async () => {
       try {
+<<<<<<< HEAD
         const { data } = await api.get(
           "https://quiz-mu-dun.vercel.app/api/results/history?limit=50"
         );
+=======
+        const { data } = await api.get("https://quiz-woad-pi.vercel.app/api/results/history?limit=50");
+>>>>>>> 7cda881a5b4d256a0872e770c3da47f1bb9475b4
         setHistory(data.history || []);
       } catch (_) {
         setHistory([]);

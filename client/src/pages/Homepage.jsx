@@ -37,9 +37,13 @@ const Homepage = () => {
   useEffect(() => {
     const load = async () => {
       try {
+<<<<<<< HEAD
         const { data } = await api.get(
           "https://quiz-mu-dun.vercel.app/api/results/summary"
         );
+=======
+        const { data } = await api.get("https://quiz-woad-pi.vercel.app/api/results/summary");
+>>>>>>> 7cda881a5b4d256a0872e770c3da47f1bb9475b4
         setSummary(data.summary);
       } catch (_) {
         // ignore
@@ -792,7 +796,7 @@ const Homepage = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-slate-600 font-medium">
                 © 2025 NeuroQuiz. All rights reserved. Built with ❤️ for
-                learners worldwide.
+                learners worldwide from Team CODEAI.
               </p>
               <div className="flex gap-6">
                 {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(

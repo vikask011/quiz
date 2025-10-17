@@ -3,6 +3,7 @@ import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import api from "../lib/api";
 import jsPDF from "jspdf";
 import { useAuth } from "../context/AuthContext.jsx";
+import { Sparkles } from "lucide-react";
 
 const Assess = () => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -224,13 +225,16 @@ const Assess = () => {
     const averageTime = totalQuestions > 0 ? totalTime / totalQuestions : 0;
     const [postError, setPostError] = useState("");
     const [savedId, setSavedId] = useState("");
+    const [aiSummary, setAiSummary] = useState("");
+    const [loadingSummary, setLoadingSummary] = useState(true);
+    const [summaryError, setSummaryError] = useState("");
 
     useEffect(() => {
       const postOnce = async () => {
         if (submitted) return;
         try {
           const { data } = await api.post(
-            "https://quiz-mu-dun.vercel.app/api/results",
+            "https://quiz-woad-pi.vercel.app/api/results",
             {
               totalQuestions,
               correct: correctAnswers,
@@ -239,8 +243,35 @@ const Assess = () => {
               questions: questionHistory,
             }
           );
-          setSavedId(data?.result?._id || "");
+          const resultId = data?.result?._id || "";
+          setSavedId(resultId);
           setPostError("");
+
+          // Auto-generate AI summary
+          if (resultId) {
+            setLoadingSummary(true);
+            setSummaryError(""); // Clear previous errors
+            
+            try {
+              const summaryResponse = await api.post(
+                `https://quiz-woad-pi.vercel.app/api/results/${resultId}/summary`
+              );
+              
+              const summaryText = summaryResponse.data?.summary;
+              if (summaryText && summaryText.trim()) {
+                setAiSummary(summaryText);
+              } else {
+                throw new Error('Empty summary received');
+              }
+            } catch (summaryErr) {
+              console.error('Summary generation error:', summaryErr);
+              setSummaryError(
+                summaryErr?.response?.data?.message || "Failed to generate AI summary. You can try regenerating it below."
+              );
+            } finally {
+              setLoadingSummary(false);
+            }
+          }
         } catch (err) {
           setPostError(err?.response?.data?.message || "Failed to save result");
         } finally {
@@ -443,6 +474,98 @@ const Assess = () => {
                       ly
                     );
 
+                    // AI Summary Section (if available)
+                    if (aiSummary && String(aiSummary).trim()) {
+                      pdf.addPage();
+                      let sy = 40;
+                      const purple = [147, 51, 234];
+                      
+                      // Header for AI Summary
+                      pdf.setFillColor(...purple);
+                      pdf.roundedRect(20, sy, pageWidth - 40, 50, 10, 10, "F");
+                      pdf.setTextColor(255, 255, 255);
+                      pdf.setFontSize(18);
+                      pdf.text("AI Performance Summary", pageWidth / 2, sy + 32, { align: "center" });
+                      sy += 70;
+                      
+                      // Content box for summary
+                      const summaryHeight = Math.min(400, pageHeight - sy - 80);
+                      pdf.setFillColor(248, 250, 252); // light gray background
+                      pdf.roundedRect(20, sy, pageWidth - 40, summaryHeight, 10, 10, "F");
+                      pdf.setDrawColor(220, 220, 220);
+                      pdf.roundedRect(20, sy, pageWidth - 40, summaryHeight, 10, 10, "S");
+                      
+                      sy += 20;
+                      pdf.setTextColor(...slate);
+                      pdf.setFontSize(12);
+                      
+                      const lines = pdf.splitTextToSize(String(aiSummary).trim(), pageWidth - 80);
+                      lines.forEach((line) => {
+                        if (sy > pageHeight - 80) {
+                          pdf.addPage();
+                          sy = 40;
+                        }
+                        pdf.text(line, 40, sy);
+                        sy += 16;
+                      });
+                      
+                      sy += 20;
+                    }
+
+                    // Questions section
+                    if (questionHistory.length > 0) {
+                      // Check if we need a new page for questions
+                      if (!aiSummary) {
+                        pdf.addPage();
+                      }
+                      
+                      let qy = 40; // Use different variable name to avoid confusion
+                      
+                      // Questions header
+                      pdf.setFontSize(16);
+                      pdf.setTextColor(...slate);
+                      pdf.text("Questions & Answers", 40, qy);
+                      qy += 30;
+                      // Question details
+                      pdf.setFontSize(11);
+                      questionHistory.forEach((q, idx) => {
+                        if (qy > pageHeight - 120) {
+                          pdf.addPage();
+                          qy = 40;
+                        }
+                        
+                        // Question number and text
+                        pdf.setTextColor(...slate);
+                        const questionLines = pdf.splitTextToSize(
+                          `Q${idx + 1}: ${q.question}`,
+                          pageWidth - 80
+                        );
+                        questionLines.forEach((line) => {
+                          pdf.text(line, 40, qy);
+                          qy += 16;
+                        });
+                        
+                        // User's answer
+                        pdf.setTextColor(...blue);
+                        pdf.text(`Your Answer: ${q.selectedAnswer}`, 60, qy);
+                        qy += 16;
+                        
+                        // Correct answer
+                        pdf.setTextColor(...green);
+                        pdf.text(`Correct Answer: ${q.correctAnswer}`, 60, qy);
+                        qy += 16;
+                        
+                        // Result indicator
+                        if (q.isCorrect) {
+                          pdf.setTextColor(...green);
+                        } else {
+                          pdf.setTextColor(...red);
+                        }
+                        pdf.text(`Result: ${q.isCorrect ? '✓ Correct' : '✗ Incorrect'}`, 60, qy);
+                        qy += 24;
+                      });
+                    }
+
                     pdf.setFillColor(...blue);
                     pdf.roundedRect(
                       20,
@@ -467,9 +590,11 @@ const Assess = () => {
                     alert("Failed to generate report");
                   }
                 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 md:px-6 py-2 rounded-lg text-sm md:text-base"
-              >
-                Download Report
+                
+                className="bg-blue-500 text-white font-semibold px-4 md:px-6 py-2 rounded-lg text-sm md:text-base transition-all duration-300  hover:bg-blue-600"
+              > 
+              Download report
+                
               </button>
             </div>
 
@@ -508,21 +633,39 @@ const Assess = () => {
               </div>
             </div>
 
-            {postError && (
-              <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-700 border border-red-200 text-xs md:text-sm text-center">
-                {postError}
+            
+           
+{/* AI Summary Section */}
+            <div className="bg-white border border-purple-200 rounded-xl p-4 mb-6">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+                <h2 className="text-lg sm:text-xl font-bold text-purple-800 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5" />
+                  To view summary go to results section 
+                </h2>
+                
               </div>
-            )}
-            {savedId && (
-              <div className="mb-4 text-center">
-                <a
-                  href={`/results/${savedId}`}
-                  className="text-blue-600 underline text-sm md:text-base"
-                >
-                  View detailed report
-                </a>
-              </div>
-            )}
+              {summaryError ? (
+                <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">
+                  {summaryError}
+                </div>
+              ) : aiSummary ? (
+                <div className="whitespace-pre-wrap text-gray-800 text-sm">
+                  {aiSummary}
+                </div>
+              ) : (
+                <div className="text-gray-600 text-sm text-center">
+  
+    <a
+      href="https://quiz-jmux.vercel.app/results"
+      className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+    >
+      Previous Results
+    </a>
+  
+</div>
+
+              )}
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
               <div className="bg-gray-50 rounded-xl p-4 md:p-6">
