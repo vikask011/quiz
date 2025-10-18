@@ -254,7 +254,7 @@ function DifficultPractice() {
               <Trophy className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
-              Choose Your Assessment
+              Choose Your Practice Topic
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Select a topic to test your knowledge and improve your aptitude

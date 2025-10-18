@@ -884,7 +884,7 @@ const AdaptiveAssess = () => {
 
           <div className="flex-1 p-4 md:p-6 overflow-y-auto">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-300 mt-4 md:mt-16">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-300 mt-4 md:mt-8">
                 <div className="mb-6 md:mb-8">
                   <div className="text-base sm:text-lg md:text-xl font-medium text-gray-800 leading-relaxed">
                     {currentQuestion.question}
@@ -900,7 +900,7 @@ const AdaptiveAssess = () => {
                         "bg-blue-50 border-blue-400 text-blue-800 shadow-md";
                     } else if (!isAnswered) {
                       buttonClass +=
-                        "bg-white border-gray-200 text-gray-700 hover:bg-blue-25 hover:border-blue-300 shadow-sm hover:shadow-md";
+                        "bg-white border-gray-300 text-gray-700 hover:bg-blue-25 hover:border-blue-300 shadow-sm hover:shadow-md";
                     } else {
                       buttonClass += "bg-gray-50 border-gray-200 text-gray-600";
                     }
