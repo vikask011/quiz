@@ -6,6 +6,7 @@ import {
   User,
   Sparkles,
 } from "lucide-react";
+import jsPDF from "jspdf";
 
 const SelectionAssess = ({
   questionsData,
@@ -241,11 +242,17 @@ const SelectionAssess = ({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
           });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
           const data = await response.json();
           setSavedId(data.result._id);
           setSubmitted(true);
         } catch (e) {
-          setPostError("Failed to save results");
+          console.error("Save error:", e);
+          setPostError(e?.message || "Failed to save results");
         }
       };
       saveResults();
