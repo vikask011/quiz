@@ -11,6 +11,8 @@ import {
   algebraQuestions,
   ARITHMETIC,
   algebra,
+  NumberSeries,
+  VARC,
 } from "../assets/dataset/quiz-data.js";
 import {
   Calculator,
@@ -108,6 +110,35 @@ function DifficultPractice() {
       difficulty: "Advanced",
       estimatedTime: "30-35 mins",
       totalQuestions: Object.values(algebra).flat().length,
+    },
+    {
+      id: "number-series",
+      title: "Number Series",
+      description: "Work with numbers, and their real-world applications",
+      questions: NumberSeries,
+      icon: Scale,
+      color: "from-orange-500 to-orange-600",
+      bgColor: "from-orange-50 to-orange-100",
+      borderColor: "border-orange-200",
+      textColor: "text-orange-600",
+      difficulty: "Beginner to Intermediate",
+      estimatedTime: "15-20 mins",
+      totalQuestions: Object.values(NumberSeries).flat().length,
+    },
+    {
+      id: "varc",
+      title: "Verbal Ability",
+      description:
+        "Solve verbal ability related problems including grammar, vocabulary.",
+      questions: VARC,
+      icon: Clock,
+      color: "from-red-500 to-red-600",
+      bgColor: "from-red-50 to-red-100",
+      borderColor: "border-red-200",
+      textColor: "text-red-600",
+      difficulty: "Beginner to Intermediate",
+      estimatedTime: "15-20 mins",
+      totalQuestions: Object.values(VARC).flat().length,
     },
   ];
 

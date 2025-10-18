@@ -15,13 +15,9 @@ export default function ResultDetail() {
   useEffect(() => {
     const load = async () => {
       try {
-<<<<<<< HEAD
         const { data } = await api.get(
-          `https://quiz-mu-dun.vercel.app/api/results/${id}`
+          `https://quiz-woad-pi.vercel.app/api/results/${id}`
         );
-=======
-        const { data } = await api.get(`https://quiz-woad-pi.vercel.app/api/results/${id}`);
->>>>>>> 7cda881a5b4d256a0872e770c3da47f1bb9475b4
         setResult(data.result);
       } catch (_) {
         setResult(null);
@@ -157,14 +153,19 @@ export default function ResultDetail() {
         let sy = 40;
         const purple = [147, 51, 234];
         pdf.setFillColor(...purple);
-        pdf.roundedRect(20, sy, pageWidth - 40, 50, 10, 10, 'F');
+        pdf.roundedRect(20, sy, pageWidth - 40, 50, 10, 10, "F");
         pdf.setTextColor(255, 255, 255);
         pdf.setFontSize(18);
-        pdf.text('AI Performance Summary', pageWidth / 2, sy + 32, { align: 'center' });
+        pdf.text("AI Performance Summary", pageWidth / 2, sy + 32, {
+          align: "center",
+        });
         sy += 70;
         pdf.setTextColor(...slate);
         pdf.setFontSize(12);
-        const lines = pdf.splitTextToSize(String(result.aiSummary), pageWidth - 80);
+        const lines = pdf.splitTextToSize(
+          String(result.aiSummary),
+          pageWidth - 80
+        );
         lines.forEach((line) => {
           if (sy > pageHeight - 60) {
             pdf.addPage();
@@ -234,10 +235,14 @@ export default function ResultDetail() {
     try {
       setGenError("");
       setGenLoading(true);
-      const { data } = await api.post(`https://quiz-woad-pi.vercel.app/api/results/${id}/summary`);
+      const { data } = await api.post(
+        `https://quiz-woad-pi.vercel.app/api/results/${id}/summary`
+      );
       setResult((prev) => ({ ...prev, aiSummary: data.summary }));
     } catch (e) {
-      setGenError(e?.response?.data?.message || 'Failed to generate AI summary');
+      setGenError(
+        e?.response?.data?.message || "Failed to generate AI summary"
+      );
     } finally {
       setGenLoading(false);
     }
@@ -320,23 +325,35 @@ export default function ResultDetail() {
           {/* AI Summary */}
           <div className="bg-white border border-purple-200 rounded-xl p-4">
             <div className="flex justify-between items-center mb-2">
-              <h2 className="text-xl font-bold text-purple-800">AI Performance Summary</h2>
+              <h2 className="text-xl font-bold text-purple-800">
+                AI Performance Summary
+              </h2>
               {!result.aiSummary && (
                 <button
                   onClick={handleGenerate}
                   disabled={genLoading}
-                  className={`px-4 py-2 rounded-lg font-semibold text-sm ${genLoading ? 'bg-gray-300 text-gray-500' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
+                  className={`px-4 py-2 rounded-lg font-semibold text-sm ${
+                    genLoading
+                      ? "bg-gray-300 text-gray-500"
+                      : "bg-purple-600 text-white hover:bg-purple-700"
+                  }`}
                 >
-                  {genLoading ? 'Generating...' : 'Generate Summary'}
+                  {genLoading ? "Generating..." : "Generate Summary"}
                 </button>
               )}
             </div>
             {genError ? (
-              <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">{genError}</div>
+              <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">
+                {genError}
+              </div>
             ) : result.aiSummary ? (
-              <div className="whitespace-pre-wrap text-blue-900">{result.aiSummary}</div>
+              <div className="whitespace-pre-wrap text-blue-900">
+                {result.aiSummary}
+              </div>
             ) : (
-              <div className="text-blue-700 text-sm">No AI summary yet. Click Generate Summary.</div>
+              <div className="text-blue-700 text-sm">
+                No AI summary yet. Click Generate Summary.
+              </div>
             )}
           </div>
 

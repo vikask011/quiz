@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import mygif from "../assets/images/firework.gif";
@@ -167,13 +166,11 @@ const Apti = () => {
 
   const triggerCorrectEffects = () => {
     triggerFlash("success");
-   
   };
 
   const triggerWrongEffects = () => {
     triggerShake();
     triggerFlash("error");
-    
   };
 
   const triggerFlash = (type) => {
@@ -291,25 +288,33 @@ const Apti = () => {
                   <div className="text-2xl md:text-3xl font-bold text-blue-600">
                     {totalQuestions}
                   </div>
-                  <div className="text-xs md:text-base text-gray-600">Questions</div>
+                  <div className="text-xs md:text-base text-gray-600">
+                    Questions
+                  </div>
                 </div>
                 <div className="bg-green-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
                   <div className="text-2xl md:text-3xl font-bold text-green-600">
                     {correctAnswers}
                   </div>
-                  <div className="text-xs md:text-base text-gray-600">Correct</div>
+                  <div className="text-xs md:text-base text-gray-600">
+                    Correct
+                  </div>
                 </div>
                 <div className="bg-purple-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
                   <div className="text-2xl md:text-3xl font-bold text-purple-600">
                     {accuracy.toFixed(1)}%
                   </div>
-                  <div className="text-xs md:text-base text-gray-600">Accuracy</div>
+                  <div className="text-xs md:text-base text-gray-600">
+                    Accuracy
+                  </div>
                 </div>
                 <div className="bg-orange-50 p-4 md:p-6 rounded-xl text-center transform hover:scale-105 transition-transform">
                   <div className="text-2xl md:text-3xl font-bold text-orange-600">
                     {formatTime(averageTime)}
                   </div>
-                  <div className="text-xs md:text-base text-gray-600">Avg Time</div>
+                  <div className="text-xs md:text-base text-gray-600">
+                    Avg Time
+                  </div>
                 </div>
               </div>
 
@@ -320,7 +325,10 @@ const Apti = () => {
                   </h3>
                   <div className="space-y-4">
                     {difficultyAccuracy.map((stat, index) => (
-                      <div key={index} className="bg-white p-3 md:p-4 rounded-lg">
+                      <div
+                        key={index}
+                        className="bg-white p-3 md:p-4 rounded-lg"
+                      >
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-sm md:text-base font-semibold capitalize">
                             {stat.difficulty.replace("_", " ")}
@@ -368,7 +376,9 @@ const Apti = () => {
                         key={index}
                         className="bg-white p-3 rounded-lg border border-blue-200"
                       >
-                        <p className="text-sm md:text-base text-gray-700">{rec}</p>
+                        <p className="text-sm md:text-base text-gray-700">
+                          {rec}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -536,9 +546,17 @@ const Apti = () => {
           </button>
 
           {/* Current Level */}
-          <div className={`rounded-xl p-4 mb-6 border-2 ${getDifficultyColor(currentDifficulty)}`}>
-            <div className="text-xs font-semibold mb-1 opacity-80">Current Level</div>
-            <div className="text-xl font-bold">{getDifficultyLabel(currentDifficulty)}</div>
+          <div
+            className={`rounded-xl p-4 mb-6 border-2 ${getDifficultyColor(
+              currentDifficulty
+            )}`}
+          >
+            <div className="text-xs font-semibold mb-1 opacity-80">
+              Current Level
+            </div>
+            <div className="text-xl font-bold">
+              {getDifficultyLabel(currentDifficulty)}
+            </div>
           </div>
 
           {/* Time Elapsed */}
@@ -565,7 +583,10 @@ const Apti = () => {
               <div
                 className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
                 style={{
-                  width: `${(questionHistory.length / (questionHistory.length + 1)) * 100}%`,
+                  width: `${
+                    (questionHistory.length / (questionHistory.length + 1)) *
+                    100
+                  }%`,
                 }}
               ></div>
             </div>
@@ -588,22 +609,30 @@ const Apti = () => {
               Submit
             </button>
           </div>
-          
+
           <div className="grid grid-cols-3 gap-2">
-            <div className={`rounded-lg p-2 border ${getDifficultyColor(currentDifficulty)}`}>
+            <div
+              className={`rounded-lg p-2 border ${getDifficultyColor(
+                currentDifficulty
+              )}`}
+            >
               <div className="text-xs font-semibold opacity-80">Level</div>
-              <div className="text-sm font-bold truncate">{getDifficultyLabel(currentDifficulty)}</div>
+              <div className="text-sm font-bold truncate">
+                {getDifficultyLabel(currentDifficulty)}
+              </div>
             </div>
-            
+
             <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
               <div className="text-xs text-gray-600 font-semibold">⏱ Time</div>
               <div className="text-sm font-bold text-gray-800">
                 {formatTime(currentQuestionTime)}
               </div>
             </div>
-            
+
             <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
-              <div className="text-xs text-gray-600 font-semibold">📊 Progress</div>
+              <div className="text-xs text-gray-600 font-semibold">
+                📊 Progress
+              </div>
               <div className="text-sm font-bold text-gray-800">
                 {questionHistory.length}/{questionHistory.length + 1}
               </div>
@@ -639,12 +668,15 @@ const Apti = () => {
           </div>
 
           {/* Question Card */}
-          <div ref={shakeRef} className="bg-white rounded-2xl shadow-lg p-4 lg:p-8 mb-4 lg:mb-6 relative border border-gray-200">
+          <div
+            ref={shakeRef}
+            className="bg-white rounded-2xl shadow-lg p-4 lg:p-8 mb-4 lg:mb-6 relative border border-gray-200"
+          >
             <div className="text-lg lg:text-2xl font-semibold text-gray-800 mb-6 lg:mb-8">
               {currentQuestion.question}
             </div>
 
-            <div className="grid grid-cols-1 gap-3 lg:gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
               {currentQuestion.options.map((option, index) => {
                 let buttonClass =
                   "p-3 lg:p-4 rounded-xl border-2 text-left font-medium transition-all duration-200 relative flex items-center ";
@@ -657,8 +689,7 @@ const Apti = () => {
                     index === selectedAnswer &&
                     index !== currentQuestion.correct
                   ) {
-                    buttonClass +=
-                      "bg-red-50 border-red-400 text-red-800";
+                    buttonClass += "bg-red-50 border-red-400 text-red-800";
                   } else {
                     buttonClass += "bg-gray-50 border-gray-200 text-gray-400";
                   }
@@ -678,7 +709,9 @@ const Apti = () => {
                       <span className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
                         ✓
                       </span>
-                    ) : isAnswered && index === selectedAnswer && index !== currentQuestion.correct ? (
+                    ) : isAnswered &&
+                      index === selectedAnswer &&
+                      index !== currentQuestion.correct ? (
                       <span className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
                         ✗
                       </span>
@@ -696,20 +729,21 @@ const Apti = () => {
               })}
             </div>
 
-            {isAnswered && !showExplanation && selectedAnswer === currentQuestion.correct && (
-              <img
-                src={mygif}
-                alt="celebration"
-                className="absolute -top-6 lg:-top-10 -right-6 lg:-right-10 w-20 h-20 lg:w-32 lg:h-32 pointer-events-none"
-              />
-            )}
+            {isAnswered &&
+              !showExplanation &&
+              selectedAnswer === currentQuestion.correct && (
+                <img
+                  src={mygif}
+                  alt="celebration"
+                  className="absolute -top-6 lg:-top-10 -right-6 lg:-right-10 w-20 h-20 lg:w-32 lg:h-32 pointer-events-none"
+                />
+              )}
           </div>
 
           {/* Explanation Box */}
           {showExplanation && (
             <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-white animate-slide-in-up mb-6">
               <div className="flex items-center mb-4">
-                
                 <h3 className="text-lg font-bold text-black">Explanation</h3>
               </div>
               <div className="text-gray-700 text-base leading-relaxed">
@@ -725,7 +759,9 @@ const Apti = () => {
             </div>
             {isAnswered && (
               <button
-                onClick={showExplanation ? handleUnderstood : handleNextQuestion}
+                onClick={
+                  showExplanation ? handleUnderstood : handleNextQuestion
+                }
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg flex items-center"
               >
                 Next Question →
@@ -737,16 +773,37 @@ const Apti = () => {
 
       <style jsx>{`
         @keyframes shake-wrong {
-          0%, 100% { transform: translateX(0); }
-          10% { transform: translateX(-15px); }
-          20% { transform: translateX(15px); }
-          30% { transform: translateX(-12px); }
-          40% { transform: translateX(12px); }
-          50% { transform: translateX(-8px); }
-          60% { transform: translateX(8px); }
-          70% { transform: translateX(-5px); }
-          80% { transform: translateX(5px); }
-          90% { transform: translateX(-2px); }
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          10% {
+            transform: translateX(-15px);
+          }
+          20% {
+            transform: translateX(15px);
+          }
+          30% {
+            transform: translateX(-12px);
+          }
+          40% {
+            transform: translateX(12px);
+          }
+          50% {
+            transform: translateX(-8px);
+          }
+          60% {
+            transform: translateX(8px);
+          }
+          70% {
+            transform: translateX(-5px);
+          }
+          80% {
+            transform: translateX(5px);
+          }
+          90% {
+            transform: translateX(-2px);
+          }
         }
 
         @keyframes slide-in-up {
@@ -761,9 +818,15 @@ const Apti = () => {
         }
 
         @keyframes screen-flash {
-          0% { opacity: 0; }
-          50% { opacity: 0.3; }
-          100% { opacity: 0; }
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.3;
+          }
+          100% {
+            opacity: 0;
+          }
         }
 
         @keyframes fly-to-center {
@@ -892,9 +955,6 @@ const Apti = () => {
           color: #ef4444;
           text-shadow: 2px 2px 4px rgba(239, 68, 68, 0.3);
         }
-        
-
-        
       `}</style>
     </div>
   );
