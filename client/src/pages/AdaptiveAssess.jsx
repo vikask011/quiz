@@ -761,6 +761,22 @@ const AdaptiveAssess = () => {
                 {getAnsweredCount()}/{MAX_QUESTIONS}
               </div>
             </div>
+            {currentQuestion?.aptitudeConcept ? (
+              <div
+                className={`rounded-lg p-2 w-94 border-2 ${getDifficultyColor(
+                  currentDifficulty
+                )}`}
+              >
+                <div className="text-xs flex flex-row font-medium mb-0.5">
+                  Aptitude Concept:{" "}
+                  <span className="text-sm pl-2 font-bold capitalize leading-tight">
+                    {currentQuestion?.aptitudeConcept}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
 
@@ -800,6 +816,22 @@ const AdaptiveAssess = () => {
               </div>
             </div>
 
+            {currentQuestion?.aptitudeConcept ? (
+              <div
+                className={`rounded-2xl p-4 mb-4 shadow-sm border-2 ${getDifficultyColor(
+                  currentDifficulty
+                )}`}
+              >
+                <div className="text-lg font-medium mb-1">
+                  Aptitutde Concept -{" "}
+                  <span className="text-lg font-bold capitalize">
+                    {currentQuestion?.aptitudeConcept}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
                 <span className="text-sm font-medium text-gray-700">
