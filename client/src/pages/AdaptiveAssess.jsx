@@ -464,7 +464,7 @@ const AdaptiveAssess = () => {
               </button>
               {savedId && (
                 <a
-                  href={`/results/${savedId}`}
+                  href={`https://quiz-jmux.vercel.app/results/${savedId}`}
                   className="font-semibold px-4 md:px-6 py-2 rounded-lg text-sm md:text-base bg-purple-500 text-white hover:bg-purple-600 transition-colors duration-200 inline-block text-center"
                 >
                   View Detailed Report
@@ -536,7 +536,7 @@ const AdaptiveAssess = () => {
     "No AI summary yet. Click Generate Summary to get personalized feedback."
   ) : (
     <a
-      href="/results"
+      href="https://quiz-jmux.vercel.app/results"
       className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
     >
       Previous Results
