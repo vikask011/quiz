@@ -408,7 +408,7 @@ const Homepage = () => {
                   />
 
                   {/* Floating elements */}
-                  <motion.div
+                  {/* <motion.div
                     animate={{ rotate: 360 }}
                     transition={{
                       duration: 20,
@@ -426,7 +426,7 @@ const Homepage = () => {
                     className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-violet-400 to-purple-400 rounded-2xl flex items-center justify-center shadow-lg"
                   >
                     <SparklesIcon className="w-8 h-8 text-white" />
-                  </motion.div>
+                  </motion.div> */}
                 </div>
               </motion.div>
             </div>

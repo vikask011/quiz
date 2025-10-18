@@ -251,22 +251,23 @@ const Assess = () => {
           if (resultId) {
             setLoadingSummary(true);
             setSummaryError(""); // Clear previous errors
-            
+
             try {
               const summaryResponse = await api.post(
                 `https://quiz-woad-pi.vercel.app/api/results/${resultId}/summary`
               );
-              
+
               const summaryText = summaryResponse.data?.summary;
               if (summaryText && summaryText.trim()) {
                 setAiSummary(summaryText);
               } else {
-                throw new Error('Empty summary received');
+                throw new Error("Empty summary received");
               }
             } catch (summaryErr) {
-              console.error('Summary generation error:', summaryErr);
+              console.error("Summary generation error:", summaryErr);
               setSummaryError(
-                summaryErr?.response?.data?.message || "Failed to generate AI summary. You can try regenerating it below."
+                summaryErr?.response?.data?.message ||
+                  "Failed to generate AI summary. You can try regenerating it below."
               );
             } finally {
               setLoadingSummary(false);
@@ -479,27 +480,51 @@ const Assess = () => {
                       pdf.addPage();
                       let sy = 40;
                       const purple = [147, 51, 234];
-                      
+
                       // Header for AI Summary
                       pdf.setFillColor(...purple);
                       pdf.roundedRect(20, sy, pageWidth - 40, 50, 10, 10, "F");
                       pdf.setTextColor(255, 255, 255);
                       pdf.setFontSize(18);
-                      pdf.text("AI Performance Summary", pageWidth / 2, sy + 32, { align: "center" });
+                      pdf.text(
+                        "AI Performance Summary",
+                        pageWidth / 2,
+                        sy + 32,
+                        { align: "center" }
+                      );
                       sy += 70;
-                      
+
                       // Content box for summary
                       const summaryHeight = Math.min(400, pageHeight - sy - 80);
                       pdf.setFillColor(248, 250, 252); // light gray background
-                      pdf.roundedRect(20, sy, pageWidth - 40, summaryHeight, 10, 10, "F");
+                      pdf.roundedRect(
+                        20,
+                        sy,
+                        pageWidth - 40,
+                        summaryHeight,
+                        10,
+                        10,
+                        "F"
+                      );
                       pdf.setDrawColor(220, 220, 220);
-                      pdf.roundedRect(20, sy, pageWidth - 40, summaryHeight, 10, 10, "S");
-                      
+                      pdf.roundedRect(
+                        20,
+                        sy,
+                        pageWidth - 40,
+                        summaryHeight,
+                        10,
+                        10,
+                        "S"
+                      );
+
                       sy += 20;
                       pdf.setTextColor(...slate);
                       pdf.setFontSize(12);
-                      
-                      const lines = pdf.splitTextToSize(String(aiSummary).trim(), pageWidth - 80);
+
+                      const lines = pdf.splitTextToSize(
+                        String(aiSummary).trim(),
+                        pageWidth - 80
+                      );
                       lines.forEach((line) => {
                         if (sy > pageHeight - 80) {
                           pdf.addPage();
@@ -508,7 +533,7 @@ const Assess = () => {
                         pdf.text(line, 40, sy);
                         sy += 16;
                       });
-                      
+
                       sy += 20;
                     }
 
@@ -518,9 +543,9 @@ const Assess = () => {
                       if (!aiSummary) {
                         pdf.addPage();
                       }
-                      
+
                       let qy = 40; // Use different variable name to avoid confusion
-                      
+
                       // Questions header
                       pdf.setFontSize(16);
                       pdf.setTextColor(...slate);
@@ -533,7 +558,7 @@ const Assess = () => {
                           pdf.addPage();
                           qy = 40;
                         }
-                        
+
                         // Question number and text
                         pdf.setTextColor(...slate);
                         const questionLines = pdf.splitTextToSize(
@@ -544,24 +569,30 @@ const Assess = () => {
                           pdf.text(line, 40, qy);
                           qy += 16;
                         });
-                        
+
                         // User's answer
                         pdf.setTextColor(...blue);
                         pdf.text(`Your Answer: ${q.selectedAnswer}`, 60, qy);
                         qy += 16;
-                        
+
                         // Correct answer
                         pdf.setTextColor(...green);
                         pdf.text(`Correct Answer: ${q.correctAnswer}`, 60, qy);
                         qy += 16;
-                        
+
                         // Result indicator
                         if (q.isCorrect) {
                           pdf.setTextColor(...green);
                         } else {
                           pdf.setTextColor(...red);
                         }
-                        pdf.text(`Result: ${q.isCorrect ? '✓ Correct' : '✗ Incorrect'}`, 60, qy);
+                        pdf.text(
+                          `Result: ${
+                            q.isCorrect ? "✓ Correct" : "✗ Incorrect"
+                          }`,
+                          60,
+                          qy
+                        );
                         qy += 24;
                       });
                     }
@@ -590,11 +621,9 @@ const Assess = () => {
                     alert("Failed to generate report");
                   }
                 }}
-                
                 className="bg-blue-500 text-white font-semibold px-4 md:px-6 py-2 rounded-lg text-sm md:text-base transition-all duration-300  hover:bg-blue-600"
-              > 
-              Download report
-                
+              >
+                Download report
               </button>
             </div>
 
@@ -633,16 +662,13 @@ const Assess = () => {
               </div>
             </div>
 
-            
-           
-{/* AI Summary Section */}
+            {/* AI Summary Section */}
             <div className="bg-white border border-purple-200 rounded-xl p-4 mb-6">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
                 <h2 className="text-lg sm:text-xl font-bold text-purple-800 flex items-center gap-2">
                   <Sparkles className="w-5 h-5" />
-                  To view summary go to results section 
+                  To view summary go to results section
                 </h2>
-                
               </div>
               {summaryError ? (
                 <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">
@@ -654,16 +680,13 @@ const Assess = () => {
                 </div>
               ) : (
                 <div className="text-gray-600 text-sm text-center">
-  
-    <a
-      href="https://quiz-jmux.vercel.app/results"
-      className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
-    >
-      Previous Results
-    </a>
-  
-</div>
-
+                  <a
+                    href="https://quiz-jmux.vercel.app/results"
+                    className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+                  >
+                    Previous Results
+                  </a>
+                </div>
               )}
             </div>
 
@@ -872,6 +895,21 @@ const Assess = () => {
                 </p>
               </div>
             </div>
+
+            {currentQuestion?.aptitudeConcept ? (
+              <div
+                className={`rounded-lg p-2 w-full bg-white mb-2 shadow-sm border border-gray-100`}
+              >
+                <div className="text-sm flex flex-row font-medium mb-0.5">
+                  Aptitude Concept:{" "}
+                  <span className="text-md pl-2 font-bold capitalize leading-tight">
+                    {currentQuestion?.aptitudeConcept}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
 
             {/* Timer */}
             <div className="bg-white rounded-2xl p-3 md:p-4 mb-4 shadow-sm border border-gray-100">

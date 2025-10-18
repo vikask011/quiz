@@ -559,6 +559,23 @@ const Apti = () => {
             </div>
           </div>
 
+          {currentQuestion?.aptitudeConcept ? (
+            <div
+              className={`rounded-2xl p-4 mb-4 shadow-sm border-2 ${getDifficultyColor(
+                currentDifficulty
+              )}`}
+            >
+              <div className="text-lg font-medium mb-1">
+                Aptitutde Concept -{" "}
+                <span className="text-lg font-bold capitalize">
+                  {currentQuestion?.aptitudeConcept}
+                </span>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
+
           {/* Time Elapsed */}
           <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-200">
             <div className="flex items-center text-gray-600 mb-2">
@@ -635,6 +652,19 @@ const Apti = () => {
               </div>
               <div className="text-sm font-bold text-gray-800">
                 {questionHistory.length}/{questionHistory.length + 1}
+              </div>
+            </div>
+
+            <div
+              className={`rounded-lg p-2 w-92 border ${getDifficultyColor(
+                currentDifficulty
+              )}`}
+            >
+              <div className="text-xs flex flex-row font-semibold opacity-80">
+                Aptitude Concept:{" "}
+                <span className="text-md pl-2 font-bold truncate">
+                  {currentQuestion?.aptitudeConcept}
+                </span>
               </div>
             </div>
           </div>
