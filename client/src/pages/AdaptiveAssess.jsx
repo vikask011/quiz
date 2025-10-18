@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { mixedQuestions } from "../assets/dataset/quiz-data.js";
 import api from "../lib/api";
@@ -191,22 +190,26 @@ const AdaptiveAssess = () => {
     const [summaryError, setSummaryError] = useState("");
 
     const accuracy = (correctAnswers / totalQuestions) * 100;
-    const difficultyAccuracy = DIFFICULTY_SEQUENCE.map(difficulty => {
-  const questionsAtLevel = questionHistory.filter(q => q.difficulty === difficulty);
-  const correctAtLevel = questionsAtLevel.filter(q => q.isCorrect).length;
-  const totalAtLevel = questionsAtLevel.length;
-  const avgTimeAtLevel = totalAtLevel > 0 
-    ? questionsAtLevel.reduce((sum, q) => sum + q.timeTaken, 0) / totalAtLevel 
-    : 0;
-  
-  return {
-    difficulty,
-    total: totalAtLevel,
-    correct: correctAtLevel,
-    accuracy: totalAtLevel > 0 ? (correctAtLevel / totalAtLevel) * 100 : 0,
-    avgTime: avgTimeAtLevel
-  };
-});
+    const difficultyAccuracy = DIFFICULTY_SEQUENCE.map((difficulty) => {
+      const questionsAtLevel = questionHistory.filter(
+        (q) => q.difficulty === difficulty
+      );
+      const correctAtLevel = questionsAtLevel.filter((q) => q.isCorrect).length;
+      const totalAtLevel = questionsAtLevel.length;
+      const avgTimeAtLevel =
+        totalAtLevel > 0
+          ? questionsAtLevel.reduce((sum, q) => sum + q.timeTaken, 0) /
+            totalAtLevel
+          : 0;
+
+      return {
+        difficulty,
+        total: totalAtLevel,
+        correct: correctAtLevel,
+        accuracy: totalAtLevel > 0 ? (correctAtLevel / totalAtLevel) * 100 : 0,
+        avgTime: avgTimeAtLevel,
+      };
+    });
 
     // Save results to backend
     useEffect(() => {
@@ -226,7 +229,10 @@ const AdaptiveAssess = () => {
               isCorrect: q.isCorrect,
             })),
           };
-          const { data } = await api.post("https://quiz-woad-pi.vercel.app/api/results", payload);
+          const { data } = await api.post(
+            "https://quiz-woad-pi.vercel.app/api/results",
+            payload
+          );
           setSavedId(data.result._id);
           setSubmitted(true);
         } catch (e) {
@@ -244,10 +250,14 @@ const AdaptiveAssess = () => {
       try {
         setSummaryError("");
         setLoadingSummary(true);
-        const { data } = await api.post(`https://quiz-woad-pi.vercel.app/api/results/${savedId}/summary`);
+        const { data } = await api.post(
+          `https://quiz-woad-pi.vercel.app/api/results/${savedId}/summary`
+        );
         setAiSummary(data.summary);
       } catch (e) {
-        setSummaryError(e?.response?.data?.message || "Failed to generate AI summary");
+        setSummaryError(
+          e?.response?.data?.message || "Failed to generate AI summary"
+        );
       } finally {
         setLoadingSummary(false);
       }
@@ -373,10 +383,7 @@ const AdaptiveAssess = () => {
           sy += 70;
           pdf.setTextColor(...slate);
           pdf.setFontSize(12);
-          const lines = pdf.splitTextToSize(
-            String(aiSummary),
-            pageWidth - 80
-          );
+          const lines = pdf.splitTextToSize(String(aiSummary), pageWidth - 80);
           lines.forEach((line) => {
             if (sy > pageHeight - 60) {
               pdf.addPage();
@@ -518,9 +525,8 @@ const AdaptiveAssess = () => {
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
                 <h2 className="text-lg sm:text-xl font-bold text-purple-800 flex items-center gap-2">
                   <Sparkles className="w-5 h-5" />
-                  To view summary go to results section 
+                  To view summary go to results section
                 </h2>
-                
               </div>
               {summaryError ? (
                 <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">
@@ -532,21 +538,19 @@ const AdaptiveAssess = () => {
                 </div>
               ) : (
                 <div className="text-gray-600 text-sm text-center">
-  {savedId ? (
-    "No AI summary yet. Click Generate Summary to get personalized feedback."
-  ) : (
-    <a
-      href="https://quiz-jmux.vercel.app/results"
-      className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
-    >
-      Previous Results
-    </a>
-  )}
-</div>
-
+                  {savedId ? (
+                    "No AI summary yet. Click Generate Summary to get personalized feedback."
+                  ) : (
+                    <a
+                      href="https://quiz-jmux.vercel.app/results"
+                      className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+                    >
+                      Previous Results
+                    </a>
+                  )}
+                </div>
               )}
             </div>
-
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
               <div className="bg-gray-50 rounded-xl p-4 md:p-6">
@@ -606,7 +610,6 @@ const AdaptiveAssess = () => {
                 </div>
               </div>
             </div>
-
 
             <div className="bg-gray-50 rounded-xl p-4 md:p-6">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">

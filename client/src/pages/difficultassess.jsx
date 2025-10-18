@@ -562,6 +562,23 @@ const DiffAssess = ({
                 {getAnsweredCount()}/{testQuestions.length}
               </div>
             </div>
+            {/* Apti concept */}
+            {currentQuestion?.aptitudeConcept ? (
+              <div
+                className={`rounded-lg p-2 border-2 w-94 ${getDifficultyColor(
+                  currentDifficulty
+                )}`}
+              >
+                <div className="text-xs flex flex-row font-medium mb-0.5">
+                  Aptitude Concept:{" "}
+                  <span className="text-s pl-2 font-bold capitalize leading-tight">
+                    {currentQuestion?.aptitudeConcept}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
 
@@ -581,7 +598,6 @@ const DiffAssess = ({
                 </p>
               </div>
             </div>
-
             {/* Current Difficulty */}
             <div
               className={`rounded-xl md:rounded-2xl p-3 md:p-4 mb-3 md:mb-4 shadow-sm border-2 ${getDifficultyColor(
@@ -605,7 +621,23 @@ const DiffAssess = ({
                   `${difficultyProgress.difficult.wrong}/3 wrong to go back`}
               </div>
             </div>
-
+            {/*Apti concept*/}
+            {currentQuestion?.aptitudeConcept ? (
+              <div
+                className={`rounded-xl md:rounded-2xl p-3 md:p-4 mb-3 md:mb-4 shadow-sm border-2 ${getDifficultyColor(
+                  currentDifficulty
+                )}`}
+              >
+                <div className="text-xs md:text-sm font-medium mb-1">
+                  Aptitude Concept
+                </div>
+                <div className="text-base md:text-lg font-bold capitalize">
+                  {currentQuestion?.aptitudeConcept}
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
             {/* Timer */}
             <div className="bg-white rounded-xl md:rounded-2xl p-3 md:p-4 mb-3 md:mb-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
@@ -618,7 +650,6 @@ const DiffAssess = ({
                 {formatTime(currentTime)}
               </div>
             </div>
-
             {/* Progress */}
             <div className="bg-white rounded-xl md:rounded-2xl p-3 md:p-4 shadow-sm border border-gray-100">
               <div className="flex items-center mb-2">
@@ -669,7 +700,7 @@ const DiffAssess = ({
           {/* Question Content */}
           <div className="flex-1 p-3 sm:p-4 md:p-6 justify-center overflow-y-auto">
             <div className="relative max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-100">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-300">
                 <div className="mb-6 md:mb-8">
                   <div className="text-base sm:text-lg md:text-xl font-medium text-gray-800 leading-relaxed">
                     {currentQuestion.question}
