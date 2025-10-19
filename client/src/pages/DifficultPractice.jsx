@@ -113,7 +113,7 @@ function DifficultPractice() {
     },
     {
       id: "number-series",
-      title: "Number Series",
+      title: "Number and Letter Series ",
       description: "Work with numbers, and their real-world applications",
       questions: NumberSeries,
       icon: Scale,
