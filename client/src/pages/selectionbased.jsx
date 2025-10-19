@@ -113,7 +113,7 @@ function Selectionassessment() {
     },
     {
       id: "number-series",
-      title: "Number Series",
+      title: "Number and letter Series",
       description: "Work with numbers, and their real-world applications",
       questions: NumberSeries,
       icon: Scale,
