@@ -119,7 +119,7 @@ const Apti = () => {
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
 
-    const isCorrect = answerIndex === currentQuestion.correct;
+    const isCorrect = answerIndex === currentQuestion.correct-1;
 
     setQuestionHistory((prev) => [
       ...prev,
@@ -127,7 +127,7 @@ const Apti = () => {
         questionNumber,
         question: currentQuestion.question,
         selectedAnswer: currentQuestion.options[answerIndex],
-        correctAnswer: currentQuestion.options[currentQuestion.correct],
+        correctAnswer: currentQuestion.options[currentQuestion.correct-1],
         isCorrect,
         timeTaken,
         difficulty: currentDifficulty,
@@ -712,12 +712,12 @@ const Apti = () => {
                   "p-3 lg:p-4 rounded-xl border-2 text-left font-medium transition-all duration-200 relative flex items-center ";
 
                 if (isAnswered) {
-                  if (index === currentQuestion.correct) {
+                  if (index === currentQuestion.correct-1) {
                     buttonClass +=
                       "bg-green-50 border-green-400 text-green-800";
                   } else if (
                     index === selectedAnswer &&
-                    index !== currentQuestion.correct
+                    index !== currentQuestion.correct -1
                   ) {
                     buttonClass += "bg-red-50 border-red-400 text-red-800";
                   } else {
@@ -735,13 +735,13 @@ const Apti = () => {
                     className={buttonClass}
                     disabled={isAnswered}
                   >
-                    {isAnswered && index === currentQuestion.correct ? (
+                    {isAnswered && index === currentQuestion.correct -1 ? (
                       <span className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
                         ✓
                       </span>
                     ) : isAnswered &&
                       index === selectedAnswer &&
-                      index !== currentQuestion.correct ? (
+                      index !== currentQuestion.correct -1 ? (
                       <span className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs mr-3 flex-shrink-0">
                         ✗
                       </span>
@@ -761,7 +761,7 @@ const Apti = () => {
 
             {isAnswered &&
               !showExplanation &&
-              selectedAnswer === currentQuestion.correct && (
+              selectedAnswer === currentQuestion.correct-1 && (
                 <img
                   src={mygif}
                   alt="celebration"

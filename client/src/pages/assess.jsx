@@ -125,7 +125,7 @@ const Assess = () => {
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
 
-    const isCorrect = answerIndex === currentQuestion.correct;
+    const isCorrect = answerIndex === currentQuestion.correct-1;
 
     setQuestionHistory((prev) => [
       ...prev,

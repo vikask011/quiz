@@ -117,7 +117,7 @@ const AdaptiveAssess = () => {
 
   const handleAnswerSelect = (answerIndex) => {
     const timeTaken = Date.now() - questionStartTime;
-    const isCorrect = answerIndex === currentQuestion.correct;
+    const isCorrect = answerIndex === currentQuestion.correct-1;
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
 
