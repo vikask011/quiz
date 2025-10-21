@@ -8,6 +8,7 @@ const SelectionAssess = ({
   assessmentSubtitle = "Assessment",
   user = { name: "Test User", email: "test@example.com" },
   apiEndpoint = "https://quiz-woad-pi.vercel.app/api",
+  api, // Optional: Pass your configured axios instance
 }) => {
   const ADAPTIVE_CONFIG = {
     very_easy: { next: "easy", correctToAdvance: 2, prev: null },
@@ -233,24 +234,52 @@ const SelectionAssess = ({
               selectedAnswer: q.selectedAnswer,
               correctAnswer: q.correctAnswer,
               isCorrect: q.isCorrect,
+              difficulty: q.difficulty,
+              aptitudeConcept: q.aptitudeConcept || "",
             })),
           };
-          const response = await fetch(`${apiEndpoint}/results`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
 
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+          // If api instance is provided (like axios), use it
+          if (api) {
+            const { data } = await api.post(`${apiEndpoint}/results`, payload);
+            setSavedId(data.result?._id || data._id);
+            setSubmitted(true);
+          } else {
+            // Otherwise use fetch with proper headers
+            const token = localStorage.getItem("token");
+            const headers = {
+              "Content-Type": "application/json",
+            };
+
+            if (token) {
+              headers["Authorization"] = `Bearer ${token}`;
+            }
+
+            const response = await fetch(`${apiEndpoint}/results`, {
+              method: "POST",
+              headers: headers,
+              credentials: "include",
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json().catch(() => ({}));
+              throw new Error(
+                errorData.message || `HTTP error! status: ${response.status}`
+              );
+            }
+
+            const data = await response.json();
+            setSavedId(data.result?._id || data._id);
+            setSubmitted(true);
           }
-
-          const data = await response.json();
-          setSavedId(data.result._id);
-          setSubmitted(true);
         } catch (e) {
           console.error("Save error:", e);
-          setPostError(e?.message || "Failed to save results");
+          setPostError(
+            e?.response?.data?.message ||
+              e?.message ||
+              "Failed to save results. Please try again."
+          );
         }
       };
       saveResults();
@@ -264,17 +293,45 @@ const SelectionAssess = ({
       try {
         setSummaryError("");
         setLoadingSummary(true);
-        const response = await fetch(
-          `${apiEndpoint}/results/${savedId}/summary`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
+
+        if (api) {
+          const { data } = await api.post(
+            `${apiEndpoint}/results/${savedId}/summary`
+          );
+          setAiSummary(data.summary);
+        } else {
+          const token = localStorage.getItem("token");
+          const headers = {
+            "Content-Type": "application/json",
+          };
+
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
           }
-        );
-        const data = await response.json();
-        setAiSummary(data.summary);
+
+          const response = await fetch(
+            `${apiEndpoint}/results/${savedId}/summary`,
+            {
+              method: "POST",
+              headers: headers,
+              credentials: "include",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          setAiSummary(data.summary);
+        }
       } catch (e) {
-        setSummaryError("Failed to generate AI summary");
+        console.error("Summary error:", e);
+        setSummaryError(
+          e?.response?.data?.message ||
+            e?.message ||
+            "Failed to generate AI summary"
+        );
       } finally {
         setLoadingSummary(false);
       }
@@ -549,17 +606,8 @@ const SelectionAssess = ({
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
                   <h2 className="text-lg sm:text-xl font-bold text-purple-800 flex items-center gap-2">
                     <Sparkles className="w-5 h-5" />
-                    AI Performance Summary
+                    To view summary go to results section
                   </h2>
-                  {savedId && !aiSummary && (
-                    <button
-                      onClick={handleGenerateSummary}
-                      disabled={loadingSummary}
-                      className="font-semibold px-4 py-2 rounded-lg text-sm bg-purple-500 text-white hover:bg-purple-600 disabled:bg-gray-300 transition-colors duration-200"
-                    >
-                      {loadingSummary ? "Generating..." : "Generate Summary"}
-                    </button>
-                  )}
                 </div>
                 {summaryError ? (
                   <div className="p-2 rounded bg-red-50 text-red-700 border border-red-200 text-sm">
@@ -571,9 +619,16 @@ const SelectionAssess = ({
                   </div>
                 ) : (
                   <div className="text-gray-600 text-sm text-center">
-                    {savedId
-                      ? "Click 'Generate Summary' to get personalized AI feedback."
-                      : "Check your profile for Summary!"}
+                    {savedId ? (
+                      "No AI summary yet. Click Generate Summary to get personalized feedback."
+                    ) : (
+                      <a
+                        href="https://quiz-jmux.vercel.app/results"
+                        className="inline-block mt-2 font-semibold px-6 py-2 rounded-lg text-sm md:text-base bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+                      >
+                        Previous Results
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
