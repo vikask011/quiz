@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const AssessmentSelection = () => {
   const navigate = useNavigate();
-  const [selectedPracticeType, setSelectedPracticeType] = useState("adaptive");
+  const [selectedPracticeType, setSelectedPracticeType] = useState("traditional");
 
   const handleStartPractice = () => {
     if (selectedPracticeType === "traditional") {

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Clock, CheckCircle, BarChart3, User, Sparkles } from "lucide-react";
 import jsPDF from "jspdf";
@@ -120,7 +121,8 @@ const SelectionAssess = ({
 
   const handleAnswerSelect = (answerIndex) => {
     const timeTaken = Date.now() - questionStartTime;
-    const isCorrect = answerIndex === currentQuestion.correct-1;
+    // Convert 1-indexed correct answer to 0-indexed for comparison
+    const isCorrect = answerIndex === (currentQuestion.correct - 1);
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
 
@@ -138,8 +140,9 @@ const SelectionAssess = ({
         questionNumber,
         question: currentQuestion.question,
         selectedAnswer: currentQuestion.options[answerIndex],
-        correctAnswer: currentQuestion.options[currentQuestion.correct],
+        correctAnswer: currentQuestion.options[currentQuestion.correct - 1],
         selectedIndex: answerIndex,
+        correctIndex: currentQuestion.correct - 1,
         isCorrect,
         timeTaken,
         difficulty: currentDifficulty,
@@ -239,13 +242,11 @@ const SelectionAssess = ({
             })),
           };
 
-          // If api instance is provided (like axios), use it
           if (api) {
             const { data } = await api.post(`${apiEndpoint}/results`, payload);
             setSavedId(data.result?._id || data._id);
             setSubmitted(true);
           } else {
-            // Otherwise use fetch with proper headers
             const token = localStorage.getItem("token");
             const headers = {
               "Content-Type": "application/json",
@@ -541,12 +542,6 @@ const SelectionAssess = ({
                   Here's your performance summary
                 </p>
               </div>
-
-              {/* {postError && (
-                <div className="mb-4 p-3 rounded-lg bg-red-50 text-red-700 border border-red-200 text-xs sm:text-sm text-center">
-                  {postError}
-                </div>
-              )} */}
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
                 <button
