@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Practice = () => {
   const navigate = useNavigate();
 
-  const [selectedPracticeType, setSelectedPracticeType] = useState('mixed');
+  const [selectedPracticeType, setSelectedPracticeType] = useState('selection');
 
   const handleStartPractice = () => {
     if (selectedPracticeType === 'mixed') {

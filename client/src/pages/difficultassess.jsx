@@ -107,7 +107,7 @@ const DiffAssess = ({
 
     const timeSpent = Date.now() - questionStartTime;
     const currentQuestion = testQuestions[currentQuestionIndex];
-    const isCorrect = answerIndex === currentQuestion.correct;
+    const isCorrect = answerIndex === currentQuestion.correct-1;
 
     setAnswers((prev) => ({
       ...prev,
@@ -723,7 +723,7 @@ const DiffAssess = ({
                     const isSelected = answers[currentQuestionIndex] === index;
                     const isAnswered =
                       answers[currentQuestionIndex] !== undefined;
-                    const isCorrectAnswer = index === currentQuestion.correct;
+                    const isCorrectAnswer = index === currentQuestion.correct-1;
 
                     return (
                       <button
@@ -781,7 +781,7 @@ const DiffAssess = ({
             </div>
             {/* Show explanation if wrong answer */}
             {answers[currentQuestionIndex] !== undefined &&
-              answers[currentQuestionIndex] !== currentQuestion.correct &&
+              answers[currentQuestionIndex] !== currentQuestion.correct -1 &&
               currentQuestion.explanation && (
                 <div className="mt-4 md:mt-6 bg-orange-50 rounded-xl md:rounded-2xl p-4 md:p-6 border-2 border-orange-200 w-full max-w-4xl mx-auto">
                   <div className="flex items-center mb-2 md:mb-3">
