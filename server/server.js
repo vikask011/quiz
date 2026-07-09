@@ -503,6 +503,4 @@ app.get("/api/results/:id", auth, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
-});
+module.exports = app;
